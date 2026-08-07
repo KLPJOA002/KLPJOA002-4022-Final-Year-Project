@@ -1,0 +1,77 @@
+This is BibTeX, Version 0.99e (TeX Live 2026)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: 0_main.aux
+A level-1 auxiliary file: 0_documentproperties.aux
+A level-1 auxiliary file: 0_titlepage.aux
+A level-1 auxiliary file: i_declaration.aux
+A level-1 auxiliary file: ii_abstract.aux
+A level-1 auxiliary file: iii_acknowledgments.aux
+A level-1 auxiliary file: iv_listofsymbols.aux
+A level-1 auxiliary file: v_glossary.aux
+A level-1 auxiliary file: 1_intro.aux
+A level-1 auxiliary file: 2_review.aux
+A level-1 auxiliary file: 3_ch3.aux
+A level-1 auxiliary file: 4_ch4.aux
+A level-1 auxiliary file: 5_ch5.aux
+A level-1 auxiliary file: 6_results.aux
+A level-1 auxiliary file: 7_discussion.aux
+A level-1 auxiliary file: 8_conclusions.aux
+A level-1 auxiliary file: 9_furtherwork.aux
+A level-1 auxiliary file: A_gitrepo.aux
+A level-1 auxiliary file: B_ethics.aux
+A level-1 auxiliary file: C_topicdescription.aux
+A level-1 auxiliary file: D_ECSA.aux
+The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: thesis.bib
+Database file #2: 4022.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.
+You've used 6 entries,
+            4087 wiz_defined-function locations,
+            878 strings with 8226 characters,
+and the built_in function-call counts, 3632 in all, are:
+= -- 285
+> -- 54
+< -- 30
++ -- 29
+- -- 7
+* -- 168
+:= -- 569
+add.period$ -- 12
+call.type$ -- 6
+change.case$ -- 7
+chr.to.int$ -- 69
+cite$ -- 6
+duplicate$ -- 275
+empty$ -- 316
+format.name$ -- 9
+if$ -- 830
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 45
+newline$ -- 41
+num.names$ -- 5
+pop$ -- 108
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 280
+stack$ -- 0
+substring$ -- 156
+swap$ -- 199
+text.length$ -- 7
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 6
+warning$ -- 0
+while$ -- 18
+width$ -- 7
+write$ -- 74
