@@ -21,28 +21,34 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{CameraDepthTesting}
-``Camera {{Depth Testing Methodology}}.''
+\bibitem{schenoneSedimentMicrotopographyPredicts2024}
+S.~Schenone, I.~Bartl, and S.~F. Thrush, ``Sediment microtopography predicts
+  localised benthic ecosystem functioning and the effect of species
+  interactions,'' \emph{Marine Ecology Progress Series}, vol. 749, pp. 47--55,
+  Nov. 2024.
 
-\bibitem{shannon1948}
-C.~E. Shannon, ``A mathematical theory of communication,'' \emph{The Bell
-  System Technical Journal}, vol.~27, no.~3, pp. 379--423, 1948.
+\bibitem{inbook}
+D.~Pillay and G.~Branch, ``Bioengineering effects of burrowing thalassinidean
+  shrimps on marine soft-bottom ecosystems,'' in \emph{Oceanography and
+  {{Marine Biology}}: {{An Annual Review}}}, Jun. 2011, vol.~49, pp. 137--192.
 
-\bibitem{placeholder_article}
-A.~N. Surname and B.~C. Othersurname, ``Title of the journal article,''
-  \emph{Name of the Journal}, vol.~12, no.~4, pp. 101--117, 2024.
+\bibitem{venterWaterFiltrationBurrowing2020}
+O.~Venter, D.~Pillay, and K.~Prayag, ``Water filtration by burrowing sandprawns
+  provides novel insights on endobenthic engineering and solutions for
+  eutrophication,'' \emph{Scientific Reports}, vol.~10, no.~1, p. 1913, Feb.
+  2020.
 
-\bibitem{placeholder_book}
-A.~N. Surname, \emph{Title of the Book}, 3rd~ed.\hskip 1em plus 0.5em minus
-  0.4em\relax City, Country: Name of the Publisher, 2020.
+\bibitem{azharRGBDFrameworkCapturing2022}
+M.~Azhar, J.~R. Hillman, T.~Gee, S.~Schenone, W.~{van der Mark}, S.~F. Thrush,
+  and P.~Delmas, ``An {{RGB-D}} framework for capturing soft-sediment
+  microtopography,'' \emph{Methods in Ecology and Evolution}, vol.~13, no.~8,
+  pp. 1730--1745, 2022.
 
-\bibitem{placeholder_conference}
-A.~N. Surname and B.~C. Othersurname, ``Title of the conference paper,'' in
-  \emph{Proceedings of the Name of the Conference}, City, Country, 2023, pp.
-  1--6.
-
-\bibitem{placeholder_website}
-{Name of the Organisation}, ``Title of the page or document,''
-  \url{https://example.org/path/to/document}, 2025, accessed: 2025-02-11.
+\bibitem{schenoneSeafloorSedimentMicrotopography2025}
+S.~Schenone, J.~E. Hewitt, J.~Hillman, R.~{Gladstone-Gallagher}, J.~Gammal,
+  C.~Pilditch, A.~M. Lohrer, E.~Ferretti, M.~Azhar, P.~Delmas, and S.~F.
+  Thrush, ``Seafloor sediment microtopography as a surrogate for biodiversity
+  and ecosystem functioning,'' \emph{Ecological Applications}, vol.~35, no.~1,
+  p. e3069, 2025.
 
 \end{thebibliography}

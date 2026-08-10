@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.14)  7 AUG 2026 15:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.7)  10 AUG 2026 11:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1756,7 +1756,7 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
 (Font)              scaled to size 24.88pt on input line 10.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 15.
-<figs/0_logos/logo_uct.png, id=123, 356.532pt x 362.3136pt>
+<figs/0_logos/logo_uct.png, id=131, 356.532pt x 362.3136pt>
 File: figs/0_logos/logo_uct.png Graphic file (type png)
 <use figs/0_logos/logo_uct.png>
 Package pdftex.def Info: figs/0_logos/logo_uct.png  used on input line 21.
@@ -1790,7 +1790,7 @@ LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 8.0pt on input line 75.
 LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 6.0pt on input line 75.
-<figs/0_logos/logo_eee.jpg, id=125, 1516.66624pt x 1511.6475pt>
+<figs/0_logos/logo_eee.jpg, id=133, 1516.66624pt x 1511.6475pt>
 File: figs/0_logos/logo_eee.jpg Graphic file (type jpg)
 <use figs/0_logos/logo_eee.jpg>
 Package pdftex.def Info: figs/0_logos/logo_eee.jpg  used on input line 75.
@@ -1894,30 +1894,22 @@ No file 0_main.gls.
  (./1_intro.tex
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 15.
+(Font)              scaled to size 12.0pt on input line 11.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 15.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 20.
-LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 20.
-LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 5.0pt on input line 20.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 20.
-<figs/ch1/shannon.jpg, id=231, 1986.42125pt x 703.62875pt>
+(Font)              scaled to size 12.0pt on input line 11.
+<figs/ch1/shannon.jpg, id=247, 1986.42125pt x 703.62875pt>
 File: figs/ch1/shannon.jpg Graphic file (type jpg)
 <use figs/ch1/shannon.jpg>
-Package pdftex.def Info: figs/ch1/shannon.jpg  used on input line 27.
+Package pdftex.def Info: figs/ch1/shannon.jpg  used on input line 25.
 (pdftex.def)             Requested size: 409.72125pt x 145.12521pt.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
-(Font)              scaled to size 9.0pt on input line 28.
+(Font)              scaled to size 9.0pt on input line 26.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.34 \begin
+l.32 \begin
            {table}[H] [1
 
 
@@ -1938,26 +1930,24 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
 
  (./2_review.tex
 Chapter 2.
-
-Package natbib Warning: Author undefined for citation`shannon1948' 
-(natbib)                on page 3 on input line 37.
-
-
-Package natbib Warning: Year undefined for citation`shannon1948' 
-(natbib)                on page 3 on input line 51.
-
+<figs/ch2/Schenone_custom_incubation_tank.png, id=268, 987.69pt x 634.62094pt>
+File: figs/ch2/Schenone_custom_incubation_tank.png Graphic file (type png)
+<use figs/ch2/Schenone_custom_incubation_tank.png>
+Package pdftex.def Info: figs/ch2/Schenone_custom_incubation_tank.png  used on 
+input line 23.
+(pdftex.def)             Requested size: 256.07481pt x 164.53273pt.
 ) [3
 
 
 
 
 
-]
+] [4 <./figs/ch2/Schenone_custom_incubation_tank.png>]
 \openout2 = `3_ch3.aux'.
 
  (./3_ch3.tex
 Chapter 3.
-) [4
+) [5
 
 
 
@@ -1968,7 +1958,7 @@ Chapter 3.
 
  (./4_ch4.tex
 Chapter 4.
-) [5
+) [6
 
 
 
@@ -1979,7 +1969,7 @@ Chapter 4.
 
  (./5_ch5.tex
 Chapter 5.
-) [6
+) [7
 
 
 
@@ -1990,7 +1980,7 @@ Chapter 5.
 
  (./6_results.tex
 Chapter 6.
-) [7
+) [8
 
 
 
@@ -2001,7 +1991,7 @@ Chapter 6.
 
  (./7_discussion.tex
 Chapter 7.
-) [8
+) [9
 
 
 
@@ -2012,7 +2002,7 @@ Chapter 7.
 
  (./8_conclusions.tex
 Chapter 8.
-) [9
+) [10
 
 
 
@@ -2023,7 +2013,7 @@ Chapter 8.
 
  (./9_furtherwork.tex
 Chapter 9.
-) [10
+) [11
 
 
 
@@ -2034,7 +2024,7 @@ Chapter 9.
 
  (./A_gitrepo.tex
 Appendix A.
-) [11
+) [12
 
 
 
@@ -2043,7 +2033,7 @@ Appendix A.
 ]
 \openout2 = `B_ethics.aux'.
 
- (./B_ethics.tex) [12
+ (./B_ethics.tex) [13
 
 
 
@@ -2052,7 +2042,7 @@ Appendix A.
 ]
 \openout2 = `C_topicdescription.aux'.
 
- (./C_topicdescription.tex) [13
+ (./C_topicdescription.tex) [14
 
 
 
@@ -2068,18 +2058,13 @@ Package hyperref Warning: The anchor of a bookmark and its parent's must not
 
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
 (Font)              scaled to size 10.0pt on input line 22.
-) [14
-
-
-
-
-
-] (./0_main.bbl
-LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 46.
-LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 46.
 ) [15
+
+
+
+
+
+] (./0_main.bbl) [16
 
 
 
@@ -2100,14 +2085,14 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
 Package rerunfilecheck Info: File `0_main.out' has not changed.
-(rerunfilecheck)             Checksum: 60F575A0E7F0CC9144A613BE7861C09A;4287.
+(rerunfilecheck)             Checksum: CFC731A75D7F308AE1B9571C25CE53EA;4596.
  ) 
 Here is how much of TeX's memory you used:
- 39596 strings out of 467363
- 771146 string characters out of 5419001
- 1335107 words of memory out of 6000000
- 67716 multiletter control sequences out of 15000+600000
- 788603 words of font info for 140 fonts, out of 8000000 for 9000
+ 39562 strings out of 467363
+ 771331 string characters out of 5419002
+ 1335242 words of memory out of 6000000
+ 67693 multiletter control sequences out of 15000+600000
+ 769919 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,17n,131p,2474b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </app/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Bold.pfb></
@@ -2120,10 +2105,10 @@ onts/type1/public/amsfonts/cm/cmr10.pfb></app/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmr8.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 >
-Output written on 0_main.pdf (24 pages, 750387 bytes).
+Output written on 0_main.pdf (25 pages, 910064 bytes).
 PDF statistics:
- 386 PDF objects out of 1000 (max. 8388607)
- 323 compressed objects within 4 object streams
- 76 named destinations out of 1000 (max. 500000)
- 273 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 404 PDF objects out of 1000 (max. 8388607)
+ 338 compressed objects within 4 object streams
+ 78 named destinations out of 1000 (max. 500000)
+ 294 words of extra memory for PDF output out of 10000 (max. 10000000)
 
