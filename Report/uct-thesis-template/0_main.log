@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.7)  10 AUG 2026 11:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.7)  10 AUG 2026 13:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1930,11 +1930,11 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
 
  (./2_review.tex
 Chapter 2.
-<figs/ch2/Schenone_custom_incubation_tank.png, id=268, 987.69pt x 634.62094pt>
+<figs/ch2/Schenone_custom_incubation_tank.png, id=271, 987.69pt x 634.62094pt>
 File: figs/ch2/Schenone_custom_incubation_tank.png Graphic file (type png)
 <use figs/ch2/Schenone_custom_incubation_tank.png>
 Package pdftex.def Info: figs/ch2/Schenone_custom_incubation_tank.png  used on 
-input line 23.
+input line 28.
 (pdftex.def)             Requested size: 256.07481pt x 164.53273pt.
 ) [3
 
@@ -2088,10 +2088,10 @@ Package rerunfilecheck Info: File `0_main.out' has not changed.
 (rerunfilecheck)             Checksum: CFC731A75D7F308AE1B9571C25CE53EA;4596.
  ) 
 Here is how much of TeX's memory you used:
- 39562 strings out of 467363
- 771331 string characters out of 5419002
- 1335242 words of memory out of 6000000
- 67693 multiletter control sequences out of 15000+600000
+ 39566 strings out of 467363
+ 771496 string characters out of 5419002
+ 1335257 words of memory out of 6000000
+ 67696 multiletter control sequences out of 15000+600000
  769919 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,17n,131p,2474b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2105,10 +2105,10 @@ onts/type1/public/amsfonts/cm/cmr10.pfb></app/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmr8.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 >
-Output written on 0_main.pdf (25 pages, 910064 bytes).
+Output written on 0_main.pdf (25 pages, 911182 bytes).
 PDF statistics:
- 404 PDF objects out of 1000 (max. 8388607)
- 338 compressed objects within 4 object streams
- 78 named destinations out of 1000 (max. 500000)
+ 409 PDF objects out of 1000 (max. 8388607)
+ 343 compressed objects within 4 object streams
+ 79 named destinations out of 1000 (max. 500000)
  294 words of extra memory for PDF output out of 10000 (max. 10000000)
 
