@@ -18,6 +18,7 @@
 \contentsline {section}{\numberline {1.5}Plan of development}{2}{section.1.5}%
 \contentsline {chapter}{\numberline {2}Literature review}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Biology}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Technology}{3}{section.2.2}%
 \contentsline {chapter}{\numberline {3}Theoretical development}{5}{chapter.3}%
 \contentsline {chapter}{\numberline {4}Design description}{6}{chapter.4}%
 \contentsline {chapter}{\numberline {5}Experimental design}{7}{chapter.5}%

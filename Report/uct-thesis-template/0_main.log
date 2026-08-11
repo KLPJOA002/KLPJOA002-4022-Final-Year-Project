@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.7)  10 AUG 2026 13:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.7)  11 AUG 2026 12:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1756,7 +1756,7 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
 (Font)              scaled to size 24.88pt on input line 10.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 15.
-<figs/0_logos/logo_uct.png, id=131, 356.532pt x 362.3136pt>
+<figs/0_logos/logo_uct.png, id=135, 356.532pt x 362.3136pt>
 File: figs/0_logos/logo_uct.png Graphic file (type png)
 <use figs/0_logos/logo_uct.png>
 Package pdftex.def Info: figs/0_logos/logo_uct.png  used on input line 21.
@@ -1790,7 +1790,7 @@ LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 8.0pt on input line 75.
 LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 6.0pt on input line 75.
-<figs/0_logos/logo_eee.jpg, id=133, 1516.66624pt x 1511.6475pt>
+<figs/0_logos/logo_eee.jpg, id=137, 1516.66624pt x 1511.6475pt>
 File: figs/0_logos/logo_eee.jpg Graphic file (type jpg)
 <use figs/0_logos/logo_eee.jpg>
 Package pdftex.def Info: figs/0_logos/logo_eee.jpg  used on input line 75.
@@ -1897,7 +1897,7 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 12.0pt on input line 11.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
 (Font)              scaled to size 12.0pt on input line 11.
-<figs/ch1/shannon.jpg, id=247, 1986.42125pt x 703.62875pt>
+<figs/ch1/shannon.jpg, id=252, 1986.42125pt x 703.62875pt>
 File: figs/ch1/shannon.jpg Graphic file (type jpg)
 <use figs/ch1/shannon.jpg>
 Package pdftex.def Info: figs/ch1/shannon.jpg  used on input line 25.
@@ -1930,19 +1930,20 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
 
  (./2_review.tex
 Chapter 2.
-<figs/ch2/Schenone_custom_incubation_tank.png, id=271, 987.69pt x 634.62094pt>
+[3
+
+
+
+
+
+]
+<figs/ch2/Schenone_custom_incubation_tank.png, id=283, 987.69pt x 634.62094pt>
 File: figs/ch2/Schenone_custom_incubation_tank.png Graphic file (type png)
 <use figs/ch2/Schenone_custom_incubation_tank.png>
 Package pdftex.def Info: figs/ch2/Schenone_custom_incubation_tank.png  used on 
-input line 28.
+input line 35.
 (pdftex.def)             Requested size: 256.07481pt x 164.53273pt.
-) [3
-
-
-
-
-
-] [4 <./figs/ch2/Schenone_custom_incubation_tank.png>]
+) [4 <./figs/ch2/Schenone_custom_incubation_tank.png>]
 \openout2 = `3_ch3.aux'.
 
  (./3_ch3.tex
@@ -2085,13 +2086,13 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
 Package rerunfilecheck Info: File `0_main.out' has not changed.
-(rerunfilecheck)             Checksum: CFC731A75D7F308AE1B9571C25CE53EA;4596.
+(rerunfilecheck)             Checksum: D6E3B7A7571EB4E98CE86E54E959CED5;4701.
  ) 
 Here is how much of TeX's memory you used:
- 39566 strings out of 467363
- 771496 string characters out of 5419002
- 1335257 words of memory out of 6000000
- 67696 multiletter control sequences out of 15000+600000
+ 39568 strings out of 467363
+ 771520 string characters out of 5419002
+ 1336257 words of memory out of 6000000
+ 67697 multiletter control sequences out of 15000+600000
  769919 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,17n,131p,2474b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2105,10 +2106,10 @@ onts/type1/public/amsfonts/cm/cmr10.pfb></app/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmr8.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 >
-Output written on 0_main.pdf (25 pages, 911182 bytes).
+Output written on 0_main.pdf (25 pages, 914865 bytes).
 PDF statistics:
- 409 PDF objects out of 1000 (max. 8388607)
- 343 compressed objects within 4 object streams
- 79 named destinations out of 1000 (max. 500000)
- 294 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 415 PDF objects out of 1000 (max. 8388607)
+ 349 compressed objects within 4 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 302 words of extra memory for PDF output out of 10000 (max. 10000000)
 
