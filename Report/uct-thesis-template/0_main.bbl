@@ -57,4 +57,16 @@ S.~Schenone, J.~E. Hewitt, J.~Hillman, R.~{Gladstone-Gallagher}, J.~Gammal,
   and ecosystem functioning,'' \emph{Ecological Applications}, vol.~35, no.~1,
   p. e3069, 2025.
 
+\bibitem{halmetschlager-funekEmpiricalEvaluationTen2019}
+G.~{Halmetschlager-Funek}, M.~Suchi, M.~Kampel, and M.~Vincze, ``An {{Empirical
+  Evaluation}} of {{Ten Depth Cameras}}: {{Bias}}, {{Precision}}, {{Lateral
+  Noise}}, {{Different Lighting Conditions}} and {{Materials}}, and {{Multiple
+  Sensor Setups}} in {{Indoor Environments}},'' \emph{IEEE Robotics \&
+  Automation Magazine}, vol.~26, no.~1, pp. 67--77, Mar. 2019.
+
+\bibitem{rustlerEmpiricalComparisonFour2025}
+L.~Rustler, V.~Volprecht, and M.~Hoffmann, ``Empirical {{Comparison}} of {{Four
+  Stereoscopic Depth Sensing Cameras}} for {{Robotics Applications}},''
+  \emph{IEEE Access}, vol.~13, pp. 67\,564--67\,577, 2025.
+
 \end{thebibliography}

@@ -18,6 +18,14 @@
  
  The next question with regards to biological activity, is weather surface roughness, specifically rugosity, is a valid measurement to gauge the underlying biological activity within the benthic ecosystem. To this, Schenone et al \cite{schenoneSedimentMicrotopographyPredicts2024,schenoneSeafloorSedimentMicrotopography2025} determined experimentally that analysing two dimensional surface rugosity, they were able to correlate surface roughness measurements with sub-surface activity. One paper \cite{schenoneSedimentMicrotopographyPredicts2024} described the testing of a controlled laboratory environment to simulate the benthic ecosystem, which can be seen in \autoref{fig:schenonecustomincubationtank}. They found that the simple two dimensional rugosity estimate managed to account for up to 61\% of nutrient variability. The second paper\cite{schenoneSeafloorSedimentMicrotopography2025} describes a more complex implementation, with the use of a single diver operated camera recording video of the sediment surface, and the use of visual based structure from motion (SFM) photogrammetry to obtain a three dimensional representation of the surface. similarly, the find that sediment microtopography explains up to 55\% of species richness variance, which is of particular interest with regards to this project. These papers show that surface rugosity is a useful measurement when gauging biological activity, and they provide a useful insight into the computational pipeline which is used to convert from spatial meshes to elevation matrices, however there are considerations that need to be considered, these papers discuss fully submerged environments, thus the requirement of under water cameras and SFM, whilst this project focuses on tidally exposed surfaces, where fixed clear observations can be made with the use of a rig.
  
+  \begin{figure}
+ 	\centering
+ 	\includegraphics[width=0.5\linewidth]{figs/ch2/Schenone_custom_incubation_tank}
+ 	\caption{Custom incubation and flow through chamber by Schenone et al \cite{schenoneSedimentMicrotopographyPredicts2024} }
+ 	\label{fig:schenonecustomincubationtank}
+ \end{figure}
+ 
+ 
   %The pipeline involved taking images perpendicular to the sediment cross section, manually extracting the surface line distance using the image processing application ImageJ, and computing the rugosity as a ration between this measured distance, and the distance of a straight line from end to end. Whilst the authors did find a correlation, rugosity explained 35\% to 61\% of variability observed, Their implementation is still under controlled laboratory conditions. The cross sectional profile imaging is not possible in situ, and the two-dimensional rugosity calculation relies on a thin 'slice' of sediment. These limitations point to a need for three dimensional surface scans.
  
  \section{Technology}
@@ -28,15 +36,24 @@
  
  The current project is based off the work developed by Azhar et al \cite{azharRGBDFrameworkCapturing2022}. The authors develop a framework that allows for extracting a millimetre scale 3D surface scans non-invasively, and at lower price scales than expensive LiDAR based systems. The system makes use of an off the shelf Asus Xiton pro Live 3D RGB-D structured light camera, mounted within an opaque plastic container to block infrared interference from sunlight. They then tested four polynomial de-trending algorithms to remove natural sediment gradients, and isolate the bioturbation. Due to the nature of the Asus Xiton, which makes use of structured light projection and a single IR camera, the system suffers when the surface is exposed to sunlight. Therefore the authors made use of an opaque plastic enclosure which is set on the sediment for scanning, however this limits the spatial resolution to only $0.3m^2$ with an effective camera resolution of only 240 x 200 pixels. Additionally the authors found that the higher order polynomial de-trending algorithms were sensitive to elevations at the edges of the image frame, requiring them to use a planar model which proved to be more robust.
  
+ Halmetschlager-Funek et al \cite{halmetschlager-funekEmpiricalEvaluationTen2019} and Rustler et al \cite{rustlerEmpiricalComparisonFour2025} provide useful insight by comparing several types of commonly available depth sensing cameras, encompassing different technologies such as structured light, active and passive stereo vision and time of flight (ToF). Halmetschlager-Funek et al \cite{halmetschlager-funekEmpiricalEvaluationTen2019} compares ten different sensors, with varying technologies and shows that sensor technologies like structured light and ToF generally struggle when exposed to high ambient light or reflective materials. These make it impractical to apply in the exposed environmental conditions considered for this project, as there is often direct sunlight, and small water pools which can increase reflectivity of the sediment. Rustler et al \cite{rustlerEmpiricalComparisonFour2025} compares four different stereo vision cameras, and finds that the Intel RealSense D435 is the superior camera for applications what are within one meter, however distance bias against planar surfaces increases significantly, compared to similar sensors such as the Intel RealSense D455, past 300cm distance. The author finds that for longer distance, the ZED 2 or Intel RealSense D455 are the best performers, with the main discerning factor being the image processing, as the ZED 2 requires dedicated GPU hardware for image processing, whereas the D455 does most of the processing on-board with some post precessing offloaded to the connected device.
  
  
- \begin{figure}
- 	\centering
- 	\includegraphics[width=0.5\linewidth]{figs/ch2/Schenone_custom_incubation_tank}
- 	\caption{Custom incubation and flow through chamber by Schenone et al \cite{schenoneSedimentMicrotopographyPredicts2024} }
- 	\label{fig:schenonecustomincubationtank}
- \end{figure}
+ Kinect sensor noise 
  
+ Metrological and critical characteriseation of intel d415
+ 
+ Projectors for D400 surfaces (LOOK FOR A PAPER DISCUSSING TEXTURE OF WATER LOGGED SAND)
+ 
+ Depth post processing for intel realsense D400
+ 
+ Intel Realsense camera depth testing methodology
+ 
+pixel level extrinsics self calib??????
+
+
+ 
+
 
 %---------------------------------------------------------------------
 %   HOW TO CITE
