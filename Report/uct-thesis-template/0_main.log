@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.7)  12 AUG 2026 13:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.7)  17 AUG 2026 14:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1942,12 +1942,12 @@ input line 23.
 
 
 
-]) [4 <./figs/ch2/Schenone_custom_incubation_tank.png>]
+] [4 <./figs/ch2/Schenone_custom_incubation_tank.png>]) [5]
 \openout2 = `3_ch3.aux'.
 
  (./3_ch3.tex
 Chapter 3.
-) [5
+) [6
 
 
 
@@ -1958,7 +1958,7 @@ Chapter 3.
 
  (./4_ch4.tex
 Chapter 4.
-) [6
+) [7
 
 
 
@@ -1969,7 +1969,7 @@ Chapter 4.
 
  (./5_ch5.tex
 Chapter 5.
-) [7
+) [8
 
 
 
@@ -1980,7 +1980,7 @@ Chapter 5.
 
  (./6_results.tex
 Chapter 6.
-) [8
+) [9
 
 
 
@@ -1991,7 +1991,7 @@ Chapter 6.
 
  (./7_discussion.tex
 Chapter 7.
-) [9
+) [10
 
 
 
@@ -2002,7 +2002,7 @@ Chapter 7.
 
  (./8_conclusions.tex
 Chapter 8.
-) [10
+) [11
 
 
 
@@ -2013,7 +2013,7 @@ Chapter 8.
 
  (./9_furtherwork.tex
 Chapter 9.
-) [11
+) [12
 
 
 
@@ -2024,7 +2024,7 @@ Chapter 9.
 
  (./A_gitrepo.tex
 Appendix A.
-) [12
+) [13
 
 
 
@@ -2033,7 +2033,7 @@ Appendix A.
 ]
 \openout2 = `B_ethics.aux'.
 
- (./B_ethics.tex) [13
+ (./B_ethics.tex) [14
 
 
 
@@ -2042,7 +2042,7 @@ Appendix A.
 ]
 \openout2 = `C_topicdescription.aux'.
 
- (./C_topicdescription.tex) [14
+ (./C_topicdescription.tex) [15
 
 
 
@@ -2058,13 +2058,13 @@ Package hyperref Warning: The anchor of a bookmark and its parent's must not
 
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
 (Font)              scaled to size 10.0pt on input line 22.
-) [15
+) [16
 
 
 
 
 
-] (./0_main.bbl) [16
+] (./0_main.bbl) [17
 
 
 
@@ -2088,10 +2088,10 @@ Package rerunfilecheck Info: File `0_main.out' has not changed.
 (rerunfilecheck)             Checksum: D6E3B7A7571EB4E98CE86E54E959CED5;4701.
  ) 
 Here is how much of TeX's memory you used:
- 39576 strings out of 467363
- 771898 string characters out of 5419002
- 1337287 words of memory out of 6000000
- 67703 multiletter control sequences out of 15000+600000
+ 39589 strings out of 467363
+ 772356 string characters out of 5419002
+ 1337336 words of memory out of 6000000
+ 67712 multiletter control sequences out of 15000+600000
  769919 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,17n,131p,2474b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2105,10 +2105,10 @@ onts/type1/public/amsfonts/cm/cmr10.pfb></app/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmr8.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 >
-Output written on 0_main.pdf (25 pages, 918026 bytes).
+Output written on 0_main.pdf (26 pages, 922035 bytes).
 PDF statistics:
- 421 PDF objects out of 1000 (max. 8388607)
- 355 compressed objects within 4 object streams
- 82 named destinations out of 1000 (max. 500000)
+ 432 PDF objects out of 1000 (max. 8388607)
+ 365 compressed objects within 4 object streams
+ 86 named destinations out of 1000 (max. 500000)
  302 words of extra memory for PDF output out of 10000 (max. 10000000)
 
