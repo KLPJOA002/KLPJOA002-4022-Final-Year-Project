@@ -81,6 +81,11 @@ L.~Keselman, J.~I. Woodfill, A.~{Grunnet-Jepsen}, and A.~Bhowmik,
   \emph{2017 {{IEEE Conference}} on {{Computer Vision}} and {{Pattern
   Recognition Workshops}} ({{CVPRW}})}, Jul. 2017, pp. 1267--1276.
 
+\bibitem{DepthPostProcessingIntel}
+A.~{Grunnet-Jepsen} and Tong, ``Depth {{Post-Processing}} for
+  {{Intel}}\textregistered{} {{RealSense}}™™ {{D400 Depth Cameras}},''
+  https://www.intel.com/content/www/us/en/content-details/842031/depth-post-processing-for-intel-realsense-d400-depth-cameras.html.
+
 \bibitem{ProjectorsD400Series}
 A.~{Grunner-Jepsen}, J.~N. Sweetser, P.~Winer, A.~Takagi, and J.~Woodfill,
   ``Projectors for {{D400 Series Depth Cameras}}.''

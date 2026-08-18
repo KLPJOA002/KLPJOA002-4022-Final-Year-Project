@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.7)  17 AUG 2026 14:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.7)  18 AUG 2026 12:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2064,15 +2064,30 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
 
 
 
-] (./0_main.bbl) [17
+] (./0_main.bbl
+LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
+(Font)              scaled to size 10.0pt on input line 86.
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--88
+[]\T1/EBGaramond-OsF/m/n/10 A. Grunnet-Jepsen and Tong, ``Depth Post-Processing
+ for In-tel\TS1/EBGaramond-OsF/m/n/10 ® \T1/EBGaramond-OsF/m/n/10 Real-Sense\TS
+1/EBGaramond-OsF/m/n/10 —— \T1/EBGaramond-OsF/m/n/10 D400 Depth Cam-eras,''
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--88
+\T1/EBGaramond-OsF/m/n/10 https://www.intel.com/content/www/us/en/content-detai
+ls/842031/depth-post-processing-for-intel-realsense-d400-depth-
+ []
+
+) [17
 
 
 
 
 
 
-]
-
+] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./0_main.aux (./0_documentproperties.aux) (./0_titlepage.aux)
 (./i_declaration.aux) (./ii_abstract.aux) (./iii_acknowledgments.aux)
@@ -2088,11 +2103,11 @@ Package rerunfilecheck Info: File `0_main.out' has not changed.
 (rerunfilecheck)             Checksum: D6E3B7A7571EB4E98CE86E54E959CED5;4701.
  ) 
 Here is how much of TeX's memory you used:
- 39589 strings out of 467363
- 772356 string characters out of 5419002
- 1337336 words of memory out of 6000000
- 67712 multiletter control sequences out of 15000+600000
- 769919 words of font info for 106 fonts, out of 8000000 for 9000
+ 39597 strings out of 467363
+ 772571 string characters out of 5419002
+ 1337352 words of memory out of 6000000
+ 67718 multiletter control sequences out of 15000+600000
+ 770579 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,17n,131p,2474b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </app/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Bold.pfb></
@@ -2105,10 +2120,10 @@ onts/type1/public/amsfonts/cm/cmr10.pfb></app/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmr8.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 >
-Output written on 0_main.pdf (26 pages, 922035 bytes).
+Output written on 0_main.pdf (26 pages, 923675 bytes).
 PDF statistics:
- 432 PDF objects out of 1000 (max. 8388607)
- 365 compressed objects within 4 object streams
- 86 named destinations out of 1000 (max. 500000)
+ 436 PDF objects out of 1000 (max. 8388607)
+ 369 compressed objects within 4 object streams
+ 87 named destinations out of 1000 (max. 500000)
  302 words of extra memory for PDF output out of 10000 (max. 10000000)
 
