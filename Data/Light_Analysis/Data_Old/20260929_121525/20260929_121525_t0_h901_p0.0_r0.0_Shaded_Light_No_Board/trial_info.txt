@@ -1,0 +1,53 @@
+trial: 0
+name: 20260929_121525_t0_h901_p0.0_r0.0_Shaded_Light_No_Board
+device: Intel RealSense D456
+serial: 248622301282
+firmware: 5.17.3.10
+label: Shaded_Light_No_Board
+height_mm: 901
+axis_dist_mm: 0
+pitch_deg: 0
+roll_deg: 0
+lux: 213
+gt_offset_mm: 0
+gt_valid: 1
+gt_perp_mm: 901
+gt_axis_mm: 901
+resolution: 1280x720@30
+intrinsics: fx=647.195 fy=647.195 ppx=654.332 ppy=365.13
+depth_scale_m: 0.0001
+baseline_mm: 94.8089
+preset: high_density
+filters: 0
+min_dist_m: 0.2
+max_dist_m: 3
+emitter_set: -1
+laser_power_set: -1
+exposure_set_us: -1
+roi: 462,182,356,356   (last frame; ROI is tracked)
+roi_start: 384,216,512,288
+roi_pct: 40
+patch_size_mm: 500   (0 = static ROI)
+patch_roi_mode: inner
+patch_smooth: 0.3
+patch_hyst_px: 3
+record: /run/media/joab/Seagate/roughness/Joab_Characterisation/Light_Error//20260929_121525/20260929_121525_t0_h901_p0.0_r0.0_Shaded_Light_No_Board/20260929_121525_t0_h901_p0.0_r0.0_Shaded_Light_No_Board.db3
+
+Frames: 600
+Duration: 23.74 s
+Patch: 500 mm square (inscribed) -> ROI width 356..360 px, height 356..360 px over the trial (per-frame ROI is in the metrics CSV)
+  fill_pct            98.8805  +/- 10.0882
+  z_err_median_mm     5.3956  +/- 0.1758
+  z_err_median_pct    0.5988  +/- 0.0195
+  z_err_rmse_mm       5.7612  +/- 0.1977
+  plane_rms_mm        1.2689  +/- 0.0883
+  plane_rms_pct       0.1400  +/- 0.0097
+  subpixel_rms_px     0.0948  +/- 0.0066
+  plane_dist_perp_mm  906.3181  +/- 0.1871
+  dist_err_mm         5.3181  +/- 0.1871
+  plane_pitch_deg     0.2155  +/- 0.0168
+  plane_roll_deg      -0.3765  +/- 0.0256
+  ir_mean             79.8802  +/- 21.3669
+  exposure            1967.8500  +/- 3132.8497
+  gain                16.0000  +/- 0.0000
+  temporal_noise_mm   0.8477  (median per-pixel std over time)

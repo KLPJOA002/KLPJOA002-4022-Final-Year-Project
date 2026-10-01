@@ -1,0 +1,44 @@
+trial: 1
+name: 20260917_162530_t1_h663_p0.0_r0.0_fifth_afternoon_nolight_noshade
+device: Intel RealSense D456
+serial: 248622301282
+firmware: 5.17.3.10
+label: fifth+afternoon+nolight+noshade
+height_mm: 663
+axis_dist_mm: 0
+pitch_deg: 0
+roll_deg: 0
+lux: 2
+gt_offset_mm: 0
+gt_valid: 1
+gt_perp_mm: 663
+gt_axis_mm: 663
+resolution: 1280x720@30
+intrinsics: fx=647.195 fy=647.195 ppx=654.332 ppy=365.13
+depth_scale_m: 0.0001
+baseline_mm: 94.8089
+preset: high_density
+filters: 0
+emitter_set: -1
+laser_power_set: -1
+exposure_set_us: -1
+roi: 256,144,768,432
+record: /run/media/joab/Seagate/roughness/Joab_Characterisation/Flat_Error//20260917_162530/20260917_162530_t1_h663_p0.0_r0.0_fifth_afternoon_nolight_noshade/20260917_162530_t1_h663_p0.0_r0.0_fifth_afternoon_nolight_noshade.db3
+
+Frames (since last ROI change): 120
+Duration: 6.27 s
+  fill_pct            99.9238  +/- 0.0261
+  z_err_median_mm     4.9683  +/- 0.0953
+  z_err_median_pct    0.7494  +/- 0.0144
+  z_err_rmse_mm       4.9662  +/- 0.0387
+  plane_rms_mm        1.2793  +/- 0.0204
+  plane_rms_pct       0.1916  +/- 0.0031
+  subpixel_rms_px     0.1762  +/- 0.0028
+  plane_dist_perp_mm  667.6524  +/- 0.0448
+  dist_err_mm         4.6524  +/- 0.0448
+  plane_pitch_deg     -0.1270  +/- 0.0105
+  plane_roll_deg      -0.2224  +/- 0.0068
+  ir_mean             69.2556  +/- 0.1167
+  exposure            32783.0000  +/- 0.0000
+  gain                16.0000  +/- 0.0000
+  temporal_noise_mm   0.6735  (median per-pixel std over time)

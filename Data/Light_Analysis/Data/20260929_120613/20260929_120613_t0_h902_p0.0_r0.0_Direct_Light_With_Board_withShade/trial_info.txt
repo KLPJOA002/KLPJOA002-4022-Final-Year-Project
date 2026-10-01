@@ -1,0 +1,57 @@
+trial: 0
+name: 20260929_120613_t0_h902_p0.0_r0.0_Direct_Light_With_Board_withShade
+device: Intel RealSense D456
+serial: 248622301282
+firmware: 5.17.3.10
+label: Direct_Light_With_Board_withShade
+height_mm: 902
+axis_dist_mm: 0
+pitch_deg: 0
+roll_deg: 0
+lux: 2650
+gt_offset_mm: 0
+gt_valid: 1
+gt_perp_mm: 902
+gt_axis_mm: 902
+resolution: 1280x720@30
+intrinsics: fx=647.195 fy=647.195 ppx=654.332 ppy=365.13
+depth_scale_m: 0.0001
+baseline_mm: 94.8089
+preset: high_density
+filters: 0
+min_dist_m: 0.2
+max_dist_m: 3
+emitter_set: -1
+laser_power_set: -1
+exposure_set_us: -1
+roi: 498,218,284,284
+roi_start: 498,218,284,284
+roi_pct: 40
+patch_size_mm: 0   (0 = static ROI)
+patch_roi_mode: n/a
+patch_smooth: 0.3
+patch_hyst_px: 3
+record: 
+reprocessed_from: /run/media/joab/Seagate/roughness/Joab_Characterisation/Light_Error/20260929_120613/20260929_120613_t0_h902_p0.0_r0.0_Direct_Light_With_Board_withShade/20260929_120613_t0_h902_p0.0_r0.0_Direct_Light_With_Board_withShade.db3
+source_info: /run/media/joab/Seagate/roughness/Joab_Characterisation/Light_Error/20260929_120613/20260929_120613_t0_h902_p0.0_r0.0_Direct_Light_With_Board_withShade/trial_info.txt
+source_pitch_deg: 0
+source_roll_deg: 0
+frame_selection: the 600 distinct frames of /run/media/joab/Seagate/roughness/Joab_Characterisation/Light_Error/20260929_120613/20260929_120613_t0_h902_p0.0_r0.0_Direct_Light_With_Board_withShade/20260929_120613_t0_h902_p0.0_r0.0_Direct_Light_With_Board_withShade_metrics.csv (600 analysed)
+
+Frames (since last ROI change): 600
+Duration: 25.32 s
+  fill_pct            3.8312  +/- 1.3342
+  z_err_median_mm     4092.5805  +/- 1411.7723
+  z_err_median_pct    453.7229  +/- 156.5158
+  z_err_rmse_mm       4114.0755  +/- 495.7699
+  plane_rms_mm        414.9120  +/- 84.0157
+  plane_rms_pct       25.8520  +/- 98.8902
+  subpixel_rms_px     108.3631  +/- 499.0926
+  plane_dist_perp_mm  199.8132  +/- 133.9356
+  dist_err_mm         -702.1868  +/- 133.9356
+  plane_pitch_deg     -7.0783  +/- 70.7225
+  plane_roll_deg      71.2513  +/- 42.9514
+  ir_mean             81.2116  +/- 12.3425
+  exposure            117.6183  +/- 79.5114
+  gain                16.0000  +/- 0.0000
+  temporal_noise_mm   nan  (median per-pixel std over time)

@@ -1,0 +1,49 @@
+trial: 0
+name: 20260918_160324_t0_h903_p0.0_r0.0_Afternoon_Lights
+device: Intel RealSense D456
+serial: 248622301282
+firmware: 5.17.3.10
+label: Afternoon+Lights
+height_mm: 903
+axis_dist_mm: 0
+pitch_deg: 0
+roll_deg: 0
+lux: 211
+gt_offset_mm: 0
+gt_valid: 1
+gt_perp_mm: 903
+gt_axis_mm: 903
+resolution: 1280x720@30
+intrinsics: fx=647.195 fy=647.195 ppx=654.332 ppy=365.13
+depth_scale_m: 0.0001
+baseline_mm: 94.8089
+preset: high_density
+filters: 0
+emitter_set: -1
+laser_power_set: -1
+exposure_set_us: -1
+roi: 463,183,354,354   (last frame; ROI is tracked)
+patch_size_mm: 500   (0 = static ROI)
+patch_roi_mode: inner
+patch_smooth: 0.3
+patch_hyst_px: 3
+record: /run/media/joab/EE7C-85C9/Distance_Scans//20260918_160324/20260918_160324_t0_h903_p0.0_r0.0_Afternoon_Lights/20260918_160324_t0_h903_p0.0_r0.0_Afternoon_Lights.db3
+
+Frames: 600
+Duration: 51.86 s
+Patch: 500 mm square (inscribed) -> ROI width 264..358 px, height 334..362 px over the trial (per-frame ROI is in the metrics CSV)
+  fill_pct            95.9547  +/- 6.9449
+  z_err_median_mm     8.0372  +/- 0.4093
+  z_err_median_pct    0.8901  +/- 0.0453
+  z_err_rmse_mm       10.3855  +/- 15.1601
+  plane_rms_mm        5.0985  +/- 7.4345
+  plane_rms_pct       0.5581  +/- 0.7928
+  subpixel_rms_px     0.4240  +/- 1.4236
+  plane_dist_perp_mm  909.0871  +/- 33.5856
+  dist_err_mm         6.0871  +/- 33.5856
+  plane_pitch_deg     -0.2925  +/- 1.5186
+  plane_roll_deg      -0.4250  +/- 4.0389
+  ir_mean             84.3035  +/- 17.9829
+  exposure            2127.8717  +/- 2231.5690
+  gain                16.0000  +/- 0.0000
+  temporal_noise_mm   4.0586  (median per-pixel std over time)

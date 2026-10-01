@@ -1,0 +1,53 @@
+trial: 0
+name: 20260929_181702_t0_h902_p0.0_r0.0_Inside_Afternoon_BlindsOpen_NoLights_foamBoard
+device: Intel RealSense D456
+serial: 248622301282
+firmware: 5.17.3.10
+label: Inside_Afternoon_BlindsOpen_NoLights_foamBoard
+height_mm: 902
+axis_dist_mm: 0
+pitch_deg: 0
+roll_deg: 0
+lux: 91
+gt_offset_mm: 0
+gt_valid: 1
+gt_perp_mm: 902
+gt_axis_mm: 902
+resolution: 1280x720@30
+intrinsics: fx=647.195 fy=647.195 ppx=654.332 ppy=365.13
+depth_scale_m: 0.0001
+baseline_mm: 94.8089
+preset: high_density
+filters: 0
+min_dist_m: 0.2
+max_dist_m: 3
+emitter_set: -1
+laser_power_set: -1
+exposure_set_us: -1
+roi: 498,218,284,284   (last frame; ROI is tracked)
+roi_start: 384,216,512,288
+roi_pct: 40
+patch_size_mm: 400   (0 = static ROI)
+patch_roi_mode: inner
+patch_smooth: 0.3
+patch_hyst_px: 3
+record: /run/media/joab/Seagate/roughness/Joab_Characterisation/Light_Error//20260929_181702/20260929_181702_t0_h902_p0.0_r0.0_Inside_Afternoon_BlindsOpen_NoLights_foamBoard/20260929_181702_t0_h902_p0.0_r0.0_Inside_Afternoon_BlindsOpen_NoLights_foamBoard.db3
+
+Frames: 600
+Duration: 23.64 s
+Patch: 400 mm square (inscribed) -> ROI width 284..288 px, height 284..288 px over the trial (per-frame ROI is in the metrics CSV)
+  fill_pct            97.0245  +/- 0.5390
+  z_err_median_mm     7.1188  +/- 0.3976
+  z_err_median_pct    0.7892  +/- 0.0441
+  z_err_rmse_mm       8.4022  +/- 0.3557
+  plane_rms_mm        4.1422  +/- 0.2068
+  plane_rms_pct       0.4557  +/- 0.0227
+  subpixel_rms_px     0.3077  +/- 0.0154
+  plane_dist_perp_mm  908.8906  +/- 0.3898
+  dist_err_mm         6.8906  +/- 0.3898
+  plane_pitch_deg     -0.5017  +/- 0.1647
+  plane_roll_deg      -0.5884  +/- 0.1663
+  ir_mean             94.3959  +/- 0.2279
+  exposure            3822.0000  +/- 0.0000
+  gain                16.0000  +/- 0.0000
+  temporal_noise_mm   3.4428  (median per-pixel std over time)

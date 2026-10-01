@@ -1,0 +1,4 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/Data/Height_Analysis/.venv/bin/python",
+  "python.terminal.activateEnvironment": true
+}

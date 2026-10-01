@@ -1,0 +1,44 @@
+trial: 0
+name: 20260916_175943_t0_h705_p0.0_r0.0_third_Evening_lights_noshade
+device: Intel RealSense D456
+serial: 248622301282
+firmware: 5.17.3.10
+label: third+Evening+lights+noshade
+height_mm: 705
+axis_dist_mm: 0
+pitch_deg: 0
+roll_deg: 0
+lux: 56
+gt_offset_mm: 0
+gt_valid: 1
+gt_perp_mm: 705
+gt_axis_mm: 705
+resolution: 1280x720@30
+intrinsics: fx=647.195 fy=647.195 ppx=654.332 ppy=365.13
+depth_scale_m: 0.0001
+baseline_mm: 94.8089
+preset: high_density
+filters: 0
+emitter_set: -1
+laser_power_set: -1
+exposure_set_us: -1
+roi: 256,144,768,432
+record: /run/media/joab/Seagate/roughness/Joab_Characterisation/Flat_Error//20260916_175943/20260916_175943_t0_h705_p0.0_r0.0_third_Evening_lights_noshade/20260916_175943_t0_h705_p0.0_r0.0_third_Evening_lights_noshade.db3
+
+Frames (since last ROI change): 120
+Duration: 5.46 s
+  fill_pct            98.5813  +/- 8.8329
+  z_err_median_mm     8.7525  +/- 1.6460
+  z_err_median_pct    1.2415  +/- 0.2335
+  z_err_rmse_mm       24.2473  +/- 151.0424
+  plane_rms_mm        4.6881  +/- 31.7024
+  plane_rms_pct       0.7837  +/- 5.8297
+  subpixel_rms_px     1.2382  +/- 11.1940
+  plane_dist_perp_mm  707.9238  +/- 57.3753
+  dist_err_mm         2.9238  +/- 57.3753
+  plane_pitch_deg     0.0235  +/- 7.4485
+  plane_roll_deg      -1.6091  +/- 4.0808
+  ir_mean             70.1309  +/- 0.0217
+  exposure            9703.0000  +/- 0.0000
+  gain                16.0000  +/- 0.0000
+  temporal_noise_mm   1.2191  (median per-pixel std over time)

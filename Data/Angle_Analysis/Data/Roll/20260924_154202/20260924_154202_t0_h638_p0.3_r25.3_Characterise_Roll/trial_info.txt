@@ -1,0 +1,49 @@
+trial: 0
+name: 20260924_154202_t0_h638_p0.3_r25.3_Characterise_Roll
+device: Intel RealSense D456
+serial: 248622301282
+firmware: 5.17.3.10
+label: Characterise_Roll
+height_mm: 638
+axis_dist_mm: 0
+pitch_deg: 0.3
+roll_deg: 25.3
+lux: 61
+gt_offset_mm: 0
+gt_valid: 1
+gt_perp_mm: 638
+gt_axis_mm: 705.696
+resolution: 1280x720@30
+intrinsics: fx=647.195 fy=647.195 ppx=654.332 ppy=365.13
+depth_scale_m: 0.0001
+baseline_mm: 94.8089
+preset: high_density
+filters: 0
+emitter_set: -1
+laser_power_set: -1
+exposure_set_us: -1
+roi: 520,215,240,290   (last frame; ROI is tracked)
+patch_size_mm: 350   (0 = static ROI)
+patch_roi_mode: inner
+patch_smooth: 0.3
+patch_hyst_px: 3
+record: /run/media/joab/Seagate/roughness/Joab_Characterisation/Angle_Error/Data/Roll//20260924_154202/20260924_154202_t0_h638_p0.3_r25.3_Characterise_Roll/20260924_154202_t0_h638_p0.3_r25.3_Characterise_Roll.db3
+
+Frames: 600
+Duration: 22.74 s
+Patch: 350 mm square (inscribed) -> ROI width 240..242 px, height 290..294 px over the trial (per-frame ROI is in the metrics CSV)
+  fill_pct            98.4084  +/- 0.3742
+  z_err_median_mm     11.0775  +/- 0.1662
+  z_err_median_pct    1.5914  +/- 0.0245
+  z_err_rmse_mm       11.5106  +/- 0.1763
+  plane_rms_mm        2.1203  +/- 0.0910
+  plane_rms_pct       0.2957  +/- 0.0127
+  subpixel_rms_px     0.2812  +/- 0.0119
+  plane_dist_perp_mm  647.9703  +/- 0.4858
+  dist_err_mm         9.9703  +/- 0.4858
+  plane_pitch_deg     -0.3455  +/- 0.0875
+  plane_roll_deg      25.3585  +/- 0.0947
+  ir_mean             82.2213  +/- 0.6261
+  exposure            6606.6033  +/- 160.5066
+  gain                16.0000  +/- 0.0000
+  temporal_noise_mm   1.7710  (median per-pixel std over time)

@@ -1,0 +1,58 @@
+trial: 0
+name: 20260924_125505_t0_h660_p-20.0_r-0.7_ROI_test
+device: Intel RealSense D456
+serial: 248622301282
+firmware: 5.17.3.10
+label: ROI_test
+height_mm: 660
+axis_dist_mm: 0
+pitch_deg: -20
+roll_deg: -0.7
+lux: 56
+gt_offset_mm: 0
+gt_valid: 1
+gt_perp_mm: 660
+gt_axis_mm: 702.404
+resolution: 1280x720@30
+intrinsics: fx=647.195 fy=647.195 ppx=654.332 ppy=365.13
+depth_scale_m: 0.0001
+baseline_mm: 94.8089
+preset: high_density
+filters: 0
+min_dist_m: 0.2
+max_dist_m: 3
+emitter_set: -1
+laser_power_set: -1
+exposure_set_us: -1
+roi: 493,233,294,254   (last frame; ROI is tracked)
+roi_start: 493,233,294,254
+roi_pct: 40
+patch_size_mm: 350   (0 = static ROI)
+patch_roi_mode: inner
+patch_smooth: 0.3
+patch_hyst_px: 3
+record: 
+reprocessed_from: /run/media/joab/Seagate/roughness/Joab_Characterisation/Angle_Error/Data/Original/Pitch/20260924_125505/20260924_125505_t0_h660_p20.0_r-0.7_ROI_test/20260924_125505_t0_h660_p20.0_r-0.7_ROI_test.db3
+source_info: /run/media/joab/Seagate/roughness/Joab_Characterisation/Angle_Error/Data/Original/Pitch/20260924_125505/20260924_125505_t0_h660_p20.0_r-0.7_ROI_test/trial_info.txt
+source_pitch_deg: 20
+source_roll_deg: -0.7
+frame_selection: the 556 distinct frames of /run/media/joab/Seagate/roughness/Joab_Characterisation/Angle_Error/Data/Original/Pitch/20260924_125505/20260924_125505_t0_h660_p20.0_r-0.7_ROI_test/20260924_125505_t0_h660_p20.0_r-0.7_ROI_test_metrics.csv (556 analysed)
+
+Frames: 556
+Duration: 20.88 s
+Patch: 350 mm square (inscribed) -> ROI width 294..296 px, height 254..258 px over the trial (per-frame ROI is in the metrics CSV)
+  fill_pct            98.9415  +/- 0.2728
+  z_err_median_mm     7.4763  +/- 0.1596
+  z_err_median_pct    1.0764  +/- 0.0227
+  z_err_rmse_mm       8.0582  +/- 0.1687
+  plane_rms_mm        2.0272  +/- 0.0975
+  plane_rms_pct       0.2855  +/- 0.0137
+  subpixel_rms_px     0.2624  +/- 0.0125
+  plane_dist_perp_mm  664.5250  +/- 0.3562
+  dist_err_mm         4.5250  +/- 0.3562
+  plane_pitch_deg     -20.6508  +/- 0.0828
+  plane_roll_deg      -0.1561  +/- 0.0904
+  ir_mean             80.4067  +/- 0.6306
+  exposure            7680.0090  +/- 54.7615
+  gain                16.0000  +/- 0.0000
+  temporal_noise_mm   1.6190  (median per-pixel std over time)

@@ -1,0 +1,57 @@
+trial: 0
+name: 20260929_120155_t0_h902_p0.0_r0.0_Direct_Light_With_Board
+device: Intel RealSense D456
+serial: 248622301282
+firmware: 5.17.3.10
+label: Direct_Light_With_Board
+height_mm: 902
+axis_dist_mm: 0
+pitch_deg: 0
+roll_deg: 0
+lux: 24400
+gt_offset_mm: 0
+gt_valid: 1
+gt_perp_mm: 902
+gt_axis_mm: 902
+resolution: 1280x720@30
+intrinsics: fx=647.195 fy=647.195 ppx=654.332 ppy=365.13
+depth_scale_m: 0.0001
+baseline_mm: 94.8089
+preset: high_density
+filters: 0
+min_dist_m: 0.2
+max_dist_m: 3
+emitter_set: -1
+laser_power_set: -1
+exposure_set_us: -1
+roi: 498,218,284,284
+roi_start: 498,218,284,284
+roi_pct: 40
+patch_size_mm: 0   (0 = static ROI)
+patch_roi_mode: n/a
+patch_smooth: 0.3
+patch_hyst_px: 3
+record: 
+reprocessed_from: /run/media/joab/Seagate/roughness/Joab_Characterisation/Light_Error/20260929_120155/20260929_120155_t0_h902_p0.0_r0.0_Direct_Light_With_Board/20260929_120155_t0_h902_p0.0_r0.0_Direct_Light_With_Board.db3
+source_info: /run/media/joab/Seagate/roughness/Joab_Characterisation/Light_Error/20260929_120155/20260929_120155_t0_h902_p0.0_r0.0_Direct_Light_With_Board/trial_info.txt
+source_pitch_deg: 0
+source_roll_deg: 0
+frame_selection: the 600 distinct frames of /run/media/joab/Seagate/roughness/Joab_Characterisation/Light_Error/20260929_120155/20260929_120155_t0_h902_p0.0_r0.0_Direct_Light_With_Board/20260929_120155_t0_h902_p0.0_r0.0_Direct_Light_With_Board_metrics.csv (600 analysed)
+
+Frames (since last ROI change): 600
+Duration: 25.98 s
+  fill_pct            5.4544  +/- 1.0958
+  z_err_median_mm     5214.0474  +/- 736.9532
+  z_err_median_pct    578.0540  +/- 81.7021
+  z_err_rmse_mm       4611.4342  +/- 306.1719
+  plane_rms_mm        557.8034  +/- 75.7125
+  plane_rms_pct       15.5390  +/- 42.7071
+  subpixel_rms_px     66.6791  +/- 225.3898
+  plane_dist_perp_mm  286.4756  +/- 221.4358
+  dist_err_mm         -615.5244  +/- 221.4358
+  plane_pitch_deg     -40.1996  +/- 71.3766
+  plane_roll_deg      41.7881  +/- 69.9439
+  ir_mean             111.0811  +/- 0.1675
+  exposure            9.0000  +/- 0.0000
+  gain                16.0000  +/- 0.0000
+  temporal_noise_mm   nan  (median per-pixel std over time)

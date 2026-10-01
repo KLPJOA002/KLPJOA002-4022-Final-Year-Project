@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Plot height metrics",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/Data/Height_Analysis/plot_height_metrics.py",
+      "console": "integratedTerminal",
+      "python": "${workspaceFolder}/Data/Height_Analysis/.venv/bin/python",
+      "justMyCode": true
+    }
+  ]
+}
