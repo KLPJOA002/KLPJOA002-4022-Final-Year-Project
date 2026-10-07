@@ -13,6 +13,8 @@ A level-1 auxiliary file: 2_review.aux
 A level-1 auxiliary file: 3_ch3.aux
 A level-1 auxiliary file: 4_ch4.aux
 A level-1 auxiliary file: 5_ch5.aux
+A level-1 auxiliary file: 6_ch6.aux
+A level-1 auxiliary file: 7_ch7.aux
 A level-1 auxiliary file: 6_results.aux
 A level-1 auxiliary file: 7_discussion.aux
 A level-1 auxiliary file: 8_conclusions.aux
@@ -35,7 +37,7 @@ Database file #1: 4022.bib
 Done.
 You've used 12 entries,
             4087 wiz_defined-function locations,
-            924 strings with 11296 characters,
+            926 strings with 11314 characters,
 and the built_in function-call counts, 10414 in all, are:
 = -- 819
 > -- 292

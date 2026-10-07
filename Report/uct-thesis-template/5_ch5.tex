@@ -1,9 +1,45 @@
 %*********************************************************************
 %	EXPERIMENTS
 %*********************************************************************
-\chapter{Experimental design}
+\chapter{Intel RealSense Characterisation}
 \label{ch:experiments}
 %---------------------------------------------------------------------
+Before any action is taken on developing the capture and processing pipeline for extracting surface roughness metrics, an in depth characterisation on the Intel RealSense D456 is required. This characterisation will inform decisions about the experimental rig, as well as the configuration of the camera itself for optimal scanning, considering the conditions experienced in situ.
+
+Characterisation was performed in 2 main steps. Firstly, the RealSense camera was characterised with the use of pre-made software support for plane surface characterisation using the RealSense SDK Depth Quality Tool. These tools provide useful metrics for determining camera performance against smooth, flat planar surfaces. These metrics give an indication for what conditions might be optimal for the camera, such as height above surface, lighting conditions and tilt angle.
+
+Using the results for planar surfaces as a baseline, next, the camera was characterised against known reference 3D objects shown in \textbf{<APENDIX>}. With these objects, a more focused sweep of which camera configuration settings result in the best reconstruction performance against these known objects.
+\section{Plane Surface Characterisation}
+
+As mentioned earlier, the first set of characterisation was performed against planar targets. with the use of metrics provided by the RealSense SDK. The first set of testing involved characterising the camera at different axial distances to the surface.
+
+The depth quality tool provided by Intel recommends performing analysis against a plane, white, featureless wall. This results in the camera relying on its own IR laser projection for measuring depth. For all planar characterisation, custom c++ code was written to use the RealSense SDK provided by Intel. The custom code would allow the user to enter details about the scan, such as distance, angles, light intensity, and would capture 120 frames. The code would then set a dynamic region of interest (ROI) that would remain constant at a user set dimension of 50x50cm. The code would then make use of the SDK provided tools for fitting a plane to the scanned surface, and measuring the absolute depth error based on the ground truth, and provide a measure of RMSE of points across the plane surface.
+
+For depth characterisation, the Intel RealSense D456 was mounted to a tripod, and pointed at a white wall. This was done instead of using the hardware rig since the mounting brackets failed to keep the camera parallel to the floor. The mount would result in the camera's angle to the ground varying between heights, and the angle would consistently remain above 1.5 degrees. This angle offset and variation would pollute the results of the distance sweep, and thus a vertical scan against a white wall was used. The camera was moved across a range of distance from 600mm to 900mm, and the camera to plane angle was manually minimised at each distance.
+
+For angle characterisation, the camera was mounted to the experimental rig and angles ranging from \(-25\degree\) to \(+25\degree\) at \(2\degree\) intervals were taken. The experimental rig was used as this would allow for easy control of the camera angle using the servo motor built into the mount. A large flat white foam board was placed on the floor, and was continuously adjusted to remain in the centre of the cameras field of view (FOV) across different angles. The camera was set to a fixed height, and the same custom depth quality code was used to scan the flat surface at different heights. The camera was rotated about two axes independently, one parallel to the axis going through the IR stereo camera pair which will be called the pitch axis, and the second axis running perpendicular to both the pitch and axial axis, this will be called the roll axis. At each angle, the vertical z distance from the left IR camera lens to the floor panel was measured, using this measurement and the measured angle, the code would determine the axial distance from the optical origin to the centre of the plane, and use this as the ground truth for the plane fit.
+
+For light intensity measurement, scans of the same foam board was taken under a variety of lighting conditions. Most of the experimental testing occurred indoors during the afternoon. with a range from open blinds and lights on to the night with no lights and blinds closed. Additional testing occurred at mid day in direct sunlight and shaded sunlight to obtain extremities of lighting conditions. The cameras exposure was left to automatic, and the same code was used to measure error statistics across the planar fit.
+
+These characterisations would provide a preliminary understanding of the general performance across different hardware and environmental conditions, and would be used to inform decisions made for later characterisation.
+
+
+\section{3D Reference Characterisation}
+
+once the planar characterisation was performed, rigorous measurements were made using the reference objects mentioned earlier. A modified version of the main capture program was used to capture scans of the different reference objects under different software settings, and different hardware set-ups.
+
+Firstly, scans of the large sinusoidal surface, which will be called the large egg box shape, and large single pyramid were taken under fixed a fixed height and angle, but with ranging camera configurations were taken to determine the optimal configuration settings. These scans ranged from resolutions spanning from 1280x720 to 640x320, depth units ranging from 0.001m to 0.0001m, and across all pre-sets excluding hand.
+
+Next, the camera was configured to use a resolution of 1280x720, depth units of 0.0001mm and a high density preset. Then several scans were taken of the large egg box, and small eggbox were taken at different heights and angles.
+
+At each height, 5 stationary scans of each shape were taken without tilt or rotation. These would then be used to iterate through different combinations of filter settings provided by the RealSense SDK in post processing. This would provide insight into the optimal filter settings across the different heights.
+
+Then subsequently, a full scan of each shape was taken, at rotations \(-45\degree\) to \(90\degree\) at \(45\degree\) increments, and tilts from \(-25\degree\) to \(25\degree\) at \(5\degree\) increments. This would allow for analysis of reconstruction performance across different combinations of tilt and rotation fusion in post processing.
+
+
+\section{Considerations???}
+
+
 
 
 %*********************************************************************

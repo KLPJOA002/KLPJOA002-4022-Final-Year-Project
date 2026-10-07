@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.7)  18 AUG 2026 12:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.27)  7 OCT 2026 15:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1630,9 +1630,10 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
 (./0_main.aux (./0_documentproperties.aux) (./0_titlepage.aux)
 (./i_declaration.aux) (./ii_abstract.aux) (./iii_acknowledgments.aux)
 (./iv_listofsymbols.aux) (./v_glossary.aux) (./1_intro.aux) (./2_review.aux)
-(./3_ch3.aux) (./4_ch4.aux) (./5_ch5.aux) (./6_results.aux) (./7_discussion.aux
-) (./8_conclusions.aux) (./9_furtherwork.aux) (./A_gitrepo.aux) (./B_ethics.aux
-) (./C_topicdescription.aux) (./D_ECSA.aux))
+(./3_ch3.aux) (./4_ch4.aux) (./5_ch5.aux) (./6_ch6.aux) (./7_ch7.aux)
+(./6_results.aux) (./7_discussion.aux) (./8_conclusions.aux)
+(./9_furtherwork.aux) (./A_gitrepo.aux) (./B_ethics.aux)
+(./C_topicdescription.aux) (./D_ECSA.aux))
 \openout1 = `0_main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 249.
@@ -1756,7 +1757,7 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
 (Font)              scaled to size 24.88pt on input line 10.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 15.
-<figs/0_logos/logo_uct.png, id=135, 356.532pt x 362.3136pt>
+<figs/0_logos/logo_uct.png, id=260, 356.532pt x 362.3136pt>
 File: figs/0_logos/logo_uct.png Graphic file (type png)
 <use figs/0_logos/logo_uct.png>
 Package pdftex.def Info: figs/0_logos/logo_uct.png  used on input line 21.
@@ -1790,7 +1791,7 @@ LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 8.0pt on input line 75.
 LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 6.0pt on input line 75.
-<figs/0_logos/logo_eee.jpg, id=137, 1516.66624pt x 1511.6475pt>
+<figs/0_logos/logo_eee.jpg, id=262, 1516.66624pt x 1511.6475pt>
 File: figs/0_logos/logo_eee.jpg Graphic file (type jpg)
 <use figs/0_logos/logo_eee.jpg>
 Package pdftex.def Info: figs/0_logos/logo_eee.jpg  used on input line 75.
@@ -1856,26 +1857,26 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
 
 
 
-] (./0_main.toc)
+] (./0_main.toc [4
+
+
+])
 \tf@toc=\write8
 \openout8 = `0_main.toc'.
 
- [4
-
-
-] (./0_main.lof)
+ [5] (./0_main.lof)
 \tf@lof=\write9
 \openout9 = `0_main.lof'.
 
- [5] (./0_main.lot)
+ [6] (./0_main.lot)
 \tf@lot=\write10
 \openout10 = `0_main.lot'.
 
- [6]
+ [7]
 \openout2 = `iv_listofsymbols.aux'.
 
 
-(./iv_listofsymbols.tex) [7
+(./iv_listofsymbols.tex) [8
 
 
 
@@ -1884,7 +1885,7 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
 
  (./v_glossary.tex
 No file 0_main.gls.
-) [8
+) [9
 
 
 
@@ -1897,7 +1898,7 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 12.0pt on input line 11.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
 (Font)              scaled to size 12.0pt on input line 11.
-<figs/ch1/shannon.jpg, id=252, 1986.42125pt x 703.62875pt>
+<figs/ch1/shannon.jpg, id=412, 1986.42125pt x 703.62875pt>
 File: figs/ch1/shannon.jpg Graphic file (type jpg)
 <use figs/ch1/shannon.jpg>
 Package pdftex.def Info: figs/ch1/shannon.jpg  used on input line 25.
@@ -1930,7 +1931,7 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
 
  (./2_review.tex
 Chapter 2.
-<figs/ch2/Schenone_custom_incubation_tank.png, id=276, 987.69pt x 634.62094pt>
+<figs/ch2/Schenone_custom_incubation_tank.png, id=436, 987.69pt x 634.62094pt>
 File: figs/ch2/Schenone_custom_incubation_tank.png Graphic file (type png)
 <use figs/ch2/Schenone_custom_incubation_tank.png>
 Package pdftex.def Info: figs/ch2/Schenone_custom_incubation_tank.png  used on 
@@ -1969,7 +1970,29 @@ Chapter 4.
 
  (./5_ch5.tex
 Chapter 5.
-) [8
+[8
+
+
+
+
+
+]) [9]
+\openout2 = `6_ch6.aux'.
+
+ (./6_ch6.tex
+Chapter 6.
+) [10
+
+
+
+
+
+]
+\openout2 = `7_ch7.aux'.
+
+ (./7_ch7.tex
+Chapter 7.
+) [11
 
 
 
@@ -1979,8 +2002,8 @@ Chapter 5.
 \openout2 = `6_results.aux'.
 
  (./6_results.tex
-Chapter 6.
-) [9
+Chapter 8.
+) [12
 
 
 
@@ -1990,8 +2013,8 @@ Chapter 6.
 \openout2 = `7_discussion.aux'.
 
  (./7_discussion.tex
-Chapter 7.
-) [10
+Chapter 9.
+) [13
 
 
 
@@ -2001,8 +2024,8 @@ Chapter 7.
 \openout2 = `8_conclusions.aux'.
 
  (./8_conclusions.tex
-Chapter 8.
-) [11
+Chapter 10.
+) [14
 
 
 
@@ -2012,8 +2035,8 @@ Chapter 8.
 \openout2 = `9_furtherwork.aux'.
 
  (./9_furtherwork.tex
-Chapter 9.
-) [12
+Chapter 11.
+) [15
 
 
 
@@ -2024,16 +2047,21 @@ Chapter 9.
 
  (./A_gitrepo.tex
 Appendix A.
-) [13
+[16
 
 
 
 
 
 ]
+Appendix B.
+) [17
+
+
+]
 \openout2 = `B_ethics.aux'.
 
- (./B_ethics.tex) [14
+ (./B_ethics.tex) [18
 
 
 
@@ -2042,7 +2070,7 @@ Appendix A.
 ]
 \openout2 = `C_topicdescription.aux'.
 
- (./C_topicdescription.tex) [15
+ (./C_topicdescription.tex) [19
 
 
 
@@ -2058,7 +2086,7 @@ Package hyperref Warning: The anchor of a bookmark and its parent's must not
 
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
 (Font)              scaled to size 10.0pt on input line 22.
-) [16
+) [20
 
 
 
@@ -2080,7 +2108,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--88
 ls/842031/depth-post-processing-for-intel-realsense-d400-depth-
  []
 
-) [17
+) [21
 
 
 
@@ -2092,24 +2120,25 @@ enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./0_main.aux (./0_documentproperties.aux) (./0_titlepage.aux)
 (./i_declaration.aux) (./ii_abstract.aux) (./iii_acknowledgments.aux)
 (./iv_listofsymbols.aux) (./v_glossary.aux) (./1_intro.aux) (./2_review.aux)
-(./3_ch3.aux) (./4_ch4.aux) (./5_ch5.aux) (./6_results.aux) (./7_discussion.aux
-) (./8_conclusions.aux) (./9_furtherwork.aux) (./A_gitrepo.aux) (./B_ethics.aux
-) (./C_topicdescription.aux) (./D_ECSA.aux))
+(./3_ch3.aux) (./4_ch4.aux) (./5_ch5.aux) (./6_ch6.aux) (./7_ch7.aux)
+(./6_results.aux) (./7_discussion.aux) (./8_conclusions.aux)
+(./9_furtherwork.aux) (./A_gitrepo.aux) (./B_ethics.aux)
+(./C_topicdescription.aux) (./D_ECSA.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
 Package rerunfilecheck Info: File `0_main.out' has not changed.
-(rerunfilecheck)             Checksum: D6E3B7A7571EB4E98CE86E54E959CED5;4701.
+(rerunfilecheck)             Checksum: 33821C8598E595D168DA2EEC8864BF59;10494.
  ) 
 Here is how much of TeX's memory you used:
- 39597 strings out of 467363
- 772571 string characters out of 5419002
- 1337352 words of memory out of 6000000
- 67718 multiletter control sequences out of 15000+600000
+ 39716 strings out of 467363
+ 774368 string characters out of 5419001
+ 1339860 words of memory out of 6000000
+ 67787 multiletter control sequences out of 15000+600000
  770579 words of font info for 108 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,17n,131p,2474b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,17n,131p,2474b,772s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </app/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Bold.pfb></
 app/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-BoldItalic.pfb>
 </app/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Italic.pfb></
@@ -2120,10 +2149,10 @@ onts/type1/public/amsfonts/cm/cmr10.pfb></app/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmr8.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 >
-Output written on 0_main.pdf (26 pages, 923675 bytes).
+Output written on 0_main.pdf (31 pages, 937708 bytes).
 PDF statistics:
- 436 PDF objects out of 1000 (max. 8388607)
- 369 compressed objects within 4 object streams
- 87 named destinations out of 1000 (max. 500000)
- 302 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 621 PDF objects out of 1000 (max. 8388607)
+ 547 compressed objects within 6 object streams
+ 123 named destinations out of 1000 (max. 500000)
+ 550 words of extra memory for PDF output out of 10000 (max. 10000000)
 
