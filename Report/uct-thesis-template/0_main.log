@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.27)  7 OCT 2026 15:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.27)  8 OCT 2026 18:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1239,7 +1239,20 @@ File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 (/app/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibra
 rytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-))) (/app/texlive/texmf-dist/tex/latex/mdframed/mdframed.sty
+)))
+(/app/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.t
+ex
+File: pgflibraryarrows.meta.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+\pgfarrowinset=\dimen328
+\pgfarrowlength=\dimen329
+\pgfarrowwidth=\dimen330
+\pgfarrowlinewidth=\dimen331
+)
+(/app/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibra
+rypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2025-08-29 v3.1.11a (3.1.11a)
+)
+(/app/texlive/texmf-dist/tex/latex/mdframed/mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
 
 (/app/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
@@ -1387,31 +1400,31 @@ Package zref Info: New property: mdf@pagevalue on input line 895.
 )
 (/app/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen328
-\lightrulewidth=\dimen329
-\cmidrulewidth=\dimen330
-\belowrulesep=\dimen331
-\belowbottomsep=\dimen332
-\aboverulesep=\dimen333
-\abovetopsep=\dimen334
-\cmidrulesep=\dimen335
-\cmidrulekern=\dimen336
-\defaultaddspace=\dimen337
+\heavyrulewidth=\dimen332
+\lightrulewidth=\dimen333
+\cmidrulewidth=\dimen334
+\belowrulesep=\dimen335
+\belowbottomsep=\dimen336
+\aboverulesep=\dimen337
+\abovetopsep=\dimen338
+\cmidrulesep=\dimen339
+\cmidrulekern=\dimen340
+\defaultaddspace=\dimen341
 \@cmidla=\count408
 \@cmidlb=\count409
-\@aboverulesep=\dimen338
-\@belowrulesep=\dimen339
+\@aboverulesep=\dimen342
+\@belowrulesep=\dimen343
 \@thisruleclass=\count410
 \@lastruleclass=\count411
-\@thisrulewidth=\dimen340
+\@thisrulewidth=\dimen344
 )
 (/app/texlive/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
-\TX@col@width=\dimen341
-\TX@old@table=\dimen342
-\TX@old@col=\dimen343
-\TX@target=\dimen344
-\TX@delta=\dimen345
+\TX@col@width=\dimen345
+\TX@old@table=\dimen346
+\TX@old@col=\dimen347
+\TX@target=\dimen348
+\TX@delta=\dimen349
 \TX@cols=\count412
 \TX@ftn=\toks62
 )
@@ -1420,7 +1433,7 @@ Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 \multirow@colwidth=\skip192
 \multirow@cntb=\count413
 \multirow@dima=\skip193
-\bigstrutjot=\dimen346
+\bigstrutjot=\dimen350
 )
 (/app/texlive/texmf-dist/tex/latex/tools/hhline.sty
 Package: hhline 2020/01/04 v2.04 Table rule package (DPC)
@@ -1428,7 +1441,7 @@ Package: hhline 2020/01/04 v2.04 Table rule package (DPC)
 (/app/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
 \labelindent=\skip194
-\enit@outerparindent=\dimen347
+\enit@outerparindent=\dimen351
 \enit@toks=\toks63
 \enit@inbox=\box87
 \enit@count@id=\count414
@@ -1480,7 +1493,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen348
+\@linkdim=\dimen352
 \Hy@linkcounter=\count417
 \Hy@pagecounter=\count418
 
@@ -1513,7 +1526,7 @@ Package hyperref Info: Bookmarks ON on input line 4466.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4805.
-\XeTeXLinkMargin=\dimen349
+\XeTeXLinkMargin=\dimen353
 
 (/app/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -1523,8 +1536,8 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
 \Fld@menulength=\count421
-\Field@Width=\dimen350
-\Fld@charsize=\dimen351
+\Field@Width=\dimen354
+\Fld@charsize=\dimen355
 Package hyperref Info: Hyper figures OFF on input line 6091.
 Package hyperref Info: Link nesting OFF on input line 6096.
 Package hyperref Info: Hyper index ON on input line 6099.
@@ -1615,17 +1628,17 @@ LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 \glo@main@file=\write6
 \openout6 = `0_main.glo'.
 
-Package glossaries Info: Writing glossary file 0_main.glo on input line 239.
+Package glossaries Info: Writing glossary file 0_main.glo on input line 240.
  (./0_glossaryentries.tex)
 LaTeX Font Info:    Trying to load font information for T1+EBGaramond-OsF on in
-put line 249.
+put line 250.
 
 (/app/texlive/texmf-dist/tex/latex/ebgaramond/T1EBGaramond-OsF.fd
 File: T1EBGaramond-OsF.fd 2023/03/19 (autoinst) Font definitions for T1/EBGaram
 ond-OsF.
 )
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 249.
+(Font)              scaled to size 10.95pt on input line 250.
 
 (./0_main.aux (./0_documentproperties.aux) (./0_titlepage.aux)
 (./i_declaration.aux) (./ii_abstract.aux) (./iii_acknowledgments.aux)
@@ -1636,24 +1649,24 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
 (./C_topicdescription.aux) (./D_ECSA.aux))
 \openout1 = `0_main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 249.
-LaTeX Font Info:    ... okay on input line 249.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 250.
+LaTeX Font Info:    ... okay on input line 250.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1692,13 +1705,13 @@ LaTeX Font Info:    ... okay on input line 249.
 (/app/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count433
-\scratchdimen=\dimen352
+\scratchdimen=\dimen356
 \scratchbox=\box89
 \nofMPsegments=\count434
 \nofMParguments=\count435
 \everyMPshowfont=\toks70
 \MPscratchCnt=\count436
-\MPscratchDim=\dimen353
+\MPscratchDim=\dimen357
 \MPnumerator=\count437
 \makeMPintoPDFobject=\count438
 \everyMPtoPDFconversion=\toks71
@@ -1722,21 +1735,21 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 \symgns@font=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
 (Font)                  TS1/EBGaramond-OsF/m/n --> TS1/EBGaramond-OsF/b/n on in
-put line 249.
-Package gensymb Info: Math companion symbols declared on input line 249.
-LaTeX Info: Redefining \degree on input line 249.
-LaTeX Info: Redefining \celsius on input line 249.
+put line 250.
+Package gensymb Info: Math companion symbols declared on input line 250.
+LaTeX Info: Redefining \degree on input line 250.
+LaTeX Info: Redefining \celsius on input line 250.
 Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 249.
-LaTeX Info: Redefining \ohm on input line 249.
-Package gensymb Info: Using \textohm for \ohm on input line 249.
-Package gensymb Info: Using \textmu for \micro on input line 249.
+erthousand on input line 250.
+LaTeX Info: Redefining \ohm on input line 250.
+Package gensymb Info: Using \textohm for \ohm on input line 250.
+Package gensymb Info: Using \textmu for \micro on input line 250.
 \c@mv@tabular=\count439
 \c@mv@boldtabular=\count440
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 249.
+Package hyperref Info: Link coloring OFF on input line 250.
 
 (./0_main.out) (./0_main.out)
 \@outlinefile=\write7
@@ -1757,7 +1770,7 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
 (Font)              scaled to size 24.88pt on input line 10.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 15.
-<figs/0_logos/logo_uct.png, id=260, 356.532pt x 362.3136pt>
+<figs/0_logos/logo_uct.png, id=304, 356.532pt x 362.3136pt>
 File: figs/0_logos/logo_uct.png Graphic file (type png)
 <use figs/0_logos/logo_uct.png>
 Package pdftex.def Info: figs/0_logos/logo_uct.png  used on input line 21.
@@ -1791,7 +1804,7 @@ LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 8.0pt on input line 75.
 LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 6.0pt on input line 75.
-<figs/0_logos/logo_eee.jpg, id=262, 1516.66624pt x 1511.6475pt>
+<figs/0_logos/logo_eee.jpg, id=306, 1516.66624pt x 1511.6475pt>
 File: figs/0_logos/logo_eee.jpg Graphic file (type jpg)
 <use figs/0_logos/logo_eee.jpg>
 Package pdftex.def Info: figs/0_logos/logo_eee.jpg  used on input line 75.
@@ -1864,7 +1877,13 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
 \tf@toc=\write8
 \openout8 = `0_main.toc'.
 
- [5] (./0_main.lof)
+ [5] (./0_main.lof
+Overfull \hbox (1.58005pt too wide) in paragraph at lines 12--12
+ [][] [][]\T1/EBGaramond-OsF/m/n/10.95 System over-view. [][TODO: Re-place with
+ a fuller dia-gram show-ing the data formats (.bag, .ply) passed between 
+ []
+
+)
 \tf@lof=\write9
 \openout9 = `0_main.lof'.
 
@@ -1875,8 +1894,7 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
  [7]
 \openout2 = `iv_listofsymbols.aux'.
 
-
-(./iv_listofsymbols.tex) [8
+ (./iv_listofsymbols.tex) [8
 
 
 
@@ -1898,7 +1916,7 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 12.0pt on input line 11.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
 (Font)              scaled to size 12.0pt on input line 11.
-<figs/ch1/shannon.jpg, id=412, 1986.42125pt x 703.62875pt>
+<figs/ch1/shannon.jpg, id=476, 1986.42125pt x 703.62875pt>
 File: figs/ch1/shannon.jpg Graphic file (type jpg)
 <use figs/ch1/shannon.jpg>
 Package pdftex.def Info: figs/ch1/shannon.jpg  used on input line 25.
@@ -1923,15 +1941,15 @@ l.32 \begin
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/sl' in size <10.95> not ava
 ilable
 (Font)              Font shape `T1/EBGaramond-OsF/m/it' tried instead on input 
-line 324.
+line 325.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
-(Font)              scaled to size 10.95pt on input line 324.
+(Font)              scaled to size 10.95pt on input line 325.
  [2]
 \openout2 = `2_review.aux'.
 
  (./2_review.tex
 Chapter 2.
-<figs/ch2/Schenone_custom_incubation_tank.png, id=436, 987.69pt x 634.62094pt>
+<figs/ch2/Schenone_custom_incubation_tank.png, id=501, 987.69pt x 634.62094pt>
 File: figs/ch2/Schenone_custom_incubation_tank.png Graphic file (type png)
 <use figs/ch2/Schenone_custom_incubation_tank.png>
 Package pdftex.def Info: figs/ch2/Schenone_custom_incubation_tank.png  used on 
@@ -1959,29 +1977,78 @@ Chapter 3.
 
  (./4_ch4.tex
 Chapter 4.
-) [7
+LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
+(Font)              scaled to size 10.0pt on input line 22.
+LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
+(Font)              scaled to size 7.0pt on input line 22.
+LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
+(Font)              scaled to size 5.0pt on input line 22.
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
+(Font)              scaled to size 10.0pt on input line 24.
+
+LaTeX Warning: Reference `sec:hardware' on page 7 undefined on input line 26.
+
+
+LaTeX Warning: Reference `sec:hardware' on page 7 undefined on input line 27.
+
+
+LaTeX Warning: Reference `sec:software' on page 7 undefined on input line 27.
+
+
+LaTeX Warning: Reference `sec:software' on page 7 undefined on input line 28.
+
+
+LaTeX Warning: Reference `sec:software' on page 7 undefined on input line 30.
+
+
+LaTeX Warning: Reference `sec:hardware' on page 7 undefined on input line 32.
+
+
+LaTeX Warning: Reference `sec:software' on page 7 undefined on input line 32.
+
+
+LaTeX Warning: Reference `sec:hardware' on page 7 undefined on input line 37.
+
+
+LaTeX Warning: Reference `sec:hardware' on page 7 undefined on input line 38.
+
+[7
 
 
 
 
 
-]
+] [8]
+
+Package natbib Warning: Citation `rusu2009fpfh' on page 9 undefined on input li
+ne 120.
+
+
+Package natbib Warning: Citation `fischler1981ransac' on page 9 undefined on in
+put line 120.
+
+
+Package natbib Warning: Citation `besl1992icp' on page 9 undefined on input lin
+e 122.
+
+[9{/app/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]) [10]
 \openout2 = `5_ch5.aux'.
 
- (./5_ch5.tex
+
+(./5_ch5.tex
 Chapter 5.
-[8
+[11
 
 
 
 
 
-]) [9]
+]) [12]
 \openout2 = `6_ch6.aux'.
 
  (./6_ch6.tex
 Chapter 6.
-) [10
+) [13
 
 
 
@@ -1992,7 +2059,7 @@ Chapter 6.
 
  (./7_ch7.tex
 Chapter 7.
-) [11
+) [14
 
 
 
@@ -2003,7 +2070,7 @@ Chapter 7.
 
  (./6_results.tex
 Chapter 8.
-) [12
+) [15
 
 
 
@@ -2014,7 +2081,7 @@ Chapter 8.
 
  (./7_discussion.tex
 Chapter 9.
-) [13
+) [16
 
 
 
@@ -2025,7 +2092,7 @@ Chapter 9.
 
  (./8_conclusions.tex
 Chapter 10.
-) [14
+) [17
 
 
 
@@ -2036,7 +2103,7 @@ Chapter 10.
 
  (./9_furtherwork.tex
 Chapter 11.
-) [15
+) [18
 
 
 
@@ -2047,7 +2114,7 @@ Chapter 11.
 
  (./A_gitrepo.tex
 Appendix A.
-[16
+[19
 
 
 
@@ -2055,13 +2122,13 @@ Appendix A.
 
 ]
 Appendix B.
-) [17
+) [20
 
 
 ]
 \openout2 = `B_ethics.aux'.
 
- (./B_ethics.tex) [18
+ (./B_ethics.tex) [21
 
 
 
@@ -2070,7 +2137,7 @@ Appendix B.
 ]
 \openout2 = `C_topicdescription.aux'.
 
- (./C_topicdescription.tex) [19
+ (./C_topicdescription.tex) [22
 
 
 
@@ -2084,18 +2151,13 @@ Appendix B.
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 11.
 
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 22.
-) [20
+) [23
 
 
 
 
 
 ] (./0_main.bbl
-LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 86.
-
 Underfull \hbox (badness 10000) in paragraph at lines 85--88
 []\T1/EBGaramond-OsF/m/n/10 A. Grunnet-Jepsen and Tong, ``Depth Post-Processing
  for In-tel\TS1/EBGaramond-OsF/m/n/10 ® \T1/EBGaramond-OsF/m/n/10 Real-Sense\TS
@@ -2108,7 +2170,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--88
 ls/842031/depth-post-processing-for-intel-realsense-d400-depth-
  []
 
-) [21
+)
+
+Package natbib Warning: There were undefined citations.
+
+[24
 
 
 
@@ -2128,15 +2194,19 @@ enddocument/afterlastpage (AED): lastpage setting LastPage.
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `0_main.out' has not changed.
-(rerunfilecheck)             Checksum: 33821C8598E595D168DA2EEC8864BF59;10494.
+(rerunfilecheck)             Checksum: C8FF7F2CA45EFE439D4CF6FAB6EF3276;12392.
  ) 
 Here is how much of TeX's memory you used:
- 39716 strings out of 467363
- 774368 string characters out of 5419001
- 1339860 words of memory out of 6000000
- 67787 multiletter control sequences out of 15000+600000
- 770579 words of font info for 108 fonts, out of 8000000 for 9000
+ 40225 strings out of 467363
+ 786838 string characters out of 5419001
+ 1351527 words of memory out of 6000000
+ 68256 multiletter control sequences out of 15000+600000
+ 776010 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,17n,131p,2474b,772s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </app/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Bold.pfb></
@@ -2146,13 +2216,15 @@ app/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Regular.pfb></a
 pp/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></app/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></app/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmr10.pfb></app/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr8.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
->
-Output written on 0_main.pdf (31 pages, 937708 bytes).
+blic/amsfonts/cm/cmr7.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr8.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></app/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></app/texlive/texmf-dist/f
+onts/type1/public/cm-super/sftt1000.pfb>
+Output written on 0_main.pdf (34 pages, 999419 bytes).
 PDF statistics:
- 621 PDF objects out of 1000 (max. 8388607)
- 547 compressed objects within 6 object streams
- 123 named destinations out of 1000 (max. 500000)
- 550 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 732 PDF objects out of 1000 (max. 8388607)
+ 648 compressed objects within 7 object streams
+ 148 named destinations out of 1000 (max. 500000)
+ 638 words of extra memory for PDF output out of 10000 (max. 10000000)
 

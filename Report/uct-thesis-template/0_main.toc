@@ -30,38 +30,49 @@
 \contentsline {section}{\numberline {3.6}Feature Detection}{6}{section.3.6}%
 \contentsline {chapter}{\numberline {4}System Design}{7}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Requirements Definition}{7}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Hardware Rig}{7}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Software Architecture and Processing Pipeline}{7}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Intel RealSense Characterisation}{8}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Plane Surface Characterisation}{8}{section.5.1}%
-\contentsline {section}{\numberline {5.2}3D Reference Characterisation}{9}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Considerations???}{9}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Data Processing Pipeline}{10}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Depth Image Cropping}{10}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Depth Image Fusion}{10}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Surface Rugosity Estimation}{10}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Feature Detection}{10}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Experimental Validation}{11}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Known Relief and Controlled Targets}{11}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Roughness Metric Validation}{11}{section.7.2}%
-\contentsline {chapter}{\numberline {8}Results}{12}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Characterisation Results}{12}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Roughness Metric Results}{12}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Feature Segmentation Results}{12}{section.8.3}%
-\contentsline {chapter}{\numberline {9}Discussion}{13}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Optimal Configuration}{13}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Roughness Estimation}{13}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Feature Detection}{13}{section.9.3}%
-\contentsline {chapter}{\numberline {10}Conclusions}{14}{chapter.10}%
-\contentsline {chapter}{\numberline {11}Further work}{15}{chapter.11}%
-\contentsline {section}{\numberline {11.1}Characterisation}{15}{section.11.1}%
-\contentsline {section}{\numberline {11.2}Hardware Choices}{15}{section.11.2}%
-\contentsline {chapter}{\numberline {A}GitHub repository}{16}{chapter.A}%
-\contentsline {section}{\numberline {A.1}Title for appendix A.1}{16}{section.A.1}%
-\contentsline {chapter}{\numberline {B}Reference Objects}{17}{chapter.B}%
+\contentsline {section}{\numberline {4.2}System Overview}{8}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Hardware Rig}{8}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Frame}{8}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Camera, Tilt and Rotation Mechanism}{8}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}AprilTag Boundary Markers}{8}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}Software Architecture and Processing Pipeline}{9}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Capture Software}{9}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Cropping and Multi-Angle Fusion}{9}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Microtopography Processing}{9}{subsection.4.4.3}%
+\contentsline {section}{\numberline {4.5}Evaluation Framework and Ground Truth}{10}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Reference Surfaces}{10}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Alignment and Metrics}{10}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}Summary}{10}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Intel RealSense Characterisation}{11}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Plane Surface Characterisation}{11}{section.5.1}%
+\contentsline {section}{\numberline {5.2}3D Reference Characterisation}{12}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Considerations???}{12}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Data Processing Pipeline}{13}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Depth Image Cropping}{13}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Depth Image Fusion}{13}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Surface Rugosity Estimation}{13}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Feature Detection}{13}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Experimental Validation}{14}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Known Relief and Controlled Targets}{14}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Roughness Metric Validation}{14}{section.7.2}%
+\contentsline {chapter}{\numberline {8}Results}{15}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Characterisation Results}{15}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Roughness Metric Results}{15}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Feature Segmentation Results}{15}{section.8.3}%
+\contentsline {chapter}{\numberline {9}Discussion}{16}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Optimal Configuration}{16}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Roughness Estimation}{16}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Feature Detection}{16}{section.9.3}%
+\contentsline {chapter}{\numberline {10}Conclusions}{17}{chapter.10}%
+\contentsline {chapter}{\numberline {11}Further work}{18}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Characterisation}{18}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Hardware Choices}{18}{section.11.2}%
+\contentsline {chapter}{\numberline {A}GitHub repository}{19}{chapter.A}%
+\contentsline {section}{\numberline {A.1}Title for appendix A.1}{19}{section.A.1}%
+\contentsline {chapter}{\numberline {B}Reference Objects}{20}{chapter.B}%
 \renewcommand {\cftchappresnum }{Appendix }
-\contentsline {chapter}{Appendix B: Ethics approval}{18}{appendix*.10}%
-\contentsline {chapter}{Appendix C: Topic description}{19}{appendix*.11}%
-\contentsline {chapter}{Appendix D: ECSA Graduate Attributes}{20}{appendix*.12}%
-\contentsline {section}{Project mapping to ECSA Graduate Attributes}{20}{section*.13}%
-\contentsline {chapter}{Bibliography}{21}{appendix*.14}%
+\contentsline {chapter}{Appendix B: Ethics approval}{21}{appendix*.14}%
+\contentsline {chapter}{Appendix C: Topic description}{22}{appendix*.15}%
+\contentsline {chapter}{Appendix D: ECSA Graduate Attributes}{23}{appendix*.16}%
+\contentsline {section}{Project mapping to ECSA Graduate Attributes}{23}{section*.17}%
+\contentsline {chapter}{Bibliography}{24}{appendix*.18}%

@@ -1,16 +1,158 @@
 %*********************************************************************
 %	PROPOSED DESIGN
 %*********************************************************************
+\providecommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
 \chapter{System Design}
 \label{ch:design}
 %---------------------------------------------------------------------
+This chapter defines the general requirements of the system as a whole and describes the hardware rig used to capture scans, and the software pipeline built to capture, and process the data to provide useful metrics about the sediment surface. The theory in Chapter~\todo{theory chapter ref} is applied here, and the sensor characterisation in Chapter~\todo{characterisation chapter ref} uses the system as specified below.
+
 \section{Requirements Definition}
+The aim of the overarching project is to quantify sandprawn bioturbation on intertidal sediment, within the Langebaan Lagoon, by measuring surface microtopography and extracting roughness metrics and visible biogenic features (mounds and burrow openings). The initial stages of the project were adapted from the framework of Azhar \textit{et al.}~\cite{azharRGBDFrameworkCapturing2022}, primarily modified to use the Intel RealSense D456.
+
+This project aims to provide an investigation into the performance of the RealSense D456 camera currently used. The central aim is to characterise the depth camera in order to determine the optimal hardware and software configuration, and then to use scans taken under those configurations to build a high-quality reconstruction of the sediment on which the analysis is performed. The key output is an analysis of depth noise and reconstruction accuracy under different conditions.
+
+Requirements are grouped as functional (F), experimental (E) and constraints (C), as shown in \autoref{tab:requirements}. Functional requirements state what the system as a whole must do. Experimental requirements state what system variables are investigated in the characterisation. Constraints are fixed conditions imposed on the design.
+
+\begin{table}[!t]
+	\centering
+	\caption{System requirements and where they are addressed.}
+	\label{tab:requirements}
+	\small
+	\begin{tabular}{@{}p{0.07\linewidth}p{0.62\linewidth}p{0.23\linewidth}@{}}
+		\toprule
+		\textbf{ID} & \textbf{Requirement} & \textbf{Addressed in} \\
+		\midrule
+		F1 & Capture short-range depth scans of predominantly planar sediment & Sec.~\ref{sec:hardware} \\
+		F2 & Restrict analysis to a repeatable, user-defined square region of the surface & Sec.~\ref{sec:hardware}, \ref{sec:software} \\
+		F3 & Capture the same surface from multiple viewpoints and fuse the scans into one reconstruction & Sec.~\ref{sec:software} \\
+		%F4 & Operate under variable lighting, with shading when required & Sec.~\ref{sec:hardware} \\
+		F4 & Produce detrended microtopography, roughness metrics and segmented mounds and burrows & Sec.~\ref{sec:software} \\
+		\midrule
+		E1 & Allow working distance, viewing angle, lighting and depth-filter settings to be varied in a controlled, repeatable way & Sec.~\ref{sec:hardware}, \ref{sec:software} \\
+		E2 & Support characterisation of the camera's depth noise and error as a function of these conditions, to identify the optimal operating conditions for sediment & Chapter~\todo{ref} \\
+		E3 & Measure the geometric error of fused scans under these conditions, and identify the optimal configuration for reconstruction & Sec.~\ref{sec:eval_framework} \\
+		%E4 & Allow the sensitivity of the extracted metrics and features to scan quality to be assessed & Chapter~\todo{ref} \\
+		\midrule
+		C1 & Use a single Intel RealSense D456 & Sec.~\ref{sec:hardware} \\
+		C2 & Rig is portable and adjustable in height for field deployment & Sec.~\ref{sec:hardware} \\
+		C3 & Results are reproducible and comparable across runs and algorithms & Sec.~\ref{sec:eval_framework} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+%The functional requirements (F1--F5) come from objectives (c)--(e) of the project proposal, and the experimental requirements (E1--E4) from objectives (c) and (f). The size of the biological signal, mounds and burrow openings against the sensor's noise floor and the sediment's natural roughness, motivates E2 and E4: characterisation determines whether, and under which conditions, these features can be resolved. Constraint C3 means the system includes its own evaluation framework (Section~\ref{sec:eval_framework}), so that every requirement can be checked against ground truth.
+
+\section{System Overview}
+\label{sec:overview}
+
+The system has three main operational stages, shown in \autoref{fig:overview}, with a fourth evaluation stage used for characterisation.
+\begin{enumerate}[noitemsep]
+	\item \textit{Capture}: The capture software rs\_marker scans the surface at multiple rotations and camera tilts.
+	\item \textit{Fusion}: multi-angle scans are cropped to the tag-defined region, aligned and merged into a single reconstruction.
+	\item \textit{Microtopography processing}: the fused surface is detrended, and roughness metrics and biogenic features are extracted.
+	%\item \textit{Evaluation}: the output is scored against known reference geometry. This stage is used for validation, not in normal operation.
+\end{enumerate}
+For the purpose of characterisation, a fourth evaluation stage is used to gauge the reconstruction and metrics performance of the system against known target relief's.
+
+\begin{figure}[!t]
+	\centering
+	\begin{tikzpicture}[node distance=7mm, every node/.style={font=\small},
+		box/.style={draw, rounded corners=2pt, minimum width=2.7cm, minimum height=1.1cm, align=center}]
+		\node[box] (cap) {Capture\\(rig + D456)};
+		\node[box, right=of cap] (fuse) {Crop \&\\fusion};
+		\node[box, right=of fuse] (proc) {Detrend,\\metrics};
+		%\node[box, right=of proc] (eval) {Evaluation\\(ground truth)};
+		\draw[-{Latex}] (cap) -- (fuse);
+		\draw[-{Latex}] (fuse) -- (proc);
+		%\draw[-{Latex}] (proc) -- (eval);
+	\end{tikzpicture}
+	\caption{System overview. \todo{Replace with a fuller diagram showing the data formats (.bag, .ply) passed between stages.}}
+	\label{fig:overview}
+\end{figure}
+
 
 \section{Hardware Rig}
+\subsection{Frame}
+%The rig is built from aluminium extrusion in an approximately $1\,\mathrm{m}\times1\,\mathrm{m}\times1\,\mathrm{m}$ frame. An H-shaped cross-member slides vertically along the four legs, so the camera height, and hence the working distance, can be adjusted and locked. A plastic tarp over the top shades the scan area when direct sunlight would degrade the active-stereo depth. Extrusion was chosen for its stiffness, modularity and ease of reconfiguration during experimentation. \todo{Add figure: photo or CAD of the full rig, with dimensions.}
+
+The existing rig was built from 3030 aluminium extrusion in a $1\,\mathrm{m}\times1\,\mathrm{m}\times1\,\mathrm{m}$ frame. The top of the frame has a plastic tarp attatched, this allows for the shading of the scan area in the event of direct sunlight degrading the active stereo functionality of the D456. This frame was modified for the purpose of this project, in order to feature an H-shaped cross member that can slide vertically along the four legs. This enables the ability to adjust the camera height, and thus working distance, for purpose of characterisation and easy configuration. It was also modified to feature 3D printed April tag mounts that allow the position to be adjusted  
+
+\subsection{Camera, Tilt and Rotation Mechanism}
+The Intel RealSense D456 is mounted on the H-frame through a 3D-printed bracket bolted to the extrusion. A servo motor in the bracket tilts the camera by up to $\pm60^{\circ}$. The camera clips onto a rotating platform on the tilt stage and can be turned manually through a full $360^{\circ}$ in $45^{\circ}$ increments. Together, tilt and rotation allow each surface point to be observed from several viewing directions, which reduces occlusion within burrows and mounds. This multi-view scanning additionally averages out view-dependent depth error. The servo is driven by an Arduino microcontroller, connected to and commanded from the operator's laptop, which also runs the capture software. The camera is operated at $1280\times720$ and 30~fps at a nominal working distance of \todo{optimal distance}.
+
+\subsection{AprilTag Boundary Markers}
+Four AprilTags are mounted on brackets on the frame legs, and each bracket can slide inward or outward. The tags' positions define a square region on the sediment surface to be processed and analysed. This gives a repeatable, physically marked analysis region, and its size can be changed to suit the desired scan region or height configuration of the camera. Because the tags are fixed to the frame, their detected positions also provide a geometric cue for aligning scans taken from different tilt and rotation settings.
+
+\begin{table}[!t]
+	\centering
+	\caption{Hardware summary.}
+	\label{tab:hardware}
+	\small
+	\begin{tabular}{@{}ll@{}}
+		\toprule
+		\textbf{Component} & \textbf{Specification} \\
+		\midrule
+		Depth camera & Intel RealSense D456 \\
+		Depth stream & 1280$\times$720, 30~fps \\
+		Working distance & $\approx$700~mm \\
+		Frame & Aluminium extrusion, $\approx$1~m$^3$, sliding H-frame \\
+		Tilt actuation & Servo, $\pm60^{\circ}$, Arduino-controlled \\
+		Rotation & Manual, 45$^{\circ}$ increments, 360$^{\circ}$ \\
+		Boundary markers & Four adjustable AprilTags \\
+		Ambient light control & Overhead tarp \\
+		%Host computer & \todo{laptop model/OS} \\
+		\bottomrule
+	\end{tabular}
+\end{table}
 
 \section{Software Architecture and Processing Pipeline}
 
+\subsection{Capture Software}
+Capture is implemented in C++ utilising the RealSense SDK. For each rig pose, it applies a configurable chain of depth post-processing filters and records the stream to a \texttt{.db3} file, together with IMU data. It detects the four AprilTags in the colour image, and the best frame of each pose is exported as a point cloud in PLY format. \todo{State the filters used and their parameters, or reference the characterisation chapter.} Tag detection is stored along side captures for use of later processing through cropping and alignment.
 
+\subsection{Cropping and Multi-Angle Fusion}
+Each scan is first cropped to the square defined by the four tags. The cropped scans, taken at different tilt and rotation settings, are then fused (\autoref{fig:fusion}). Fusion needs a good initial pose before refinement, so the pipeline generates several \textit{coarse} alignment hypotheses by independent methods:
+\begin{enumerate}[noitemsep]
+	\item from the detected tag locations;
+	\item from the known rotation and servo tilt angle set on the rig;
+	\item from the camera IMU orientation;
+	\item from RANSAC matching of FPFH features~\cite{rusu2009fpfh,fischler1981ransac}.
+\end{enumerate}
+Each hypothesis is scored with a common alignment-quality measure, and the highest-scoring one is selected. It is then refined with ICP~\cite{besl1992icp} and the merged surface passes to the microtopography stage. Using four independent seeds makes the fusion robust to the failure mode of any single method (for example, feature matching on a nearly planar surface, or IMU drift).
+
+\begin{figure}[!t]
+	\centering
+	% \includegraphics[width=\linewidth]{figs/fusion_flow.pdf}
+	\fbox{\parbox{0.9\linewidth}{\centering\vspace{1.2cm}\todo{Flowchart: tag crop $\rightarrow$ four coarse alignments $\rightarrow$ score $\rightarrow$ select best $\rightarrow$ ICP $\rightarrow$ fused cloud}\vspace{1.2cm}}}
+	\caption{Multi-angle fusion pipeline.}
+	\label{fig:fusion}
+\end{figure}
+
+\subsection{Microtopography Processing}
+The fused surface is detrended to remove the large-scale slope of the sediment, giving the microtopography from which roughness metrics are computed. Mounds and burrow openings are then detected and segmented using classical morphological image processing. \todo{One sentence each on the detrending method, the roughness metrics, and the segmentation approach; details belong in later chapters.}
+
+%=====================================================================
+\section{Evaluation Framework and Ground Truth}
+\label{sec:eval_framework}
+
+For characterisation and validation, a separate Python tool, \texttt{evaluate\_scans}, measures the geometric error of any scan, whether a single capture or the fused output, against a known reference. It reuses the structure of the fusion pipeline's alignment stage, but aligns each scan to the reference. The tool then evaluates scan accuracy and coverage against the reference object.
+
+\subsection{Reference Surfaces}
+%A reference is either a triangle mesh or an exact analytic surface (height field $z=f(x,y)$, parametric, or implicit), defined in a text file with explicit units. Analytic references are parsed safely into symbolic expressions, which are differentiated exactly, so point-to-surface distances are computed against the true mathematical surface, not a tessellation. The validation targets are the small egg-carton surface, the large egg-carton surface and the large pyramid. \todo{State the equations and dimensions of each target (e.g.\ $z = c - A\sin(2\pi x/L)\cos(2\pi y/L)$ for the egg carton), the material, and how they were manufactured.} The same definitions can be exported as meshes for fabrication, so the printed target and the scoring reference are the same surface.
+
+The reference objects used for validation include a 3D printed egg carton surface $z = sin(x) + sin(y)$, at large and small scale, and a square based pyramid. These reference objects provide a balance of condition matching of the actual sediment surface, using the soft sinusoidal surface, and general performance to less natural sharp shapes. For the purpose of validation, the 3D model files (.stl) are used for evaluation as the 3D mesh surface allows for point to surface distance calculation across the entire 3D object.
+
+\subsection{Alignment and Metrics}
+Alignment uses several seeded feature-matching starts, systematic perturbations of the best pose (quarter turns, a flip, and slides of a quarter and half of the part), and point-to-plane ICP, followed by a final refinement against the exact surface. Candidate poses are ranked by a truncated least-squares cost computed in both directions (scan to reference and reference to scan), which prevents a pose that matches fewer points from winning by default. This matters on periodic targets such as the egg carton, where several look-alike poses exist. The tool flags a result as \textit{ambiguous} when the two best poses are too close to call, and reports degrees of freedom the surface cannot constrain.
+
+For each aligned scan the tool reports accuracy (RMSE, MAE, bias, standard deviation, trimmed statistics, percentiles), the vertical error for height-field references, and coverage of the reference. It also reports completeness, precision and F-score at several distance thresholds, Chamfer and Hausdorff distances, outlier fraction and point density. Every run appends a row to a shared table with the exact parameters, reference hash and random seed, so experiments are reproducible and comparable across configurations.
+
+%=====================================================================
+\section{Summary}
+\label{sec:design_summary}
+
+The rig provides repeatable, multi-angle capture of a user-defined surface region. The software fuses those scans, extracts microtopography, and is checked against analytic ground truth. Chapter~\todo{characterisation chapter ref} uses this system to characterise the D456's depth noise.
 %*********************************************************************
 % End of Design
 %*********************************************************************
