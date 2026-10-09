@@ -4,42 +4,226 @@
 \chapter{Intel RealSense Characterisation}
 \label{ch:experiments}
 %---------------------------------------------------------------------
-Before any action is taken on developing the capture and processing pipeline for extracting surface roughness metrics, an in depth characterisation on the Intel RealSense D456 is required. This characterisation will inform decisions about the experimental rig, as well as the configuration of the camera itself for optimal scanning, considering the conditions experienced in situ.
+\providecommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
 
-Characterisation was performed in 2 main steps. Firstly, the RealSense camera was characterised with the use of pre-made software support for plane surface characterisation using the RealSense SDK Depth Quality Tool. These tools provide useful metrics for determining camera performance against smooth, flat planar surfaces. These metrics give an indication for what conditions might be optimal for the camera, such as height above surface, lighting conditions and tilt angle.
+%Before any action is taken on developing the capture and processing pipeline for extracting surface roughness metrics, an in depth characterisation on the Intel RealSense D456 is required. This characterisation will inform decisions about the experimental rig, as well as the configuration of the camera itself for optimal scanning, considering the conditions experienced in situ.
 
-Using the results for planar surfaces as a baseline, next, the camera was characterised against known reference 3D objects shown in \textbf{<APENDIX>}. With these objects, a more focused sweep of which camera configuration settings result in the best reconstruction performance against these known objects.
+%Characterisation was performed in 2 main steps. Firstly, the RealSense camera was characterised with the use of pre-made software support for plane surface characterisation using the RealSense SDK Depth Quality Tool. These tools provide useful metrics for determining camera performance against smooth, flat planar surfaces. These metrics give an indication for what conditions might be optimal for the camera, such as height above surface, lighting conditions and tilt angle.
+
+%Using the results for planar surfaces as a baseline, next, the camera was characterised against known reference 3D objects shown in \textbf{<APENDIX>}. With these objects, a more focused sweep of which camera configuration settings result in the best reconstruction performance against these known objects.
+%\section{Plane Surface Characterisation}
+
+%As mentioned earlier, the first set of characterisation was performed against planar targets. with the use of metrics provided by the RealSense SDK. The first set of testing involved characterising the camera at different axial distances to the surface.
+
+%The depth quality tool provided by Intel recommends performing analysis against a plane, white, featureless wall. This results in the camera relying on its own IR laser projection for measuring depth. For all planar characterisation, custom c++ code was written to use the RealSense SDK provided by Intel. The custom code would allow the user to enter details about the scan, such as distance, angles, light intensity, and would capture 120 frames. The code would then set a dynamic region of interest (ROI) that would remain constant at a user set dimension of 50x50cm. The code would then make use of the SDK provided tools for fitting a plane to the scanned surface, and measuring the absolute depth error based on the ground truth, and provide a measure of RMSE of points across the plane surface.
+
+%For depth characterisation, the Intel RealSense D456 was mounted to a tripod, and pointed at a white wall. This was done instead of using the hardware rig since the mounting brackets failed to keep the camera parallel to the floor. The mount would result in the camera's angle to the ground varying between heights, and the angle would consistently remain above 1.5 degrees. This angle offset and variation would pollute the results of the distance sweep, and thus a vertical scan against a white wall was used. The camera was moved across a range of distance from 600mm to 900mm, and the camera to plane angle was manually minimised at each distance.
+
+%For angle characterisation, the camera was mounted to the experimental rig and angles ranging from \(-25\degree\) to \(+25\degree\) at \(2\degree\) intervals were taken. The experimental rig was used as this would allow for easy control of the camera angle using the servo motor built into the mount. A large flat white foam board was placed on the floor, and was continuously adjusted to remain in the centre of the cameras field of view (FOV) across different angles. The camera was set to a fixed height, and the same custom depth quality code was used to scan the flat surface at different heights. The camera was rotated about two axes independently, one parallel to the axis going through the IR stereo camera pair which will be called the pitch axis, and the second axis running perpendicular to both the pitch and axial axis, this will be called the roll axis. At each angle, the vertical z distance from the left IR camera lens to the floor panel was measured, using this measurement and the measured angle, the code would determine the axial distance from the optical origin to the centre of the plane, and use this as the ground truth for the plane fit.
+
+%For light intensity measurement, scans of the same foam board was taken under a variety of lighting conditions. Most of the experimental testing occurred indoors during the afternoon. with a range from open blinds and lights on to the night with no lights and blinds closed. Additional testing occurred at mid day in direct sunlight and shaded sunlight to obtain extremities of lighting conditions. The cameras exposure was left to automatic, and the same code was used to measure error statistics across the planar fit.
+
+%These characterisations would provide a preliminary understanding of the general performance across different hardware and environmental conditions, and would be used to inform decisions made for later characterisation.
+
+
+%\section{3D Reference Characterisation}
+
+%once the planar characterisation was performed, rigorous measurements were made using the reference objects mentioned earlier. A modified version of the main capture program was used to capture scans of the different reference objects under different software settings, and different hardware set-ups.
+
+%Firstly, scans of the large sinusoidal surface, which will be called the large egg box shape, and large single pyramid were taken under fixed a fixed height and angle, but with ranging camera configurations were taken to determine the optimal configuration settings. These scans ranged from resolutions spanning from 1280x720 to 640x320, depth units ranging from 0.001m to 0.0001m, and across all pre-sets excluding hand.
+
+%Next, the camera was configured to use a resolution of 1280x720, depth units of 0.0001mm and a high density preset. Then several scans were taken of the large egg box, and small eggbox were taken at different heights and angles.
+
+%At each height, 5 stationary scans of each shape were taken without tilt or rotation. These would then be used to iterate through different combinations of filter settings provided by the RealSense SDK in post processing. This would provide insight into the optimal filter settings across the different heights.
+
+%Then subsequently, a full scan of each shape was taken, at rotations \(-45\degree\) to \(90\degree\) at \(45\degree\) increments, and tilts from \(-25\degree\) to \(25\degree\) at \(5\degree\) increments. This would allow for analysis of reconstruction performance across different combinations of tilt and rotation fusion in post processing.
+
+
+%\section{Considerations???}
+
+The aim of the overarching project is to produce high-accuracy reconstructions of intertidal sediment from which surface roughness metrics can be extracted. The accuracy of those metrics is limited by the depth data they are computed from, so the Intel RealSense D456 was characterised before the capture and processing pipeline was finalised. The characterisation answers four practical questions about how the camera and rig should be operated in situ: at what working distance, at what viewing angle, under what ambient lighting, and with which depth-stream and filter settings the camera produces the most accurate surface.
+
+The characterisation was performed in two stages. In the first stage the camera was tested against flat planar targets. A plane has an exact, easily measured ground truth, which allows the effect of working distance, tilt angle and ambient light to be isolated from the effect of surface shape. These tests give a baseline for sensor noise and provide the operating envelope used in the second stage. In the second stage the camera was tested against 3D-printed reference objects with known geometry (see \hyperref[Apendix:Reference_Objects]{Appendix \ref*{Apendix:Reference_Objects}}.) These tests identify the camera configuration, post-processing filter settings and combination of viewing directions that give the best reconstruction, using surface relief that is representative of the sediment of interest. Each characterisation below is presented with its method, results and a short discussion.
+
+%=====================================================================
 \section{Plane Surface Characterisation}
+\label{sec5.1:plane}
+%=====================================================================
+\subsection{Capture procedure and metrics}
 
-As mentioned earlier, the first set of characterisation was performed against planar targets. with the use of metrics provided by the RealSense SDK. The first set of testing involved characterising the camera at different axial distances to the surface.
+All planar characterisation used custom C++ software built on the Intel RealSense SDK, following the plane-fit metrics of Intel's Depth Quality Tool. Details of each trial including: distance, tilt angle and a lux reading, are entered into the tool and the scan is started, after which approximately 600 frames are recorded. A region of interest (ROI) is then applied whose pixel size is adjusted with distance so that it always covers a fixed 50\,$\times$\,50\,cm area of the target. A plane is fitted to the ROI points of every frame and compared with the ground-truth plane. Frames flagged as repeated or as outliers were discarded, leaving roughly 400 to 600 valid frames per trial\todo{confirm the same frame rejection was applied in all three sweeps}. Several metrics are reported by the tool, however there are four main metrics that will be discussed here to represent the general performance, each averaged over the valid frames of a trial:
 
-The depth quality tool provided by Intel recommends performing analysis against a plane, white, featureless wall. This results in the camera relying on its own IR laser projection for measuring depth. For all planar characterisation, custom c++ code was written to use the RealSense SDK provided by Intel. The custom code would allow the user to enter details about the scan, such as distance, angles, light intensity, and would capture 120 frames. The code would then set a dynamic region of interest (ROI) that would remain constant at a user set dimension of 50x50cm. The code would then make use of the SDK provided tools for fitting a plane to the scanned surface, and measuring the absolute depth error based on the ground truth, and provide a measure of RMSE of points across the plane surface.
+\begin{itemize}
+	\item \textbf{Plane-fit RMS} (mm): the root-mean-square distance of the ROI points from the best-fit plane. This measures spatial noise and is independent of any constant offset in the depth.
+	\item \textbf{Median depth error} (mm): the median signed difference between the measured and ground-truth depth, which measures systematic bias.
+	\item \textbf{Fill rate} (\%): the proportion of ROI pixels that returned a valid depth value.
+	%\item \textbf{Plane-fit angle} (\degree): the tilt of the fitted plane, used to confirm the actual camera orientation.
+	\item \textbf{Plane Distance Error} (mm): Error between perpendicular distance from camera to the fitted plane, and the ground truth.\todo{is this a good metric?}
+\end{itemize}
 
-For depth characterisation, the Intel RealSense D456 was mounted to a tripod, and pointed at a white wall. This was done instead of using the hardware rig since the mounting brackets failed to keep the camera parallel to the floor. The mount would result in the camera's angle to the ground varying between heights, and the angle would consistently remain above 1.5 degrees. This angle offset and variation would pollute the results of the distance sweep, and thus a vertical scan against a white wall was used. The camera was moved across a range of distance from 600mm to 900mm, and the camera to plane angle was manually minimised at each distance.
+The distinction between precision and bias matters for this project. A smooth, systematic bias is removed when the fused surface is detrended to extract microtopography, whereas random noise adds directly to the measured roughness. Plane-fit RMS and fill rate are therefore treated as the primary metric, with depth error and Plane Distance Error treated as secondary indicators. Each condition was recorded as a single trial. The frames within a trial capture temporal variation but not the repeatability of re-setting the experiment, which is discussed in \autoref{sec5.3:chapsummary}.
 
-For angle characterisation, the camera was mounted to the experimental rig and angles ranging from \(-25\degree\) to \(+25\degree\) at \(2\degree\) intervals were taken. The experimental rig was used as this would allow for easy control of the camera angle using the servo motor built into the mount. A large flat white foam board was placed on the floor, and was continuously adjusted to remain in the centre of the cameras field of view (FOV) across different angles. The camera was set to a fixed height, and the same custom depth quality code was used to scan the flat surface at different heights. The camera was rotated about two axes independently, one parallel to the axis going through the IR stereo camera pair which will be called the pitch axis, and the second axis running perpendicular to both the pitch and axial axis, this will be called the roll axis. At each angle, the vertical z distance from the left IR camera lens to the floor panel was measured, using this measurement and the measured angle, the code would determine the axial distance from the optical origin to the centre of the plane, and use this as the ground truth for the plane fit.
+%---------------------------------------------------------------------
+\subsection{Planar Characterisation Methodology}
 
-For light intensity measurement, scans of the same foam board was taken under a variety of lighting conditions. Most of the experimental testing occurred indoors during the afternoon. with a range from open blinds and lights on to the night with no lights and blinds closed. Additional testing occurred at mid day in direct sunlight and shaded sunlight to obtain extremities of lighting conditions. The cameras exposure was left to automatic, and the same code was used to measure error statistics across the planar fit.
+\subsubsection{Working distance}
+%\label{sec5.2:distance}
 
-These characterisations would provide a preliminary understanding of the general performance across different hardware and environmental conditions, and would be used to inform decisions made for later characterisation.
+The camera was mounted on a tripod and pointed at a white, featureless wall, as recommended by Intel for depth-quality testing. This forces the camera to depend on its own projected infrared pattern. The tripod was used instead of the experimental rig because the rig's mounting brackets could not hold the camera sufficiently parallel to the floor: the camera angle varied with every scan and consistently exceeded 1.5\degree, which would have contaminated a distance sweep. The camera was positioned at eight distances between 604\,mm and 903\,mm, and the angle between the camera and the wall was minimised by hand at each position. The fitted-plane angle confirmed that the residual pitch and roll stayed below 0.5\degree in all trials. The ground-truth distance was measured between the wall and the cameras glass front using a tape measure.
 
+\todo{Maybe talk more about methodology?}
+
+%---------------------------------------------------------------------
+\subsubsection{Camera tilt}
+%label{sec5.3:tilt}
+
+The camera was mounted on the experimental rig so that its angle could be set with the tilt servo. A large flat white foam board was placed on the floor and re-centred in the field of view (FOV) after each change of angle. Two rotations were tested independently. The pitch axis is parallel to the line through the two IR imagers, and the roll axis is perpendicular to both the pitch axis and the optical axis. The angle was changed in steps of approximately 2\degree, covering pitch angles from $-27$\degree\ to $-2$\degree\ and roll angles from $+3$\degree\ to $+25$\degree\ for 26 trials in total\todo{confirm that the opposite signs were not recorded, or add them}. The camera mount height was kept fixed. For each trial the vertical height of the left IR imager, the centre of the resulting depth image, above the board was measured, and the axial ground-truth distance was calculated from that height and the tilt angle. This axial distance varied between 657\,mm and 743\,mm over the sweep. The angle of the fitted plane agreed with the set angle to within 1\degree\ in every trial (mean 0.4\degree), which verifies the angle settings.
+
+\todo{Maybe talk more about methodology?}
+
+%---------------------------------------------------------------------
+\subsubsection{Ambient lighting}
+%\label{sec:lighting}
+
+The same foam board was scanned at a camera height of approximately 900\,,m under a range of lighting conditions, with the camera exposure left on automatic. Indoor conditions ranged from a dark room in the evening (blinds closed, lights off) to an afternoon room with the blinds open and the lights on. Outdoor trials were performed around midday in shade, in shade within direct sunlight, and in direct sunlight.
+The outdoor trials were taken twice per condition, one with the foam board, and one without the foam board. This was done as the effects of the high ambient light resulted in exposure settings that were unable to detect the cameras built in projected pattern, and thus the featureless white surface lost detection. The brick flooring was able to be detected in this condition, thus the results for the outdoor trials provide relational performance compare to the rest of the trials.
+%To separate the effect of illumination from the effect of the white target, the outdoor trials were repeated on the ground surface without the board\todo{state what this surface was. 
+Illuminance was read with a smartphone running the Physics Toolbox Suite application, which uses the front camera as a lux meter. Such readings are uncalibrated and are used here to indicate the order of magnitude and ranking of conditions, not precise values. The lux was recorded as 0 in the darkest condition and 24\,400 in full sun.
+
+\todo{Maybe talk more about methodology?}
+
+%=====================================================================
+\subsection{Planar testing Results}
+
+\subsubsection{Working Distance}
+
+Results from this characterisation are shown in \autoref{tab:distance} \todo{get statistical results for these measurements}. These are then plotted in \todo{reference plots}
+%Table~\ref{tab:distance} gives the results. Plane-fit RMS increased from 1.22\,mm at 604\,mm to 4.58\,mm at 903\,mm, a 3.7-fold increase for a 1.5-fold increase in distance. Relative to distance it rose from 0.20\% to 0.50\%. The fill rate fell from 99.6\% to 96.5\%. The median depth error was positive in every trial, between 4.7\,mm and 8.0\,mm, which corresponds to 0.74\% to 0.97\% of the distance with no clear trend.
+
+\begin{table}[ht]
+	\centering
+	\small
+	\setlength{\tabcolsep}{8pt}
+	\caption{Planar characterisation against a white wall at different working distances (one trial per distance; values averaged over the valid frames).}
+	\label{tab:distance}
+	\begin{tabular}{r *{5}{c}}
+		\toprule
+		\makecell{Distance\\(mm)} &
+		\makecell{Plane-fit\\RMS (mm)} &
+		\makecell{RMS\\(\% of dist.)} &
+		\makecell{Median depth\\error (mm)} &
+		\makecell{Fill rate\\(\%)} &
+		\makecell{Plane dist.\\error (mm)} \\
+		\midrule
+		604 & 1.22 & 0.20 & 4.7 & 99.6 & 1 \\
+		628 & 1.29 & 0.20 & 4.7 & 99.5 & 1 \\
+		667 & 1.56 & 0.23 & 6.4 & 99.5 & 3 \\
+		723 & 2.64 & 0.36 & 5.5 & 97.7 & 4 \\
+		760 & 2.81 & 0.37 & 6.0 & 97.7 & 5 \\
+		821 & 3.27 & 0.39 & 7.7 & 97.3 & 6 \\
+		880 & 4.06 & 0.46 & 7.2 & 96.9 & 7 \\
+		903 & 4.58 & 0.50 & 8.0 & 96.5 & 8 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\todo{Figure: plane-fit RMS and fill rate versus distance, with the power-law fit overlaid}
+
+%---------------------------------------------------------------------
+
+\subsubsection{Camera Tilt}
+\todo{Figure: plane-fit RMS versus tilt angle for pitch and roll, with the range-predicted curve overlaid} Plane-fit RMS was lowest near 0\degree\ (about 1.6\,mm) and rose to 2.30\,mm at $-27$\degree\ pitch and 2.12\,mm at $+25$\degree\ roll. The fill rate stayed between 98.4\% and 99.5\%. The median depth error varied between 5\,mm and 11\,mm without a clear dependence on angle. Trials at almost the same angle differed by up to 6\,mm (5.0\,mm at $-26.8$\degree\ against 10.7\,mm at $-27.3$\degree\ pitch).
+
+%---------------------------------------------------------------------
+
+\subsubsection{Ambient Lighting}
+
+The results are listed in Table~\ref{tab:lighting}. Indoors, plane-fit RMS increased with illumination from 1.80\,mm in darkness to 4.44\,mm at 151\,lux, and the fill rate fell from 99.9\% to 96.3\%. Adding artificial light increased the noise within both the evening session (1.80 to 2.84\,mm) and the afternoon session (2.73 to 3.44\,mm). Outdoors, the foam board in shade (388\,lux) returned only 86.5\% valid pixels and a plane-fit RMS of 6.00\,mm. In direct sunlight (2\,650 and 24\,400\,lux) no valid plane could be recovered, with fill rates of 3.7\% and 5.4\%. The ground surface without the board returned a 100\% fill rate in all three outdoor conditions, including direct sun at around 10\,000\,lux, with a plane-fit RMS of 1.1 to 1.2\,mm.
+
+\begin{table}[ht]
+	\centering
+	\caption{Planar characterisation under different lighting conditions at a height of approximately 0.9\,m. Lux values are indicative (smartphone sensor). A dash indicates that no valid plane fit was obtained.}
+	\label{tab:lighting}
+	\begin{tabular}{llcccc}
+		\hline
+		Surface & Condition & Lux & Fill rate (\%) & Plane-fit RMS (mm) & Median depth error (mm) \\
+		\hline
+		Indoor foam board & Evening, blinds closed, lights off & 0 & 99.9 & 1.80 & 4.9 \\
+		& Afternoon, blinds closed, lights off & 17 & 99.4 & 2.73 & 7.3 \\
+		& Evening, blinds closed, lights on & 65 & 99.3 & 2.84 & 5.2 \\
+		& Afternoon, blinds closed, lights on & 78 & 98.7 & 3.44 & 7.3 \\
+		& Afternoon, blinds open, lights off & 91 & 97.0 & 4.14 & 7.1 \\
+		& Afternoon, blinds open, lights on & 151 & 96.3 & 4.44 & 7.5 \\
+		\hline
+		Outdoor foam board & Shade & 388 & 86.5 & 6.00 & $-2.5$ \\
+		& Direct sun, under shade & 2\,650 & 3.7 & -- & -- \\
+		& Direct sun & 24\,400 & 5.4 & -- & -- \\
+		\hline
+		Outdoor, no board & Shade & 213 & 100 & 1.20 & 5.7 \\
+		& Direct sun & 9\,800 & 100 & 1.09 & 4.6 \\
+		& Direct sun, under shade & 10\,000 & 100 & 1.17 & 4.3 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+%=====================================================================
+
+\subsection{Discusion}
+
+\subsubsection{Working Distance}
+Stereo triangulation noise is expected to grow with the square of the range. A power-law fit to these data gives an exponent of approximately 3.3, which is steeper than expected. Part of the difference may come from the ambient light, which was not constant across the sweep. The auto-exposure value dropped from around 5300 for the three closest distances to between 1700 and 2050 for the remainder, and the largest step in noise (from 1.56\,mm to 2.64\,mm) coincides with this change. The trials were recorded in a different order to their distance (between about 15:40 and 17:35), so distance and ambient light are partly confounded. Even allowing for this, the trend is clear: noise grows rapidly with working distance, so the camera should be operated at the shortest distance that still frames the analysis region. The roughly constant relative depth error of about 0.8\% is consistent with a scale or ground-truth referencing offset rather than a distance-dependent effect. It does not affect the roughness metrics, but it would appear as a scale error in an absolute reconstruction, which the 3D reference tests in Section~\ref{sec:reference} quantify. 
+
+\subsubsection{Camera Tilt}
+
+Because the camera pivots, tilting it also increases the axial distance to the board. When the power law from the distance sweep is applied to the measured axial distance of each trial, the predicted plane-fit RMS matches the observed value to within about 7\% (for example 2.42\,mm predicted against 2.30\,mm observed at $-27.3$\degree, and 2.04\,mm against 2.12\,mm at $+25.3$\degree). The increase in noise with tilt over $\pm25$\degree\ can therefore be explained almost entirely by the longer range, and tilt itself does not appear to degrade the depth significantly. This is the result needed to justify multi-view scanning, since oblique views add information about occluded relief at little cost in noise. The scatter in depth error between neighbouring angles, which is larger than any trend, points to the repeatability of the experimental set-up (re-positioning the board and measuring its height) as the dominant source of uncertainty in this metric, and the depth-error values should be read with that in mind. A flat board cannot reveal the effects of foreshortening and self-occlusion on relief, which are examined with the 3D reference objects.
+
+\subsubsection{Ambient Lighting}
+
+Two conclusions follow. First, ambient light degrades the depth from active stereo even when the surface is well within the sensor's range, because the projected infrared pattern has to compete with the ambient light for contrast. Daylight appears more damaging per lux than artificial light (4.14\,mm at 91\,lux of daylight against 2.84\,mm at 65\,lux of artificial light), which is consistent with the greater near-infrared content of sunlight, so illuminance in lux is only a rough predictor of performance. Second, the surface matters as much as the illumination. The board failed at 2\,650\,lux, whereas the ground surface returned complete, low-noise data at 9\,800\,lux, so the failure cannot be attributed to the light level alone. A bright, featureless, highly reflective white surface is a worst case for stereo matching. The ground surface supplies natural texture, so the planar results on white targets should be read as pessimistic bounds on the noise expected on sediment. The outdoor tests did not include a matched pair of lux levels for the two surfaces, and wet or glossy sediment, which is more specular, was not tested. These results support retaining the shading tarp on the rig, which the Chapter~\ref{ch:system} design already includes, to limit the ambient infrared reaching the scan area\todo{check the label of the System Design chapter}.
 
 \section{3D Reference Characterisation}
-
-once the planar characterisation was performed, rigorous measurements were made using the reference objects mentioned earlier. A modified version of the main capture program was used to capture scans of the different reference objects under different software settings, and different hardware set-ups.
-
-Firstly, scans of the large sinusoidal surface, which will be called the large egg box shape, and large single pyramid were taken under fixed a fixed height and angle, but with ranging camera configurations were taken to determine the optimal configuration settings. These scans ranged from resolutions spanning from 1280x720 to 640x320, depth units ranging from 0.001m to 0.0001m, and across all pre-sets excluding hand.
-
-Next, the camera was configured to use a resolution of 1280x720, depth units of 0.0001mm and a high density preset. Then several scans were taken of the large egg box, and small eggbox were taken at different heights and angles.
-
-At each height, 5 stationary scans of each shape were taken without tilt or rotation. These would then be used to iterate through different combinations of filter settings provided by the RealSense SDK in post processing. This would provide insight into the optimal filter settings across the different heights.
-
-Then subsequently, a full scan of each shape was taken, at rotations \(-45\degree\) to \(90\degree\) at \(45\degree\) increments, and tilts from \(-25\degree\) to \(25\degree\) at \(5\degree\) increments. This would allow for analysis of reconstruction performance across different combinations of tilt and rotation fusion in post processing.
+\label{sec5.2:reference}
+%=====================================================================
+The planar tests establish the sensor's noise behaviour but not how accurately it reconstructs three-dimensional relief, which is affected by resolution, filtering, foreshortening and the fusion of several views. These effects were measured against reference objects with known geometry using a modified version of the main capture program, which records scans under controlled software settings and hardware set-ups.
 
 
-\section{Considerations???}
 
+\subsection{Reference objects and evaluation}
 
-bro idfk what to do
+Three 3D-printed reference objects were used (Appendix~\todo{ref}). Each has a 100\,$\times$\,100\,mm footprint. Two are sinusoidal ``egg carton'' surfaces of the form $z = \sin(x) + \sin(y)$ at a large scale (feature spacing 50\,mm) and a small scale (25\,mm), and the third is a square-based pyramid of 50\,mm height\todo{confirm the egg carton amplitude and wavelength against the CAD drawings}. The smooth sinusoidal surfaces approximate the mounds produced by sand prawns, whose heights of 3 to 5\,cm were reported in the literature review, and the small carton tests the lateral resolution of the camera. The pyramid has sharp edges and planar facets, which show whether the filters preserve geometric edges or smooth them.
+
+Scans were evaluated with the \texttt{evaluate\_scans} tool described in Chapter~\ref{ch:system}\todo{Section ref}. The tool rigidly aligns each scan to the reference .stl model, using feature-matching starts followed by point-to-plane ICP, and then computes point-to-surface distances. Scale is not estimated, so any scale error in the camera data appears as geometric error. The metrics used are RMSE, mean absolute error, bias and standard deviation of the point-to-surface distance, the completeness, precision and F-score at distance thresholds of 0.5, 1, 2 and 5\,mm, and the fraction of the reference surface covered. Every evaluation logs its parameters, reference hash and random seed, so all results can be reproduced and compared directly.
+
+\subsection{Testing Procedure}
+
+\subsubsection{Camera configuration}
+
+The first sweep fixed the height and tilt of the camera and scanned the large egg carton and the pyramid with different stream configurations. The resolution ranged from 1280\,$\times$\,720 to 640\,$\times$\,360 pixels, the depth units from 0.001\,m to 0.0001\,m, and all of the built-in visual presets were tested except the Hand preset, which is intended for gesture tracking. The depth unit sets the quantisation step of the 16-bit depth values, and the finest setting (0.1\,mm) still provides a maximum range of 6.5\,m, well beyond the working distance. \todo{Results table: RMSE, completeness and F-score for each resolution, depth unit and preset on both objects, plus one or two sentences of discussion}
+
+Based on this sweep, a resolution of 1280\,$\times$\,720, a depth unit of 0.0001\,m and the High Density preset were used for all later scans\todo{confirm that this was the outcome of the sweep}. These are the settings listed in Chapter~\ref{ch:system}.
+
+\subsubsection{Post-processing filters}
+
+With the configuration fixed, five stationary scans of each object were recorded at each of the tested heights, without tilt or rotation. The data were recorded to file so that the RealSense post-processing filters could be applied offline in many combinations to the same scans (Grunnet-Jepsen and Tong~\todo{cite}). The filters were decimation, spatial, temporal and hole-filling, and a sweep was made over their smoothing alpha, smoothing delta and magnitude parameters\todo{list the values or ranges tested for each filter}. Decimation reduces the resolution, the spatial filter performs edge-preserving smoothing, the temporal filter averages depth across frames, and hole filling interpolates invalid pixels. Each combination was evaluated against the reference, and the process was repeated at each height to determine whether the best filter settings depend on the working distance. \todo{Results: best-performing settings per height and object, and the trade-off between noise reduction and loss of fine relief or edges}
+
+\subsubsection{Tilt and rotation}
+
+Finally, a full scan of each object was recorded at rotations of $-45$\degree, 0\degree, $45$\degree\ and $90$\degree\ and at tilts from $-25$\degree\ to $+25$\degree\ in steps of 5\degree. This gives 44 views of each object. Offline, these views were aligned and fused by the pipeline in Chapter~\ref{ch:pipeline}. For each view, several coarse alignment hypotheses are generated (from the IMU orientation, the detected AprilTag positions, the known rotation and tilt settings, and RANSAC matching of FPFH features) and scored. The best hypothesis is refined with ICP and the aligned scans are merged\todo{expand once the fusion method is finalised}. Subsets of the views were fused and each fusion was evaluated against the reference, which shows how the reconstruction accuracy depends on the number of views and on the combination of tilt and rotation. \todo{Results: accuracy and coverage versus the views included, and the recommended tilt and rotation set}
+
+\subsection{3D Characterisation Results}
+
+\subsubsection{Camera Configuration}
+
+\subsubsection{Filters}
+
+\subsubsection{Tilt and Rotation}
+
+%=====================================================================
+\section{Chapter Summary}
+\label{sec5.3:chapsummary}
+%=====================================================================
+This chapter characterised the Intel RealSense D456 in two stages. The planar tests showed that depth noise grows rapidly with distance (from 1.2\,mm at 604\,mm to 4.6\,mm at 903\,mm), so the working distance should be as short as the analysis region allows. Tilts of up to about $\pm25$\degree\ add little noise beyond that caused by the increased range, which supports a multi-view strategy. Ambient light increases noise, and the white foam board failed in direct sun while a textured ground surface did not, so the tarp shading and the textured nature of sediment are both important. The 3D reference tests then fix the stream configuration, filter settings and view combinations used in the remainder of the project.
+
+The results have limitations that affect how they should be used. Each condition was recorded once, so the effect of re-setting the experiment is not quantified, and the scatter in depth error between neighbouring tilt angles suggests that it is significant. The distance sweep was not recorded in order of distance and the lighting changed between sessions, so distance and ambient light are partly confounded. The lux values come from an uncalibrated smartphone sensor. The distance sweep was performed with a tripod because the rig brackets could not hold the camera level, and the white featureless planar targets are likely to overstate the noise expected on textured sediment. Wet and specular sediment has not yet been tested. These points are taken up in Chapter~\ref{ch:further}\todo{ref to Further work}.
 
 %*********************************************************************

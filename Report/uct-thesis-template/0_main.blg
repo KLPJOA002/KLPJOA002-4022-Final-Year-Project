@@ -20,6 +20,7 @@ A level-1 auxiliary file: 7_discussion.aux
 A level-1 auxiliary file: 8_conclusions.aux
 A level-1 auxiliary file: 9_furtherwork.aux
 A level-1 auxiliary file: A_gitrepo.aux
+A level-1 auxiliary file: Appendix.aux
 A level-1 auxiliary file: B_ethics.aux
 A level-1 auxiliary file: C_topicdescription.aux
 A level-1 auxiliary file: D_ECSA.aux
@@ -30,7 +31,6 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: 4022.bib
-Warning--I didn't find a database entry for "olson2011apriltag"
 Warning--I didn't find a database entry for "rusu2009fpfh"
 Warning--I didn't find a database entry for "fischler1981ransac"
 Warning--I didn't find a database entry for "besl1992icp"
@@ -41,7 +41,7 @@ Warning--I didn't find a database entry for "besl1992icp"
 Done.
 You've used 12 entries,
             4087 wiz_defined-function locations,
-            930 strings with 11372 characters,
+            930 strings with 11367 characters,
 and the built_in function-call counts, 10414 in all, are:
 = -- 819
 > -- 292
@@ -80,4 +80,4 @@ warning$ -- 0
 while$ -- 46
 width$ -- 14
 write$ -- 137
-(There were 4 warnings)
+(There were 3 warnings)
