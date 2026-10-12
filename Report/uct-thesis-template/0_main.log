@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.27)  9 OCT 2026 18:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.27)  12 OCT 2026 21:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2081,18 +2081,126 @@ LaTeX Warning: Reference `ch:further' on page 16 undefined on input line 227.
 
  (./6_ch6.tex
 Chapter 6.
-) [17
+
+LaTeX Warning: Reference `ch:Capture' on page 17 undefined on input line 8.
+
+
+LaTeX Warning: Reference `fig:pipeline_overview' on page 17 undefined on input 
+line 24.
+
+
+LaTeX Warning: Reference `sec:crop' on page 17 undefined on input line 27.
+
+
+LaTeX Warning: Reference `sec:fuse' on page 17 undefined on input line 29.
+
+
+LaTeX Warning: Reference `sec:rugosity' on page 17 undefined on input line 32.
+
+
+LaTeX Warning: Reference `sec:features' on page 17 undefined on input line 35.
+
+
+Package natbib Warning: Citation `zhou2018open3d' on page 17 undefined on input
+ line 42.
+
+
+Package natbib Warning: Citation `rusu2011pcl' on page 17 undefined on input li
+ne 45.
+
+
+LaTeX Warning: Reference `ch:Results' on page 17 undefined on input line 49.
+
+[17
 
 
 
 
 
-]
+] [18]
+
+Package natbib Warning: Citation `fischler1981ransac' on page 19 undefined on i
+nput line 207.
+
+[19]
+
+LaTeX Warning: Reference `sec:coarse' on page 20 undefined on input line 255.
+
+[20] [21]
+
+LaTeX Warning: Reference `sec:initial_pose' on page 22 undefined on input line 
+394.
+
+
+Package natbib Warning: Citation `umeyama1991' on page 22 undefined on input li
+ne 399.
+
+
+Package natbib Warning: Citation `rusu2009fpfh' on page 22 undefined on input l
+ine 412.
+
+
+Package natbib Warning: Citation `buch2013prerejective' on page 22 undefined on
+ input line 414.
+
+
+Package natbib Warning: Citation `besl1992icp' on page 22 undefined on input li
+ne 450.
+
+
+Package natbib Warning: Citation `chen1992pointtoplane' on page 22 undefined on
+ input line 454.
+
+
+Package natbib Warning: Citation `low2004pointtoplane' on page 22 undefined on 
+input line 472.
+
+[22]
+
+Package natbib Warning: Citation `levin1998mls' on page 23 undefined on input l
+ine 552.
+
+
+Package natbib Warning: Citation `alexa2003pointset' on page 23 undefined on in
+put line 552.
+
+
+LaTeX Warning: Reference `sec:rugosity' on page 23 undefined on input line 560.
+
+
+[23]
+
+Package natbib Warning: Citation `iso25178-2' on page 24 undefined on input lin
+e 593.
+
+[24]
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
+(Font)              scaled to size 8.0pt on input line 704.
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
+(Font)              scaled to size 6.0pt on input line 704.
+ [25]
+
+Package natbib Warning: Citation `persson2005roughness' on page 26 undefined on
+ input line 745.
+
+
+Package natbib Warning: Citation `riley1999tri' on page 26 undefined on input l
+ine 767.
+
+
+Package natbib Warning: Citation `sappington2007vrm' on page 26 undefined on in
+put line 768.
+
+[26]
+
+LaTeX Warning: Reference `ch:Results' on page 27 undefined on input line 794.
+
+) [27]
 \openout2 = `7_ch7.aux'.
 
  (./7_ch7.tex
 Chapter 7.
-) [18
+) [28
 
 
 
@@ -2103,7 +2211,7 @@ Chapter 7.
 
  (./6_results.tex
 Chapter 8.
-) [19
+) [29
 
 
 
@@ -2114,7 +2222,7 @@ Chapter 8.
 
  (./7_discussion.tex
 Chapter 9.
-) [20
+) [30
 
 
 
@@ -2125,7 +2233,7 @@ Chapter 9.
 
  (./8_conclusions.tex
 Chapter 10.
-) [21
+) [31
 
 
 
@@ -2136,7 +2244,7 @@ Chapter 10.
 
  (./9_furtherwork.tex
 Chapter 11.
-) [22
+) [32
 
 
 
@@ -2147,7 +2255,7 @@ Chapter 11.
 
  (./A_gitrepo.tex
 Appendix A.
-) [23
+) [33
 
 
 
@@ -2158,32 +2266,32 @@ Appendix A.
 
  (./Appendix.tex
 Appendix B.
-<figs/Apendix/EGG_1PK.png, id=697, 465.74pt x 366.36874pt>
+<figs/Apendix/EGG_1PK.png, id=796, 465.74pt x 366.36874pt>
 File: figs/Apendix/EGG_1PK.png Graphic file (type png)
 <use figs/Apendix/EGG_1PK.png>
 Package pdftex.def Info: figs/Apendix/EGG_1PK.png  used on input line 12.
 (pdftex.def)             Requested size: 307.2929pt x 241.73703pt.
-<figs/Apendix/EGG_2PKS.png, id=698, 419.5675pt x 327.72438pt>
+<figs/Apendix/EGG_2PKS.png, id=797, 419.5675pt x 327.72438pt>
 File: figs/Apendix/EGG_2PKS.png Graphic file (type png)
 <use figs/Apendix/EGG_2PKS.png>
 Package pdftex.def Info: figs/Apendix/EGG_2PKS.png  used on input line 19.
 (pdftex.def)             Requested size: 307.2929pt x 240.0269pt.
-<figs/Apendix/PYRAMID_1.png, id=699, 462.72874pt x 369.38pt>
+<figs/Apendix/PYRAMID_1.png, id=798, 462.72874pt x 369.38pt>
 File: figs/Apendix/PYRAMID_1.png Graphic file (type png)
 <use figs/Apendix/PYRAMID_1.png>
 Package pdftex.def Info: figs/Apendix/PYRAMID_1.png  used on input line 26.
 (pdftex.def)             Requested size: 307.2929pt x 245.30206pt.
-[24
+[34
 
 
 
 
 
- <./figs/Apendix/EGG_1PK.PNG> <./figs/Apendix/EGG_2PKS.PNG>]) [25 <./figs/Apend
+ <./figs/Apendix/EGG_1PK.PNG> <./figs/Apendix/EGG_2PKS.PNG>]) [35 <./figs/Apend
 ix/PYRAMID_1.PNG>]
 \openout2 = `B_ethics.aux'.
 
- (./B_ethics.tex) [26
+ (./B_ethics.tex) [36
 
 
 
@@ -2192,7 +2300,7 @@ ix/PYRAMID_1.PNG>]
 ]
 \openout2 = `C_topicdescription.aux'.
 
- (./C_topicdescription.tex) [27
+ (./C_topicdescription.tex) [37
 
 
 
@@ -2207,7 +2315,7 @@ ix/PYRAMID_1.PNG>]
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 11.
 
-) [28
+) [38
 
 
 
@@ -2230,7 +2338,7 @@ ls/842031/depth-post-processing-for-intel-realsense-d400-depth-
 
 Package natbib Warning: There were undefined citations.
 
-[29
+[39
 
 
 
@@ -2254,33 +2362,73 @@ L3 programming layer <2026-03-20>
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `0_main.out' has not changed.
-(rerunfilecheck)             Checksum: 59B3DED89302B805EF887A63A8F01A8B;13713.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `0_main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `0_main.out':
+(rerunfilecheck)             Before: 59B3DED89302B805EF887A63A8F01A8B;13713
+(rerunfilecheck)             After:  7D20A836D4D32981609A8D487B067603;17795.
  ) 
 Here is how much of TeX's memory you used:
- 40494 strings out of 467363
- 791127 string characters out of 5419001
+ 40582 strings out of 467363
+ 792292 string characters out of 5419001
  1366284 words of memory out of 6000000
- 68482 multiletter control sequences out of 15000+600000
- 776010 words of font info for 128 fonts, out of 8000000 for 9000
+ 68498 multiletter control sequences out of 15000+600000
+ 786212 words of font info for 131 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,17n,131p,2474b,772s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</app/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Bold.pfb></
-app/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-BoldItalic.pfb>
-</app/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Italic.pfb></
-app/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Regular.pfb></a
-pp/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></app/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></app/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr10.pfb></app/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr7.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr8.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-</app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></app/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></app/texlive/texmf-dist/f
-onts/type1/public/cm-super/sftt1000.pfb>
-Output written on 0_main.pdf (39 pages, 1209838 bytes).
+
+pdfTeX warning (dest): name{figure.caption.33} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{figure.caption.32} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix*.38} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section*.37} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix*.36} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix*.35} has been referenced but does not exis
+t, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{appendix*.34} has been referenced but does not exis
+t, replaced by a fixed one
+
+</app/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Bold.pfb></ap
+p/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-BoldItalic.pfb></
+app/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Italic.pfb></ap
+p/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Regular.pfb></app
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></app/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></app/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi10.pfb></app/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi8.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmib10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></app/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></app/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb></app/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy7.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb></app/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb
+>
+Output written on 0_main.pdf (49 pages, 1298391 bytes).
 PDF statistics:
- 833 PDF objects out of 1000 (max. 8388607)
- 737 compressed objects within 8 object streams
- 180 named destinations out of 1000 (max. 500000)
+ 968 PDF objects out of 1000 (max. 8388607)
+ 855 compressed objects within 9 object streams
+ 251 named destinations out of 1000 (max. 500000)
  709 words of extra memory for PDF output out of 10000 (max. 10000000)
 
