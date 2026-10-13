@@ -5,455 +5,189 @@
 \label{ch:Pipeline}
 %---------------------------------------------------------------------
 
-The capture stage (Chapter~\ref{ch:Capture}) \todo{check label} produces one
-\emph{session} per experiment. A session is a set of roughly 28 \emph{scans}
-of the same patch of sediment, one per combination of mount rotation and
-tilt. Each scan stores the single best depth frame as a coloured point
-cloud (\texttt{.ply}), together with the AprilTag detections for the whole
-recording (\texttt{*\_detections.csv}), the IMU sample taken with the best
-frame (\texttt{imu\_a<tilt>.csv}), the full recording (\texttt{.db3}) and a
-text dump of the camera configuration (\texttt{scan\_info.txt}).
+The capture stage (\autoref{ch:design}) produces one session per experiment. A session contains multiple individual scans of the same patch of sediment, one per combination of mount rotation and tilt. Each scan stores the single best depth frame as a coloured point cloud (\texttt{.ply}), together with the AprilTag detections for the whole recording, the IMU sample taken with the best frame, the full recording and a text dump of the camera configuration.
 
-A single scan is not a good measurement of the surface by itself. It
-contains the rig, the tags and everything else in the camera's wide field of
-view. It is noisy, particularly where the surface is seen at a grazing
-angle. It also has holes wherever relief hides part of the surface from that
-viewpoint. The processing pipeline turns a session of such scans into a
-single, clean reconstruction of the region of interest and then into
-numbers that describe its roughness. It has four stages
-(Figure~\ref{fig:pipeline_overview}):
+A single scan of the surface contains several factors that result in lower quality reconstructions. It contains the rig and regions outside of the frames bound due to the wide field of view of the camera. It is noisy, particularly where the surface is seen at a grazing angle. It also has holes wherever relief hides part of the surface from that viewpoint. The processing pipeline turns a session of multiple of such scans into a single, clean reconstruction of the region of interest and then into numbers that describe its roughness. There are four main stage in the data processing pipeline.
 
 \begin{enumerate}
-	\item \textbf{Cropping} (Section~\ref{sec:crop}) cuts every scan down
-	to the square of sediment bounded by the four corner AprilTags.
-	\item \textbf{Fusion} (Section~\ref{sec:fuse}) registers the cropped
-	scans into one common coordinate frame and merges their overlapping
-	regions into a single, lower-noise surface with fewer holes.
-	\item \textbf{Roughness estimation} (Section~\ref{sec:rugosity}) levels
-	and detrends the fused surface and computes standardised surface-texture
-	parameters, including rugosity.
-	\item \textbf{Feature detection} (Section~\ref{sec:features}) locates
-	and counts discrete features such as sandprawn burrow openings.
+	\item \textbf{Cropping} (Section~\ref{sec:crop}) cuts every scan down to the square of sediment bounded by the four corner AprilTags.
+	\item \textbf{Fusion} (Section~\ref{sec:fuse}) registers the cropped scans into one common coordinate frame and merges their overlapping regions into a single, lower-noise surface with fewer holes.
+	\item \textbf{Roughness estimation} (Section~\ref{sec:rugosity}) levels and detrends the fused surface and computes standardised surface-texture parameters, including rugosity.
+	\item \textbf{Feature detection} (Section~\ref{sec:features}) locates and counts discrete features such as sandprawn burrow openings.
 \end{enumerate}
 
-Each stage is a separate program that reads the previous stage's output
-files, so any stage can be rerun or inspected on its own. The language of
-each program was chosen for its workload. Cropping is mostly bookkeeping
-and image geometry, so it is written in Python with Open3D~\cite{zhou2018open3d}
-and NumPy. Fusion runs nearest-neighbour searches, feature matching and
-iterative registration on millions of points, so it is written in C++
-with the Point Cloud Library (PCL)~\cite{rusu2011pcl}. The roughness metrics are
-array operations on a regular grid and are written in Python with NumPy and
-SciPy. A small Python script (\texttt{bulk\_process.py}) chains cropping
-and fusion over many sessions without user interaction, which is how the
-experimental data sets in Chapter~\ref{ch:Results} \todo{check label} were
-processed.
+Each stage is a separate program that reads the previous stage's output files, so any stage can be rerun or inspected on its own. The language of each program was chosen for its workload. Cropping is mostly bookkeeping and image geometry, so it is written in Python with Open3D and NumPy. Fusion runs nearest-neighbour searches, feature matching and iterative registration on millions of points, so it is written in C++ with the Point Cloud Library. The roughness metrics are array operations on a regular grid and are written in Python with NumPy and SciPy. A small Python script (\texttt{bulk\_process.py}) chains cropping and fusion over many sessions without user interaction.
 
-\begin{figure}[htbp]
-	\centering
-	\todo[inline]{Figure: block diagram. Capture outputs (PLY, detections.csv,
-		IMU, .db3, scan\_info.txt) $\rightarrow$ crop\_pointclouds.py (cropped PLY +
-		tag sidecar) $\rightarrow$ fuse\_scans (one fused PLY per session)
-		$\rightarrow$ roughness\_scans.py (metrics.json, CSV, height maps)
-		$\rightarrow$ feature detection.}
-	\caption{Overview of the data processing pipeline and the files passed
-		between stages.}
-	\label{fig:pipeline_overview}
-\end{figure}
+
+%\begin{figure}[htbp]
+%	\centering
+%	\todo[inline]{Figure: block diagram. Capture outputs (PLY, detections.csv,
+%		IMU, .db3, scan\_info.txt) $\rightarrow$ crop\_pointclouds.py (cropped PLY +
+%		tag sidecar) $\rightarrow$ fuse\_scans (one fused PLY per session)
+%		$\rightarrow$ roughness\_scans.py (metrics.json, CSV, height maps)
+%		$\rightarrow$ feature detection.}
+%	\caption{Overview of the data processing pipeline and the files passed
+%		between stages.}
+%	\label{fig:pipeline_overview}
+%\end{figure}
 
 %---------------------------------------------------------------------
 \section{Point Cloud Cropping}
 \label{sec:crop}
 %---------------------------------------------------------------------
 
-\subsection{Why the scans are cropped}
+\subsection{Too Much Depth}
 
-The raw point clouds have three problems that make them unsuitable for
-direct use.
+The raw point clouds have three problems that make them unsuitable for direct use.
 
 \begin{enumerate}
-	\item \textbf{The field of view is larger than the region of interest.}
-	The Intel RealSense D456 has a wide field of view, so even with the
-	camera pointed straight down it records depth well outside the patch of
-	sediment inside the experimental rig.
-	\item \textbf{The view changes with every scan.} Because the camera is
-	carried on a rotating and tilting mount, tilted scans look past the edge
-	of the rig and often capture the rig frame itself. These points do not
-	belong to the surface and would corrupt both registration and the
-	roughness statistics.
-	\item \textbf{Large scans are expensive and overlap poorly.} Fusion
-	compares every scan with every other scan already placed. Points outside
-	the shared region add computation without adding information. Worse,
-	regions that only one scan sees can pull a registration towards a wrong
-	answer.
+	\item \textbf{The field of view is larger than the region of interest.} The Intel RealSense D456 has a wide field of view, so even with the camera pointed straight down it records depth well outside the patch of sediment inside the experimental rig.
+	\item \textbf{The view changes with every scan.} Because the camera is carried on a rotating and tilting mount, tilted scans look past the edge of the rig and often capture the rig frame itself. These points do not belong to the surface and would corrupt both registration and the roughness statistics.
+	\item \textbf{Large scans are expensive and overlap poorly.} Fusion compares every scan with every other scan already placed. Points outside the shared region add computation without adding information.
 \end{enumerate}
 
-The cropping step therefore reduces every scan to the same physical
-region: the square on the sediment bed whose corners are marked by four
-AprilTags. Because the tags are fixed in the world, this region is the same
-in every scan regardless of how the camera was rotated or tilted. This gives
-fusion a consistent, well-overlapping input. The step is implemented in
-\texttt{crop\_pointclouds.py}, which processes an entire session at once. It
-crops automatically wherever it can and falls back to a manual crop when it
-cannot.
+The cropping step therefore reduces every scan to the same physical region: the square on the sediment bed whose corners are marked by four AprilTags. Because the tags are fixed in the world, this region is the same in every scan regardless of how the camera was rotated or tilted. This gives fusion a consistent, well-overlapping input. The step is implemented in \texttt{crop\_pointclouds.py}, which processes an entire session at once. It crops automatically wherever it can and falls back to a manual crop when it cannot.
 
 \subsection{Finding the tags in each scan}
 
-AprilTag detection is performed during capture on the colour image, and
-every detection is written to \texttt{*\_detections.csv} together with the
-frame number, the tag ID and the pixel coordinates of the tag's centre and
-four corners. Squares that look like tags but whose ID could not be decoded
-are also logged, with an ID of $-1$.
+AprilTag detection is performed during capture on the colour image, and every detection is written to a \texttt{.csv} file together with the frame number, the tag ID and the pixel coordinates of the tag's centre and four corners. Squares that look like tags but whose ID could not be decoded are also logged, with an ID of $-1$.
 
-The point cloud of a scan comes from one particular frame of the
-recording. The cropper reads that frame number from the scan's IMU file,
-which was written at the same moment as the point cloud. It then collects
-the detections from that frame. A tag that flickered out of the exported
-frame is taken from the nearest frame within $\pm 15$ frames in which it
-was detected. This is valid because the camera is stationary for the whole
-of a scan, so a tag's position in the image does not change between nearby
-frames. Decoded tags are always preferred. Undecoded squares are used only
-to fill a corner that no decoded tag covers, and only when they lie close
-to where the missing tag is expected.
+The point cloud of a scan comes from one particular frame of the recording. The cropper reads that frame number from the scan's IMU file, which was written at the same moment as the point cloud. It then collects the detections from that frame, however tag detections are accepted from $\pm 15$ frames around the best frame, since each scan is taken from a static position. This allows for some redundancy against frames where detections momentarily failed. Decoded tags are always preferred, for region identification, however undecoded squares are used to fill corners where no identified tags are visible, and only when they lie close to where the missing tag is expected.
 
 \subsection{Learning the tag layout of a session}
 
-The four tags will not be found in every scan. Glare, shadow or a steep
-tilt often hide one or two of them. To crop such scans anyway, the program
-first learns the layout of the tags from the scans in the session where all
-four were detected. From those frames it records:
+Not every tag will be detected, or visible in each scan wi thin a session. Glare, shadow or a steep tilt often hide tags. Therefore, in order to maintain the ability to automatically crop each scan to the correct region, the program first learns the layout of the tags from the scans in the session where all four were detected. From those frames it records:
 
 \begin{itemize}
-	\item the order in which the four tag IDs appear going around the
-	square, which says which tags share a side and which are diagonal;
+	\item the order in which the four tag IDs appear going around the square, which says which tags share a side and which are diagonal;
 	\item the ratio of the square's side length to a tag's side length;
-	\item the aspect ratio of the square, i.e.\ how each side compares to its
-	neighbours.
+	\item the aspect ratio of the square, i.e.\ how each side compares to its neighbours.
 \end{itemize}
 
-The median of each quantity over all four-tag frames is used, which makes
-the layout robust to a few poor detections. With this layout, missing
-corners can be predicted from the tags that were seen. With three tags,
-the fourth is placed to complete a parallelogram,
-$\mathbf{p}_4 = \mathbf{p}_1 + \mathbf{p}_3 - \mathbf{p}_2$. With two tags
-on the same side, the square is completed by stepping perpendicular to that
-side by the learned aspect ratio. With two diagonal tags, the side vector
-is solved from the diagonal and the aspect ratio before stepping out in the
-same way.
+The median of each quantity over all four-tag frames is used, which makes the layout robust to a few poor detections. With this layout, missing corners can be predicted from the tags that were seen. With three tags, the fourth is placed to complete a parallelogram, $\mathbf{p}_4 = \mathbf{p}_1 + \mathbf{p}_3 - \mathbf{p}_2$. With two tags on the same side, the square is completed by stepping perpendicular to that side by the learned aspect ratio. With two diagonal tags, the side vector is solved from the diagonal and the aspect ratio before stepping out in the same way.
 
-The crop region is then defined by the \emph{inner} corner of each tag,
-i.e.\ the corner nearest the centre of the square. This places the crop
-boundary just inside the tags, so the tags themselves are removed along
+The crop region is then defined by the inner corner of each tag, i.e.\ the corner nearest the centre of the square region of sediment. This places the crop boundary just inside the tags, so the tags themselves are removed along
 with everything outside them.
 
 \subsection{Relating 3D points to image pixels}
 
-The tag positions are known in the 2D colour image, but the crop has to be
-applied to 3D points. The two are linked through the camera model. During
-capture the depth image is aligned to the colour image before the point
-cloud is exported, so every 3D point originates from one integer pixel of
-the colour image. The cropper reads the colour camera intrinsics (focal
-lengths $f_x, f_y$, principal point $(c_x, c_y)$ and distortion
-coefficients) directly from the scan's recording file and projects every
-point back into the image. A point $(X, Y, Z)$ in the camera frame maps to
+The tag positions are known in the 2D colour image, but the crop has to be applied to 3D points. The two are linked through the camera model. During capture the depth image is aligned to the colour image before the point cloud is exported, so every 3D point originates from one integer pixel of the colour image sensor. The cropper reads the colour camera intrinsics (focal lengths $f_x, f_y$, principal point $(c_x, c_y)$ and distortion coefficients) directly from the scan's recording file and projects every 3D point back into the RGB image plane. A 3D point $(X, Y, Z)$ in the camera frame maps to
 
 \begin{equation}
 	u = f_x\, x_d + c_x, \qquad v = f_y\, y_d + c_y,
 	\label{eq:projection}
 \end{equation}
 
-where $(x_d, y_d)$ are the normalised coordinates $(X/Z,\, Y/Z)$ after
-lens distortion has been applied. The distortion is computed exactly as the
-RealSense SDK computes it, which differs slightly from the textbook
-Brown--Conrady model. Using the SDK's form reprojects the cloud onto the
-pixel grid to within about $10^{-5}$~pixels, compared with about
-$10^{-2}$~pixels for the textbook form.
+where $(x_d, y_d)$ are the normalised coordinates $(X/Z,\, Y/Z)$ after lens distortion has been applied. The distortion is computed exactly as the RealSense SDK computes it, which differs slightly from the textbook Brown--Conrady model. Using the SDK's form reprojects the cloud onto the pixel grid to within about $10^{-5}$~pixels, compared with about $10^{-2}$~pixels for the textbook form. \todo{Do i waNt this text book comparison?}
 
-This property also provides a self-check. If the intrinsics really belong
-to this cloud, every reprojected point should land almost exactly on an
-integer pixel. The cropper measures the root-mean-square distance of the
-reprojected points from the nearest pixel centre,
+This property also provides a self-check. If the intrinsics really belong to this cloud, every reprojected point should land almost exactly on an integer pixel. The cropper measures the root-mean-square distance of the reprojected points from the nearest integer pixel centre,
 
 \begin{equation}
 	\rho = \sqrt{\frac{1}{N}\sum_{i=1}^{N}\left\lVert \mathbf{u}_i -
 		\operatorname{round}(\mathbf{u}_i)\right\rVert^2},
 \end{equation}
 
-and rejects the automatic crop if $\rho$ exceeds 0.15~pixels. The same test
-is used to choose how the distortion coefficients should be applied, since
-the stored coefficients can describe either the forward or the inverse
-distortion. The interpretation with the smallest $\rho$ is kept. This guards
-against silently cropping a scan with the wrong camera model, for example if
-a recording was captured with a different resolution.
+and rejects the automatic crop if $\rho$ exceeds 0.15~pixels. The same test is used to choose how the distortion coefficients should be applied, since the stored coefficients can describe either the forward or the inverse distortion. The interpretation with the smallest $\rho$ is kept. This guards against silently cropping a scan with the wrong camera model, for example if a recording was captured with a different resolution.
 
 \subsection{Building the crop volume}
 
-The simplest crop would keep every point whose pixel falls inside the
-tag-bounded quadrilateral. This is equivalent to cutting the cloud with a
-pyramid whose apex is at the camera. The walls of that pyramid follow the
-camera's lines of sight, so a tilted scan would be cut along a different
-boundary on the sediment than an untilted scan, and the scans would no
-longer cover the same region.
+The simplest crop would keep every point whose pixel falls inside the tag-bounded quadrilateral. This is equivalent to cutting the cloud with a pyramid whose apex is at the camera. The walls of that pyramid follow the camera's lines of sight, so a tilted scan would be cut along a different boundary on the sediment than an untilted scan, and the scans would no longer cover the same region.
 
-Instead, the cropper builds a vertical \emph{prism} through the tag corners,
-so that the crop boundary is the same physical line on the bed for every
-scan:
+Instead, the cropper builds a vertical prism through the tag corners, so that the crop boundary is the same physical line on the bed for every scan:
 
 \begin{enumerate}
-	\item \textbf{Fit the bed surface.} A plane is fitted to the points in a
-	narrow band (25~pixels) just inside the crop edge. The band is used rather
-	than the whole region so that the test object or sediment relief in the
-	middle of the square does not influence the fit. The fit uses
-	RANSAC~\cite{fischler1981ransac}: planes through three randomly chosen
-	points are tried 500 times, and the plane with the most points within
-	5~mm of it is kept. RANSAC is used because it ignores outliers entirely
-	instead of averaging them in, which matters near the edge of the crop
-	where stray points from the rig may remain.
-	\item \textbf{Fit the tag plane.} A second RANSAC plane is fitted to the
-	points lying on the tags themselves. The tags can sit slightly above the
-	sediment, so the 3D corners of the crop region are placed where the
-	pixel rays through the inner tag corners meet this plane. For a pixel ray
-	with direction $\mathbf{r}$ and a plane with normal $\mathbf{n}$ and
-	offset $d$, the intersection is
+	\item \textbf{Fit the bed surface.} A plane is fitted to the points in a narrow band (25~pixels) just inside the crop edge. The band is used rather the whole region so that the test object or sediment relief in the middle of the square does not influence the fit. The fit uses RANSAC: planes through three randomly chosen points are tried 500 times, and the plane with the most points within 5~mm of it is kept. RANSAC is used because it ignores outliers entirely  instead of averaging them in, which matters near the edge of the crop where stray points from the rig may remain.
+	\item \textbf{Fit the tag plane.} A second RANSAC plane is fitted to the points lying on the tags themselves. The tags can sit slightly above the sediment, so the 3D corners of the crop region are placed where the pixel rays through the inner tag corners meet this plane. For a pixel ray with direction $\mathbf{r}$ and a plane with normal $\mathbf{n}$ and offset $d$, the intersection is
 	\begin{equation}
 		\mathbf{X} = \frac{-d}{\mathbf{n}\cdot\mathbf{r}}\,\mathbf{r}.
 	\end{equation}
-	\item \textbf{Extrude along the surface normal.} All points are projected
-	onto the bed plane, and a point is kept if its projection falls inside the
-	four 3D corners. The result is a column whose walls are perpendicular to
-	the bed and pass through the inner tag corners, independent of the
-	camera's viewing angle.
+	\item \textbf{Extrude along the surface normal.} All points are projected onto the bed plane, and a point is kept if its projection falls inside the four 3D corners. The result is a column whose walls are perpendicular to the bed and pass through the inner tag corners, independent of the camera's viewing angle.
 \end{enumerate}
 
-If no bed plane can be found, the cropper falls back to the pyramid crop
-described above and notes this in its output. A crop that keeps fewer than
-1000 points is treated as a failure.
+If no bed plane can be found, the cropper falls back to the pyramid crop described above and notes this in its output. A crop that keeps fewer than 1000 points is treated as a failure.
 
 \subsection{Review and manual fallback}
 
-Unless run in batch mode, each automatic crop is shown in a preview window
-with the removed points dimmed and the crop boundary drawn as a wireframe.
-The user can accept it, keep the original cloud, or switch to a manual
-crop. The manual crop starts from points the user picks in the viewer and
-then lets the box be moved and resized with the keyboard. It is also used
-whenever the automatic crop fails, for example when fewer than two tags
-were detected. This keeps a person in the loop for the cases where
-automatic tag detection is least reliable.
+Unless run in batch mode, each automatic crop is shown in a preview window with the removed points dimmed and the crop boundary drawn as a wireframe. The user can accept it, keep the original cloud, or switch to a manual crop. The manual crop starts from points the user picks in the viewer and then lets the box be moved and resized with the keyboard. It is also used whenever the automatic crop fails, for example when fewer than two tags were detected. This keeps the user in the loop for the cases where automatic tag detection is least reliable.
 
 \subsection{Outputs}
 
 For each scan the cropper writes:
 
 \begin{itemize}
-	\item \textbf{The cropped point cloud}, in the same coordinate frame as
-	the input. It is written with 32-bit floating-point coordinates, because
-	Open3D's default writer produces 64-bit coordinates that the PCL-based
-	fusion program fails to read.
-	\item \textbf{A tag sidecar file} (\texttt{*\_tags.csv}) giving the 3D
-	positions of the four corners of every visible tag. Cropping removes the
-	tags from the cloud, but fusion can use them for alignment
-	(Section~\ref{sec:coarse}), so their positions are measured on the
-	\emph{uncropped} cloud before they are discarded. Each tag's pixel
-	corners are taken as the median over every frame of the recording,
-	which removes detector jitter. A plane is fitted by least squares to
-	the depth points on the central 70\% of the tag; the border is
-	excluded because pixels there mix tag and background depth. The 3D
-	corners are the intersections of the corner pixel rays with that plane.
-	This is more accurate than reading the single depth value at each corner,
-	which is exactly where depth is least reliable.
-	\item \textbf{Copies of the IMU, detection and configuration files}, so
-	that the cropped session has the same folder layout as a raw session and
-	can be passed to fusion unchanged.
+	\item \textbf{The cropped point cloud}, in the same coordinate frame as the input. It is written with 32-bit floating-point coordinates, because Open3D's default writer produces 64-bit coordinates that the PCL-based fusion program fails to read.
+	\item \textbf{A tag sidecar file} giving the 3D positions of the four corners of every visible tag. Cropping removes the tags from the cloud, but fusion can use them for alignment (Section~\ref{sec:coarse}), so their positions are measured on the uncropped cloud before they are discarded. Each tag's pixel corners are taken as the median over every frame of the recording, which removes detector jitter. A plane is fitted by least squares to the depth points on the central 70\% of the tag, this central region is selected to exclude the blending of the tag and bed surface. The 3D corners are the intersections of the corner pixel rays with that plane. 
+	\item \textbf{Copies of the IMU, detection and configuration files}, so that the cropped session has the same folder layout as a raw session and can be passed to fusion unchanged.
 \end{itemize}
 
 \subsection{Limitations}
 
-The automatic crop assumes that the sediment near the edge of the square is
-roughly flat, so that the band plane represents the bed. If relief reaches
-the crop edge, the fitted plane, and therefore the prism, can tilt. The
-layout learned from four-tag frames is pooled across all poses, although
-perspective changes with tilt, so corners extrapolated from only two tags
-in a strongly tilted view may be slightly misplaced. The prism also has no
-height limit, so isolated noisy points directly above or below the square
-are kept; these are removed later during fusion.
+The automatic crop assumes that the sediment near the edge of the square is roughly flat, so that the band plane represents the bed. If relief reaches the crop edge, the fitted plane, and therefore the prism, can tilt. The layout learned from four-tag frames is pooled across all poses, although perspective changes with tilt, so corners extrapolated from only two tags in a strongly tilted view may be slightly misplaced. The prism also has no height limit, so isolated noisy points directly above or below the square are kept.
 
 %---------------------------------------------------------------------
 \section{Multi-Scan Fusion}
 \label{sec:fuse}
 %---------------------------------------------------------------------
 
-\subsection{Why the scans are fused}
+\subsection{Together is Better}
 
-Each scan sees the surface from one viewpoint. It is noisy, the noise is
-largest where the surface is seen at a grazing angle, and wherever relief
-blocks the line of sight there is no data at all. The rig captures the same
-patch from many rotations and tilts, so a region that is hidden or poorly
-measured in one scan is usually seen well in another. Fusion combines the
-scans so that each region of the surface is represented by its best
-measurements. This requires solving two problems: \emph{registration},
-which finds the rigid transformation (rotation and translation) that places
-each scan in a common coordinate frame, and \emph{reconciliation}, which
-merges the overlapping measurements into a single surface.
+The current process takes several scans at different camera pose. Individually, each scan has noise, and this noise varies depending on a variety of conditions, such as light, surface angle and texture. Furthermore, at a single orientation, there are some surface details that may be obscured by the features of the surface. Multiple viewpoints helps to alleviate these issues, by providing multiple view points of the same region. Fusions combines the scans so that each region of the surface can be represented by several measurements. However fusion requires the solving of two main issues. Firstly is registration, which finds the rigid transformation that places each scan in a common coordinate frame. Secondly is reconciliation, which merges the overlapping measurements into a single surface
 
-Fusion is performed by a C++ program, \texttt{fuse\_scans}. It runs as a
-sequence of stages: load and preprocess, estimate initial poses from the
-rig, coarse alignment, fine registration and reconciliation. The program
-can stop after coarse and after fine alignment to show every scan in an
-interactive viewer, colour-coded and listed with its alignment quality.
-From there the user can exclude a bad scan, nudge one into place by hand,
-or rerun a stage, before the session is fused. In batch processing these
+%Each scan sees the surface from one viewpoint. It is noisy, the noise is largest where the surface is seen at a grazing angle, and wherever relief blocks the line of sight there is no data at all. The rig captures the same patch from many rotations and tilts, so a region that is hidden or poorly measured in one scan is usually seen well in another. Fusion combines the scans so that each region of the surface is represented by its best measurements. This requires solving two problems: \emph{registration}, which finds the rigid transformation (rotation and translation) that places each scan in a common coordinate frame, and \emph{reconciliation}, which merges the overlapping measurements into a single surface.
+
+Fusion is performed by a C++ program, \texttt{fuse\_scans}. It runs as a sequence of stages: load and preprocess, estimate initial poses from the rig, coarse alignment, fine registration and reconciliation. The program can stop after coarse and after fine alignment to show every scan in an interactive viewer, colour-coded and listed with its alignment quality. From there the user can exclude a bad scan, nudge one into place by hand, or rerun a stage, before the session is fused. In batch processing these
 reviews are skipped.
 
-The common frame is that of the first untilted scan, called the
-\emph{reference}. The remaining scans are processed in order of increasing
-tilt, so that each new scan is as similar as possible to what has already
-been placed.
+The common frame is that of the first untilted scan, called the \emph{reference}. The remaining scans are processed in order of increasing tilt, so that each new scan is as similar as possible to what has already been placed.
 
 \subsection{Preprocessing}
 
-Each cropped cloud is first thinned with a voxel grid of 3~mm: space is
-divided into 3~mm cubes and all points in a cube are replaced by their
-centroid. This makes the density uniform, which most of the later
-algorithms assume, and it greatly reduces their cost. It also sets the
-finest detail the fused result can contain, so the voxel size is chosen
-close to the noise floor of the sensor. A statistical outlier filter then
-removes isolated points, defined as points whose mean distance to their 30
-nearest neighbours is more than one standard deviation above the average.
+Each cropped cloud is first thinned with a voxel grid of user defined size, default of 3~mm: space is divided into 3~mm cubes and all points in a cube are replaced by their centroid. This makes the density uniform, which most of the later algorithms assume, and it greatly reduces their cost. It also sets the finest detail the fused result can contain, so the voxel size is chosen close to the noise floor of the sensor. A statistical outlier filter then removes isolated points, defined as points whose mean distance to their 30 nearest neighbours is more than one standard deviation above the average.
 
-Finally, a surface normal is estimated at every point from the principal
-axes of its neighbourhood within 15~mm. All normals are oriented to point
-towards the camera. This matters later: normals from several scans are
-averaged, and a normal and its opposite would cancel. The normals are
-computed once here and carried through every later transformation, because
-re-estimating them inside registration accounted for most of the
-program's run time.
+Finally, a surface normal is estimated at every point from the principal axes of its neighbourhood within 15~mm. All normals are oriented to point towards the camera. This matters later: normals from several scans are averaged, and a normal and its opposite would cancel. The normals are computed once here and carried through every later transformation, because re-estimating them inside registration accounted for most of the program's run time.
 
 \subsection{Initial poses from the rig and IMU}
 \label{sec:initial_pose}
 
-Registration algorithms only converge when they start close to the right
-answer. The rig provides a natural starting point, because each scan's
-folder name records the commanded rotation and tilt. These commanded angles
-proved to be inaccurate, however. Commanded tilts of 15\degree{} produced
-measured tilts between 13.6\degree{} and 17.4\degree{}, and individual
-steps varied from 0.6 to 1.24 times the commanded step. In addition, because
-the rotating mount sits on top of the tilt stage, the tilt axis appears in a
-different direction in the camera frame for every rotation position, so a
-single fixed tilt axis cannot describe the rig.
+Registration algorithms only converge when they start close to the right answer. The rig provides a natural starting point, because each scan's folder name records the commanded rotation and tilt. These commanded angles proved to be inaccurate, however. Commanded tilts of 15\degree{} produced measured tilts between 13.6\degree{} and 17.4\degree{}, and individual steps varied from 0.6 to 1.24 times the commanded step. In addition, because the rotating mount sits on top of the tilt stage, the tilt axis appears in a different direction in the camera frame for every rotation position, so a single fixed tilt axis cannot describe the rig.
 
-The tilt is therefore \emph{measured} rather than assumed. When the camera
-is stationary its accelerometer reads only gravity. The rotation that
-carries the gravity vector of a scan onto the gravity vector of the flattest
-scan at the same rotation position is exactly the tilt the mount applied,
-because the hinge axis is horizontal. Gravity readings with a magnitude
-outside 9.0--10.6~m/s$^2$ are rejected, since they indicate the camera was
-moving.
+The tilt is therefore \emph{measured} rather than assumed. When the camera is stationary its accelerometer reads only gravity. The rotation that carries the gravity vector of a scan onto the gravity vector of the flattest scan at the same rotation position is exactly the tilt the mount applied, because the hinge axis is horizontal. Gravity readings with a magnitude outside 9.0--10.6~m/s$^2$ are rejected, since they indicate the camera was moving.
 
 Two further quantities cannot be read from the IMU and are found by search:
 
 \begin{itemize}
-	\item \textbf{The IMU-to-cloud axis convention.} The accelerometer and the
-	exported point cloud use different axis conventions. Four candidate
-	conventions (the identity and a 180\degree{} flip about each axis) are
-	tried. For each, a few low-tilt scans are placed using the IMU tilt and
-	compared with the reference scan. The convention with the best agreement
-	is kept. On real data the correct convention gave residuals of 7--18~mm,
-	against 42--76~mm for the wrong one.
-	\item \textbf{The tilt pivot.} The IMU gives the angle of tilt but not
-	the point the camera tilts about. The pivot is found by a coarse-to-fine
-	grid search over a 0.12~m range, again scoring how well the placed scans
-	agree with the reference. The convention and the pivot are searched
-	together because an error in either can mask an error in the other.
+	\item \textbf{The IMU-to-cloud axis convention.} The accelerometer and the exported point cloud use different axis conventions. Four candidate conventions (the identity and a 180\degree{} flip about each axis) are tried. For each, a few low-tilt scans are placed using the IMU tilt and compared with the reference scan. The convention with the best agreement is kept. On real data the correct convention gave residuals of 7--18~mm, against 42--76~mm for the wrong one.
+	
+	\item \textbf{The tilt pivot.} The IMU gives the angle of tilt but not the point the camera tilts about. The pivot is found by a coarse-to-fine grid search over a 0.12~m range, again scoring how well the placed scans agree with the reference. The convention and the pivot are searched together because an error in either can mask an error in the other.
 \end{itemize}
 
-The rotation direction poses a different problem. Every rotation folder is
-named with a positive angle, regardless of which way the mount actually
-turned, and the IMU cannot help, because a rotation about the gravity
-direction does not change the gravity reading. The program therefore tries
-every combination of clockwise and anticlockwise steps (up to $2^{12}$
-combinations), places one representative scan per rotation position
-accordingly, and keeps the combination under which the scans agree best. A
-joint search is used rather than deciding each step on its own, because a
-wrong early step makes all later steps fit worse, which only a joint search
-can detect. When AprilTag alignment is enabled, the tags measure the
-rotation angle of each rotation position directly, and the search is
-needed only for positions where no tags were seen.
+The rotation direcition poses a different problem. Since the rotation stage is performed manually, the capture code names each rotation as a positive 45\textdegree increment, regardless of direction or order. IMU data cannot resolve this issue since the rotation axis is parallel to the gravity axis, and therefore can not be estimated using accelerometer data.
+%The rotation direction poses a different problem. Every rotation folder is named with a positive angle, regardless of which way the mount actually turned, and the IMU cannot help, because a rotation about the gravity direction does not change the gravity reading.
+The program therefore tries every combination of clockwise and anticlockwise steps, places one representative scan per rotation position accordingly, and keeps the combination under which the scans agree best. A joint search is used rather than deciding each step on its own, because a wrong early step makes all later steps fit worse, which only a joint search can detect. When AprilTag alignment is enabled, the tags measure the rotation angle of each rotation position directly, and the search is needed only for positions where no tags were seen.
 
 \subsection{Coarse alignment}
 \label{sec:coarse}
 
-The coarse stage places each scan to within a few millimetres of its final
-position. Scans are added one at a time, and each is aligned against a
-\emph{map} built from every scan placed so far, rather than against only
-the previous scan. This reduces the accumulation of error (drift) along the
-sequence. Up to three candidate poses, or hypotheses, are generated for each
-scan:
+The coarse stage places each scan to within a few millimetres of its final position. Scans are added one at a time, and each is aligned against a map built from every scan placed so far, rather than against only the previous scan. This reduces the accumulation of error (drift) along the sequence. Up to three candidate poses, or hypotheses, are generated for each scan:
 
 \begin{enumerate}
-	\item \textbf{The rig seed}: the pose predicted by the measured tilt and
-	inferred rotation of Section~\ref{sec:initial_pose}.
-	\item \textbf{The AprilTag pose}, if tag alignment is enabled. Each tag
-	contributes four 3D corners from the sidecar file, which are matched
-	against the same tag corners already placed in the common frame. The
-	best rigid transformation between the matched corners is found in closed
-	form with the method of Umeyama~\cite{umeyama1991}, which uses a
-	singular value decomposition of the corners' cross-covariance matrix.
-	No scale term is estimated, because both point sets are already in
-	metres. When gravity is available, a constrained version is used
-	instead: the tilt is taken from the IMU and only the turn about the
-	vertical axis and the translation are solved from the tags. The tags a
-	scan sees often lie nearly in a line, so the tilt about that line would
-	otherwise rest on depth noise across a single 80~mm tag, whereas the
-	IMU measures tilt well. On one test session this reduced the
-	disagreement between tag poses and the final registered poses from
-	1--2.5\degree{} to 0.2--0.6\degree{}.
-	\item \textbf{A feature-based pose}, computed only if the rig seed
-	overlaps the map poorly. Fast Point Feature Histograms
-	(FPFH)~\cite{rusu2009fpfh} describe the local shape around every point.
-	Points with similar descriptors in the scan and the map are paired, and
-	a RANSAC variant~\cite{buch2013prerejective} repeatedly picks three
-	pairs, rejects them early if the triangles they form have different
-	shapes, and keeps the transformation that brings the most points into
-	agreement. This method needs no initial guess, but it is unreliable on
-	smooth, nearly flat sediment with few distinctive shapes, which is why
+	\item \textbf{The rig seed}: the pose predicted by the measured tilt and inferred rotation of Section~\ref{sec:initial_pose}
+	
+	\item \textbf{The AprilTag pose}, if tag alignment is enabled. Each tag contributes four 3D corners from the sidecar file, which are matched against the same tag corners already placed in the common frame. The best rigid transformation between the matched corners is found in closed form with the method of Umeyama~\cite{umeyama1991}, which uses a singular value decomposition of the corners' cross-covariance matrix. No scale term is estimated, because both point sets are already in metres. When gravity is available, a constrained version is used instead: the tilt is taken from the IMU and only the turn about the vertical axis and the translation are solved from the tags. The tags a scan sees often lie nearly in a line, so the tilt about that line would otherwise rest on depth noise across a single 80~mm tag, whereas the IMU measures tilt well. On one test session this reduced the disagreement between tag poses and the final registered poses from 1--2.5\degree{} to 0.2--0.6\degree{}.
+	
+	\item \textbf{A feature-based pose}, computed only if the rig seed overlaps the map poorly. Fast Point Feature Histograms (FPFH)~\cite{rusu2009fpfh} describe the local shape around every point. Points with similar descriptors in the scan and the map are paired, and a RANSAC variant~\cite{buch2013prerejective} repeatedly picks three pairs, rejects them early if the triangles they form have different shapes, and keeps the transformation that brings the most points into agreement. This method needs no initial guess, but it is unreliable on smooth, nearly flat sediment with few distinctive shapes, which is why
 	it is only a fallback.
 \end{enumerate}
 
-To choose between hypotheses, each is scored by comparing the transformed
-scan with the map. A sample of scan points is matched to the nearest map
-point. Points within 10~mm are counted as overlapping, and the score is the
-root-mean-square distance of the overlapping points divided by the
-fraction of points that overlap. Lower is better. Dividing by the overlap
-fraction prevents a hypothesis from scoring well by fitting a small sliver
-of the scan very tightly.
+To choose between hypotheses, each is scored by comparing the transformed scan with the map. A sample of scan points is matched to the nearest map point. Points within 10~mm are counted as overlapping, and the score is the root-mean-square distance of the overlapping points divided by the fraction of points that overlap, and the lowest resulting value is chosen. Dividing by the overlap fraction prevents a hypothesis from scoring well by fitting a small sliver of the scan very tightly.
 
-For nearly flat scenes such as the sediment bed, this nearest-neighbour
-score has a blind spot. If a scan is slid or spun within the plane of the
-bed, every point still has a nearby neighbour on the flat map, so the score
-hardly changes. In that case the program instead compares heights. Both
-clouds are expressed in the frame of the bed plane, binned onto a 10~mm
-grid, and the score is computed from the differences in mean height between
-corresponding cells. A 5~mm in-plane slide raised this height-field score by
-36\%, but the nearest-neighbour score by only 16\%. Whether a scene counts as
-flat is decided once from the reference scan.
+For nearly flat scenes such as the sediment bed, this nearest-neighbour score has a blind spot. If a scan is slid or spun within the plane of the bed, every point still has a nearby neighbour on the flat map, so the score hardly changes. In that case the program instead compares heights. Both clouds are expressed in the frame of the bed plane, binned onto a 10~mm grid, and the score is computed from the differences in mean height between corresponding cells. A 5~mm in-plane slide raised this height-field score by 36\%, but the nearest-neighbour score by only 16\%. Whether a scene counts as flat is decided once from the reference scan.
 
-The rig seed is accepted directly if at least 15\% of the scan overlaps the
-map. Only if it fails is FPFH tried, and the better of the two is kept. A
-tag hypothesis competes with the result on the same score. If the tag pose
-and the geometric pose disagree by more than 10\degree{}, a warning is
-printed, because a disagreement that large means that one of them is wrong,
-not merely imprecise.
+The rig seed is accepted directly if at least 15\% of the scan overlaps the map. Only if it fails is FPFH tried, and the better of the two is kept. A tag hypothesis competes with the result on the same score. If the tag pose and the geometric pose disagree by more than 10\degree{}, a warning is printed, because a disagreement that large means that one of them is wrong, not merely imprecise.
 
 \subsection{Fine registration}
 
-The fine stage refines each coarse pose with the Iterative Closest Point
-(ICP) algorithm~\cite{besl1992icp}. ICP alternates between pairing every
-scan point with its nearest map point and solving for the rigid
-transformation that minimises the distance between the pairs, until the
-pose stops changing. The point-to-plane form of
-ICP~\cite{chen1992pointtoplane} is used, which minimises the distance of
-each scan point from the tangent plane at its paired map point rather than
-from the map point itself:
+The fine stage refines each coarse pose with the Iterative Closest Point (ICP) algorithm~\cite{besl1992icp}. ICP alternates between pairing every scan point with its nearest map point and solving for the rigid transformation that minimises the distance between the pairs, until the pose stops changing. The point-to-plane form of ICP~\cite{chen1992pointtoplane} is used, which minimises the distance of each scan point from the tangent plane at its paired map point rather than from the map point itself:
 
 \begin{equation}
 	E(\mathbf{R},\mathbf{t}) = \sum_{(i,j)}
@@ -461,214 +195,75 @@ from the map point itself:
 	\cdot \mathbf{n}_j \Big)^2 ,
 \end{equation}
 
-where $\mathbf{p}_i$ is a scan point, $\mathbf{q}_j$ its paired map point,
-$\mathbf{n}_j$ the map normal, and $\mathbf{R}$, $\mathbf{t}$ the rotation
-and translation being solved for. Because of the voxel grid, a scan point
-and its true counterpart on the map are generally not the same physical
-point, only points on the same surface. Point-to-plane ICP lets points
-slide along the surface instead of penalising this offset, so it converges
-faster and more accurately on continuous surfaces than point-to-point ICP.
-Each step is solved with the linear least-squares approximation of
-Low~\cite{low2004pointtoplane}. Pairs further apart than 20~mm are ignored,
-so a coarse pose must be within roughly this distance for ICP to recover
+where $\mathbf{p}_i$ is a scan point, $\mathbf{q}_j$ its paired map point, $\mathbf{n}_j$ the map normal, and $\mathbf{R}$, $\mathbf{t}$ the rotation and translation being solved for. Because of the voxel grid, a scan point and its true counterpart on the map are generally not the same physical point, only points on the same surface. Point-to-plane ICP lets points slide along the surface instead of penalising this offset, so it converges faster and more accurately on continuous surfaces than point-to-point ICP. Each step is solved with the linear least-squares approximation of Low~\cite{low2004pointtoplane}. Pairs further apart than 20~mm are ignored, so a coarse pose must be within roughly this distance for ICP to recover
 it, and at most 60 iterations are run.
 
-As in the coarse stage, each scan is registered against a map of all scans
-placed so far. The map is stored as a voxel grid in which each voxel keeps
-running sums of the positions and normals of every scan that falls into it.
-Every scan therefore carries equal weight in the map. An earlier version
-re-thinned the merged map after every scan, which gave the newest scan
-about half the weight wherever it overlapped, so the map followed the
-latest scan rather than the consensus.
+As in the coarse stage, each scan is registered against a map of all scans placed so far. The map is stored as a voxel grid in which each voxel keeps running sums of the positions and normals of every scan that falls into it. Every scan therefore carries equal weight in the map. An earlier version re-thinned the merged map after every scan, which gave the newest scan about half the weight wherever it overlapped, so the map followed the latest scan rather than the consensus.
 
-After the stage, a scan is flagged for review if ICP failed to converge,
-hit its iteration limit, or scored more than 1.4 times worse than the
-median scan of the session. The threshold is relative because what counts
-as a good score depends on the voxel size, the sensor noise and the relief
-of the surface. A scan whose refinement fails keeps its coarse pose, so that
-it remains visible in the review instead of silently disappearing.
+After the stage, a scan is flagged for review if ICP failed to converge, hit its iteration limit, or scored more than 1.4 times worse than the median scan of the session. The threshold is relative because what counts as a good score depends on the voxel size, the sensor noise and the relief of the surface. A scan whose refinement fails keeps its coarse pose, so that it remains visible in the review instead of silently disappearing.
 
 \subsection{Reconciling the overlapping scans}
 
-Once registered, the scans could simply be combined into one cloud and
-thinned with a voxel grid. This was the original approach, and it gives a
-poor result. The remaining registration error (a few millimetres) is larger
-than the output voxel, so where scans overlap, their surfaces land in
-neighbouring voxels and survive as two or three slightly offset sheets. A
-statistical outlier filter cannot remove a duplicate sheet, because the
-duplicate is just as dense as the real surface. The fusion step therefore
-\emph{reconciles} the scans: it decides, for each small patch of the
-surface, a single best height.
+Once registered, the scans could simply be combined into one cloud and thinned with a voxel grid. This was the original approach, and it gives a poor result. The remaining registration error (a few millimetres) is larger than the output voxel, so where scans overlap, their surfaces land in neighbouring voxels and survive as two or three slightly offset sheets. A statistical outlier filter cannot remove a duplicate sheet, because the duplicate is just as dense as the real surface. The fusion step therefore reconciles the scans. 
+%it decides, for each small patch of the surface, a single best height.
 
-\paragraph{Weighting each measurement.} Not all measurements are equally
-reliable, so each point $i$ is given a weight
+\paragraph{Weighting each measurement.} Not all measurements are equally reliable, so each point $i$ is given a weight
 
 \begin{equation}
 	w_i = c_{s(i)} \cdot \max\!\big(0.05,\ |\hat{\mathbf{n}}_i \cdot
 	\hat{\mathbf{v}}_i|\big) \cdot \min\!\left(1,\ \frac{r_0^2}{r_i^2}\right).
 \end{equation}
 
-The first factor, $c_{s(i)}$, is the registration confidence of the scan the
-point came from, based on how much of the scan overlapped the map and how
-closely. The second factor is the cosine of the angle between the surface
-normal $\hat{\mathbf{n}}_i$ and the direction to the camera
-$\hat{\mathbf{v}}_i$; stereo depth error rises sharply when the surface is
-seen at a grazing angle, so such points are down-weighted. The third
-factor reflects the range $r_i$ from the camera: the depth error of a
-stereo camera grows with the square of the range, so points beyond the
-reference range $r_0 = 0.6$~m are down-weighted accordingly.
+The first factor, $c_{s(i)}$, is the registration confidence of the scan the point came from, based on how much of the scan overlapped the map and how closely. The second factor is the cosine of the angle between the surface normal $\hat{\mathbf{n}}_i$ and the direction to the camera $\hat{\mathbf{v}}_i$. This factor is included as stereo depth error rises sharply when the surface is seen at a grazing angle, so such points are down-weighted. The third factor reflects the range $r_i$ from the camera. This factor is included as the depth error of a stereo camera generally grows with the square of the range, so points beyond the reference range $r_0$ are down-weighted accordingly.
 
-\paragraph{Grouping measurements into cells.} For a nearly flat scene the
-points are expressed in the frame of the bed plane and binned into 3~mm
-cells in the plane, each holding the heights of all points that fall into
-it. This \emph{height-field} mode is chosen automatically when the scene is
-flat, which applies to the sediment bed. Scenes with strong relief use a
-volumetric mode instead, in which points are binned into 3D voxels and
-reconciled along the local surface normal.
+\paragraph{Grouping measurements into cells.} For a nearly flat scene the points are expressed in the frame of the bed plane and binned into the user defined sized cells in the plane, each holding the heights of all points that fall into it. This \emph{height-field} mode is chosen automatically when the scene is flat, which applies to the sediment bed. Scenes with strong relief use a volumetric mode instead, in which points are binned into 3D voxels and reconciled along the local surface normal.
 
-\paragraph{Choosing one value per cell.} Within each cell, the measurements
-are combined with a \emph{trimmed weighted mean}. The samples are sorted by
-height, and the lowest and highest 25\% of the total weight are discarded
-before the weighted mean of the remainder is taken. A plain weighted mean
-would let a single misregistered scan drag the surface towards it, while a
-weighted median discards most of the information. The trimmed mean lies
-between the two. Trimming by weight rather than by count means that a
-single high-confidence measurement cannot be outvoted by several poor ones.
-On a synthetic test with one of four scans misregistered by 8~mm, the error
-of the fused surface was 2.00~mm with a plain weighted mean and 0.35~mm with
-the trimmed mean. Overall, reconciliation halved the error of the original
-merge-and-thin approach, from 0.96~mm to 0.45~mm RMS.
+\paragraph{Choosing one value per cell.} Within each cell, the measurements are combined with a \emph{trimmed weighted mean}. The samples are sorted by height, and the lowest and highest 25\% of the total weight are discarded before the weighted mean of the remainder is taken. A plain weighted mean would let a single misregistered scan drag the surface towards it, while a weighted median discards most of the information. The trimmed mean lies between the two. Trimming by weight rather than by count means that a single high-confidence measurement cannot be outvoted by several poor ones. On a synthetic test with one of four scans misregistered by 8~mm, the error of the fused surface was 2.00~mm with a plain weighted mean and 0.35~mm with the trimmed mean. Overall, reconciliation halved the error of the original merge-and-thin approach, from 0.96~mm to 0.45~mm RMS.
 
-\paragraph{Removing off-surface outliers.} Points that still lie off the
-surface are then removed. For each point a plane is fitted to its 31 nearest
-neighbours, and the point is discarded if its distance from that plane is
-more than three standard deviations above the average. This replaced the
-statistical outlier filter used earlier, which judges points by local
-density. That filter removed genuine but sparsely sampled parts of the
-surface and punched holes in the fused result, whereas the plane test only
-removes points that are actually off the surface.
+\paragraph{Removing off-surface outliers.} Points that still lie off the surface are then removed. For each point a plane is fitted to its 31 nearest neighbours, and the point is discarded if its distance from that plane is more than three standard deviations above the average. This replaced the statistical outlier filter used earlier, which judges points by local density. That filter removed genuine but sparsely sampled parts of the surface and punched holes in the fused result, whereas the plane test only removes points that are actually off the surface.
 
-\paragraph{Smoothing.} Finally, the surface is smoothed with Moving Least
-Squares (MLS)~\cite{levin1998mls,alexa2003pointset}. Around each point,
-MLS fits a quadratic surface to the neighbours within 10~mm and moves the
-point onto it, which also yields a clean normal. Because the fitting radius
-is larger than the residual misregistration, this removes the last traces
-of offset sheets and sensor noise along the surface normal while keeping
-features larger than the radius. It is, however, a low-pass filter: relief
-with a wavelength comparable to or smaller than the 10~mm radius is
-attenuated. This must be kept in mind when interpreting the small-scale
-roughness parameters of Section~\ref{sec:rugosity}. \todo{State whether the
-	results in Ch.~X were computed with or without MLS, and consider a short
-	sensitivity check with \texttt{--no-mls}.}
+\paragraph{Smoothing.} Finally, the surface is smoothed with Moving Least Squares (MLS)~\cite{levin1998mls,alexa2003pointset}. Around each point, MLS fits a quadratic surface to the neighbours within 10~mm and moves the point onto it, which also yields a clean normal. Because the fitting radius is larger than the residual misregistration, this removes the last traces of offset sheets and sensor noise along the surface normal while keeping features larger than the radius. It is, however, a low-pass filter: relief with a wavelength comparable to or smaller than the 10~mm radius is attenuated. This must be kept in mind when interpreting the small-scale roughness parameters of Section~\ref{sec:rugosity}. \todo{State whether the results in Ch.~X were computed with or without MLS, and consider a short sensitivity check with \texttt{--no-mls}.}
 
-The result is a single point cloud per session, in the frame of the
-reference scan, with one point per occupied cell and a normal at every
-point. The program also reports the thickness of the overlapping surface,
-i.e.\ the spread of heights within a cell, before and after reconciliation.
+The result is a single point cloud per session, in the frame of the reference scan, with one point per occupied cell and a normal at every point. The program also reports the thickness of the overlapping surface, i.e.\ the spread of heights within a cell, before and after reconciliation.
 
 \subsection{Limitations}
 
-Registration is sequential: each scan is aligned against the scans before
-it, and no global optimisation revisits earlier poses afterwards, so an
-early error can propagate. The rig seed is accepted whenever it overlaps
-the map by 15\% or more. On a flat bed even a pose with a wrong rotation
-can overlap that much, in which case only the tag hypothesis can correct
-it, so tag alignment should be enabled for sediment scans. The pivot of the
-rotation stage is not estimated, so an offset between the turntable axis
-and the camera must be absorbed by the tags or by ICP. Finally, the
-height-field mode assumes the surface has a single height at every point,
-so overhangs and vertical faces, such as the inside walls of a burrow, are
-averaged away.
-
+Registration is sequential: each scan is aligned against the scans before it, and no global optimisation revisits earlier poses afterwards, so an early error can propagate. The rig seed is accepted whenever it overlaps the map by 15\% or more. On a flat bed even a pose with a wrong rotation can overlap that much, in which case only the tag hypothesis can correct it, so tag alignment should be enabled for sediment scans. The pivot of the rotation stage is not estimated, so an offset between the turntable axis and the camera must be absorbed by the tags or by ICP. The height-field mode assumes the surface has a single height at every point, so overhangs and vertical faces, such as the inside walls of a burrow, are averaged away. Finally, whilst the smoothing stage helps to remove sensor noise and point offsets, it does effectively low-pass filter the surface, and thus can remove sharp edges in the scan.
 %---------------------------------------------------------------------
 \section{Surface Roughness Estimation}
 \label{sec:rugosity}
 %---------------------------------------------------------------------
+\todo{review this!}
 
-The roughness program, \texttt{roughness\_scans.py}, takes a fused point
-cloud and describes the roughness of the surface it represents. No
-reference surface is required. It runs five steps: level the scan, crop it,
-remove large-scale trends, resample it onto a regular grid, and compute the
-metrics. Most of the metrics follow the areal surface-texture parameters of
-ISO 25178-2~\cite{iso25178-2}, so that results can be compared with other
-surface-metrology studies. Internally all lengths are in metres; reported
-lengths are in millimetres.
+The roughness program, \texttt{roughness\_scans.py}, takes a fused point cloud and describes the roughness of the surface it represents. No reference surface is required. It runs five steps: level the scan, crop it, remove large-scale trends, resample it onto a regular grid, and compute the metrics. Most of the metrics follow the areal surface-texture parameters of ISO 25178-2~\cite{iso25178-2}, so that results can be compared with other surface-metrology studies. Internally all lengths are in metres; reported lengths are in millimetres.
 
 \subsection{Levelling}
 
-The fused scan is in the frame of the reference camera, so the sediment
-bed is generally tilted relative to the coordinate axes. Roughness
-parameters measure heights relative to a mean surface, so the scan is first
-levelled: rotated so that the mean plane of the bed is horizontal and
-height is measured along the $z$ axis.
+The fused scan is in the frame of the reference camera, so the sediment bed is generally tilted relative to the coordinate axes. Roughness parameters measure heights relative to a mean surface, so the scan is first levelled: rotated so that the mean plane of the bed is horizontal and height is measured along the $z$ axis. The mean plane is found by principal component analysis. The plane passes through the centroid of the points, and its normal is the direction in which the points vary least. To prevent large features from tilting the plane, the fit is repeated with sigma clipping: points further from the plane than three times a robust estimate of the spread are dropped and the plane is refitted, up to five times. The spread is estimated with the median absolute deviation (MAD), scaled by 1.4826 so that it equals the standard deviation for normally distributed data. Unlike the standard deviation, the MAD is barely affected by the points being clipped.
 
-The mean plane is found by principal component analysis. The plane passes
-through the centroid of the points, and its normal is the direction in
-which the points vary least. To prevent large features from tilting the
-plane, the fit is repeated with sigma clipping: points further from the
-plane than three times a robust estimate of the spread are dropped and the
-plane is refitted, up to five times. The spread is estimated with the
-median absolute deviation (MAD), scaled by 1.4826 so that it equals the
-standard deviation for normally distributed data. Unlike the standard
-deviation, the MAD is barely affected by the points being clipped.
-
-The levelled frame has its origin at the centroid, $+z$ along the plane
-normal pointing towards the camera, and $x$ along the camera's original
-$x$ axis projected onto the plane. Keeping the camera's horizontal
-direction means that the direction of ripples or other features reads the
-same in the results as in the images. The scan can then optionally be
-cropped to a region of interest or trimmed by a fixed margin around its
-border, where fused data are usually the sparsest.
+The levelled frame has its origin at the centroid, $+z$ along the plane normal pointing towards the camera, and $x$ along the camera's original $x$ axis projected onto the plane. Keeping the camera's horizontal direction means that the direction of ripples or other features reads the same in the results as in the images. The scan can then optionally be cropped to a region of interest or trimmed by a fixed margin around its border, where fused data are usually the sparsest.
 
 \subsection{Detrending}
 
-A levelled surface still contains variations that are not roughness: a
-gentle bowl in the sediment, a slope towards one side, or a residual tilt.
-In ISO 25178 terms these are removed by a form-removal operator, after
-which the remainder is treated as surface texture. Here the form is modelled
-as a polynomial in the horizontal coordinates,
+A levelled surface still contains variations that are not roughness: a gentle bowl in the sediment, a slope towards one side, or a residual tilt. In ISO 25178 terms these are removed by a form-removal operator, after which the remainder is treated as surface texture. Here the form is modelled as a polynomial in the horizontal coordinates,
 
 \begin{equation}
 	p(x, y) = \sum_{i + j \le n} a_{ij}\, x^i y^j ,
 \end{equation}
 
-of degree $n$ from 1 (planar) to 4 (quartic), and the residual
-$z - p(x, y)$ is kept as the roughness surface. The coordinates are scaled
-to the range $[-1, 1]$ before fitting so that the fit remains numerically
-stable at higher degrees, and the same sigma clipping as in levelling stops
-ripple crests, troughs or burrow mounds from dragging the trend.
+of degree $n$ from 1 (planar) to 4 (quartic), and the residual $z - p(x, y)$ is kept as the roughness surface. The coordinates are scaled to the range $[-1, 1]$ before fitting so that the fit remains numerically stable at higher degrees, and the same sigma clipping as in levelling stops ripple crests, troughs or burrow mounds from dragging the trend.
 
-The choice of degree is a trade-off. A low degree may leave genuine form in
-the residual and overestimate roughness. A high degree can follow real
-bedforms: a polynomial of degree $n$ can follow roughly $n/2$ wavelengths,
-so on a small patch it can remove relief that is part of the texture being
-measured. The program therefore computes the metrics for every degree
-requested, using the same levelling, crop and grid for each so that the
-results are directly comparable, and raises a warning if a higher-order
-fit removes much more height variance than the planar fit while the patch
-spans fewer than $n$ dominant wavelengths. \todo{State which detrend degree is
-	used for the reported results and why.}
+The choice of degree is a trade-off. A low degree may leave genuine form in the residual and overestimate roughness. A high degree can follow real bedforms: a polynomial of degree $n$ can follow roughly $n/2$ wavelengths, so on a small patch it can remove relief that is part of the texture being measured. The program therefore computes the metrics for every degree requested, using the same levelling, crop and grid for each so that the results are directly comparable, and raises a warning if a higher-order fit removes much more height variance than the planar fit while the patch spans fewer than $n$ dominant wavelengths. \todo{State which detrend degree is used for the reported results and why.}
 
 \subsection{Gridding}
 
-Most roughness parameters are defined on a regular grid of heights, so the
-residual surface is resampled onto a square grid. By default the cell size
-is twice the median spacing between neighbouring points, so that most cells
-contain several points. The height of a cell is the mean of its points.
-Averaging $c$ points with independent noise of standard deviation $\sigma$
-reduces the noise to $\sigma/\sqrt{c}$, so the gridding also acts as a mild
-low-pass filter at the scale of one cell.
+Most roughness parameters are defined on a regular grid of heights, so the residual surface is resampled onto a square grid. By default the cell size is twice the median spacing between neighbouring points, so that most cells contain several points. The height of a cell is the mean of its points. Averaging $c$ points with independent noise of standard deviation $\sigma$ reduces the noise to $\sigma/\sqrt{c}$, so the gridding also acts as a mild low-pass filter at the scale of one cell.
 
-Some cells contain no points. Small enclosed holes, no larger than two
-cells across, are filled by linear interpolation from the surrounding cells.
-Larger holes and gaps at the border are left empty and excluded from every
-metric, because interpolating across them would invent surface that was
-never measured.
+Some cells contain no points. Small enclosed holes, no larger than two cells across, are filled by linear interpolation from the surrounding cells. Larger holes and gaps at the border are left empty and excluded from every metric, because interpolating across them would invent surface that was never measured.
 
 \subsection{Height parameters}
 
-With $z_k$ the gridded heights relative to their mean and $N$ the number of
-valid cells, the height parameters are:
+With $z_k$ the gridded heights relative to their mean and $N$ the number of valid cells, the height parameters are:
 
 \begin{align}
 	S_a &= \frac{1}{N}\sum_{k} |z_k|, &
@@ -677,144 +272,59 @@ valid cells, the height parameters are:
 	S_{ku} &= \frac{1}{S_q^4}\,\frac{1}{N}\sum_{k} z_k^4,
 \end{align}
 
-together with the highest peak $S_p$, the deepest valley $S_v$ and the total
-height $S_z = S_p + S_v$. $S_a$ and $S_q$ are the arithmetic and
-root-mean-square heights and are the most common single measures of
-roughness. The skewness $S_{sk}$ indicates whether the surface is dominated
-by peaks ($S_{sk} > 0$) or by pits ($S_{sk} < 0$); a bed riddled with
-burrow openings would be expected to have negative skewness. The kurtosis
-$S_{ku}$ indicates how sharp the features are: a surface with normally
-distributed heights has $S_{ku} = 3$, while isolated sharp peaks or pits
+together with the highest peak $S_p$, the deepest valley $S_v$ and the total height $S_z = S_p + S_v$. $S_a$ and $S_q$ are the arithmetic and root-mean-square heights and are the most common single measures of roughness. The skewness $S_{sk}$ indicates whether the surface is dominated by peaks ($S_{sk} > 0$) or by pits ($S_{sk} < 0$); a bed riddled with burrow openings would be expected to have negative skewness. The kurtosis $S_{ku}$ indicates how sharp the features are: a surface with normally distributed heights has $S_{ku} = 3$, while isolated sharp peaks or pits
 raise it.
 
 \subsection{Rugosity and slope}
 
-Rugosity is the ratio of the true area of a surface to the area of its
-projection onto the horizontal plane. It is the areal equivalent of the
-chain-and-tape method used in benthic ecology, in which a chain is laid
-along the contours of the bed and its length compared with the straight-line
-distance. A perfectly flat surface has a rugosity of exactly 1, and any
-relief raises it.
+Rugosity is the ratio of the true area of a surface to the area of its projection onto the horizontal plane. It is the areal equivalent of the chain-and-tape method used in benthic ecology, in which a chain is laid along the contours of the bed and its length compared with the straight-line distance. A perfectly flat surface has a rugosity of exactly 1, and any relief raises it.
 
-To compute the true area, each square of four neighbouring grid cells is
-split along a diagonal into two triangles, and the area of each triangle is
-computed from the cross product of its edges. Summing over all squares
-whose corners are valid gives
+To compute the true area, each square of four neighbouring grid cells is split along a diagonal into two triangles, and the area of each triangle is computed from the cross product of its edges. Summing over all squares whose corners are valid gives
 \begin{equation}
 	\text{rugosity} = \frac{\sum A_{\text{triangles}}}{N_q\, g^2},
 \end{equation}
-where $N_q$ is the number of valid squares and $g$ the grid spacing. The
-ISO 25178 developed interfacial area ratio is the same quantity expressed
-as a percentage excess, $S_{dr} = (\text{rugosity} - 1)\times 100\%$. The
-root-mean-square slope of the surface, $S_{dq}$, is computed from the same
-squares.
+where $N_q$ is the number of valid squares and $g$ the grid spacing. The ISO 25178 developed interfacial area ratio is the same quantity expressed as a percentage excess, $S_{dr} = (\text{rugosity} - 1)\times 100\%$. The root-mean-square slope of the surface, $S_{dq}$, is computed from the same squares.
 
-Rugosity, $S_{dr}$ and $S_{dq}$ all depend strongly on the grid spacing.
-Measurement noise adds small random slopes to every cell, and the finer the
-grid, the steeper those slopes become, so these parameters grow as the grid
-is refined even if the surface is unchanged. Results computed with
-different grid spacings are therefore not comparable, and all scans in this
-work are processed with the same spacing. \todo{state the value used.}
+Rugosity, $S_{dr}$ and $S_{dq}$ all depend strongly on the grid spacing. Measurement noise adds small random slopes to every cell, and the finer the grid, the steeper those slopes become, so these parameters grow as the grid is refined even if the surface is unchanged. Results computed with different grid spacings are therefore not comparable, and all scans in this work are processed with the same spacing. \todo{state the value used.}
 
 \subsection{Spatial and spectral parameters}
 
-The height parameters describe how tall features are, but not how large or
-how far apart they are. Two further groups of parameters capture this.
+The height parameters describe how tall features are, but not how large or how far apart they are. Two further groups of parameters capture this.
 
-\paragraph{Autocorrelation.} The autocorrelation function measures how
-similar the surface is to a copy of itself shifted horizontally. It equals
-1 at zero shift and decays as the shift grows. The autocorrelation length
-$S_{al}$ is the shortest shift at which it falls below 0.2, and gives the
-typical horizontal size of the features. The texture aspect ratio $S_{tr}$
-is the ratio of the shortest to the longest such distance over all
-directions: it is close to 1 for a surface that looks the same in every
-direction, such as a randomly burrowed bed, and close to 0 for a strongly
-directional one, such as a rippled bed. The autocorrelation is computed with
-the fast Fourier transform, counting only pairs of valid cells.
+\paragraph{Autocorrelation.} The autocorrelation function measures how similar the surface is to a copy of itself shifted horizontally. It equals 1 at zero shift and decays as the shift grows. The autocorrelation length $S_{al}$ is the shortest shift at which it falls below 0.2, and gives the typical horizontal size of the features. The texture aspect ratio $S_{tr}$ is the ratio of the shortest to the longest such distance over all directions: it is close to 1 for a surface that looks the same in every direction, such as a randomly burrowed bed, and close to 0 for a strongly directional one, such as a rippled bed. The autocorrelation is computed with the fast Fourier transform, counting only pairs of valid cells.
 
-\paragraph{Power spectrum.} The power spectral density (PSD) breaks the
-surface down into sinusoidal components and shows how much height variance
-each wavelength contributes. A Hann window is applied before the transform
-to reduce artefacts from the edges of the patch. The strongest peak of the
-PSD gives the dominant wavelength and direction of any regular pattern,
-such as ripples, and the texture direction $S_{td}$ is reported as the
-direction of the crests. \todo{Note: $S_{td}$ here is the crest direction,
-	i.e.\ 90\degree{} from the peak of the angular spectrum; check this against
-	the convention of any software you compare with.} Many natural surfaces are
-\emph{self-affine}: their PSD follows a power law $C(q) \propto q^{-2(1+H)}$
-in wavenumber $q$ over a wide range of scales~\cite{persson2005roughness}.
-Fitting a straight line to the log-log PSD gives the Hurst exponent $H$,
-which describes how roughness changes with scale, and the fractal dimension
-$D_f = 3 - H$. The fit is restricted to wavelengths between four grid cells,
-below which gridding distorts the spectrum, and a quarter of the patch
-width, above which there are too few repetitions to estimate the power
-reliably.
+\paragraph{Power spectrum.} The power spectral density (PSD) breaks the surface down into sinusoidal components and shows how much height variance each wavelength contributes. A Hann window is applied before the transform to reduce artefacts from the edges of the patch. The strongest peak of the PSD gives the dominant wavelength and direction of any regular pattern, such as ripples, and the texture direction $S_{td}$ is reported as the direction of the crests. \todo{Note: $S_{td}$ here is the crest direction, i.e.\ 90\degree{} from the peak of the angular spectrum; check this against the convention of any software you compare with.} Many natural surfaces are \emph{self-affine}: their PSD follows a power law $C(q) \propto q^{-2(1+H)}$ in wavenumber $q$ over a wide range of scales~\cite{persson2005roughness}. Fitting a straight line to the log-log PSD gives the Hurst exponent $H$, which describes how roughness changes with scale, and the fractal dimension $D_f = 3 - H$. The fit is restricted to wavelengths between four grid cells, below which gridding distorts the spectrum, and a quarter of the patch width, above which there are too few repetitions to estimate the power reliably.
 
 \subsection{Additional measures and uncertainty}
 
 Several further outputs support the interpretation of the main parameters:
 
 \begin{itemize}
-	\item \textbf{Multi-scale roughness.} $S_q$ and rugosity are computed in
-	square windows of increasing size, each with its own plane removed, to
-	show how roughness depends on the scale of observation.
-	\item \textbf{Confidence intervals.} 95\% confidence intervals for $S_q$,
-	$S_{dr}$ and $S_{al}$ are estimated with a block bootstrap: the surface is
-	divided into square windows, which are resampled with replacement 1000
-	times. Neighbouring windows are correlated, so these intervals are likely
-	to be somewhat optimistic.
-	\item \textbf{Terrain ruggedness.} The Terrain Ruggedness
-	Index~\cite{riley1999tri} and the Vector Ruggedness
-	Measure~\cite{sappington2007vrm}, widely used for seabed and landscape
-	habitat analysis, are included for comparison with the ecological
-	literature.
-	\item \textbf{Noise correction.} Given an estimate of the sensor noise,
-	either as a per-point standard deviation or from a scan of a flat plate
-	processed in the same way, the noise contribution is subtracted from
-	$S_q$ and $S_{dq}$, assuming the noise adds independently to the true
-	surface. A warning is raised if noise accounts for more than half of the
-	measured slope, since rugosity then mainly measures noise.
+	\item \textbf{Multi-scale roughness.} $S_q$ and rugosity are computed in square windows of increasing size, each with its own plane removed, to show how roughness depends on the scale of observation.
+	
+	\item \textbf{Confidence intervals.} 95\% confidence intervals for $S_q$, $S_{dr}$ and $S_{al}$ are estimated with a block bootstrap: the surface is divided into square windows, which are resampled with replacement 1000 times. Neighbouring windows are correlated, so these intervals are likely to be somewhat optimistic.
+	
+	\item \textbf{Terrain ruggedness.} The Terrain Ruggedness Index~\cite{riley1999tri} and the Vector Ruggedness Measure~\cite{sappington2007vrm}, widely used for seabed and landscape 	habitat analysis, are included for comparison with the ecological literature.
+	
+	\item \textbf{Noise correction.} Given an estimate of the sensor noise,either as a per-point standard deviation or from a scan of a flat plate processed in the same way, the noise contribution is subtracted from $S_q$ and $S_{dq}$, assuming the noise adds independently to the true surface. A warning is raised if noise accounts for more than half of the measured slope, since rugosity then mainly measures noise.
 \end{itemize}
 
-All random choices use a fixed seed, so repeated runs give identical
-results, and every run records the hash of the code and of the input scan.
+All random choices use a fixed seed, so repeated runs give identical results, and every run records the hash of the code and of the input scan.
 
 \subsection{Validation}
 
-The program was checked in two ways. A test suite generates synthetic
-surfaces with known answers, such as sinusoids, for which $S_q$, $S_a$, the
-wavelength and even the exact rugosity follow in closed form, and random
-fractal surfaces with a prescribed Hurst exponent. Each metric is confirmed
-to recover the expected value, including when trends, noise, holes and a
-tilted camera are added. Secondly, a scan of a test object can be compared
-directly with its analytic definition: the reference surface is sampled,
-passed through exactly the same levelling, detrending and gridding, and the
-two sets of metrics are compared. This measures the error of the complete
-capture, fusion and roughness chain, and is used in
-Chapter~\ref{ch:Results} \todo{check label}.
+The program was checked in two ways. A test suite generates synthetic surfaces with known answers, such as sinusoids, for which $S_q$, $S_a$, the wavelength and even the exact rugosity follow in closed form, and random fractal surfaces with a prescribed Hurst exponent. Each metric is confirmed to recover the expected value, including when trends, noise, holes and a tilted camera are added. Secondly, a scan of a test object can be compared directly with its analytic definition: the reference surface is sampled, passed through exactly the same levelling, detrending and gridding, and the two sets of metrics are compared. This measures the error of the complete capture, fusion and roughness chain, and is used in Chapter~\ref{ch:Results} \todo{check label}.
 
 \subsection{Limitations}
 
-The parameters follow ISO 25178-2 definitions but are not fully
-ISO-conformant. The standard defines them on a surface that has been
-band-limited with Gaussian filters, whereas here the band is set implicitly
-by the grid cell, the MLS smoothing in fusion, the polynomial degree and the
-size of the patch. The values are therefore directly comparable between
-scans processed in this pipeline with the same settings, but should be
-compared with values from commercial surface-metrology software with care.
-The surface is also treated as a single-valued height map, so overhangs are
-lost.
+The parameters follow ISO 25178-2 definitions but are not fully ISO-conformant. The standard defines them on a surface that has been band-limited with Gaussian filters, whereas here the band is set implicitly by the grid cell, the MLS smoothing in fusion, the polynomial degree and the size of the patch. The values are therefore directly comparable between scans processed in this pipeline with the same settings, but should be compared with values from commercial surface-metrology software with care. The surface is also treated as a single-valued height map, so overhangs are lost.
 
 %---------------------------------------------------------------------
 \section{Feature Detection}
 \label{sec:features}
 %---------------------------------------------------------------------
 
-The roughness parameters describe the surface as a whole, but the
-biological question also requires counts of discrete features, in
-particular the burrow openings created by sandprawns. The final stage of
-the pipeline is intended to detect these automatically from the depth and
-colour images.
+The roughness parameters describe the surface as a whole, but the biological question also requires counts of discrete features, in particular the burrow openings created by sandprawns. The final stage of the pipeline is intended to detect these automatically from the depth and colour images.
 
 \todo{Not yet implemented.}
 
