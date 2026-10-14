@@ -235,17 +235,19 @@ Registration is sequential: each scan is aligned against the scans before it, an
 %---------------------------------------------------------------------
 \todo{review this!}
 
-The roughness program, \texttt{roughness\_scans.py}, takes a fused point cloud and describes the roughness of the surface it represents. No reference surface is required. It runs five steps: level the scan, crop it, remove large-scale trends, resample it onto a regular grid, and compute the metrics. Most of the metrics follow the areal surface-texture parameters of ISO 25178-2~\cite{iso25178-2}, so that results can be compared with other surface-metrology studies. Internally all lengths are in metres; reported lengths are in millimetres.
+The roughness program, \texttt{roughness\_scans.py}, takes a fused point cloud and describes the roughness of the surface it represents. It runs five steps: level the scan, crop it, remove large-scale trends, resample it onto a regular grid, and compute the metrics. Most of the metrics follow the areal surface-texture parameters of ISO 25178-2~\cite{iso25178-2}, so that results can be compared with other surface-metrology studies. Internally all units are in metres with reported units being millimetres.
 
 \subsection{Levelling}
 
-The fused scan is in the frame of the reference camera, so the sediment bed is generally tilted relative to the coordinate axes. Roughness parameters measure heights relative to a mean surface, so the scan is first levelled: rotated so that the mean plane of the bed is horizontal and height is measured along the $z$ axis. The mean plane is found by principal component analysis. The plane passes through the centroid of the points, and its normal is the direction in which the points vary least. To prevent large features from tilting the plane, the fit is repeated with sigma clipping: points further from the plane than three times a robust estimate of the spread are dropped and the plane is refitted, up to five times. The spread is estimated with the median absolute deviation (MAD), scaled by 1.4826 so that it equals the standard deviation for normally distributed data. Unlike the standard deviation, the MAD is barely affected by the points being clipped.
+The fused scan is in the frame of the reference camera, so the sediment bed is generally tilted relative to the coordinate axes. Roughness parameters measure heights relative to a mean surface, so the scan is first levelled. This involves rotating scan so that the mean plane of the bed is horizontal and height is measured along the $z$ axis. The mean plane is found by principal component analysis. The plane passes through the centroid of the points, and its normal is the direction in which the points vary least. To prevent large features from tilting the plane, the fit is repeated with sigma clipping, where points further than three times the spread estimate are dropped and the plane is refitted, this is then repeated up to five times. The spread is estimated with the median absolute deviation (MAD), scaled by 1.4826 so that it equals the standard deviation for normally distributed data. The reason for using MAD instead of normal standard deviation, is that MAD is less susceptible to the changes that result from discarded samples.
 
 The levelled frame has its origin at the centroid, $+z$ along the plane normal pointing towards the camera, and $x$ along the camera's original $x$ axis projected onto the plane. Keeping the camera's horizontal direction means that the direction of ripples or other features reads the same in the results as in the images. The scan can then optionally be cropped to a region of interest or trimmed by a fixed margin around its border, where fused data are usually the sparsest.
 
 \subsection{Detrending}
 
-A levelled surface still contains variations that are not roughness: a gentle bowl in the sediment, a slope towards one side, or a residual tilt. In ISO 25178 terms these are removed by a form-removal operator, after which the remainder is treated as surface texture. Here the form is modelled as a polynomial in the horizontal coordinates,
+Although the surface has been levelled, there are still some sediment features forms that are not related to the roughness of said sediment. For example, a concave section of sediment, or residual tilt from the levelling stage. Removing these forms from the surface results in the isolated sediment texture surface, called the residual. For detrending, these non-textural forms are modelled as a 3D polynomial surface:
+
+%A levelled surface still contains variations that are not roughness: a gentle bowl in the sediment, a slope towards one side, or a residual tilt. In ISO 25178 terms these are removed by a form-removal operator, after which the remainder is treated as surface texture. Here the form is modelled as a polynomial in the horizontal coordinates,
 
 \begin{equation}
 	p(x, y) = \sum_{i + j \le n} a_{ij}\, x^i y^j ,
@@ -253,17 +255,17 @@ A levelled surface still contains variations that are not roughness: a gentle bo
 
 of degree $n$ from 1 (planar) to 4 (quartic), and the residual $z - p(x, y)$ is kept as the roughness surface. The coordinates are scaled to the range $[-1, 1]$ before fitting so that the fit remains numerically stable at higher degrees, and the same sigma clipping as in levelling stops ripple crests, troughs or burrow mounds from dragging the trend.
 
-The choice of degree is a trade-off. A low degree may leave genuine form in the residual and overestimate roughness. A high degree can follow real bedforms: a polynomial of degree $n$ can follow roughly $n/2$ wavelengths, so on a small patch it can remove relief that is part of the texture being measured. The program therefore computes the metrics for every degree requested, using the same levelling, crop and grid for each so that the results are directly comparable, and raises a warning if a higher-order fit removes much more height variance than the planar fit while the patch spans fewer than $n$ dominant wavelengths. \todo{State which detrend degree is used for the reported results and why.}
+The choice of degree is a trade-off. A low degree may leave some non-texture form in the residual and overestimate roughness. A high degree may capture more complex forms but can also remove features of interest. A polynomial of degree $n$ can follow roughly $n/2$ wavelengths, so on a small patch it can remove relief that is part of the texture being measured. The program therefore computes the metrics for every degree requested, using the same levelling, crop and grid for each so that the results are directly comparable, and raises a warning if a higher-order fit removes much more height variance than the planar fit while the patch spans fewer than $n$ dominant wavelengths. \todo{State which detrend degree is used for the reported results and why.}
 
 \subsection{Gridding}
 
 Most roughness parameters are defined on a regular grid of heights, so the residual surface is resampled onto a square grid. By default the cell size is twice the median spacing between neighbouring points, so that most cells contain several points. The height of a cell is the mean of its points. Averaging $c$ points with independent noise of standard deviation $\sigma$ reduces the noise to $\sigma/\sqrt{c}$, so the gridding also acts as a mild low-pass filter at the scale of one cell.
 
-Some cells contain no points. Small enclosed holes, no larger than two cells across, are filled by linear interpolation from the surrounding cells. Larger holes and gaps at the border are left empty and excluded from every metric, because interpolating across them would invent surface that was never measured.
+Some cells contain no points, therefore any small enclosed holes, no larger than two cells across, are filled by linear interpolation from the surrounding cells. Larger holes and gaps at the border are left empty and excluded from every metric, because interpolating across them would result in inaccurate metrics..
 
 \subsection{Height parameters}
 
-With $z_k$ the gridded heights relative to their mean and $N$ the number of valid cells, the height parameters are:
+With $z_k$ being the gridded heights relative to their mean and $N$ being the number of valid cells, the height parameters are:
 
 \begin{align}
 	S_a &= \frac{1}{N}\sum_{k} |z_k|, &
@@ -272,8 +274,7 @@ With $z_k$ the gridded heights relative to their mean and $N$ the number of vali
 	S_{ku} &= \frac{1}{S_q^4}\,\frac{1}{N}\sum_{k} z_k^4,
 \end{align}
 
-together with the highest peak $S_p$, the deepest valley $S_v$ and the total height $S_z = S_p + S_v$. $S_a$ and $S_q$ are the arithmetic and root-mean-square heights and are the most common single measures of roughness. The skewness $S_{sk}$ indicates whether the surface is dominated by peaks ($S_{sk} > 0$) or by pits ($S_{sk} < 0$); a bed riddled with burrow openings would be expected to have negative skewness. The kurtosis $S_{ku}$ indicates how sharp the features are: a surface with normally distributed heights has $S_{ku} = 3$, while isolated sharp peaks or pits
-raise it.
+together with the highest peak $S_p$, the deepest valley $S_v$ and the total height $S_z = S_p + S_v$. $S_a$ and $S_q$ are the arithmetic and root-mean-square heights and are the most common single measures of roughness. The skewness $S_{sk}$ indicates whether the surface is dominated by peaks ($S_{sk} > 0$) or by pits ($S_{sk} < 0$). A bed riddled with burrow openings would be expected to have negative skewness. The kurtosis $S_{ku}$ indicates how sharp the features are, a surface with normally distributed heights has $S_{ku} = 3$, while isolated sharp peaks or pits raise it.
 
 \subsection{Rugosity and slope}
 
