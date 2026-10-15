@@ -4,16 +4,14 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1.1}{\ignorespaces Table title}}{2}{table.caption.8}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces System requirements and where they are addressed.}}{7}{table.caption.10}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces System requirements and where they are addressed.}}{9}{table.caption.7}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.2}{\ignorespaces Hardware summary.}}{9}{table.caption.12}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Hardware summary.}}{11}{table.caption.9}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Planar characterisation against a white wall at different working distances (one trial per distance; values averaged over the valid frames).}}{13}{table.caption.18}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Planar characterisation under different lighting conditions at a height of approximately 0.9\,m. Lux values are indicative (smartphone sensor). A dash indicates that no valid plane fit was obtained.}}{14}{table.caption.21}%
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Planar characterisation against a white wall at different working distances (one trial per distance; values averaged over the valid frames).}}{15}{table.caption.15}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Planar characterisation under different lighting conditions at a height of approximately 0.9\,m. Lux values are indicative (smartphone sensor). A dash indicates that no valid plane fit was obtained.}}{16}{table.caption.18}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

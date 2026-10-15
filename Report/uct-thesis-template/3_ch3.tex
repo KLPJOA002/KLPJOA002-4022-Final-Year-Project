@@ -1,19 +1,71 @@
 %*********************************************************************
-\chapter{Theoretical Backbone}
+\chapter{Theoretical Background}
 \label{ch:theory}
 %*********************************************************************
-\section{Stereo Vision}
+\providecommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+Whilst this report mainly focuses on a higher level approach of developing a processing pipeline, an understanding of the general theory behind how the scans are captured and processed is recommended for a better understanding. 
+
+This chapter aims to provide a high level explanation of the theory behind each stage. It does not provide in depth explanation, and is mainly meant to provide a brief overview of the required theory.
+
+\section{Depth Capture}
+The Intel RealSense D456 camera operates using a combination of passive and active stereo vision. The D456 captures stereo images of the same surface and using its dedicated ASIC, can resolve depth using small disparities between the two images. The camera features an infrared laser projector, which can project a pattern onto the surface, which can then be used by the two stereo cameras to create artificial texture when there is non present on the subject. A third camera sensor with an IR filter, captures RGB images of the subject, and this can then be projected onto the depth image to form colour depth images.
+
+\subsection{Stereo Vision}
+The method behind how the camera produces depth images is based in stereo vision. Two OmniVision Technologies OV9782 image sensors on the left and right of the camera capture images of the same subject. By comparing the slight differences between the two images, such as the slight shift in feature posistion, and knowing the geometry that relates the two image sensors. You can determine the depth of any point in the image frame. 
+
+\todo{Provide maths and theory behind how stereo vision works}
+\todo{Want general high level theory behind image transformations, camera calibration, intrinsics and extrinsics, etc}
+
+\subsection{Active vs Passive Vision. The Hidden Spots}
+Two main fields of stereo vision are active and passive stereo vision. Passive stereo vision relies on the natural environment to have features that can be tracked between the two images. Whilst this method can result in high quality reconstructions, it does require the subject have high texture density, otherwise the reconstruction algorithm may fail to identify similarities.
+
+Active stereo vision involves using a known pattern being projected onto the subject, and the depth converting algorithm measuring the warping of this known pattern to infer depth information.
+
+The RealSense D456 uses a hybrid of these two methods. The camera is fundamentally based on passive stereo vision, determining depth using textured features on the subject. The camera however does feature an infrared laser projector, which projects a dot pattern onto the subject. What differentiates this from active stereo vision, is that this pattern is not used directly for depth inference. The pattern is used to add artificial texture to the surface. This helps the camera operate in low texture environments, and can add additional texture to textured surfaces. Why this matters for this use case, is that the camera can still function when the pattern is not present, and so can still function when the laser pattern is lost in high IR conditions such as in sunlight.
+
+
+\subsection{What the Camera Actually Does}
+The Intel RealSense D456 camera is a comercial product, which features a dedicated ASIC chip which performs all the nececary maths to compute a depth image. This chip is hardware optimised, and therefore allows for very efficient and fast depth processing. The camera features calibrated intrinsics and extrinsics. These two combined mean that the camera directly outputs a depth image, and therefore no computing is required on the host device to process the stereo images in order to get a 3D representation of the subject. This makes the camera a very useful tool for implementing 3D computer vission in projects, as it allows for an affordable and computationally easy method to get depth images.
 
 \section{Capture Alignment}
 
+Alignment of two surfaces is a fundamental requirement for scan fusion and for evaluation. Each individual scan is only ever taken in the reference frame of the Camera. And so a rotated or tilted camera does not change the frame of the scan.  
+
+\subsection{Feature based Alignment}
+
+A widely applicable method for aligning two 3D point clouds, is fast point feature histograms(FPFH) with Random Sample Consensus (RANSAC).
+
+FPFH works by providing a local geometry descriptor, in the form of a 33-dimensional vector, for each point in a down sampled scan. RANSAC is then used to determine the transformation between two 3D scans. It works by randomly sampling 3 points on the surface, and estimating the transform that minimises the distance between points with similar descriptors. This is repeated many times keeping track of whichever transofmration results in the highest score of points that agree with the transfomration.
+
+\subsection{The tag pose estimation?}
+\todo{Im not really sure how this section works, but the theory behind it is necesary}
+
+\subsection{Iterative Closest Point}
+Whilst the two methods above, do generally align two point clouds, with good accuracy, they are primarily focused on giving fast transformation estimates, and lack higher quality reconsignment.
+
+Iterative Closest Point (ICP), specifically point-to-plane ICP, is cost minimisation method used to minimise the perpendicular distance from a point in source cloud, to the tangent plane of its corresponding point, in the target cloud.
+
+This specific form of ICP is used as it offeres faster performance to traditional point-to-point ICP, at the cost of weakness to smooth, planar surfaces. ICP is a highly effective method for refignmning the alignment between two surfaces, however, since it is a cost minimisation function, it has the tendancy to find local minima in a cost function, and so requires a fairly accurate initial seed to find the true minima, and thus the true transform that aligns two surfaces. 
+
+Due to this fact, ICP is often used in conjunction with other coarser methods, such as those mentioned above.
+
+\todo{Any other alignment methods mention in this paper}
+
 \section{Fusion}
+
+\todo{Describe the fusion thoery used in this paper}
 
 \section{Evaluation}
 
+In order to evaluate performance, a very common metric used is the root mean square error (RMSE). This provides a metric about how close the average point on a point cloud is to its ground truth. \todo{describe RMSE better in the context of this paper}
+
+\todo{Provide theoretical background to evaluation used in this project}
+
 \section{Roughness Calculation}
+\todo{Provide explanation behind how roughness metrics are calculated, what they mean and such}
 
 \section{Feature Detection}
-
+\todo{Not implemented yet}
 
 
 %*********************************************************************

@@ -1,6 +1,7 @@
 %****************************************************
 %	CHAPTER 1 - INTRODUCTION
 %****************************************************
+\providecommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
 \chapter{Introduction}
 \label{ch:introduction}
 %====================================================
@@ -17,65 +18,66 @@ Sand prawn activity has a large effect on the surrounding ecosystem. Pillay and 
 \subsection{Technical application}
 Schenone et al \cite{schenoneSedimentMicrotopographyPredicts2024} demonstrates that surface microtopography can be used as a reliable metric to predict biochemical processes. However common metrics for measuring surface roughness characteristics such as (list them here) are often invasive and result in the damage of the very structures under measurement. Azhar et al \cite{azharRGBDFrameworkCapturing2022} demonstrated that the use of low cost RGB-D cameras can be used to produce depth images of the sediment surface, which can then be processed to analyse the surface properties. 
 %====================================================
-\subsubsection{Sub-subsection}
-\label{subsec:ch1.section1.subsubsec1}
-%----------------------------------------------------
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{figs/ch1/shannon.jpg}
-\caption[A simplified block diagram of a general communication system.]{\textbf{A simplified block diagram of a general communication system.} A communication system can be abstracted as follows: an \textit{information source} produces a message to be sent through a \textit{transmitter} which converts it to a signal which can be sent via a communication \textit{channel}. The received signal is noisy and is converted back to the message by the \textit{receiver} which is then delivered to the \textit{destination}. Taken from shannon1948}
-    \label{fig:my_label}
-\end{figure}
-%----------------------------------------------------
-\pagebreak
-%----------------------------------------------------
-\begin{table}[H]
-    \centering
-    \caption[Table title]{\textbf{Table title.} Extended description of tables contents.}
-    \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}m{8cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
-    \toprule[2.25pt]
-    \multirow{3}{*}{\textbf{Heading 1}}        &  \multicolumn{2}{c}{\textbf{Heading 2}}   \\
-    \cmidrule[0.5pt](lr){2-3}
-    &  \multicolumn{1}{c}{\textit{\small Subheading 1}} & \multicolumn{1}{c}{\small \textit{Subheading 2}}\\
-    &  \multicolumn{1}{c}{\small [units]} & \multicolumn{1}{c}{\small [units]}\\
-    \midrule[1pt]
-         &  &\\
-         &  &\\
-         &  &\\
-    \bottomrule[2.25pt]
- \end{tabularx}
-
-    \label{table:my_label}
-\end{table}
 
 
 %====================================================
 \section{Problem statement}
 \label{sec:ch1.problemstatement}
 %====================================================
-Equations are numbered and include the chapter number. As they are considered part of the text, they include punctuation, and each parameter must be described in the text below. Ensure that the units are stated and where possible use SI units. For example, the Maxwell equations are expressed as:
-\begin{align}
-\nabla \cdot \bm{E} &= \frac{\rho}{\epsilon_0}, \\
-\nabla \cdot \bm{B} &= 0, \\
-\nabla \times \bm{E} &= -\frac{\partial \bm{B}}{\partial t}, \\
-\nabla \times \bm{B} &= \mu_0 \bm{J} + \mu_0 \epsilon_0 \frac{\partial \bm{E}}{\partial t},
-\end{align}
+Currently, The system makes use of a single scan to estimate surface roughness. And whilst each surface is scanned at least four times, using the original camera mount which allowed rotations, these repetitions were not combined together and each was evaluated individually. Further, the current configuration of the system, both in terms of hardware and software, has not been thoroughly investigated. This project aims to provide a comprehensive characterisation of the Intel RealSense D456 camera, and provide a method for high quality three dimensional reconstruction and analysis using multi-view scans.
+%Equations are numbered and include the chapter number. As they are considered part of the text, they include punctuation, and each parameter must be described in the text below. Ensure that the units are stated and where possible use SI units. For example, the Maxwell equations are expressed as:
+%\begin{align}
+%\nabla \cdot \bm{E} &= \frac{\rho}{\epsilon_0}, \\
+%\nabla \cdot \bm{B} &= 0, \\
+%\nabla \times \bm{E} &= -\frac{\partial \bm{B}}{\partial t}, \\
+%\nabla \times \bm{B} &= \mu_0 \bm{J} + \mu_0 \epsilon_0 \frac{\partial \bm{E}}{\partial t},
+%\end{align}
 
-where $\bm{B}$ is the magnetic flux density in T, $\bm{J}$ is the total current density in A/m$^2$, $\bm{E}$ is the electric field in V/m, $\mu_0$ is the permeability of free space (4\(\pi \times 10^{-7}\) H/m), and $\epsilon_0$ is the permittivity of free space (8.85 \(\times 10^{-12}\) C$^2$/N·m$^2$).
+%where $\bm{B}$ is the magnetic flux density in T, $\bm{J}$ is the total current density in A/m$^2$, $\bm{E}$ is the electric field in V/m, $\mu_0$ is the permeability of free space (4\(\pi \times 10^{-7}\) H/m), and $\epsilon_0$ is the permittivity of free space (8.85 \(\times 10^{-12}\) C$^2$/N·m$^2$).
 
 
 %====================================================
 \section{Project objectives}
 \label{sec:ch1.projectobjectives}
 %====================================================
-The \gls{gps} is used for positioning. The \gls{miz} is of particular interest in the \gls{so}.
+%The \gls{gps} is used for positioning. The \gls{miz} is of particular interest in the \gls{so}.
+The objectives of this project are as follows:
+\begin{itemize}
+	\item Characterise the Intel RealSense D456 camera across different external configurations such as: height, angle and lighting
+	
+	\item Characterise the Intel RealSense D456 camera under different firmware and software configurations, such as: Image Resolutions, depth units, presets, and filter combinations
+	
+	\item Develop a multi-view fusion process to combine different view point scans into a single scan, and characterise this process against different combinations of tilts and rotations
+	
+	\item Develop a roughness metric evaluation pipeline to process fused scans and obtain surface roughness metrics required for the overarching project.
+	
+	\item Develop a feature detection process to help record useful sediment features such as burrows. 
+\end{itemize}
 %====================================================
 \section{Scope, limitations and assumptions}
 \label{sec:ch1.scope}
 %====================================================
+The project is limited to a duration of only 12 weeks, with the final submission on the 27th of October 2026. The project is limited to the hardware present on the current existing system. This includes an Intel RealSense D456 camera, a rotating camera mount, staged on top of a servo operated tilt stage. 
+
+This project is primarily focused on the optimisation of the Intel RealSense D456 camera for operation on intertidal sediment surfaces. The resulting configuration analysis are primarily oriented for resolving features present in this environment, and therefore the process may not be applicable for all reconstruction objectives, such as angular objects with sharp corners.
+
+This project assumes that the camera has been calibrated, and that .... \todo{What other assumptions}
 %====================================================
 \section{Plan of development}
 \label{sec:ch1.planofdevelopment}
+\todo{Should i keep this seciton?}
+
+Plan of development involves the following:
+
+Firstly, the existing capture pipeline is altered to interface with the tilt stage servo motor, to automate the tilt stage for capture. 
+
+Secondly, a cropping tool is to be made to automatically crop the scaned region into a known defined region for analysis.
+
+Thirdly, a fusion tool is to be made. This will take multi-view scans taken of each surface, align them, and then fuse them into one higher quality reconstruction of the surface.
+
+Fourthly, a metric evaluation tool is to be made to analyse the resulting surfaces and produce roughness metrics for them.
+
+lastly, a feature detection and segmentation tool is made to automatically characterise and count surface features such as burrows.
 \pagebreak
 %====================================================
 %----------------------------------------------------

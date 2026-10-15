@@ -4,11 +4,26 @@
 \chapter{Experimental Validation}
 \label{ch:Validation}
 %---------------------------------------------------------------------
+In order to validate the processing pipeline as a whole, two methods are used. Firstly the pipeline is applied to experimental data captured during the characterisation stage of the known relief objects. Whilst this does not acurately describe the sediment surface in situ, it allows for an analytical evaluation the pipeline, whilst providing some resemblance for the true conditions.
+
+Secondly, scans of the surface of sand, taken from the langebaan lagoon, was performed. This was taken for dry, wet and submerged sand, in both flat and shaped forms. This experimentation provides little analytical results, but helps to get a qualitative understanding of the performance in conditions closer to environmental.
 
 \section{Known Relief and Controlled Targets}
 
-\section{Roughness Metric Validation}
+\subsection{Process}
+The rugosity estimation pipeline is applied to scans taken of reference objects shown in \autoref{Apendix:Reference_Objects}. These scans are re-used from the characterisation process \autoref{ch:experiments}. These scans had the filters identified in \autoref{ch:experiments} applied to them. Cropping and fusion was then applied. This reconstructed surface was then cropped down to just the reference object, and the evaluation was performed on it. The results of which are then compared to the results obtained via analytical evaluation of the reference object file .stl. This provides an analytical comparison between the results of scanning and processing, and the known relief.
 
+\subsection{Results}
+\todo{Add these results}
+
+\section{Controlled Laboratory Sand}
+Whilst this reference object comparison provides an analytical evaluation, it does not align with real world conditions. Due to time constraints, real world implementation was not able to be performed, however a more realistic scan was taken, using sand collected from the langebaan lagoon. 
+Approximately 13~kg of sand was collected dry, and was placed in a a 10~l plastic container. This was then flattened to produce a surface that should give rugosity metrics of 1. next, the sand was indented with the known reference shapes, and scans were taken. Next the sand was wetted with  2~kg of water. This approximates the wet intertidal sediment. The sand was then flattened again for scans, and then indented with the known reference shapes. 
+
+Finally, for purely qualitative performance, slightly more water was added, enough to produce pools of water on the surface. The sand was then shaped by hand to have some approximate natural texture. This was then scanned. This mainly gives an estimation of the performance on more water logged regions of the sediment, and also gives an estimate on what rugosity measurements would look.
+
+\subsection{Results}
+\todo{Add these results}
 
 
 %*********************************************************************

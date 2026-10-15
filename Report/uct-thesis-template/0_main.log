@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.27)  14 OCT 2026 15:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.27)  15 OCT 2026 17:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1650,9 +1650,9 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
 (./i_declaration.aux) (./ii_abstract.aux) (./iii_acknowledgments.aux)
 (./iv_listofsymbols.aux) (./v_glossary.aux) (./1_intro.aux) (./2_review.aux)
 (./3_ch3.aux) (./4_ch4.aux) (./5_ch5.aux) (./6_ch6.aux) (./7_ch7.aux)
-(./6_results.aux) (./7_discussion.aux) (./8_conclusions.aux)
-(./9_furtherwork.aux) (./A_gitrepo.aux) (./Appendix.aux) (./B_ethics.aux)
-(./C_topicdescription.aux) (./D_ECSA.aux))
+(./7_discussion.aux) (./8_conclusions.aux) (./9_furtherwork.aux)
+(./A_gitrepo.aux) (./Appendix.aux) (./B_ethics.aux) (./C_topicdescription.aux)
+(./D_ECSA.aux))
 \openout1 = `0_main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 252.
@@ -1776,7 +1776,7 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
 (Font)              scaled to size 24.88pt on input line 10.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 15.
-<figs/0_logos/logo_uct.png, id=429, 356.532pt x 362.3136pt>
+<figs/0_logos/logo_uct.png, id=449, 356.532pt x 362.3136pt>
 File: figs/0_logos/logo_uct.png Graphic file (type png)
 <use figs/0_logos/logo_uct.png>
 Package pdftex.def Info: figs/0_logos/logo_uct.png  used on input line 21.
@@ -1810,7 +1810,7 @@ LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 8.0pt on input line 75.
 LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 6.0pt on input line 75.
-<figs/0_logos/logo_eee.jpg, id=431, 1516.66624pt x 1511.6475pt>
+<figs/0_logos/logo_eee.jpg, id=451, 1516.66624pt x 1511.6475pt>
 File: figs/0_logos/logo_eee.jpg Graphic file (type jpg)
 <use figs/0_logos/logo_eee.jpg>
 Package pdftex.def Info: figs/0_logos/logo_eee.jpg  used on input line 75.
@@ -1884,7 +1884,7 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
 \openout8 = `0_main.toc'.
 
  [6] (./0_main.lof
-Overfull \hbox (1.58005pt too wide) in paragraph at lines 12--12
+Overfull \hbox (1.58005pt too wide) in paragraph at lines 11--11
  [][] [][]\T1/EBGaramond-OsF/m/n/10.95 System over-view. [][TODO: Re-place with
  a fuller dia-gram show-ing the data formats (.bag, .ply) passed between 
  []
@@ -1904,7 +1904,7 @@ Overfull \hbox (1.58005pt too wide) in paragraph at lines 12--12
 
 
 
-{/app/texlive/texmf-dist/fonts/enc/dvips/ebgaramond/ebg_yod6vr.enc}]
+]
 \openout2 = `v_glossary.aux'.
 
  (./v_glossary.tex
@@ -1919,23 +1919,16 @@ No file 0_main.gls.
  (./1_intro.tex
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 11.
+(Font)              scaled to size 12.0pt on input line 12.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 11.
-<figs/ch1/shannon.jpg, id=648, 1986.42125pt x 703.62875pt>
-File: figs/ch1/shannon.jpg Graphic file (type jpg)
-<use figs/ch1/shannon.jpg>
-Package pdftex.def Info: figs/ch1/shannon.jpg  used on input line 25.
-(pdftex.def)             Requested size: 409.72125pt x 145.12521pt.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
-(Font)              scaled to size 9.0pt on input line 26.
+(Font)              scaled to size 12.0pt on input line 12.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.32 \begin
-           {table}[H] [1
+l.53 	
+       [1
 
 
 
@@ -1943,24 +1936,27 @@ l.32 \begin
 
 
 
- <./figs/ch1/shannon.jpg>])
+{/app/texlive/texmf-dist/fonts/enc/dvips/ebgaramond/ebg_yod6vr.enc}])
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/sl' in size <10.95> not ava
 ilable
 (Font)              Font shape `T1/EBGaramond-OsF/m/it' tried instead on input 
 line 327.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
 (Font)              scaled to size 10.95pt on input line 327.
- [2]
+
+[2]
 \openout2 = `2_review.aux'.
 
  (./2_review.tex
 Chapter 2.
-<figs/ch2/Schenone_custom_incubation_tank.png, id=674, 987.69pt x 634.62094pt>
+<figs/ch2/Schenone_custom_incubation_tank.png, id=683, 987.69pt x 634.62094pt>
 File: figs/ch2/Schenone_custom_incubation_tank.png Graphic file (type png)
 <use figs/ch2/Schenone_custom_incubation_tank.png>
 Package pdftex.def Info: figs/ch2/Schenone_custom_incubation_tank.png  used on 
 input line 23.
 (pdftex.def)             Requested size: 256.07481pt x 164.53273pt.
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
+(Font)              scaled to size 9.0pt on input line 24.
 [3
 
 
@@ -1972,17 +1968,19 @@ input line 23.
 
  (./3_ch3.tex
 Chapter 3.
-) [6
+[6
 
 
 
 
 
-]
+] [7]) [8]
 \openout2 = `4_ch4.aux'.
 
  (./4_ch4.tex
 Chapter 4.
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
+(Font)              scaled to size 10.0pt on input line 21.
 LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 10.0pt on input line 22.
 LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
@@ -1992,190 +1990,179 @@ LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
 (Font)              scaled to size 10.0pt on input line 24.
 
-LaTeX Warning: Reference `sec:hardware' on page 7 undefined on input line 26.
+LaTeX Warning: Reference `sec:hardware' on page 9 undefined on input line 26.
 
 
-LaTeX Warning: Reference `sec:hardware' on page 7 undefined on input line 27.
+LaTeX Warning: Reference `sec:hardware' on page 9 undefined on input line 27.
 
 
-LaTeX Warning: Reference `sec:software' on page 7 undefined on input line 27.
+LaTeX Warning: Reference `sec:software' on page 9 undefined on input line 27.
 
 
-LaTeX Warning: Reference `sec:software' on page 7 undefined on input line 28.
+LaTeX Warning: Reference `sec:software' on page 9 undefined on input line 28.
 
 
-LaTeX Warning: Reference `sec:software' on page 7 undefined on input line 30.
+LaTeX Warning: Reference `sec:software' on page 9 undefined on input line 30.
 
 
-LaTeX Warning: Reference `sec:hardware' on page 7 undefined on input line 32.
+LaTeX Warning: Reference `sec:hardware' on page 9 undefined on input line 32.
 
 
-LaTeX Warning: Reference `sec:software' on page 7 undefined on input line 32.
+LaTeX Warning: Reference `sec:software' on page 9 undefined on input line 32.
 
 
-LaTeX Warning: Reference `sec:hardware' on page 7 undefined on input line 37.
+LaTeX Warning: Reference `sec:hardware' on page 9 undefined on input line 37.
 
 
-LaTeX Warning: Reference `sec:hardware' on page 7 undefined on input line 38.
+LaTeX Warning: Reference `sec:hardware' on page 9 undefined on input line 38.
 
-[7
-
-
+[9
 
 
 
-] [8]
-
-Package natbib Warning: Citation `rusu2009fpfh' on page 9 undefined on input li
-ne 120.
 
 
-Package natbib Warning: Citation `fischler1981ransac' on page 9 undefined on in
-put line 120.
+] [10]
+
+Package natbib Warning: Citation `rusu2009fpfh' on page 11 undefined on input l
+ine 120.
 
 
-Package natbib Warning: Citation `besl1992icp' on page 9 undefined on input lin
-e 122.
+Package natbib Warning: Citation `fischler1981ransac' on page 11 undefined on i
+nput line 120.
 
-[9{/app/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]) [10]
+
+Package natbib Warning: Citation `besl1992icp' on page 11 undefined on input li
+ne 122.
+
+[11{/app/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}])
+[12]
 \openout2 = `5_ch5.aux'.
 
-
-(./5_ch5.tex
+ (./5_ch5.tex
 Chapter 5.
-[11
+[13
 
 
 
 
 
-] [12]
+] [14]
 Overfull \hbox (62.36325pt too wide) in paragraph at lines 147--167
  [][] 
  []
 
 
-LaTeX Warning: Reference `sec:reference' on page 13 undefined on input line 174
+LaTeX Warning: Reference `sec:reference' on page 15 undefined on input line 174
 .
-
-[13]
-
-LaTeX Warning: Reference `ch:system' on page 14 undefined on input line 182.
-
-[14]
-
-LaTeX Warning: Reference `ch:system' on page 15 undefined on input line 195.
-
-
-LaTeX Warning: Reference `ch:system' on page 15 undefined on input line 203.
-
-
-LaTeX Warning: Reference `ch:pipeline' on page 15 undefined on input line 211.
 
 [15]
 
-LaTeX Warning: Reference `ch:further' on page 16 undefined on input line 227.
+LaTeX Warning: Reference `ch:system' on page 16 undefined on input line 182.
 
-) [16]
+[16]
+
+LaTeX Warning: Reference `ch:system' on page 17 undefined on input line 195.
+
+
+LaTeX Warning: Reference `ch:system' on page 17 undefined on input line 203.
+
+
+LaTeX Warning: Reference `ch:pipeline' on page 17 undefined on input line 211.
+
+[17]
+
+LaTeX Warning: Reference `ch:further' on page 18 undefined on input line 227.
+
+) [18]
 \openout2 = `6_ch6.aux'.
 
  (./6_ch6.tex
 Chapter 6.
-[17
+[19
 
 
 
 
 
-] [18] [19] [20] [21]
+] [20] [21] [22] [23]
 
-Package natbib Warning: Citation `umeyama1991' on page 22 undefined on input li
+Package natbib Warning: Citation `umeyama1991' on page 24 undefined on input li
 ne 176.
 
 
-Package natbib Warning: Citation `rusu2009fpfh' on page 22 undefined on input l
+Package natbib Warning: Citation `rusu2009fpfh' on page 24 undefined on input l
 ine 178.
 
 
-Package natbib Warning: Citation `buch2013prerejective' on page 22 undefined on
+Package natbib Warning: Citation `buch2013prerejective' on page 24 undefined on
  input line 178.
 
 
-Package natbib Warning: Citation `besl1992icp' on page 22 undefined on input li
+Package natbib Warning: Citation `besl1992icp' on page 24 undefined on input li
 ne 190.
 
 
-Package natbib Warning: Citation `chen1992pointtoplane' on page 22 undefined on
+Package natbib Warning: Citation `chen1992pointtoplane' on page 24 undefined on
  input line 190.
 
 
-Package natbib Warning: Citation `low2004pointtoplane' on page 22 undefined on 
+Package natbib Warning: Citation `low2004pointtoplane' on page 24 undefined on 
 input line 198.
 
-[22]
+[24]
 
-Package natbib Warning: Citation `levin1998mls' on page 23 undefined on input l
+Package natbib Warning: Citation `levin1998mls' on page 25 undefined on input l
 ine 225.
 
 
-Package natbib Warning: Citation `alexa2003pointset' on page 23 undefined on in
+Package natbib Warning: Citation `alexa2003pointset' on page 25 undefined on in
 put line 225.
 
-[23]
+[25]
 
-Package natbib Warning: Citation `iso25178-2' on page 24 undefined on input lin
+Package natbib Warning: Citation `iso25178-2' on page 26 undefined on input lin
 e 238.
 
-[24]
+[26]
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 8.0pt on input line 285.
 LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
 (Font)              scaled to size 6.0pt on input line 285.
- [25]
+ [27]
 
-Package natbib Warning: Citation `persson2005roughness' on page 26 undefined on
+Package natbib Warning: Citation `persson2005roughness' on page 28 undefined on
  input line 297.
 
 
-Package natbib Warning: Citation `riley1999tri' on page 26 undefined on input l
+Package natbib Warning: Citation `riley1999tri' on page 28 undefined on input l
 ine 308.
 
 
-Package natbib Warning: Citation `sappington2007vrm' on page 26 undefined on in
+Package natbib Warning: Citation `sappington2007vrm' on page 28 undefined on in
 put line 308.
 
-[26]
+[28]
 
-LaTeX Warning: Reference `ch:Results' on page 27 undefined on input line 317.
+LaTeX Warning: Reference `ch:Results' on page 29 undefined on input line 317.
 
-) [27]
+) [29]
 \openout2 = `7_ch7.aux'.
 
  (./7_ch7.tex
 Chapter 7.
-) [28
+) [30
 
 
 
 
 
-]
-\openout2 = `6_results.aux'.
-
- (./6_results.tex
-Chapter 8.
-) [29
-
-
-
-
-
-]
+] [31]
 \openout2 = `7_discussion.aux'.
 
  (./7_discussion.tex
-Chapter 9.
-) [30
+Chapter 8.
+) [32
 
 
 
@@ -2185,8 +2172,8 @@ Chapter 9.
 \openout2 = `8_conclusions.aux'.
 
  (./8_conclusions.tex
-Chapter 10.
-) [31
+Chapter 9.
+) [33
 
 
 
@@ -2196,8 +2183,8 @@ Chapter 10.
 \openout2 = `9_furtherwork.aux'.
 
  (./9_furtherwork.tex
-Chapter 11.
-) [32
+Chapter 10.
+) [34
 
 
 
@@ -2208,7 +2195,7 @@ Chapter 11.
 
  (./A_gitrepo.tex
 Appendix A.
-) [33
+) [35
 
 
 
@@ -2219,32 +2206,32 @@ Appendix A.
 
  (./Appendix.tex
 Appendix B.
-<figs/Apendix/EGG_1PK.png, id=904, 465.74pt x 366.36874pt>
+<figs/Apendix/EGG_1PK.png, id=930, 465.74pt x 366.36874pt>
 File: figs/Apendix/EGG_1PK.png Graphic file (type png)
 <use figs/Apendix/EGG_1PK.png>
 Package pdftex.def Info: figs/Apendix/EGG_1PK.png  used on input line 12.
 (pdftex.def)             Requested size: 307.2929pt x 241.73703pt.
-<figs/Apendix/EGG_2PKS.png, id=905, 419.5675pt x 327.72438pt>
+<figs/Apendix/EGG_2PKS.png, id=931, 419.5675pt x 327.72438pt>
 File: figs/Apendix/EGG_2PKS.png Graphic file (type png)
 <use figs/Apendix/EGG_2PKS.png>
 Package pdftex.def Info: figs/Apendix/EGG_2PKS.png  used on input line 19.
 (pdftex.def)             Requested size: 307.2929pt x 240.0269pt.
-<figs/Apendix/PYRAMID_1.png, id=906, 462.72874pt x 369.38pt>
+<figs/Apendix/PYRAMID_1.png, id=932, 462.72874pt x 369.38pt>
 File: figs/Apendix/PYRAMID_1.png Graphic file (type png)
 <use figs/Apendix/PYRAMID_1.png>
 Package pdftex.def Info: figs/Apendix/PYRAMID_1.png  used on input line 26.
 (pdftex.def)             Requested size: 307.2929pt x 245.30206pt.
-[34
+[36
 
 
 
 
 
- <./figs/Apendix/EGG_1PK.PNG> <./figs/Apendix/EGG_2PKS.PNG>]) [35 <./figs/Apend
+ <./figs/Apendix/EGG_1PK.PNG> <./figs/Apendix/EGG_2PKS.PNG>]) [37 <./figs/Apend
 ix/PYRAMID_1.PNG>]
 \openout2 = `B_ethics.aux'.
 
- (./B_ethics.tex) [36
+ (./B_ethics.tex) [38
 
 
 
@@ -2253,7 +2240,7 @@ ix/PYRAMID_1.PNG>]
 ]
 \openout2 = `C_topicdescription.aux'.
 
- (./C_topicdescription.tex) [37
+ (./C_topicdescription.tex) [39
 
 
 
@@ -2268,7 +2255,9 @@ ix/PYRAMID_1.PNG>]
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 11.
 
-) [38
+LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
+(Font)              scaled to size 10.0pt on input line 26.
+) [40
 
 
 
@@ -2291,7 +2280,7 @@ ls/842031/depth-post-processing-for-intel-realsense-d400-depth-
 
 Package natbib Warning: There were undefined citations.
 
-[39
+[41
 
 
 
@@ -2304,9 +2293,9 @@ enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./i_declaration.aux) (./ii_abstract.aux) (./iii_acknowledgments.aux)
 (./iv_listofsymbols.aux) (./v_glossary.aux) (./1_intro.aux) (./2_review.aux)
 (./3_ch3.aux) (./4_ch4.aux) (./5_ch5.aux) (./6_ch6.aux) (./7_ch7.aux)
-(./6_results.aux) (./7_discussion.aux) (./8_conclusions.aux)
-(./9_furtherwork.aux) (./A_gitrepo.aux) (./Appendix.aux) (./B_ethics.aux)
-(./C_topicdescription.aux) (./D_ECSA.aux))
+(./7_discussion.aux) (./8_conclusions.aux) (./9_furtherwork.aux)
+(./A_gitrepo.aux) (./Appendix.aux) (./B_ethics.aux) (./C_topicdescription.aux)
+(./D_ECSA.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
@@ -2316,13 +2305,13 @@ L3 programming layer <2026-03-20>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `0_main.out' has not changed.
-(rerunfilecheck)             Checksum: 7CE57A1BDF712FA8FB2AC4E9B99F4FD7;17703.
+(rerunfilecheck)             Checksum: 7EC4D0DFFBAFFD90D87555D21658E44A;18560.
  ) 
 Here is how much of TeX's memory you used:
- 40597 strings out of 467363
- 792585 string characters out of 5419001
- 1366664 words of memory out of 6000000
- 68520 multiletter control sequences out of 15000+600000
+ 40564 strings out of 467363
+ 791824 string characters out of 5419001
+ 1365742 words of memory out of 6000000
+ 68494 multiletter control sequences out of 15000+600000
  786212 words of font info for 131 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,17n,131p,2474b,772s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2334,17 +2323,16 @@ pp/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></app/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></app/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmmi10.pfb></app/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmmi8.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmmib10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
-fb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></app/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></app/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb></app/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy7.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy8.pfb></app/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1000.p
-fb>
-Output written on 0_main.pdf (50 pages, 1300687 bytes).
+/cm/cmr10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+</app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></app/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></app/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy7.pfb></app/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy8.pfb></app/texlive/texmf-dist/fonts/type1/public/cm-super
+/sftt1000.pfb>
+Output written on 0_main.pdf (52 pages, 1163224 bytes).
 PDF statistics:
- 1068 PDF objects out of 1200 (max. 8388607)
- 953 compressed objects within 10 object streams
+ 1089 PDF objects out of 1200 (max. 8388607)
+ 975 compressed objects within 10 object streams
  244 named destinations out of 1000 (max. 500000)
- 901 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 936 words of extra memory for PDF output out of 10000 (max. 10000000)
 
