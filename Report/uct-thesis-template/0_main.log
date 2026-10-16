@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.27)  15 OCT 2026 17:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.27)  16 OCT 2026 15:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -904,33 +904,41 @@ LaTeX Warning: Package "xcolor" has already been loaded: ignoring load-time
 (/app/texlive/texmf-dist/tex/latex/gensymb/gensymb.sty
 Package: gensymb 2022/10/17 v1.0.2 (KJH)
 )
-(/app/texlive/texmf-dist/tex/latex/ebgaramond/ebgaramond.sty
-Package: ebgaramond 2024/04/23 (Bob Tennent and autoinst) Style file for EB Gar
-amond fonts.
-
-(/app/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty
-Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-)
-(/app/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty
-Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-)
-(/app/texlive/texmf-dist/tex/latex/base/textcomp.sty
-Package: textcomp 2024/04/24 v2.1b Standard LaTeX package
-)
-(/app/texlive/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
-)
-(/app/texlive/texmf-dist/tex/latex/fontaxes/fontaxes.sty
-Package: fontaxes 2026-01-02 v2.0.2 Font selection axes (deprecated)
-Applying: [2024-11-01] Use figureversions if present on input line 74.
-
-(/app/texlive/texmf-dist/tex/latex/figureversions/figureversions.sty
-Package: figureversions 2025-04-29 v1.0.1 Figure versions
-)
-Already applied: [0000-00-00] Fall back to v1 on input line 76.
-)
-LaTeX Info: Redefining \oldstylenums on input line 163.
-LaTeX Info: Redefining \textsw on input line 173.
+(/app/texlive/texmf-dist/tex/latex/psnfss/mathptmx.sty
+Package: mathptmx 2020/03/25 PSNFSS-v9.3 Times w/ Math, improved (SPQR, WaS) 
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 28.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/ztmcm/m/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ztmcm/m/n on input line 28.
+LaTeX Font Info:    Redeclaring symbol font `letters' on input line 29.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/ztmcm/m/it on input line 29.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/ztmcm/m/it on input line 29.
+LaTeX Font Info:    Redeclaring symbol font `symbols' on input line 30.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/ztmcm/m/n on input line 30.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/ztmcm/m/n on input line 30.
+LaTeX Font Info:    Redeclaring symbol font `largesymbols' on input line 31.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/ztmcm/m/n on input line 31.
+\symbold=\mathgroup4
+\symitalic=\mathgroup5
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/ptm/bx/n on input line 34.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/ptm/m/it on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 35.
+LaTeX Info: Redefining \hbar on input line 50.
 )
 (/app/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
@@ -1614,21 +1622,21 @@ Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
 (/app/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup4
-\symAMSb=\mathgroup5
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+\symAMSa=\mathgroup6
+\symAMSb=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
 (/app/texlive/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2025/10/21 v1.2g Bold Symbol Support (DPC/FMi)
-\symboldoperators=\mathgroup6
-\symboldletters=\mathgroup7
-\symboldsymbols=\mathgroup8
-Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
+Package bm Info: No bold for \OT1/ztmcm/m/n, using \pmb.
+Package bm Info: No bold for \OML/ztmcm/m/it, using \pmb.
+Package bm Info: No bold for \OMS/ztmcm/m/n, using \pmb.
+Package bm Info: No bold for \OMX/ztmcm/m/n, using \pmb.
+Package bm Info: No bold for \OT1/ptm/bx/n, using \pmb.
+Package bm Info: No bold for \OT1/ptm/m/it, using \pmb.
 Package bm Info: No bold for \U/msa/m/n, using \pmb.
 Package bm Info: No bold for \U/msb/m/n, using \pmb.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 )
 \glswrite=\write5
 \glo@main@file=\write6
@@ -1636,23 +1644,18 @@ LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 
 Package glossaries Info: Writing glossary file 0_main.glo on input line 242.
  (./0_glossaryentries.tex)
-LaTeX Font Info:    Trying to load font information for T1+EBGaramond-OsF on in
-put line 252.
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 25
+2.
 
-(/app/texlive/texmf-dist/tex/latex/ebgaramond/T1EBGaramond-OsF.fd
-File: T1EBGaramond-OsF.fd 2023/03/19 (autoinst) Font definitions for T1/EBGaram
-ond-OsF.
-)
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 252.
-
-(./0_main.aux (./0_documentproperties.aux) (./0_titlepage.aux)
-(./i_declaration.aux) (./ii_abstract.aux) (./iii_acknowledgments.aux)
-(./iv_listofsymbols.aux) (./v_glossary.aux) (./1_intro.aux) (./2_review.aux)
-(./3_ch3.aux) (./4_ch4.aux) (./5_ch5.aux) (./6_ch6.aux) (./7_ch7.aux)
-(./7_discussion.aux) (./8_conclusions.aux) (./9_furtherwork.aux)
-(./A_gitrepo.aux) (./Appendix.aux) (./B_ethics.aux) (./C_topicdescription.aux)
-(./D_ECSA.aux))
+(/app/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+) (./0_main.aux
+(./0_documentproperties.aux) (./0_titlepage.aux) (./i_declaration.aux)
+(./ii_abstract.aux) (./iii_acknowledgments.aux) (./iv_listofsymbols.aux)
+(./v_glossary.aux) (./1_intro.aux) (./2_review.aux) (./3_ch3.aux) (./4_ch4.aux)
+(./5_ch5.aux) (./6_ch6.aux) (./7_ch7.aux) (./7_discussion.aux)
+(./8_conclusions.aux) (./9_furtherwork.aux) (./A_gitrepo.aux) (./Appendix.aux)
+(./B_ethics.aux) (./C_topicdescription.aux) (./D_ECSA.aux))
 \openout1 = `0_main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 252.
@@ -1738,78 +1741,73 @@ Package: pdflscape-nometadata 2025-06-23 v0.14 Display of landscape pages in PD
 F (HO)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
-\symgns@font=\mathgroup9
-LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
-(Font)                  TS1/EBGaramond-OsF/m/n --> TS1/EBGaramond-OsF/b/n on in
-put line 252.
-Package gensymb Info: Math companion symbols declared on input line 252.
-LaTeX Info: Redefining \degree on input line 252.
 LaTeX Info: Redefining \celsius on input line 252.
-Package gensymb Info: Using text companion symbols for \degree, \celsius and \p
-erthousand on input line 252.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 252
+.
+
+
+Package gensymb Warning: Not defining \perthousand.
+
 LaTeX Info: Redefining \ohm on input line 252.
-Package gensymb Info: Using \textohm for \ohm on input line 252.
-Package gensymb Info: Using \textmu for \micro on input line 252.
-\c@mv@tabular=\count440
-\c@mv@boldtabular=\count441
+Package gensymb Info: Using \upOmega for \ohm on input line 252.
+
+Package gensymb Warning: Not defining \micro.
+
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package hyperref Info: Link coloring OFF on input line 252.
-
 (./0_main.out) (./0_main.out)
 \@outlinefile=\write7
 \openout7 = `0_main.out'.
 
 \openout2 = `0_documentproperties.aux'.
 
- (./0_documentproperties.tex
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 201.
-)
+ (./0_documentproperties.tex)
 \openout2 = `0_titlepage.aux'.
 
  (./0_titlepage.tex
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 24.88pt on input line 9.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
-(Font)              scaled to size 24.88pt on input line 10.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 14.4pt on input line 15.
 <figs/0_logos/logo_uct.png, id=449, 356.532pt x 362.3136pt>
 File: figs/0_logos/logo_uct.png Graphic file (type png)
 <use figs/0_logos/logo_uct.png>
 Package pdftex.def Info: figs/0_logos/logo_uct.png  used on input line 21.
 (pdftex.def)             Requested size: 97.9949pt x 99.58464pt.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
-(Font)              scaled to size 14.4pt on input line 27.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
-(Font)              scaled to size 10.95pt on input line 43.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 75.
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
+ 75.
 
-
-(/app/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+(/app/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
+File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 75.
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
+ 75.
 
-
-(/app/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+(/app/texlive/texmf-dist/tex/latex/psnfss/omlztmcm.fd
+File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for TS1+EBGaramond-OsF on i
-nput line 75.
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
+ 75.
 
-(/app/texlive/texmf-dist/tex/latex/ebgaramond/TS1EBGaramond-OsF.fd
-File: TS1EBGaramond-OsF.fd 2023/03/19 (autoinst) Font definitions for TS1/EBGar
-amond-OsF.
+(/app/texlive/texmf-dist/tex/latex/psnfss/omsztmcm.fd
+File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 75.
-LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 75.
-LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 75.
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
+ 75.
+
+(/app/texlive/texmf-dist/tex/latex/psnfss/omxztmcm.fd
+File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 7
+5.
+
+(/app/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 75.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 75.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 75.
 <figs/0_logos/logo_eee.jpg, id=451, 1516.66624pt x 1511.6475pt>
 File: figs/0_logos/logo_eee.jpg Graphic file (type jpg)
 <use figs/0_logos/logo_eee.jpg>
@@ -1826,27 +1824,20 @@ Package pdftex.def Info: figs/0_logos/logo_eee.jpg  used on input line 75.
 
 
 {/app/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/app/texlive/texmf-
-dist/fonts/enc/dvips/ebgaramond/ebg_tcdnmr.enc}{/app/texlive/texmf-dist/fonts/e
-nc/dvips/ebgaramond/ebg_ljow5q.enc} <./figs/0_logos/logo_uct.png> <./figs/0_log
-os/logo_eee.jpg>])
+dist/fonts/enc/dvips/base/8r.enc} <./figs/0_logos/logo_uct.png> <./figs/0_logos
+/logo_eee.jpg>])
 \openout2 = `i_declaration.aux'.
 
- (./i_declaration.tex
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 20.74pt on input line 4.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
-(Font)              scaled to size 20.74pt on input line 4.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/it' will be
-(Font)              scaled to size 10.95pt on input line 26.
 
-Overfull \hbox (83.90347pt too wide) in paragraph at lines 68--68
+(./i_declaration.tex
+Overfull \hbox (100.27467pt too wide) in paragraph at lines 68--68
 []|[]|  
  []
 
 File: figs/signature.jpg Graphic file (type jpg)
 <use figs/signature.jpg>
 Package pdftex.def Info: figs/signature.jpg  used on input line 68.
-(pdftex.def)             Requested size: 31.15996pt x 28.45274pt.
+(pdftex.def)             Requested size: 57.85243pt x 56.9055pt.
 ) [1
 
 
@@ -1855,13 +1846,10 @@ Package pdftex.def Info: figs/signature.jpg  used on input line 68.
 
 
 
- <./figs/signature.jpg>]
+ <./figs/Signature.jpg>]
 \openout2 = `ii_abstract.aux'.
 
- (./ii_abstract.tex
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 34.
-) [2
+ (./ii_abstract.tex) [2
 
 
 
@@ -1883,13 +1871,7 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
 \tf@toc=\write8
 \openout8 = `0_main.toc'.
 
- [6] (./0_main.lof
-Overfull \hbox (1.58005pt too wide) in paragraph at lines 11--11
- [][] [][]\T1/EBGaramond-OsF/m/n/10.95 System over-view. [][TODO: Re-place with
- a fuller dia-gram show-ing the data formats (.bag, .ply) passed between 
- []
-
-)
+ [6] (./0_main.lof)
 \tf@lof=\write9
 \openout9 = `0_main.lof'.
 
@@ -1900,7 +1882,8 @@ Overfull \hbox (1.58005pt too wide) in paragraph at lines 11--11
  [8]
 \openout2 = `iv_listofsymbols.aux'.
 
- (./iv_listofsymbols.tex) [9
+
+(./iv_listofsymbols.tex) [9
 
 
 
@@ -1918,16 +1901,16 @@ No file 0_main.gls.
 
  (./1_intro.tex
 Chapter 1.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 12.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 12.
-
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 4
+6.
+(/app/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.53 	
+l.51 	
        [1
 
 
@@ -1936,15 +1919,7 @@ l.53
 
 
 
-{/app/texlive/texmf-dist/fonts/enc/dvips/ebgaramond/ebg_yod6vr.enc}])
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/sl' in size <10.95> not ava
-ilable
-(Font)              Font shape `T1/EBGaramond-OsF/m/it' tried instead on input 
-line 327.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
-(Font)              scaled to size 10.95pt on input line 327.
-
-[2]
+]) [2]
 \openout2 = `2_review.aux'.
 
  (./2_review.tex
@@ -1955,8 +1930,6 @@ File: figs/ch2/Schenone_custom_incubation_tank.png Graphic file (type png)
 Package pdftex.def Info: figs/ch2/Schenone_custom_incubation_tank.png  used on 
 input line 23.
 (pdftex.def)             Requested size: 256.07481pt x 164.53273pt.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
-(Font)              scaled to size 9.0pt on input line 24.
 [3
 
 
@@ -1979,16 +1952,10 @@ Chapter 3.
 
  (./4_ch4.tex
 Chapter 4.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 21.
-LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 22.
-LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 22.
-LaTeX Font Info:    Font shape `TS1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 5.0pt on input line 22.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 24.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 22.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 22.
 
 LaTeX Warning: Reference `sec:hardware' on page 9 undefined on input line 26.
 
@@ -2048,7 +2015,7 @@ Chapter 5.
 
 
 ] [14]
-Overfull \hbox (62.36325pt too wide) in paragraph at lines 147--167
+Overfull \hbox (86.63484pt too wide) in paragraph at lines 147--167
  [][] 
  []
 
@@ -2110,39 +2077,33 @@ Package natbib Warning: Citation `chen1992pointtoplane' on page 24 undefined on
 Package natbib Warning: Citation `low2004pointtoplane' on page 24 undefined on 
 input line 198.
 
-[24]
+[24] [25]
 
-Package natbib Warning: Citation `levin1998mls' on page 25 undefined on input l
+Package natbib Warning: Citation `levin1998mls' on page 26 undefined on input l
 ine 225.
 
 
-Package natbib Warning: Citation `alexa2003pointset' on page 25 undefined on in
+Package natbib Warning: Citation `alexa2003pointset' on page 26 undefined on in
 put line 225.
 
-[25]
 
 Package natbib Warning: Citation `iso25178-2' on page 26 undefined on input lin
 e 238.
 
-[26]
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 285.
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/n' will be
-(Font)              scaled to size 6.0pt on input line 285.
- [27]
+[26] [27]
 
 Package natbib Warning: Citation `persson2005roughness' on page 28 undefined on
  input line 297.
 
+[28]
 
-Package natbib Warning: Citation `riley1999tri' on page 28 undefined on input l
+Package natbib Warning: Citation `riley1999tri' on page 29 undefined on input l
 ine 308.
 
 
-Package natbib Warning: Citation `sappington2007vrm' on page 28 undefined on in
+Package natbib Warning: Citation `sappington2007vrm' on page 29 undefined on in
 put line 308.
 
-[28]
 
 LaTeX Warning: Reference `ch:Results' on page 29 undefined on input line 317.
 
@@ -2206,17 +2167,17 @@ Appendix A.
 
  (./Appendix.tex
 Appendix B.
-<figs/Apendix/EGG_1PK.png, id=930, 465.74pt x 366.36874pt>
+<figs/Apendix/EGG_1PK.png, id=926, 465.74pt x 366.36874pt>
 File: figs/Apendix/EGG_1PK.png Graphic file (type png)
 <use figs/Apendix/EGG_1PK.png>
 Package pdftex.def Info: figs/Apendix/EGG_1PK.png  used on input line 12.
 (pdftex.def)             Requested size: 307.2929pt x 241.73703pt.
-<figs/Apendix/EGG_2PKS.png, id=931, 419.5675pt x 327.72438pt>
+<figs/Apendix/EGG_2PKS.png, id=927, 419.5675pt x 327.72438pt>
 File: figs/Apendix/EGG_2PKS.png Graphic file (type png)
 <use figs/Apendix/EGG_2PKS.png>
 Package pdftex.def Info: figs/Apendix/EGG_2PKS.png  used on input line 19.
 (pdftex.def)             Requested size: 307.2929pt x 240.0269pt.
-<figs/Apendix/PYRAMID_1.png, id=932, 462.72874pt x 369.38pt>
+<figs/Apendix/PYRAMID_1.png, id=928, 462.72874pt x 369.38pt>
 File: figs/Apendix/PYRAMID_1.png Graphic file (type png)
 <use figs/Apendix/PYRAMID_1.png>
 Package pdftex.def Info: figs/Apendix/PYRAMID_1.png  used on input line 26.
@@ -2255,8 +2216,6 @@ ix/PYRAMID_1.PNG>]
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 11.
 
-LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
-(Font)              scaled to size 10.0pt on input line 26.
 ) [40
 
 
@@ -2264,16 +2223,16 @@ LaTeX Font Info:    Font shape `T1/EBGaramond-OsF/m/it' will be
 
 
 ] (./0_main.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 85--88
-[]\T1/EBGaramond-OsF/m/n/10 A. Grunnet-Jepsen and Tong, ``Depth Post-Processing
- for In-tel\TS1/EBGaramond-OsF/m/n/10 ® \T1/EBGaramond-OsF/m/n/10 Real-Sense\TS
-1/EBGaramond-OsF/m/n/10 —— \T1/EBGaramond-OsF/m/n/10 D400 Depth Cam-eras,''
+Underfull \hbox (badness 8170) in paragraph at lines 85--88
+[]\T1/ptm/m/n/10 A. Grunnet-Jepsen and Tong, ``Depth Post-Processing for In-tel
+\TS1/ptm/m/n/10 ® \T1/ptm/m/n/10 Real-Sense\TS1/ptm/m/n/10 —— \T1/ptm/m/n/10 D4
+00 Depth Cam-eras,''
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 85--88
-\T1/EBGaramond-OsF/m/n/10 https://www.intel.com/content/www/us/en/content-detai
-ls/842031/depth-post-processing-for-intel-realsense-d400-depth-
+\T1/ptm/m/n/10 https://www.intel.com/content/www/us/en/content-details/842031/d
+epth-post-processing-for-intel-realsense-d400-depth-
  []
 
 )
@@ -2308,31 +2267,27 @@ Package rerunfilecheck Info: File `0_main.out' has not changed.
 (rerunfilecheck)             Checksum: 7EC4D0DFFBAFFD90D87555D21658E44A;18560.
  ) 
 Here is how much of TeX's memory you used:
- 40564 strings out of 467363
- 791824 string characters out of 5419001
- 1365742 words of memory out of 6000000
- 68494 multiletter control sequences out of 15000+600000
- 786212 words of font info for 131 fonts, out of 8000000 for 9000
+ 40184 strings out of 467363
+ 778565 string characters out of 5419001
+ 1359347 words of memory out of 6000000
+ 68119 multiletter control sequences out of 15000+600000
+ 707789 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,17n,131p,2474b,772s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</app/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Bold.pfb></
-app/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-BoldItalic.pfb>
-</app/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Italic.pfb></
-app/texlive/texmf-dist/fonts/type1/public/ebgaramond/EBGaramond-Regular.pfb></a
-pp/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></app/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></app/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi10.pfb></app/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmmi8.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb>
-</app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></app/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></app/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy7.pfb></app/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy8.pfb></app/texlive/texmf-dist/fonts/type1/public/cm-super
-/sftt1000.pfb>
-Output written on 0_main.pdf (52 pages, 1163224 bytes).
+ 108i,17n,131p,2474b,763s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></app/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></app/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr10.pfb></app/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy10.pfb></app/texlive/texmf-dist/fonts/type1/public/cm-
+super/sftt1000.pfb></app/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></a
+pp/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></app/texlive/texmf-dist/
+fonts/type1/urw/times/utmb8a.pfb></app/texlive/texmf-dist/fonts/type1/urw/times
+/utmbi8a.pfb></app/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></app/te
+xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></app/texlive/texmf-dist/font
+s/type1/urw/times/utmri8a.pfb>
+Output written on 0_main.pdf (52 pages, 1104154 bytes).
 PDF statistics:
- 1089 PDF objects out of 1200 (max. 8388607)
- 975 compressed objects within 10 object streams
+ 1069 PDF objects out of 1200 (max. 8388607)
+ 962 compressed objects within 10 object streams
  244 named destinations out of 1000 (max. 500000)
  936 words of extra memory for PDF output out of 10000 (max. 10000000)
 

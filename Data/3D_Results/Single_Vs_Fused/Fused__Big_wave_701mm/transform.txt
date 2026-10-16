@@ -1,0 +1,9 @@
+# scan_eval transform: scan -> reference frame, metres
+# scan /media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Fused/Big_wave_701mm.ply  units m  scale 1.0
+# reference EGG_1PK  hash 55acf0069c935255e657f4f63e2cd0402dd6f7944513a6b3aac9030f727c0123
+# seed 0  recovered scale 1.00000000
+# reuse with: --init-transform evaluation_out/Fused__Big_wave_701mm/transform.txt --align refine|none
+-0.008261458255 0.999916919861 0.009894527896 0.033477003530
+-0.999723616754 -0.008041259403 -0.022091361460 0.033003432775
+-0.022009961641 -0.010074300075 0.999706992106 0.702937330999
+0.000000000000 0.000000000000 0.000000000000 1.000000000000

@@ -1,0 +1,343 @@
+{
+  "timestamp": "2026-10-14T15:54:31",
+  "label": "Single",
+  "scan": "/media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Small_Wave/701mm/20261005_111520/20261005_111520_r0/20261005_111520_r0_a0/20261005_111520_r0_a0.ply",
+  "run_dir": "evaluation_out/Single__20261005_111520_r0_a0",
+  "seed": 0,
+  "reference": {
+    "name": "Egg carton-smaller v1 (1)",
+    "kind": "mesh",
+    "exact": false,
+    "units": "mm",
+    "height_field": false,
+    "visible_from": null,
+    "bounds_min": [
+      -0.0004546243289951235,
+      0.0004546243289951235,
+      0.0
+    ],
+    "bounds_max": [
+      99.99954223632812,
+      100.00045776367188,
+      39.99599838256836
+    ],
+    "definition_hash": "abec0ff26bdcc271900d5acfb0cc5b4b6798a294880a99d414084df67203f71b",
+    "path": "References/Egg carton-smaller v1 (1).stl",
+    "triangles": 28118,
+    "file_sha256": "96613475028689445b698932b85675894905d5bd987976615eb54457d4a0f69c",
+    "watertight": true,
+    "orientable": true,
+    "removed_non_manifold_faces": 0
+  },
+  "reference_definition": {
+    "kind": "mesh",
+    "file_sha256": "96613475028689445b698932b85675894905d5bd987976615eb54457d4a0f69c",
+    "units": "mm",
+    "height_field": false,
+    "visible_from": null
+  },
+  "parameters": {
+    "seed": 0,
+    "units": "m",
+    "scale": 1.0,
+    "reference_units": "mm",
+    "allow_scale": false,
+    "align": "refine",
+    "init_transform": "./evaluation_out/Single__20261005_111520_r0_a0/transform.txt",
+    "nudge_mm": "-15,-15,0",
+    "nudge_rotate_deg": 0.0,
+    "align_voxel_mm": 0.0,
+    "eval_distance_mm": 0.0,
+    "ransac_starts": 5,
+    "ransac_max_iterations": 100000,
+    "ransac_confidence": 0.999,
+    "perturb": true,
+    "icp_max_iterations": 60,
+    "ambiguous_margin": 0.15,
+    "degeneracy_weak": 0.01,
+    "degeneracy_unconstrained": 0.0001,
+    "sensor_origin": "0,0,0",
+    "sor_neighbours": 30,
+    "sor_std": 1.0,
+    "thresholds_mm": [
+      0.5,
+      1.0,
+      2.0,
+      5.0
+    ],
+    "outlier_distance_mm": 5.0,
+    "coverage_radius_mm": 10.0,
+    "region_margin_mm": 0.0,
+    "trim_percent": [
+      1.0,
+      5.0
+    ],
+    "reference_samples": 200000,
+    "visible_from": null,
+    "output": "evaluation_out",
+    "label": "Single",
+    "write_ply": true,
+    "write_plots": true,
+    "write_overlay": true,
+    "overlay_samples": 150000
+  },
+  "units_warning": null,
+  "alignment": {
+    "transform": [
+      [
+        0.01592964015259235,
+        -0.9996347264191698,
+        -0.02183255140228896,
+        0.05769425366899906
+      ],
+      [
+        0.9991627148206648,
+        0.015091571091113243,
+        0.03802780289634311,
+        0.07816609657175756
+      ],
+      [
+        -0.037684424842908855,
+        -0.02242004054722066,
+        0.9990381503743407,
+        0.7046538805647977
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "recovered_scale": 0.9999999999992398,
+    "voxel_mm": 2.4494715919185976,
+    "eval_distance_mm": 7.348414775755794,
+    "chosen": {
+      "name": "init-transform",
+      "score": 0.004109923535925587,
+      "rmse_mm": 2.6935077560227505,
+      "overlap_scan": 0.9863481228668942,
+      "overlap_ref": 0.60915,
+      "starts": [
+        "init-transform"
+      ],
+      "transform": [
+        [
+          0.022466711626859863,
+          -0.9991299531795726,
+          -0.03513664080844122,
+          0.04747344348435789
+        ],
+        [
+          0.9993528934724222,
+          0.02145648514683821,
+          0.028868902860267488,
+          0.0711521639139184
+        ],
+        [
+          -0.028089876751377692,
+          -0.03576249297510432,
+          0.9989654663288335,
+          0.7047269763455861
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "runner_up": {
+      "name": "identity",
+      "score": 0.007348414775755793,
+      "rmse_mm": Infinity,
+      "overlap_scan": 0.0,
+      "overlap_ref": 0.0,
+      "starts": [
+        "identity"
+      ],
+      "transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "margin": 0.4407061031060436,
+    "ambiguous": false,
+    "candidates": [
+      {
+        "name": "init-transform",
+        "score": 0.004109923535925587,
+        "rmse_mm": 2.6935077560227505,
+        "overlap_scan": 0.9863481228668942,
+        "overlap_ref": 0.60915,
+        "starts": [
+          "init-transform"
+        ],
+        "transform": [
+          [
+            0.022466711626859863,
+            -0.9991299531795726,
+            -0.03513664080844122,
+            0.04747344348435789
+          ],
+          [
+            0.9993528934724222,
+            0.02145648514683821,
+            0.028868902860267488,
+            0.0711521639139184
+          ],
+          [
+            -0.028089876751377692,
+            -0.03576249297510432,
+            0.9989654663288335,
+            0.7047269763455861
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "name": "identity",
+        "score": 0.007348414775755793,
+        "rmse_mm": Infinity,
+        "overlap_scan": 0.0,
+        "overlap_ref": 0.0,
+        "starts": [
+          "identity"
+        ],
+        "transform": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      }
+    ],
+    "degeneracy": {
+      "available": true,
+      "eigenvalue_ratios": [
+        0.39357130758983583,
+        0.41462210557407303,
+        0.8467824183958431,
+        0.9074369729031332,
+        0.9428188180839877,
+        1.0
+      ],
+      "condition": 2.5408356267732803,
+      "weak": [],
+      "unconstrained": []
+    },
+    "exact_refinement": {
+      "iterations": 50,
+      "points_used": 1083,
+      "converged": false,
+      "residual_rms": 0.002523484243955113
+    }
+  },
+  "metrics": {
+    "points_total": 821423,
+    "points_scored": 8699,
+    "points_excluded": 812724,
+    "acc_mae_mm": 2.05944510749668,
+    "acc_median_mm": 1.744839560571096,
+    "acc_rmse_mm": 2.5640386818475487,
+    "acc_std_mm": 1.5274096409341213,
+    "acc_p90_mm": 4.200744925949162,
+    "acc_p95_mm": 4.959978904806663,
+    "acc_p99_mm": 6.432861882028924,
+    "acc_max_mm": 9.131724101745451,
+    "signed_bias_mm": -0.13658475470415815,
+    "signed_std_mm": 2.5603982047316234,
+    "signed_median_mm": -0.25595665582728194,
+    "signed_rmse_mm": 2.5640386818475487,
+    "signed_p05_mm": -4.329239522566013,
+    "signed_p95_mm": 4.076315843076588,
+    "outlier_fraction": 0.048396367398551556,
+    "outlier_distance_mm": 5.0,
+    "acc_rmse_trim1_mm": 2.4726128567629453,
+    "acc_mae_trim1_mm": 2.007609247577071,
+    "signed_bias_trim1_mm": -0.12116589108473753,
+    "signed_std_trim1_mm": 2.469642315451178,
+    "acc_rmse_trim5_mm": 2.2531671986853716,
+    "acc_mae_trim5_mm": 1.8593023759981573,
+    "signed_bias_trim5_mm": -0.08741269507362906,
+    "signed_std_trim5_mm": 2.25147095161622,
+    "reference_samples_visible": 200000,
+    "covered_fraction": 0.76139,
+    "coverage_radius_mm": 10.0,
+    "reference_area_cm2": 369.060737734385,
+    "covered_area_cm2": 280.9991551035834,
+    "precision@0.5mm": 0.15461547304287848,
+    "completeness@0.5mm": 0.02639251894561263,
+    "completeness_full@0.5mm": 0.020095,
+    "fscore@0.5mm": 0.045088526277099285,
+    "precision@1mm": 0.2979652833659041,
+    "completeness@1mm": 0.13122053087116983,
+    "completeness_full@1mm": 0.09991,
+    "fscore@1mm": 0.1822015610369399,
+    "precision@2mm": 0.5565007472123232,
+    "completeness@2mm": 0.30850155636401844,
+    "completeness_full@2mm": 0.23489,
+    "fscore@2mm": 0.3969500333650591,
+    "precision@5mm": 0.9516036326014484,
+    "completeness@5mm": 0.7176545528572742,
+    "completeness_full@5mm": 0.546415,
+    "fscore@5mm": 0.8182349326198197,
+    "completeness_mean_mm": 3.709916563574357,
+    "completeness_p95_mm": 8.547366137410341,
+    "chamfer_mm": 2.884680835535519,
+    "chamfer_rms_mm": 3.6316544679660483,
+    "hausdorff_mm": 9.999805274679128,
+    "hausdorff95_mm": 8.547366137410341,
+    "spacing_median_mm": 1.0672481733993826,
+    "density_pts_per_cm2": 30.957388454756487
+  },
+  "elapsed_s": 3.53
+}

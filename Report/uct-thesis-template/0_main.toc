@@ -29,7 +29,7 @@
 \contentsline {subsection}{\numberline {3.2.1}Feature based Alignment}{7}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}The tag pose estimation?}{7}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Iterative Closest Point}{7}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}Fusion}{7}{section.3.3}%
+\contentsline {section}{\numberline {3.3}Fusion}{8}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Evaluation}{8}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Roughness Calculation}{8}{section.3.5}%
 \contentsline {section}{\numberline {3.6}Feature Detection}{8}{section.3.6}%
@@ -88,21 +88,21 @@
 \contentsline {subsection}{\numberline {6.2.1}Together is Better}{22}{subsection.6.2.1}%
 \contentsline {subsection}{\numberline {6.2.2}Preprocessing}{23}{subsection.6.2.2}%
 \contentsline {subsection}{\numberline {6.2.3}Initial poses from the rig and IMU}{23}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}Coarse alignment}{23}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.4}Coarse alignment}{24}{subsection.6.2.4}%
 \contentsline {subsection}{\numberline {6.2.5}Fine registration}{24}{subsection.6.2.5}%
 \contentsline {subsection}{\numberline {6.2.6}Reconciling the overlapping scans}{25}{subsection.6.2.6}%
 \contentsline {paragraph}{Weighting each measurement.}{25}{paragraph*.28}%
 \contentsline {paragraph}{Grouping measurements into cells.}{25}{paragraph*.29}%
 \contentsline {paragraph}{Choosing one value per cell.}{25}{paragraph*.30}%
-\contentsline {paragraph}{Removing off-surface outliers.}{25}{paragraph*.31}%
-\contentsline {paragraph}{Smoothing.}{25}{paragraph*.32}%
+\contentsline {paragraph}{Removing off-surface outliers.}{26}{paragraph*.31}%
+\contentsline {paragraph}{Smoothing.}{26}{paragraph*.32}%
 \contentsline {subsection}{\numberline {6.2.7}Limitations}{26}{subsection.6.2.7}%
 \contentsline {section}{\numberline {6.3}Surface Roughness Estimation}{26}{section.6.3}%
 \contentsline {subsection}{\numberline {6.3.1}Levelling}{26}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Detrending}{26}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.2}Detrending}{27}{subsection.6.3.2}%
 \contentsline {subsection}{\numberline {6.3.3}Gridding}{27}{subsection.6.3.3}%
 \contentsline {subsection}{\numberline {6.3.4}Height parameters}{27}{subsection.6.3.4}%
-\contentsline {subsection}{\numberline {6.3.5}Rugosity and slope}{27}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.5}Rugosity and slope}{28}{subsection.6.3.5}%
 \contentsline {subsection}{\numberline {6.3.6}Spatial and spectral parameters}{28}{subsection.6.3.6}%
 \contentsline {paragraph}{Autocorrelation.}{28}{paragraph*.33}%
 \contentsline {paragraph}{Power spectrum.}{28}{paragraph*.34}%

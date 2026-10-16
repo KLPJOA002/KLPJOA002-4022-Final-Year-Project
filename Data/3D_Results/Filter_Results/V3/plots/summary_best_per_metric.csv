@@ -1,0 +1,31 @@
+metric,label,shapes,best_config,config_id,best_mean,baseline_mean,change_vs_baseline_pct,n_ok,n_scans
+acc_rmse_mm,Accuracy RMSE (mm),all,tp a0.1 d20 p0 | hf0,e5b239da65a4,2.4115556666666667,2.4969868833333337,-3.08816308965013,60,60
+acc_rmse_mm,Accuracy RMSE (mm),Big_Wave,dec2 | tp a0.1 d20 p0 | hf0,2516ac93bed8,2.187912551724138,2.2928165666666667,-4.999841586313874,29,30
+acc_rmse_mm,Accuracy RMSE (mm),Small_Wave,tp a0.4 d20 p4,a82f7a1f926f,2.6418269666666663,2.7011572,-1.985153504938253,30,30
+acc_rmse_trim5_mm,"Accuracy RMSE, worst 5% trimmed (mm)",all,tp a0.1 d20 p0 | hf0,e5b239da65a4,2.105547,2.17069675,-2.5894559175256684,60,60
+acc_rmse_trim5_mm,"Accuracy RMSE, worst 5% trimmed (mm)",Big_Wave,tp a0.1 d20 p0 | hf0,e5b239da65a4,1.8778416666666666,1.9644248333333332,-3.6203324313137357,30,30
+acc_rmse_trim5_mm,"Accuracy RMSE, worst 5% trimmed (mm)",Small_Wave,tp a0.4 d20 p4,a82f7a1f926f,2.325404466666667,2.376968666666666,-1.9472550969271116,30,30
+signed_std_mm,Signed error std (mm),all,tp a0.1 d20 p0 | hf0,e5b239da65a4,2.4048252999999997,2.49022025,-3.0994630115323343,60,60
+signed_std_mm,Signed error std (mm),Big_Wave,dec2 | tp a0.1 d20 p0 | hf0,2516ac93bed8,2.179448827586207,2.285424,-5.0496457842007185,29,30
+signed_std_mm,Signed error std (mm),Small_Wave,tp a0.4 d20 p4,a82f7a1f926f,2.6361244,2.6950165000000004,-1.975162906101946,30,30
+abs_signed_bias_mm,|Signed bias| (mm),all,sp m2 a0.5 d1 h0,7c870a3fb131,0.15615246666666666,0.15898816666666668,-1.2691811651267775,60,60
+abs_signed_bias_mm,|Signed bias| (mm),Big_Wave,sp m2 a0.5 d1 h0,7c870a3fb131,0.1440642,0.1442133,-0.4171266767432639,30,30
+abs_signed_bias_mm,|Signed bias| (mm),Small_Wave,sp m2 a0.5 d1 h0,7c870a3fb131,0.1682407333333333,0.17376303333333334,-2.1212356535102908,30,30
+z_rmse_mm,Vertical (Z) RMSE (mm),all,tp a0.25 d20 p0,85969ec792fc,4.646801066666667,4.790755116666667,-2.760081576830098,60,60
+z_rmse_mm,Vertical (Z) RMSE (mm),Big_Wave,dec2 | tp a0.25 d20 p0,47ce7075046a,4.140685466666667,4.293474866666667,-2.782385059565451,30,30
+z_rmse_mm,Vertical (Z) RMSE (mm),Small_Wave,tp a0.25 d20 p0,85969ec792fc,5.1098376000000005,5.2880353666666675,-2.9261552701411517,30,30
+covered_fraction,Covered fraction of reference,all,tp a0.4 d20 p4,a82f7a1f926f,0.9909365833333333,0.9883898,0.2734798349232583,60,60
+covered_fraction,Covered fraction of reference,Big_Wave,tp a0.4 d20 p4,a82f7a1f926f,0.9941300666666667,0.9924916333333332,0.17316892989814056,30,30
+covered_fraction,Covered fraction of reference,Small_Wave,tp a0.4 d20 p4,a82f7a1f926f,0.9877431,0.9842879666666666,0.373790739948376,30,30
+completeness_full@2mm,"Completeness @2 mm, whole part",all,tp a0.4 d5 p3,26fe488aba33,0.4825108666666667,0.47064033333333327,2.834868616711424,60,60
+completeness_full@2mm,"Completeness @2 mm, whole part",Big_Wave,hf0,0dfb5822bacb,0.5779203793103448,0.5572408000000001,4.937392670538892,29,30
+completeness_full@2mm,"Completeness @2 mm, whole part",Small_Wave,tp a0.1 d20 p0 | hf2,7ad0f2d4545a,0.38851026666666666,0.38403986666666673,1.258850746706589,30,30
+fscore@2mm,F-score @2 mm,all,tp a0.4 d20 p4,a82f7a1f926f,0.5349078333333334,0.5253472499999999,2.200003030476725,60,60
+fscore@2mm,F-score @2 mm,Big_Wave,hf0,0dfb5822bacb,0.6166085517241379,0.5979606333333333,4.132973329277962,29,30
+fscore@2mm,F-score @2 mm,Small_Wave,tp a0.4 d10 p3,b4c3e9942a59,0.45614293333333333,0.45273386666666665,0.9925889616906896,30,30
+outlier_fraction,Outlier fraction (> 5 mm),all,tp a0.4 d50 p3,c242f006c2fe,0.047714266666666665,0.05538016666666667,-15.365022382522984,60,60
+outlier_fraction,Outlier fraction (> 5 mm),Big_Wave,sp m1 a0.75 d30 h0 | tp a0.1 d20 p0 | hf0,86538a823835,0.030175266666666666,0.04086066666666666,-26.181860300457487,30,30
+outlier_fraction,Outlier fraction (> 5 mm),Small_Wave,tp a0.1 d20 p3,9c24825f93b4,0.06340836666666667,0.06989966666666668,-7.605606374620831,30,30
+density_pts_per_cm2,Point density (pts/cm²),all,sp m2 a0.25 d30 h0 | tp a0.1 d20 p3,53b42020ec0d,52.418250685185185,47.92672173333332,5.716894719886534,54,60
+density_pts_per_cm2,Point density (pts/cm²),Big_Wave,sp m3 a0.25 d30 h0 | tp a0.1 d20 p3,c5b6b63a3c18,56.31066437931034,53.48156556666667,4.729642434797919,29,30
+density_pts_per_cm2,Point density (pts/cm²),Small_Wave,sp m3 a0.25 d8 h0 | tp a0.5 d20 p3,4b956684750c,48.563591,42.371877899999994,8.209617427170919,24,30

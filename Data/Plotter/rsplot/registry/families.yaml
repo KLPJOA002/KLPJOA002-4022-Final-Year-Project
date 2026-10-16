@@ -1,0 +1,213 @@
+# Dataset families.
+#
+# A file is assigned to the family whose `detect` rule it satisfies with the
+# highest `priority` (ties: more `all` columns wins). Detection only looks at
+# column names, never file names.
+#
+#   detect.all   every listed column must be present
+#   detect.any   at least one listed column must be present (optional)
+#   detect.none  none of the listed columns may be present (optional)
+#   detect.suffix_stats  true = wide per-metric statistics (<metric>_mean, _std, ...)
+#
+# Column roles (all optional; anything not listed is auto-classified):
+#   factors      experimental variables you might put on an axis / hue / facet
+#   replicates   repeat units (scan, trial, frame); averaged over silently and
+#                reported as "n" rather than flagged as "not fixed"
+#   ids          bookkeeping columns, never offered as factors
+#   ignore       glob patterns never loaded unless explicitly requested
+#   metrics_pinned   shown first in the metric dropdown (after the global pins)
+#   unit_name    what one row is (used in "n = ..." labels)
+#   time_column  for per-frame time series
+#   series_unit  column that separates independent time series (one line each)
+#   rank_item    label column used by top-N ranking views
+#   defaults     suggested starting mapping when the dataset is first opened
+
+families:
+
+  planar_frames:
+    title: "Planar characterisation (per frame)"
+    priority: 10
+    detect:
+      all: [frame, z_err_median_mm, fill_pct, plane_rms_mm, trial_name]
+    unit_name: frames
+    time_column: t_s
+    series_unit: trial_name
+    factors: [gt_axis_mm, height_mm, angle_set_deg, pitch_set_deg, roll_set_deg,
+              axis, lux, info_lux, condition, environment, surface, series, label, detected]
+    replicates: [trial_name, session, trial, frame]
+    ids: [timestamp_ms, device_ts_ms, t_s, n_frames_raw, n_repeated_frames, n_outliers]
+    ignore: [source, "info_serial", "info_device", "info_baseline_mm",
+             "info_depth_scale_m", "info_resolution", "info_preset", "info_patch_size_mm"]
+    metrics_pinned: [z_err_median_mm, z_err_rmse_mm, plane_rms_mm, std_z_mm, fill_pct,
+                     z_err_median_pct, plane_rms_pct, subpixel_rms_px, dist_err_mm,
+                     angle_err_deg, plane_tilt_deg, temporal_noise_mm]
+    defaults: {plot_type: line, x: gt_axis_mm, y: [z_err_median_mm], aggregation: median, spread: iqr}
+
+  planar_summary:
+    title: "Planar characterisation (per-trial summary)"
+    priority: 10
+    detect:
+      all: [trial_name, n_frames]
+      suffix_stats: true
+    unit_name: trials
+    n_column: n_frames
+    n_column_unit: frames
+    stats_suffixes: {mean: _mean, std: _std, median: _median, p25: _p25, p75: _p75}
+    factors: [gt_axis_mm, height_mm, angle_set_deg, angle_imu_trial_deg, axis, lux,
+              condition, environment, surface, series, label, detected]
+    replicates: [trial_name, session, trial]
+    ids: [n_frames, n_frames_raw, n_repeated_frames, n_outliers]
+    metrics_pinned: [z_err_median_mm, z_err_rmse_mm, plane_rms_mm, std_z_mm, fill_pct,
+                     z_err_median_pct, plane_rms_pct, angle_err_deg, temporal_noise_mm]
+    defaults: {plot_type: line, y: [z_err_median_mm], aggregation: none, spread: iqr}
+
+  filter_sweep:
+    title: "Single-scan filter sweep"
+    priority: 10
+    detect:
+      all: [config_id, config_label, scan_id, decimation_on]
+    unit_name: scans
+    rank_item: config_label
+    baseline: {column: config_label, value: "baseline (no filters)"}
+    composites: [config_label]
+    factors: [shape, height_mm, tilt_deg, rotation_label,
+              decimation_on, decimation_magnitude,
+              spatial_on, spatial_magnitude, spatial_alpha, spatial_delta, spatial_holes_fill,
+              temporal_on, temporal_alpha, temporal_delta, temporal_persistence,
+              hole_filling_on, hole_filling_mode, hdr_merge_on, config_label, status]
+    replicates: [scan_id, scan_key, session, session_kind, config_id]
+    ids: [height, stage_first, pipeline_version, rs_best_frame_original, recording_frames,
+          elapsed_s, best_bag_index, best_frame_number, n_candidates, n_tied_best,
+          selected_rs_frame, warmup_frames, frames_fed, outlier_distance_mm,
+          coverage_radius_mm, reference_area_cm2, reference_samples_visible, recovered_scale]
+    ignore: [config_json, crop_notes, scan_dir, decoder, frame_map_method, chain_order,
+             failure_reason, reference_hash, rs_best_range, "align_unconstrained", "align_weak",
+             reference_exact, allow_scale, units_warning, hdr_available, reference_type]
+    metrics_pinned: [signed_bias_mm, chamfer_mm, hausdorff_mm, density_pts_per_cm2, outlier_fraction]
+    defaults: {plot_type: line, x: decimation_magnitude, hue: shape, y: [acc_rmse_mm],
+               aggregation: mean, spread: ci95}
+
+  filter_ranking:
+    title: "Filter sweep ranking (pre-computed)"
+    priority: 20
+    detect:
+      all: [config_id, config_label, n_ok, ok_fraction]
+    unit_name: configs
+    rank_item: config_label
+    factors: []
+    ids: [config_id]
+    defaults: {plot_type: ranking, x: config_label, y: [mean_acc_rmse_mm], aggregation: none}
+
+  filter_best:
+    title: "Filter sweep best per metric"
+    priority: 20
+    detect:
+      all: [metric, best_config, baseline_mean, change_vs_baseline_pct]
+    unit_name: rows
+    rank_item: metric
+    factors: [metric, label, shapes, best_config]
+    ids: [config_id]
+    defaults: {plot_type: bar, x: metric, hue: shapes, y: [change_vs_baseline_pct], aggregation: none}
+
+  fusion:
+    title: "Multi-scan fusion combinations"
+    priority: 10
+    detect:
+      all: [combo_id, rot_family, tilt_family, n_scans]
+    unit_name: point clouds
+    rank_item: combo_id
+    composites: [combo_id]
+    # Single scans store their angle only as text in `tilts` / `rotations` (shared with
+    # fused sets such as "-10;0;10"); expose it as a number, empty for fused rows.
+    derived:
+      tilt_deg:     {from: tilts,     parse: number, when: {n_tilts: 1},
+                     missing_label: "several (fused set)"}
+      rotation_deg: {from: rotations, parse: number, when: {n_rotations: 1},
+                     missing_label: "several (fused set)"}
+    factors: [wave, height_mm, tilt_deg, rotation_deg, kind, family, rot_family, tilt_family,
+              n_rotations, n_tilts,
+              max_abs_tilt, n_scans, fusion_cell, scan_voxel, combo_id, status]
+    replicates: [session, job_tag]
+    ids: [height, group, n_scans_used, fuse_peak_rss_mb, points_input, outlier_distance_mm,
+          coverage_radius_mm, reference_area_cm2, reference_samples_visible, recovered_scale,
+          rotations, tilts]
+    ignore: [fuse_params_json, fuse_cmd, failure_reason, scans_missing, reference_hash,
+             reference_exact, allow_scale, units_warning, reference_type,
+             "align_unconstrained", "align_weak"]
+    metrics_pinned: [fuse_s, total_s, signed_bias_mm, chamfer_mm, outlier_fraction]
+    defaults: {plot_type: scatter, x: n_scans, hue: family, y: [acc_rmse_mm], aggregation: none}
+
+  fusion_ranking:
+    title: "Fusion top-10 ranking (pre-computed)"
+    priority: 20
+    detect:
+      all: [wave, height_mm, rank, combo_id]
+      none: [rot_family]
+    unit_name: combos
+    rank_item: combo_id
+    factors: [wave, height_mm, family, rank]
+    defaults: {plot_type: ranking, x: combo_id, facet: wave, y: [acc_rmse_mm], aggregation: none}
+
+  fusion_smallest:
+    title: "Fusion smallest combo within 5 %"
+    priority: 20
+    detect:
+      all: [smallest_combo, n_candidates_within]
+    unit_name: rows
+    rank_item: smallest_combo
+    factors: [wave, height_mm, smallest_combo, n_scans]
+    defaults: {plot_type: bar, x: height_mm, hue: wave, y: [acc_rmse_mm], aggregation: none}
+
+  param_scans:
+    title: "Camera parameter study"
+    priority: 10
+    detect:
+      all: [object_label, resolution, depth_units_mm, preset, valid_pixel_fraction]
+    unit_name: scans
+    rank_item: preset
+    factors: [object, object_label, resolution, res_megapixels, depth_units_mm, preset,
+              preset_actual, laser_power, emitter, fps, status]
+    replicates: [session, timestamp]
+    ids: [res_width, res_height, frames_captured, best_frame, n_ply, elapsed_s, gain,
+          exposure_us, outlier_distance_mm, coverage_radius_mm, reference_area_cm2,
+          reference_samples_visible, recovered_scale, scale]
+    ignore: ["info.*", "info_*", scan_dir, ply, cropped_ply, crop_notes, run_dir, eval_scan,
+             camera_serial, firmware, filter_chain, reference_hash, failure_reason,
+             reference_exact, allow_scale, units_warning, units, reference_type, camera,
+             preset_previous, preset_mismatch, auto_exposure, "align_unconstrained", "align_weak"]
+    metrics_pinned: [fscore@2mm, signed_bias_mm, signed_std_mm, outlier_fraction]
+    defaults: {plot_type: heatmap, x: preset, row: resolution, facet: object_label,
+               y: [acc_rmse_mm], aggregation: mean}
+
+  param_ranking:
+    title: "Camera parameter ranking (pre-computed)"
+    priority: 20
+    detect:
+      all: [resolution, depth_units_mm, preset]
+      any: [rank, overall_rank]
+      none: [valid_pixel_fraction]
+    unit_name: configurations
+    factors: [object_label, resolution, depth_units_mm, preset, rank, overall_rank]
+    ids: [sessions]
+    defaults: {plot_type: bar, x: preset, hue: resolution, y: [acc_rmse_mm], aggregation: none}
+
+  single_vs_fused:
+    title: "Single vs fused comparison"
+    priority: 10
+    detect:
+      all: [label, scan, run_dir, acc_rmse_mm]
+    unit_name: evaluations
+    rank_item: label
+    factors: [label, reference]
+    replicates: [scan, run_dir, timestamp]
+    ids: [seed, scale, recovered_scale, outlier_distance_mm, coverage_radius_mm,
+          reference_samples_visible, reference_area_cm2, points_total, points_excluded]
+    ignore: [reference_hash, reference_type, units, reference_exact, allow_scale,
+             units_warning, "align_unconstrained", "align_weak"]
+    defaults: {plot_type: bar, x: label, y: [acc_rmse_mm], aggregation: mean, spread: minmax}
+
+  generic:
+    title: "Generic table (auto-detected columns)"
+    priority: 0
+    detect: {all: []}
+    unit_name: rows

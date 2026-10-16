@@ -1,0 +1,9 @@
+# scan_eval transform: scan -> reference frame, metres
+# scan /media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Small_Wave/701mm/20261005_111520/20261005_111520_r0/20261005_111520_r0_a0/20261005_111520_r0_a0.ply  units m  scale 1.0
+# reference Egg carton-smaller v1 (1)  hash abec0ff26bdcc271900d5acfb0cc5b4b6798a294880a99d414084df67203f71b
+# seed 0  recovered scale 1.00000000
+# reuse with: --init-transform evaluation_out/Single__20261005_111520_r0_a0/transform.txt --align refine|none
+0.015929640153 -0.999634726419 -0.021832551402 0.057694253669
+0.999162714821 0.015091571091 0.038027802896 0.078166096572
+-0.037684424843 -0.022420040547 0.999038150374 0.704653880565
+0.000000000000 0.000000000000 0.000000000000 1.000000000000

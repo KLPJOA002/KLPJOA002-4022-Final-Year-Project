@@ -1,0 +1,69 @@
+# Central matplotlib style for rsplot. Typography sizes, fonts and line weights
+# are layered on top from presets.yaml (thesis / slides / poster); everything
+# else that should look the same in every figure lives here.
+
+axes.spines.top:      False
+axes.spines.right:    False
+axes.edgecolor:       595959
+axes.labelcolor:      000000
+axes.titlelocation:   left
+axes.titlepad:        4.0
+axes.labelpad:        3.0
+axes.axisbelow:       True
+axes.grid:            True
+axes.grid.axis:       y
+axes.facecolor:       white
+axes.prop_cycle:      cycler('color', ['2a78d6', 'eb6834', '1baf7a', 'eda100', 'e87ba4', '008300', '6250d6', 'e34948'])
+axes.formatter.use_mathtext: True
+axes.formatter.limits: -4, 5
+
+grid.color:           e3e3e3
+grid.linewidth:       0.5
+grid.linestyle:       -
+
+xtick.color:          595959
+ytick.color:          595959
+xtick.labelcolor:     595959
+ytick.labelcolor:     595959
+xtick.direction:      out
+ytick.direction:      out
+xtick.major.size:     3.0
+ytick.major.size:     3.0
+xtick.minor.size:     1.5
+ytick.minor.size:     1.5
+
+legend.frameon:       False
+legend.labelcolor:    595959
+legend.handlelength:  1.6
+legend.handletextpad: 0.5
+legend.borderaxespad: 0.3
+legend.columnspacing: 1.2
+legend.title_fontsize: medium
+
+lines.solid_capstyle: round
+lines.dash_capstyle:  round
+lines.markeredgewidth: 0.6
+patch.linewidth:      0.5
+errorbar.capsize:     2.0
+
+figure.facecolor:     white
+figure.dpi:           100
+figure.constrained_layout.use: True
+figure.constrained_layout.h_pad: 0.03
+figure.constrained_layout.w_pad: 0.03
+
+savefig.facecolor:    white
+savefig.bbox:         standard
+savefig.pad_inches:   0.0
+
+pdf.fonttype:         42
+ps.fonttype:          42
+svg.fonttype:         path
+pdf.compression:      6
+
+image.cmap:           rs_sequential
+mathtext.default:     it
+
+# Layout must not depend on output resolution: hinting changes glyph advances
+# with dpi, so a footnote measured for the preview could overflow at 300 dpi.
+text.hinting:         no_hinting

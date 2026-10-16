@@ -1,0 +1,47 @@
+
+######## /media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Fused/Big_wave_701mm.ply  ->  evaluation_out/Fused__Big_wave_701mm
+
+=== Stage: load ===
+[scan] Big_wave_701mm.ply: 1166320 points
+[reference] EGG_1PK  (mesh, approximate, hash 55acf0069c935255)
+[units] reference (mm, from command line):  min (    -0.00,      0.00,      0.00)  max (   100.00,    100.00,     49.99)  extent (   100.00,    100.00,     49.99) mm
+[units] scan      (m):  min (  -302.56,   -266.67,   -715.63)  max (   305.32,    291.11,   -655.48)  extent (   607.88,    557.78,     60.16) mm
+
+=== Stage: align ===
+[align] voxel 2.50 mm, evaluation distance 7.50 mm (reference diagonal 150.0 mm)
+[align] scan 1166320 -> 54300 points for alignment; reference 100000 visible samples
+[align] candidate poses (after ICP), best first:
+    #  candidate                          cost     rmse   overlap scan/ref  starts
+    0  moments/turn-270                    4.221   1.31mm   97.7% / 46.3%   1
+    1  moments/slide-u+0.25                5.377   2.75mm   70.2% / 42.8%   5
+    2  moments/slide-v-0.50                5.566   2.27mm   56.1% / 46.5%   1
+    3  moments                             5.770   2.66mm   50.0% / 44.9%   2
+    4  moments/upside-down                 5.844   2.91mm   44.4% / 47.9%   1
+    5  moments/turn-180                    5.921   3.28mm   47.3% / 44.8%   1
+    6  moments/slide-u+0.50                5.973   3.53mm   58.7% / 30.0%   1
+    7  moments/slide-v-0.25                6.188   3.10mm   34.5% / 42.2%   1
+   ... 1 more distinct pose(s)
+[align] chosen moments/turn-270: rmse 1.312 mm, overlap 97.7% scan / 46.3% ref;  runner-up moments/slide-u+0.25: rmse 2.749 mm, overlap 70.2% / 42.8%;  margin 21%
+[align] exact-surface refinement: 6 iterations, 3492 points, residual rms 1.335 mm
+[align] all degrees of freedom constrained (condition number 3.45)
+
+=== Stage: metrics ===
+[metrics] points: 1166320 total, 38644 over the part, 1127676 excluded (table / surroundings / other objects)
+  accuracy    RMSE 1.350  MAE 1.090  median 0.955  std 0.796  p95 2.616  max 4.640 mm
+  robust      trim1% RMSE 1.303  trim5% RMSE 1.189 mm
+  signed      bias -0.081  std 1.348 mm
+  coverage    61.9% of the visible reference is covered (within 10 mm of a scan point)
+  @ 0.5mm    precision  28.0%  completeness   9.7%  F-score  14.4%
+  @   1mm    precision  52.0%  completeness  22.5%  F-score  31.4%
+  @   2mm    precision  86.2%  completeness  42.0%  F-score  56.5%
+  @   5mm    precision 100.0%  completeness  69.1%  F-score  81.7%
+  chamfer 2.348 mm   Hausdorff 10.000 mm   Hausdorff95 9.126 mm
+  outliers    0.00% beyond 5 mm
+  density     121.4 points/cm^2, median spacing 0.345 mm
+
+=== Stage: write ===
+[write] aligned_error.ply (colour range +-3.069 mm; grey = not over the part)
+[write] overlay.ply (150000 reference points in orange, the aligned scan in blue over the part and grey elsewhere)
+[write] error_histogram.png, error_map.png
+[write] metrics.json, transform.txt, run.log; row appended to evaluation_out/results.csv
+[done] 12.2 s

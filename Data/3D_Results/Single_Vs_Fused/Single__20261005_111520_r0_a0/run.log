@@ -1,0 +1,42 @@
+
+######## /media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Small_Wave/701mm/20261005_111520/20261005_111520_r0/20261005_111520_r0_a0/20261005_111520_r0_a0.ply  ->  evaluation_out/Single__20261005_111520_r0_a0
+
+=== Stage: load ===
+  [!] 20261005_111520_r0_a0.ply is a mesh (1635172 faces), not a point cloud - is it a
+      reference rather than a scan? Evaluating its vertices as scan points.
+[scan] 20261005_111520_r0_a0.ply: 821423 points
+[reference] Egg carton-smaller v1 (1)  (mesh, approximate, hash abec0ff26bdcc271)
+[units] reference (mm, from command line):  min (    -0.00,      0.00,      0.00)  max (   100.00,    100.00,     40.00)  extent (   100.00,    100.00,     40.00) mm
+[units] scan      (m):  min (  -702.81,   -401.77,   -733.80)  max (   625.12,    403.09,   -662.00)  extent (  1327.93,    804.86,     71.80) mm
+
+=== Stage: align ===
+[align] voxel 2.45 mm, evaluation distance 7.35 mm (reference diagonal 147.0 mm)
+[align] scan 821423 -> 175187 points for alignment; reference 100000 visible samples
+[align] candidate poses (after ICP), best first:
+    #  candidate                          cost     rmse   overlap scan/ref  starts
+    0  init-transform                      4.110   2.69mm   98.6% / 60.9%   1
+    1  identity                            7.348    infmm    0.0% /  0.0%   1
+[align] chosen init-transform: rmse 2.694 mm, overlap 98.6% scan / 60.9% ref;  runner-up identity: rmse inf mm, overlap 0.0% / 0.0%;  margin 44%
+[align] exact-surface refinement: 50 iterations, 1083 points, residual rms 2.523 mm  (did not fully converge)
+[align] all degrees of freedom constrained (condition number 2.54)
+
+=== Stage: metrics ===
+[metrics] points: 821423 total, 8699 over the part, 812724 excluded (table / surroundings / other objects)
+  accuracy    RMSE 2.564  MAE 2.059  median 1.745  std 1.527  p95 4.960  max 9.132 mm
+  robust      trim1% RMSE 2.473  trim5% RMSE 2.253 mm
+  signed      bias -0.137  std 2.560 mm
+  coverage    76.1% of the visible reference is covered (within 10 mm of a scan point)
+  @ 0.5mm    precision  15.5%  completeness   2.6%  F-score   4.5%
+  @   1mm    precision  29.8%  completeness  13.1%  F-score  18.2%
+  @   2mm    precision  55.7%  completeness  30.9%  F-score  39.7%
+  @   5mm    precision  95.2%  completeness  71.8%  F-score  81.8%
+  chamfer 2.885 mm   Hausdorff 10.000 mm   Hausdorff95 8.547 mm
+  outliers    4.84% beyond 5 mm
+  density     31.0 points/cm^2, median spacing 1.067 mm
+
+=== Stage: write ===
+[write] aligned_error.ply (colour range +-5.821 mm; grey = not over the part)
+[write] overlay.ply (150000 reference points in orange, the aligned scan in blue over the part and grey elsewhere)
+[write] error_histogram.png, error_map.png
+[write] metrics.json, transform.txt, run.log; row appended to evaluation_out/results.csv
+[done] 3.5 s

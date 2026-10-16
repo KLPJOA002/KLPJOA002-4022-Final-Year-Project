@@ -1,0 +1,13 @@
+wave,height,session_used,n_scans,rotations,tilts,ignored_sessions,path
+Small_Wave,641mm,20261005_121131,44,0;45;90;135,-25;-20;-15;-10;-5;0;5;10;15;20;25,20261005_120854 (4 scans),/media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Small_Wave/641mm/20261005_121131
+Small_Wave,701mm,20261005_111520,44,0;45;90;135,-25;-20;-15;-10;-5;0;5;10;15;20;25,20261005_112958 (4 scans),/media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Small_Wave/701mm/20261005_111520
+Small_Wave,763mm,20261005_123410,44,0;45;90;135,-25;-20;-15;-10;-5;0;5;10;15;20;25,20261005_123051 (4 scans),/media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Small_Wave/763mm/20261005_123410
+Small_Wave,810mm,20261005_151728,44,0;45;90;135,-25;-20;-15;-10;-5;0;5;10;15;20;25,20261005_143549 (4 scans),/media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Small_Wave/810mm/20261005_151728
+Small_Wave,863mm,20261005_164321,44,0;45;90;135,-25;-20;-15;-10;-5;0;5;10;15;20;25,20261005_164157 (4 scans),/media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Small_Wave/863mm/20261005_164321
+Small_Wave,933mm,20261005_172432,44,0;45;90;135,-25;-20;-15;-10;-5;0;5;10;15;20;25,20261005_172316 (4 scans),/media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Small_Wave/933mm/20261005_172432
+Big_Wave,641mm,20261005_115748,44,0;45;90;135,-25;-20;-15;-10;-5;0;5;10;15;20;25,20261005_115621 (4 scans),/media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Big_Wave/641mm/20261005_115748
+Big_Wave,701mm,20261005_113418,44,0;45;90;135,-25;-20;-15;-10;-5;0;5;10;15;20;25,20261005_113251 (4 scans),/media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Big_Wave/701mm/20261005_113418
+Big_Wave,763mm,20261005_124913,44,0;45;90;135,-25;-20;-15;-10;-5;0;5;10;15;20;25,20261005_124722 (4 scans),/media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Big_Wave/763mm/20261005_124913
+Big_Wave,810mm,20261005_142526,44,0;45;90;135,-25;-20;-15;-10;-5;0;5;10;15;20;25,20261005_142356 (4 scans),/media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Big_Wave/810mm/20261005_142526
+Big_Wave,863mm,20261005_165614,44,0;45;90;135,-25;-20;-15;-10;-5;0;5;10;15;20;25,20261005_165447 (4 scans),/media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Big_Wave/863mm/20261005_165614
+Big_Wave,933mm,20261005_171215,44,0;45;90;135,-25;-20;-15;-10;-5;0;5;10;15;20;25,20261005_171045 (4 scans),/media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Big_Wave/933mm/20261005_171215

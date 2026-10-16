@@ -1,0 +1,50 @@
+
+######## /media/aru/Seagate/roughness/Joab_Characterisation/3D_Error/Fused/Small_wave_701mm.ply  ->  evaluation_out/Fused__Small_wave_701mm
+
+=== Stage: load ===
+[scan] Small_wave_701mm.ply: 1166399 points
+[reference] Egg carton-smaller v1 (1)  (mesh, approximate, hash abec0ff26bdcc271)
+[units] reference (mm, from command line):  min (    -0.00,      0.00,      0.00)  max (   100.00,    100.00,     40.00)  extent (   100.00,    100.00,     40.00) mm
+[units] scan      (m):  min (  -301.15,   -268.53,   -717.25)  max (   302.27,    291.53,   -661.70)  extent (   603.43,    560.05,     55.56) mm
+
+=== Stage: align ===
+[align] voxel 2.45 mm, evaluation distance 7.35 mm (reference diagonal 147.0 mm)
+[align] scan 1166399 -> 56673 points for alignment; reference 100000 visible samples
+[align] candidate poses (after ICP), best first:
+    #  candidate                          cost     rmse   overlap scan/ref  starts
+    0  ransac-0/turn-180                   3.579   2.11mm   96.6% / 72.4%   1
+    1  ransac-0/slide-v+0.50               4.090   2.13mm   90.0% / 62.0%   1
+    2  ransac-0                            4.242   2.33mm   88.7% / 60.5%   5
+    3  ransac-0/turn-270                   4.416   2.35mm   87.3% / 55.4%   1
+    4  moments                             4.480   2.42mm   84.6% / 56.2%   2
+    5  ransac-2                            4.731   3.21mm   88.3% / 51.3%   2
+    6  ransac-0/slide-u-0.50               5.072   2.53mm   69.2% / 47.2%   1
+    7  ransac-0/slide-u+0.50               5.162   2.52mm   66.1% / 46.4%   1
+   ... 4 more distinct pose(s)
+[align] chosen ransac-0/turn-180: rmse 2.106 mm, overlap 96.6% scan / 72.4% ref;  runner-up ransac-0/slide-v+0.50: rmse 2.130 mm, overlap 90.0% / 62.0%;  margin 12%
+  [!] [AMBIGUOUS] the best two alignments are too close to call (margin 12% < 15%). The
+      reference may be symmetric or periodic over the part the scan covers. Check the
+      aligned .ply visually, or seed the alignment with --init-transform.
+[align] exact-surface refinement: 12 iterations, 3433 points, residual rms 2.174 mm
+[align] all degrees of freedom constrained (condition number 2.48)
+
+=== Stage: metrics ===
+[metrics] points: 1166399 total, 37704 over the part, 1128695 excluded (table / surroundings / other objects)
+  accuracy    RMSE 2.158  MAE 1.735  median 1.479  std 1.283  p95 4.266  max 6.233 mm
+  robust      trim1% RMSE 2.097  trim5% RMSE 1.915 mm
+  signed      bias -0.106  std 2.156 mm
+  coverage    79.9% of the visible reference is covered (within 10 mm of a scan point)
+  @ 0.5mm    precision  18.4%  completeness   6.9%  F-score  10.1%
+  @   1mm    precision  35.3%  completeness  17.5%  F-score  23.4%
+  @   2mm    precision  63.8%  completeness  39.2%  F-score  48.6%
+  @   5mm    precision  98.5%  completeness  84.2%  F-score  90.8%
+  chamfer 2.340 mm   Hausdorff 9.999 mm   Hausdorff95 7.196 mm
+  outliers    1.52% beyond 5 mm
+  density     127.9 points/cm^2, median spacing 0.346 mm
+
+=== Stage: write ===
+[write] aligned_error.ply (colour range +-4.860 mm; grey = not over the part)
+[write] overlay.ply (150000 reference points in orange, the aligned scan in blue over the part and grey elsewhere)
+[write] error_histogram.png, error_map.png
+[write] metrics.json, transform.txt, run.log; row appended to evaluation_out/results.csv
+[done] 13.0 s

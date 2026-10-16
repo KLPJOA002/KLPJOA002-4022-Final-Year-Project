@@ -1,0 +1,8 @@
+fonttools==4.67.0
+matplotlib==3.11.2
+nicegui==3.18.0
+numpy==2.5.4
+pandas==3.0.6
+pytest==9.1.1
+PyYAML==6.0.3
+scipy==1.18.1

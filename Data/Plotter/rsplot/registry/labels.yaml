@@ -1,0 +1,179 @@
+# Display labels and units, shared by every family.
+#
+# Each entry:  column: {label, unit, better, fraction}
+#   label     text shown on axes / legends (British spelling)
+#   unit      appended as "Label (unit)"; omit for unitless
+#   better    lower | higher  (ranking default sort and diverging colour sense)
+#   fraction  true if the stored value is 0..1 (offered as a % axis)
+#
+# `patterns` entries are regular expressions; groups are available as {1}, {2}.
+# Any column not listed gets an automatic label from its name and suffix.
+# Every label can be overridden per figure in the UI.
+
+pinned_metrics:          # global pins, always first in the metric dropdown
+  - acc_rmse_mm
+  - acc_rmse_trim1_mm
+  - acc_rmse_trim5_mm
+  - mean_acc_rmse_mm
+  - "completeness@*"
+  - "completeness_full@*"
+  - covered_fraction
+  - fill_pct
+  - valid_pixel_fraction
+
+# Metric variants offered by the "RMSE variant" selector.
+variant_groups:
+  rmse:
+    title: "Accuracy RMSE"
+    members: {untrimmed: acc_rmse_mm, trim1: acc_rmse_trim1_mm, trim5: acc_rmse_trim5_mm}
+  mae:
+    title: "Accuracy MAE"
+    members: {untrimmed: acc_mae_mm, trim1: acc_mae_trim1_mm, trim5: acc_mae_trim5_mm}
+  bias:
+    title: "Signed bias"
+    members: {untrimmed: signed_bias_mm, trim1: signed_bias_trim1_mm, trim5: signed_bias_trim5_mm}
+
+secondary_indicators: [outlier_fraction]
+
+columns:
+  # --- 3-D accuracy ---------------------------------------------------------
+  acc_rmse_mm:          {label: "Accuracy RMSE", unit: mm, better: lower}
+  acc_rmse_trim1_mm:    {label: "Accuracy RMSE, worst 1 % trimmed", unit: mm, better: lower}
+  acc_rmse_trim5_mm:    {label: "Accuracy RMSE, worst 5 % trimmed", unit: mm, better: lower}
+  mean_acc_rmse_mm:     {label: "Mean accuracy RMSE", unit: mm, better: lower}
+  std_acc_rmse_mm:      {label: "SD of accuracy RMSE", unit: mm, better: lower}
+  acc_rmse_mm_rel:      {label: "Accuracy RMSE relative to baseline", better: lower}
+  mean_acc_rmse_mm_rel: {label: "Mean RMSE relative to baseline", better: lower}
+  acc_mae_mm:           {label: "Accuracy MAE", unit: mm, better: lower}
+  acc_mae_trim1_mm:     {label: "Accuracy MAE, worst 1 % trimmed", unit: mm, better: lower}
+  acc_mae_trim5_mm:     {label: "Accuracy MAE, worst 5 % trimmed", unit: mm, better: lower}
+  acc_median_mm:        {label: "Median absolute error", unit: mm, better: lower}
+  acc_std_mm:           {label: "SD of absolute error", unit: mm, better: lower}
+  acc_max_mm:           {label: "Maximum absolute error", unit: mm, better: lower}
+  signed_bias_mm:       {label: "Signed bias", unit: mm}
+  signed_bias_trim1_mm: {label: "Signed bias, worst 1 % trimmed", unit: mm}
+  signed_bias_trim5_mm: {label: "Signed bias, worst 5 % trimmed", unit: mm}
+  signed_std_mm:        {label: "Signed error SD", unit: mm, better: lower}
+  signed_median_mm:     {label: "Signed median error", unit: mm}
+  signed_rmse_mm:       {label: "Signed RMSE", unit: mm, better: lower}
+  z_bias_mm:            {label: "Vertical bias", unit: mm}
+  z_rmse_mm:            {label: "Vertical RMSE", unit: mm, better: lower}
+  z_std_mm:             {label: "Vertical error SD", unit: mm, better: lower}
+  z_mae_mm:             {label: "Vertical MAE", unit: mm, better: lower}
+  covered_fraction:     {label: "Covered fraction of reference", fraction: true, better: higher}
+  covered_area_cm2:     {label: "Covered area", unit: "cm²", better: higher}
+  chamfer_mm:           {label: "Chamfer distance", unit: mm, better: lower}
+  chamfer_rms_mm:       {label: "Chamfer RMS distance", unit: mm, better: lower}
+  hausdorff_mm:         {label: "Hausdorff distance", unit: mm, better: lower}
+  hausdorff95_mm:       {label: "Hausdorff distance (95th pct.)", unit: mm, better: lower}
+  density_pts_per_cm2:  {label: "Point density", unit: "points/cm²", better: higher}
+  spacing_median_mm:    {label: "Median point spacing", unit: mm}
+  outlier_fraction:     {label: "Outlier fraction", fraction: true, better: lower}
+  completeness_mean_mm: {label: "Mean completeness distance", unit: mm, better: lower}
+  completeness_p95_mm:  {label: "Completeness distance (95th pct.)", unit: mm, better: lower}
+  valid_pixel_fraction: {label: "Valid pixel fraction", fraction: true, better: higher}
+  best_valid_fraction:  {label: "Valid pixel fraction", fraction: true, better: higher}
+  fuse_s:               {label: "Fusion time", unit: s, better: lower}
+  total_s:              {label: "Total processing time", unit: s, better: lower}
+  eval_s:               {label: "Evaluation time", unit: s, better: lower}
+  points_scored:        {label: "Points scored"}
+  ok_fraction:          {label: "Fraction of scans OK", fraction: true, better: higher}
+  change_vs_baseline_pct: {label: "Change vs baseline", unit: "%", better: lower}
+
+  # --- planar ---------------------------------------------------------------
+  z_err_median_mm:      {label: "Median depth error", unit: mm, better: lower}
+  z_err_mean_mm:        {label: "Mean depth error", unit: mm, better: lower}
+  z_err_rmse_mm:        {label: "Depth RMSE", unit: mm, better: lower}
+  z_err_median_pct:     {label: "Median depth error", unit: "% of distance", better: lower}
+  plane_rms_mm:         {label: "Plane-fit RMS", unit: mm, better: lower}
+  plane_rms_pct:        {label: "Plane-fit RMS", unit: "% of distance", better: lower}
+  std_z_mm:             {label: "Depth SD", unit: mm, better: lower}
+  subpixel_rms_px:      {label: "Subpixel RMS", unit: px, better: lower}
+  fill_pct:             {label: "Valid pixels", unit: "%", better: higher}
+  fill_trial_pct:       {label: "Valid pixels (trial)", unit: "%", better: higher}
+  dist_err_mm:          {label: "Distance error", unit: mm}
+  plane_pitch_deg:      {label: "Measured plane pitch", unit: "°"}
+  plane_roll_deg:       {label: "Measured plane roll", unit: "°"}
+  plane_tilt_deg:       {label: "Measured plane tilt", unit: "°"}
+  angle_err_deg:        {label: "Angle error", unit: "°"}
+  angle_err_imu_deg:    {label: "Angle error vs IMU", unit: "°"}
+  angle_meas_deg:       {label: "Measured angle", unit: "°"}
+  angle_imu_deg:        {label: "IMU angle", unit: "°"}
+  imu_minus_set_deg:    {label: "IMU minus set angle", unit: "°"}
+  off_axis_meas_deg:    {label: "Off-axis angle (measured)", unit: "°"}
+  off_axis_imu_deg:     {label: "Off-axis angle (IMU)", unit: "°"}
+  temporal_noise_mm:    {label: "Temporal noise", unit: mm, better: lower}
+  ir_mean:              {label: "Mean IR intensity"}
+  exposure:             {label: "Exposure", unit: "µs"}
+  gain:                 {label: "Gain"}
+  t_s:                  {label: "Time", unit: s}
+
+  # --- factors --------------------------------------------------------------
+  gt_axis_mm:           {label: "Distance along optical axis", unit: mm}
+  height_mm:            {label: "Height", unit: mm}
+  angle_set_deg:        {label: "Set angle", unit: "°"}
+  angle_imu_trial_deg:  {label: "IMU angle (trial)", unit: "°"}
+  pitch_set_deg:        {label: "Pitch", unit: "°"}
+  roll_set_deg:         {label: "Roll", unit: "°"}
+  tilt_deg:             {label: "Tilt", unit: "°"}
+  lux:                  {label: "Illuminance", unit: lx}
+  info_lux:             {label: "Illuminance (logged)", unit: lx}
+  axis:                 {label: "Axis"}
+  condition:            {label: "Condition"}
+  environment:          {label: "Environment"}
+  surface:              {label: "Surface"}
+  series:               {label: "Series"}
+  shape:                {label: "Object"}
+  wave:                 {label: "Object"}
+  object:               {label: "Object"}
+  object_label:         {label: "Object"}
+  rotation_label:       {label: "Rotation", unit: "°"}
+  rotation_deg:         {label: "Rotation", unit: "°"}
+  decimation_on:        {label: "Decimation on"}
+  decimation_magnitude: {label: "Decimation magnitude"}
+  spatial_on:           {label: "Spatial filter on"}
+  spatial_magnitude:    {label: "Spatial magnitude"}
+  spatial_alpha:        {label: "Spatial α"}
+  spatial_delta:        {label: "Spatial δ"}
+  spatial_holes_fill:   {label: "Spatial hole fill"}
+  temporal_on:          {label: "Temporal filter on"}
+  temporal_alpha:       {label: "Temporal α"}
+  temporal_delta:       {label: "Temporal δ"}
+  temporal_persistence: {label: "Temporal persistence"}
+  hole_filling_on:      {label: "Hole filling on"}
+  hole_filling_mode:    {label: "Hole-filling mode"}
+  hdr_merge_on:         {label: "HDR merge on"}
+  config_label:         {label: "Filter configuration"}
+  family:               {label: "View family"}
+  rot_family:           {label: "Rotation set"}
+  tilt_family:          {label: "Tilt set"}
+  n_scans:              {label: "Number of scans"}
+  n_rotations:          {label: "Number of rotations"}
+  n_tilts:              {label: "Number of tilts"}
+  max_abs_tilt:         {label: "Maximum tilt", unit: "°"}
+  combo_id:             {label: "Scan combination"}
+  kind:                 {label: "Kind"}
+  resolution:           {label: "Resolution"}
+  res_megapixels:       {label: "Resolution", unit: MP}
+  depth_units_mm:       {label: "Depth unit", unit: mm}
+  preset:               {label: "Preset"}
+  status:               {label: "Status"}
+  detected:             {label: "Board detected"}
+
+patterns:
+  - {match: '^completeness@([\d.]+)mm$',      label: "Completeness at {1} mm", fraction: true, better: higher}
+  - {match: '^completeness_full@([\d.]+)mm$', label: "Completeness (full reference) at {1} mm", fraction: true, better: higher}
+  - {match: '^precision@([\d.]+)mm$',         label: "Precision at {1} mm", fraction: true, better: higher}
+  - {match: '^fscore@([\d.]+)mm$',            label: "F-score at {1} mm", fraction: true, better: higher}
+  - {match: '^acc_p(\d+)_mm$',                label: "{1}th percentile absolute error", unit: mm, better: lower}
+
+# Display names for category values (applies to any column with these values).
+values:
+  Big_Wave: "Big wave"
+  Small_Wave: "Small wave"
+  Big_Pyramid: "Big pyramid"
+  high_accuracy: "High accuracy"
+  high_density: "High density"
+  medium_density: "Medium density"
+  remove_ir_pattern: "Remove IR pattern"
+  default: "Default"

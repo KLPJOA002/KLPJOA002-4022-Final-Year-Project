@@ -1,0 +1,13 @@
+wave,height_mm,all44_acc_rmse_mm,all44_fuse_s,smallest_combo,n_scans,acc_rmse_mm,fuse_s,n_candidates_within
+Big_Wave,641,1.147299,577.6,rot-0-90_tilt-0-pos,12,1.173317,427.05,11
+Big_Wave,701,1.343901,577.91,rot-0-45_tilt-0-pm25,6,1.296344,3060.87,16
+Big_Wave,763,3.874795,2818.38,single_r0_a20,1,1.750312,0.0,80
+Big_Wave,810,1.75532,415.31,rot-0_tilt-0-pos,6,1.732026,110.04,8
+Big_Wave,863,1.885104,431.99,rot-0_tilt-0-pos,6,1.901592,58.24,15
+Big_Wave,933,3.525105,1298.45,single_r0_a25,1,2.198677,0.0,73
+Small_Wave,641,1.933185,747.77,single_r135_a25,1,1.919873,0.0,23
+Small_Wave,701,2.152942,471.24,single_r90_a25,1,2.105238,0.0,18
+Small_Wave,763,2.43212,543.16,single_r45_a25,1,2.202956,0.0,29
+Small_Wave,810,2.626452,451.33,single_r135_a25,1,2.287664,0.0,45
+Small_Wave,863,2.719938,408.74,single_r0_a20,1,2.509546,0.0,36
+Small_Wave,933,2.935446,486.91,single_r0_a-25,1,2.57674,0.0,45
