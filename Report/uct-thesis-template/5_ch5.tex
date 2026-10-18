@@ -127,12 +127,40 @@ Results from this characterisation are shown in \autoref{tab:distance} \todo{get
 	\end{tabular}
 \end{table}
 
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figs/ch5/Scatter_Median_Depth_RMSE_VS_Height}
+	\caption{Depth Error Against Height over n = 385--552 Frames, in Controlled Laboratory Space With Lights. Error Spread Shown as IRQ Range. (a, left) Median Depth Error, Plotted with Linear Trend (R\textsuperscript{2} 0.83). (b, right) Depth RMSE Plotted With Linear Trend (R\textsuperscript{2} 0.91)}
+	\label{fig:Med_Depth+RMS_V_Height}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figs/ch5/Scatter_Plane_Fit_Valid_VS_Height}
+	\caption{Plane Accuracy Against Height over n = 385--552 Frames, in Controlled Laboratory Space With Lights. Error Spread shown as IRQ Range. (a, left) Plane Fit RMS, Plotted With Linear Trend (R\textsuperscript{2} 0.98). (b, right) Percentage of Valid Pixels on Plane, Plotted with Linear Trend (R\textsuperscript{2} 0.92)}
+	\label{fig:Scatter-Plane-Fit-Valid-VS-Height}
+\end{figure}
+
 \todo{Figure: plane-fit RMS and fill rate versus distance, with the power-law fit overlaid}
 
 %---------------------------------------------------------------------
 
 \subsubsection{Camera Tilt}
 \todo{Figure: plane-fit RMS versus tilt angle for pitch and roll, with the range-predicted curve overlaid} Plane-fit RMS was lowest near 0\degree\ (about 1.6\,mm) and rose to 2.30\,mm at $-27$\degree\ pitch and 2.12\,mm at $+25$\degree\ roll. The fill rate stayed between 98.4\% and 99.5\%. The median depth error varied between 5\,mm and 11\,mm without a clear dependence on angle. Trials at almost the same angle differed by up to 6\,mm (5.0\,mm at $-26.8$\degree\ against 10.7\,mm at $-27.3$\degree\ pitch).
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figs/ch5/Scatter_Med_Depth_RMSE_VS_Angle}
+	\caption{Depth Error Against Tilt Angle Overn n = 527--574 Frames, in Controlled Laboratory Space With Lights. Error Spread Shown as IRQ Range. (a, left) Median Depth Error, Plotted with Linear Trend. (b, right) Depth RMSE, Plotted With Linear Trend}
+	\label{fig:Scatter-Med-Depth-RMSE-VS-Angle}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figs/ch5/Scatter_PlaneRMS_Fill_VS_Angle}
+	\caption{Dashed lines: quadratic least-squares fit per series and panel (R\textsuperscript{2} 0.95 to 0.99). Per-trial median with IQR over n = 527--574 frames. Points pooled across: Set angle (26), IMU angle (26).}
+	\label{fig:Scatter-PlaneRMS-Fill-VS-Angle}
+\end{figure}
 
 %---------------------------------------------------------------------
 
