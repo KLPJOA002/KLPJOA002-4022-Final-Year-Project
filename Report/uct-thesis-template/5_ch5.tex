@@ -129,16 +129,33 @@ Results from this characterisation are shown in \autoref{tab:distance} \todo{get
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\textwidth]{figs/ch5/Scatter_Median_Depth_RMSE_VS_Height}
-	\caption{Depth Error Against Height over n = 385--552 Frames, in Controlled Laboratory Space With Lights. Error Spread Shown as IRQ Range. (a, left) Median Depth Error, Plotted with Linear Trend (R\textsuperscript{2} 0.83). (b, right) Depth RMSE Plotted With Linear Trend (R\textsuperscript{2} 0.91)}
-	\label{fig:Med_Depth+RMS_V_Height}
-\end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\textwidth]{figs/ch5/Scatter_Plane_Fit_Valid_VS_Height}
-	\caption{Plane Accuracy Against Height over n = 385--552 Frames, in Controlled Laboratory Space With Lights. Error Spread shown as IRQ Range. (a, left) Plane Fit RMS, Plotted With Linear Trend (R\textsuperscript{2} 0.98). (b, right) Percentage of Valid Pixels on Plane, Plotted with Linear Trend (R\textsuperscript{2} 0.92)}
-	\label{fig:Scatter-Plane-Fit-Valid-VS-Height}
+	\begin{subfigure}[t]{0.4894\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p1}
+		\caption{Median depth error}
+		\label{fig:Scatter-Metric-Vs-Height-1}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.4706\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p2}
+		\caption{Depth RMSE}
+		\label{fig:Scatter-Metric-Vs-Height-2}
+	\end{subfigure}
+	\par\medskip
+	\begin{subfigure}[t]{0.4894\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p3}
+		\caption{Plane-fit RMS}
+		\label{fig:Scatter-Metric-Vs-Height-3}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.4706\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p4}
+		\caption{Valid pixels}
+		\label{fig:Scatter-Metric-Vs-Height-4}
+	\end{subfigure}
+	\caption{Dashed lines: linear least-squares fit per panel (R\textsuperscript{2} 0.83 to 0.98). Per-trial median with IQR over n = 385--552 frames. Fixed: Condition = lights; Label = Afternoon Lights.}
+	\label{fig:Scatter-Metric-Vs-Height}
 \end{figure}
 
 \todo{Figure: plane-fit RMS and fill rate versus distance, with the power-law fit overlaid}
@@ -150,18 +167,36 @@ Results from this characterisation are shown in \autoref{tab:distance} \todo{get
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=\textwidth]{figs/ch5/Scatter_Med_Depth_RMSE_VS_Angle}
-	\caption{Depth Error Against Tilt Angle Overn n = 527--574 Frames, in Controlled Laboratory Space With Lights. Error Spread Shown as IRQ Range. (a, left) Median Depth Error, Plotted with Linear Trend. (b, right) Depth RMSE, Plotted With Linear Trend}
-	\label{fig:Scatter-Med-Depth-RMSE-VS-Angle}
+	\begin{subfigure}[t]{0.4872\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p1}
+		\caption{Median depth error}
+		\label{fig:Scatter-Metric-Vs-Angle-1}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.4728\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p2}
+		\caption{Depth RMSE}
+		\label{fig:Scatter-Metric-Vs-Angle-2}
+	\end{subfigure}
+	\par\medskip
+	\begin{subfigure}[t]{0.4872\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p3}
+		\caption{Plane-fit RMS}
+		\label{fig:Scatter-Metric-Vs-Angle-3}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.4728\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p4}
+		\caption{Valid pixels}
+		\label{fig:Scatter-Metric-Vs-Angle-4}
+	\end{subfigure}
+	\par\medskip
+	\includegraphics{figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_legend}
+	\caption{Dashed lines: quadratic least-squares fit per series and panel (R\textsuperscript{2} 0.40 to 0.99). Per-trial median with IQR over n = 527--574 frames. Points pooled across: Set angle (26), IMU angle (26).}
+	\label{fig:Scatter-Metric-Vs-Angle}
 \end{figure}
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=\textwidth]{figs/ch5/Scatter_PlaneRMS_Fill_VS_Angle}
-	\caption{Dashed lines: quadratic least-squares fit per series and panel (R\textsuperscript{2} 0.95 to 0.99). Per-trial median with IQR over n = 527--574 frames. Points pooled across: Set angle (26), IMU angle (26).}
-	\label{fig:Scatter-PlaneRMS-Fill-VS-Angle}
-\end{figure}
-
 %---------------------------------------------------------------------
 
 \subsubsection{Ambient Lighting}
@@ -193,6 +228,37 @@ The results are listed in Table~\ref{tab:lighting}. Indoors, plane-fit RMS incre
 		\hline
 	\end{tabular}
 \end{table}
+
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}[t]{0.485\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p1}
+		\caption{Median depth error}
+		\label{fig:Scatter-Metric-Vs-Light-1}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.475\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p2}
+		\caption{Depth RMSE}
+		\label{fig:Scatter-Metric-Vs-Light-2}
+	\end{subfigure}
+	\par\medskip
+	\begin{subfigure}[t]{0.485\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p3}
+		\caption{Plane-fit RMS}
+		\label{fig:Scatter-Metric-Vs-Light-3}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.475\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p4}
+		\caption{Valid pixels}
+		\label{fig:Scatter-Metric-Vs-Light-4}
+	\end{subfigure}
+	\caption{Dashed lines: linear least-squares fit per panel (R\textsuperscript{2} 0.26 to 0.87). Per-trial median with IQR over n = 592--599 frames. Fixed: Environment = indoor; Surface = foam board; Series = indoor, foam board; Board detected = On.}
+	\label{fig:Scatter-Metric-Vs-Light}
+\end{figure}
 
 %=====================================================================
 
@@ -242,9 +308,261 @@ Finally, a full scan of each object was recorded at rotations of $-45$\degree, 0
 
 \subsubsection{Camera Configuration}
 
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}[t]{0.4844\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p1}
+		\caption{Accuracy RMSE}
+		\label{fig:Scatter-Metric-Vs-Res-1}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.4756\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p2}
+		\caption{Completeness at 2 mm}
+		\label{fig:Scatter-Metric-Vs-Res-2}
+	\end{subfigure}
+	\par\medskip
+	\begin{subfigure}[t]{0.4844\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p3}
+		\caption{Covered fraction of reference}
+		\label{fig:Scatter-Metric-Vs-Res-3}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.4756\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p4}
+		\caption{F-score at 2 mm}
+		\label{fig:Scatter-Metric-Vs-Res-4}
+	\end{subfigure}
+	\par\medskip
+	\includegraphics{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_legend}
+	\caption{Median with IQR of n = 15 scans per point. Fixed: Laser power = 150; Emitter = Laser; Fps = 30; Status = ok. Median taken over: Depth unit (3), Preset (5), Preset actual (5).}
+	\label{fig:Scatter-Metric-Vs-Res}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}[t]{0.4844\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p1}
+		\caption{Accuracy RMSE}
+		\label{fig:Scatter-Metric-Vs-Depth-Units-1}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.4756\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p2}
+		\caption{Completeness at 2 mm}
+		\label{fig:Scatter-Metric-Vs-Depth-Units-2}
+	\end{subfigure}
+	\par\medskip
+	\begin{subfigure}[t]{0.4844\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p3}
+		\caption{Covered fraction of reference}
+		\label{fig:Scatter-Metric-Vs-Depth-Units-3}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.4756\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p4}
+		\caption{F-score at 2 mm}
+		\label{fig:Scatter-Metric-Vs-Depth-Units-4}
+	\end{subfigure}
+	\par\medskip
+	\includegraphics{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_legend}
+	\caption{Median with IQR of n = 15 scans per point. Fixed: Laser power = 150; Emitter = Laser; Fps = 30; Status = ok. Median taken over: Resolution (3), Preset (5), Preset actual (5).}
+	\label{fig:Scatter-Metric-Vs-Depth-Units}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}[t]{0.4844\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p1}
+		\caption{Accuracy RMSE}
+		\label{fig:Scatter-Metric-Vs-Preset-1}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.4756\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p2}
+		\caption{Completeness at 2 mm}
+		\label{fig:Scatter-Metric-Vs-Preset-2}
+	\end{subfigure}
+	\par\medskip
+	\begin{subfigure}[t]{0.4844\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p3}
+		\caption{Covered fraction of reference}
+		\label{fig:Scatter-Metric-Vs-Preset-3}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.4756\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p4}
+		\caption{F-score at 2 mm}
+		\label{fig:Scatter-Metric-Vs-Preset-4}
+	\end{subfigure}
+	\par\medskip
+	\includegraphics{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_legend}
+	\caption{Median with IQR of n = 8--10 scans per point. Fixed: Laser power = 150; Emitter = Laser; Fps = 30; Status = ok. Median taken over: Resolution (3), Depth unit (3), Preset (5).}
+	\label{fig:Scatter-Metric-Vs-Preset}
+\end{figure}
+
+A full heatmap of the parameter sweep can be found in \autoref{Appendix:Parameter_Heatmap}
+
 \subsubsection{Filters}
 
+A full comparison of all filter parameters is infeasible for the scope of this report. Thus only a comparison between a baseline evaluation, with no filters applied, and the best performing filters is shown in \autoref{fig:Filter-Comparison}. The filter settings can be found in \autoref{tab:filter_settings}
+
+% Requires: \usepackage{booktabs}
+\begin{table}[htbp]
+	\centering
+	\caption{Post-processing filter settings of the best-performing configuration
+		for all objects combined and for each object.}
+	\label{tab:filter_settings}
+	\begin{tabular}{l c c c c c c}
+		\toprule
+		& \multicolumn{1}{c}{Decimation}
+		& \multicolumn{3}{c}{Temporal Filter}
+		& \multicolumn{1}{c}{Hole Filling} \\
+		\cmidrule(lr){2-2} \cmidrule(lr){3-5} \cmidrule(lr){6-6}
+		Object & Magnitude & $\alpha$ & $\delta$ & Persistence & Mode & Spatial Filter\\
+		\midrule
+		All objects & Disabled & 0.1 & 20 & Disabled  & Fill From Left & Disabled\\
+		Big Egg Box    & 2   & 0.1 & 20 & Disabled  & Fill From left & Disabled\\
+		Small Egg Box  & Disabled & 0.4 & 20 & Valid in 2/8        & Disabled & Disabled \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Filter_Analysis/Filter_Comparison_p1}
+		\caption{Accuracy RMSE, Big Egg Box}
+		\label{fig:Filter-Comparison-1}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Filter_Analysis/Filter_Comparison_p2}
+		\caption{Accuracy RMSE, Small Egg Box}
+		\label{fig:Filter-Comparison-2}
+	\end{subfigure}
+	\par\medskip
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Filter_Analysis/Filter_Comparison_p3}
+		\caption{Signed bias, Big Egg Box}
+		\label{fig:Filter-Comparison-3}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Filter_Analysis/Filter_Comparison_p4}
+		\caption{Signed bias, Small Egg Box}
+		\label{fig:Filter-Comparison-4}
+	\end{subfigure}
+	\par\medskip
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Filter_Analysis/Filter_Comparison_p5}
+		\caption{Completeness, Big Egg Box}
+		\label{fig:Filter-Comparison-5}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Filter_Analysis/Filter_Comparison_p6}
+		\caption{Completeness, Small Egg Box}
+		\label{fig:Filter-Comparison-6}
+	\end{subfigure}
+	\par\medskip
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Filter_Analysis/Filter_Comparison_p7}
+		\caption{F-score at 2 mm, Big Egg Box}
+		\label{fig:Filter-Comparison-7}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Filter_Analysis/Filter_Comparison_p8}
+		\caption{F-score at 2 mm, Small Egg Box}
+		\label{fig:Filter-Comparison-8}
+	\end{subfigure}
+	\par\medskip
+	\includegraphics{figs/ch5/Filter_Analysis/Filter_Comparison_legend}
+	\caption{Dashed lines: linear least-squares fit per series and panel (R\textsuperscript{2} 0.00 to 1.00). Median with IQR of n = 4--5 scans per point. Fixed: Tilt = 0; Spatial filter on = Off; HDR merge on = Off; Status = ok. Median taken over: Rotation (4).}
+	\label{fig:Filter-Comparison}
+\end{figure}
+
+
+
 \subsubsection{Tilt and Rotation}
+
+Again, a full comparison of all metrics agsainst all variables is infeasible for the scope of this project. The results shown in \autoref{fig:Combination-Comparison}, describe the comparison between a fusion of every tilt and rotation, compared to a single scan. This combination was chosen as it represents the best overall performance of the system as a whole.
+
+A More in depth comparison of the different combinations can be seen in \autoref{Appendix:Combination}.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Combination_Analysis/Combination_Comparison_p1}
+		\caption{Accuracy RMSE, Big Egg Box}
+		\label{fig:Combination-Comparison-1}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Combination_Analysis/Combination_Comparison_p2}
+		\caption{Accuracy RMSE, Small Egg Box}
+		\label{fig:Combination-Comparison-2}
+	\end{subfigure}
+	\par\medskip
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Combination_Analysis/Combination_Comparison_p3}
+		\caption{Signed bias, Big Egg Box}
+		\label{fig:Combination-Comparison-3}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Combination_Analysis/Combination_Comparison_p4}
+		\caption{Signed bias, Small Egg Box}
+		\label{fig:Combination-Comparison-4}
+	\end{subfigure}
+	\par\medskip
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Combination_Analysis/Combination_Comparison_p5}
+		\caption{Completeness, Big Egg Box}
+		\label{fig:Combination-Comparison-5}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Combination_Analysis/Combination_Comparison_p6}
+		\caption{Completeness, Small Egg Box}
+		\label{fig:Combination-Comparison-6}
+	\end{subfigure}
+	\par\medskip
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Combination_Analysis/Combination_Comparison_p7}
+		\caption{F-score at 2 mm, Big Egg Box}
+		\label{fig:Combination-Comparison-7}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Combination_Analysis/Combination_Comparison_p8}
+		\caption{F-score at 2 mm, Small Egg Box}
+		\label{fig:Combination-Comparison-8}
+	\end{subfigure}
+	\par\medskip
+	\includegraphics{figs/ch5/Combination_Analysis/Combination_Comparison_legend}
+	\caption{Dashed lines: linear least-squares fit per series and panel (R\textsuperscript{2} 0.25 to 1.00). Median with IQR of n = 1 point clouds per point. Fixed: Status = ok.}
+	\label{fig:Combination-Comparison}
+\end{figure}
+
+
+
+
 
 %=====================================================================
 \section{Chapter Summary}

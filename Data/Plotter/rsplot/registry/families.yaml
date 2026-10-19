@@ -74,7 +74,8 @@ families:
               decimation_on, decimation_magnitude,
               spatial_on, spatial_magnitude, spatial_alpha, spatial_delta, spatial_holes_fill,
               temporal_on, temporal_alpha, temporal_delta, temporal_persistence,
-              hole_filling_on, hole_filling_mode, hdr_merge_on, config_label, status]
+              hole_filling_on, hole_filling_mode, hdr_merge_on, config_label, status,
+              selection, selected_config]   # last two: baseline_vs_best.csv
     replicates: [scan_id, scan_key, session, session_kind, config_id]
     ids: [height, stage_first, pipeline_version, rs_best_frame_original, recording_frames,
           elapsed_s, best_bag_index, best_frame_number, n_candidates, n_tied_best,

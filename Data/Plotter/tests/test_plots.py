@@ -247,3 +247,47 @@ def test_trend_on_categorical_x_warns(datasets):
                     aggregation=Aggregation(func="mean"), options={"trend": "linear"})
     res = render(spec, ds=datasets["param_scans"])
     assert any("numeric x axis" in w for w in res.warnings)
+
+
+def _heat_grid(**style):
+    spec = PlotSpec(plot_type="heatmap",
+                    mapping=Mapping(x="resolution", row="preset", facet="depth_units_mm",
+                                    y=["acc_rmse_mm", "fscore@2mm"], y_mode="side_by_side"),
+                    aggregation=Aggregation(func="mean"))
+    for k, v in style.items():
+        setattr(spec.style, k, v)
+    return spec
+
+
+def test_heatmap_grid_shares_labels_and_colour_bars(datasets):
+    res = render(_heat_grid(), ds=datasets["param_scans"])
+    panels = [a for a in res.fig.axes if a.get_label() != "<colorbar>"]
+    bars = [a for a in res.fig.axes if a.get_label() == "<colorbar>"]
+    assert len(panels) == 4 and len(bars) == 2          # one colour bar per metric
+    grid = {(round(a.get_position().y0, 2), round(a.get_position().x0, 2)): a for a in panels}
+    left = min(x for _, x in grid)
+    for (y, x), ax in grid.items():
+        ticks = [t for t in ax.get_yticklabels() if t.get_visible() and t.get_text()]
+        has_ticks = bool(ticks) and ax.yaxis.get_tick_params()["labelleft"]
+        assert has_ticks == (x == left), (y, x)
+        assert bool(ax.get_ylabel()) == (x == left)
+
+
+def test_heatmap_grid_unshared_labels_every_panel(datasets):
+    res = render(_heat_grid(sharey=False), ds=datasets["param_scans"])
+    panels = [a for a in res.fig.axes if a.get_label() != "<colorbar>"]
+    assert all(a.get_ylabel() for a in panels)
+
+
+def test_value_labels_scoped_by_column(datasets):
+    spec = PlotSpec(plot_type="heatmap",
+                    mapping=Mapping(x="resolution", row="preset", y=["acc_rmse_mm"]),
+                    aggregation=Aggregation(func="mean"))
+    spec.style.value_labels = {"preset=high_accuracy": "HA", "640x360": "nHD"}
+    ax = render(spec, ds=datasets["param_scans"]).fig.axes[0]
+    rows = [t.get_text() for t in ax.get_yticklabels()]
+    cols = [t.get_text() for t in ax.get_xticklabels()]
+    assert "HA" in rows and "nHD" in cols                 # scoped key and plain (old) key
+    spec.style.value_labels = {"resolution=high_accuracy": "HA"}
+    ax = render(spec, ds=datasets["param_scans"]).fig.axes[0]
+    assert "HA" not in [t.get_text() for t in ax.get_yticklabels()]   # other column only

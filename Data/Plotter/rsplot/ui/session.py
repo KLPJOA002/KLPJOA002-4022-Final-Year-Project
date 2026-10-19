@@ -211,6 +211,8 @@ class Preview:
     x_label: str = ""
     error: str = ""
     latex_width: str = ""
+    n_panels: int = 1             # facet cells (> 1: can be saved as separate panels)
+    grid: tuple = (1, 1)
 
 
 def preview(spec: PlotSpec, ds: Dataset, dpi: float) -> Preview:
@@ -224,7 +226,8 @@ def preview(spec: PlotSpec, ds: Dataset, dpi: float) -> Preview:
                        pre.n_total if pre else 0, pre.n_filtered if pre else 0,
                        pre.n_nan if pre else 0, n_nan_x=pre.n_nan_x if pre else 0,
                        x_label=reg.axis_label(spec.mapping.x).split(" (")[0]
-                       if spec.mapping.x else "", latex_width=res.latex_width)
+                       if spec.mapping.x else "", latex_width=res.latex_width,
+                       n_panels=len(res.panels), grid=res.grid)
     except Exception as e:   # shown in the preview pane instead of crashing the UI
         import traceback
         traceback.print_exc()

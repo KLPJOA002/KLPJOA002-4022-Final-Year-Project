@@ -11,6 +11,7 @@ import matplotlib as mpl
 import numpy as np
 import pandas as pd
 from matplotlib.backends.backend_agg import FigureCanvasAgg
+from matplotlib.cm import ScalarMappable
 from matplotlib.figure import Figure
 from matplotlib.lines import Line2D
 from matplotlib.ticker import FuncFormatter, MaxNLocator, PercentFormatter, StrMethodFormatter
@@ -38,6 +39,10 @@ class RenderResult:
     latex_width: str = ""
     rc: dict = field(default_factory=dict, repr=False)
     auto_footnote: str = ""     # what was fixed / averaged, even when not drawn (for captions)
+    panels: list = field(default_factory=list)      # per facet cell: levels, title, limits
+    legend_items: dict | None = None                # handles / labels for a separate legend
+    colorbars: list = field(default_factory=list)   # one panel context per colour bar
+    grid: tuple = (1, 1)                            # facet grid (rows, columns)
 
     def savefig(self, path, **kw):
         """Save inside the same rc context the figure was built with (fonts, mathtext)."""
@@ -72,7 +77,13 @@ def get_dataset(spec: PlotSpec) -> Dataset:
 
 
 def render(spec: PlotSpec, ds: Dataset | None = None, settings: dict | None = None,
-           dpi: float | None = None) -> RenderResult:
+           dpi: float | None = None, panel: dict | None = None) -> RenderResult:
+    """`panel` draws one facet cell on its own (for separate-panel export):
+    {"index": cell index, "pos": (row, col, nrows, ncols, last_row) of the panel in
+    the LaTeX grid (for outer-only labels), "xlim"/"ylim": limits to impose,
+    "rect": (left, bottom, width, height) figure fraction the layout may use}.
+    Legend, colour bar and panel title are left out; they go into separate files and
+    the subcaption."""
     load_plugins()
     settings = settings or state.settings()
     ds = ds or get_dataset(spec)
@@ -142,6 +153,8 @@ def render(spec: PlotSpec, ds: Dataset | None = None, settings: dict | None = No
     with _RENDER_LOCK, mpl.rc_context(rc):
         fig = Figure(figsize=(w_cm / st.CM_PER_IN, h_cm / st.CM_PER_IN),
                      dpi=dpi or 100, layout="constrained")
+        if panel and panel.get("rect"):        # pad to line up with grid neighbours
+            fig.get_layout_engine().set(rect=tuple(panel["rect"]))
         FigureCanvasAgg(fig)
         T = (lambda s: st.tex_escape(s)) if spec.export.usetex else st.mathtext_escape
         opts = {**ptype.option_defaults(), **(spec.options or {}), "_ds": ds, "_spec": spec}
@@ -152,20 +165,50 @@ def render(spec: PlotSpec, ds: Dataset | None = None, settings: dict | None = No
         auto_foot = (lead + " " + pre.footnote).strip()
         foot = {"auto": auto_foot, "custom": spec.style.footnote}.get(spec.style.footnote_mode, "")
         main = _header_footer(fig, spec, T, foot)
+        info = {}
         if pre.data.empty:
             ax = main.add_subplot()
             ax.set_axis_off()
             ax.text(0.5, 0.5, "No data after filtering", ha="center", va="center",
                     color=st.ink_secondary(), transform=ax.transAxes)
         else:
-            _draw(main, ds, spec, pre, ptype, T, w_cm, warnings, sec)
+            info = _draw(main, ds, spec, pre, ptype, T, w_cm, warnings, sec, panel)
         fig.canvas.draw()
         _fit_labels(fig)
         warnings += [w for w in dict.fromkeys(pre.warnings) if w not in warnings]
     res = RenderResult(fig, pre, w_cm, h_cm, warnings, foot,
                        st.latex_width(w_cm, settings["textwidth_cm"]), rc)
     res.auto_footnote = auto_foot
+    res.panels = info.get("panels", [])
+    res.legend_items = info.get("legend")
+    res.colorbars = info.get("colorbars", [])
+    res.grid = info.get("grid", (1, 1))
     return res
+
+
+def render_strip(spec: PlotSpec, res: RenderResult, width_cm: float, legend=None,
+                 colorbar=None) -> RenderResult:
+    """A figure holding only the legend items or one colour bar of `res` (a full
+    render), for separately exported panels. Save it with bbox_inches="tight"."""
+    T = (lambda s: st.tex_escape(s)) if spec.export.usetex else st.mathtext_escape
+    rc = {**res.rc, "figure.constrained_layout.use": False}    # placed by hand
+    with _RENDER_LOCK, mpl.rc_context(rc):
+        fig = Figure(figsize=(width_cm / st.CM_PER_IN, 1.2), dpi=100, layout="none")
+        FigureCanvasAgg(fig)
+        if legend:
+            n = len(legend["handles"])
+            leg = fig.legend(legend["handles"], legend["labels"], loc="center",
+                             ncols=spec.style.legend_cols or min(n, 5), **legend["kw"])
+            _style_legend_headers(leg, legend["labels"], legend["handles"])
+            _style_legend_title(leg)
+        else:
+            m = colorbar.colorbar_mappable
+            cax = fig.add_axes([0.2, 0.55, 0.6, 0.12])
+            cb = fig.colorbar(ScalarMappable(norm=m.norm, cmap=m.cmap), cax=cax,
+                              orientation="horizontal")
+            _style_colorbar(cb, colorbar, colorbar.sizes, T, horizontal=True)
+        fig.canvas.draw()
+    return RenderResult(fig, None, width_cm, 1.2 * st.CM_PER_IN, rc=rc)
 
 
 # --------------------------------------------------------------- drawing --
@@ -233,12 +276,17 @@ def _make_axes(fig, nrows, ncols, sharex, sharey, with_secondary):
     return main, low
 
 
-def _draw(fig, ds, spec, pre, ptype, T, w_cm, warnings, sec=None):
+def _draw(fig, ds, spec, pre, ptype, T, w_cm, warnings, sec=None, panel=None):
     s = spec.style
     nrows, ncols, cells = _facet_grid(pre, spec, w_cm, ptype)
+    if panel is not None:
+        cells = [(cells[panel["index"]][0], (0, 0))]
+        nrows = ncols = 1
     percent_all = s.fraction_as_percent and all(reg.is_fraction(m) for m in pre.metrics)
     common, _ = metric_names(spec, pre.metrics, percent_all)
     metric_facet = METRIC in (pre.roles["facet_col"], pre.roles["facet_row"]) and not common
+    # heatmaps share their category axes by hiding inner tick labels (_style_axes);
+    # matplotlib sharing would fight their inverted, per-panel limits
     sharey = s.sharey and not metric_facet and ptype.name not in ("heatmap", "ranking")
     sharex = s.sharex and ptype.name not in ("heatmap", "ranking")
     axes, low = _make_axes(fig, nrows, ncols, sharex, sharey, sec is not None)
@@ -252,13 +300,15 @@ def _draw(fig, ds, spec, pre, ptype, T, w_cm, warnings, sec=None):
         raw = _subset(_subset(pre.raw, pre.roles["facet_row"], rlev), pre.roles["facet_col"], clev)
         ctx = DrawContext(ax, fig, data, raw, pre, spec, ds, ptype, legend, i)
         ctx.facet_levels = (rlev, clev)
+        if panel is not None:
+            ctx.grid_pos = panel.get("pos") or (0, 0, 1, 1, True)
         contexts.append(ctx)
         if data.empty and raw.empty:
             ax.text(0.5, 0.5, "No data", ha="center", va="center", transform=ax.transAxes,
                     color=st.ink_secondary(), fontsize=ctx.sizes["annotation"])
         else:
             ptype.func(ctx)
-        _facet_title(ctx, T, rlev, clev, nrows, ncols)
+        ctx.facet_title = _facet_title(ctx, T, rlev, clev, nrows, ncols, draw=panel is None)
         if sec is not None:
             sspec, spre = sec
             sdata = _subset(_subset(spre.data, spre.roles["facet_row"], rlev),
@@ -267,6 +317,8 @@ def _draw(fig, ds, spec, pre, ptype, T, w_cm, warnings, sec=None):
                            spre.roles["facet_col"], clev)
             sctx = DrawContext(low[r, c], fig, sdata, sraw, spre, sspec, ds, ptype, {}, i)
             sctx.facet_levels = (rlev, clev)
+            if panel is not None:
+                sctx.grid_pos = ctx.grid_pos
             low_contexts.append(sctx)
             if not (sdata.empty and sraw.empty):
                 ptype.func(sctx)
@@ -278,18 +330,34 @@ def _draw(fig, ds, spec, pre, ptype, T, w_cm, warnings, sec=None):
                     low[r, c].set_axis_off()
     for ctx in contexts:
         _style_axes(ctx, T, axes, cells)
+        if panel is not None:
+            if panel.get("xlim") and ctx.ptype.name != "heatmap":
+                ctx.ax.set_xlim(*panel["xlim"])
+            if panel.get("ylim") and ctx.ptype.name != "heatmap":
+                ctx.ax.set_ylim(*panel["ylim"])
     for ctx in low_contexts:
         _style_axes(ctx, T, axes, cells)
         main_ax = axes[[rc for _, rc in cells][ctx.facet_index]]
         main_ax.set_xlabel("")
         main_ax.tick_params(labelbottom=False)
         ctx.ax.yaxis.label.set_fontsize(ctx.sizes["tick"])
-    _colorbar(fig, contexts, axes, T)
-    _legend(fig, axes, contexts, spec, pre, T)
+    info = {"panels": [{"levels": c.facet_levels, "title": c.facet_title,
+                        "xlim": list(c.ax.get_xlim()), "ylim": list(c.ax.get_ylim())}
+                       for c in contexts],
+            "colorbars": [g[0] for g in _colorbar_groups(contexts)],
+            "grid": (nrows, ncols)}
+    if panel is None:
+        _colorbar(fig, contexts, axes, T)
+        info["legend"] = _legend(fig, axes, contexts, spec, pre, T)
+    else:
+        info["legend"] = _legend(fig, axes, contexts, spec, pre, T, place=False)
+    return info
 
 
-def _facet_title(ctx, T, rlev, clev, nrows, ncols):
-    parts = []
+def _facet_title(ctx, T, rlev, clev, nrows, ncols, draw=True) -> str:
+    """Panel title (facet levels); drawn unless `draw` is False. Returns the text for a
+    subcaption, which also names the metric when each panel shows a different one."""
+    parts, caption = [], []
     percent = ctx.style.fraction_as_percent and all(reg.is_fraction(m) for m in ctx.pre.metrics)
     common, short = metric_names(ctx.spec, ctx.pre.metrics, percent)
     for role, lev in (("facet_row", rlev), ("facet_col", clev)):
@@ -297,11 +365,15 @@ def _facet_title(ctx, T, rlev, clev, nrows, ncols):
         if col == METRIC:
             if common:
                 parts.append(short[lev])
+            caption.append(short[lev] if common else
+                           reg.axis_label(lev, ctx.style.labels, percent).split(" (")[0])
         elif col:
             parts.append(ctx.value_label(col, lev))
-    if parts:
+            caption.append(parts[-1])
+    if parts and draw:
         ctx.ax.set_title(T(" · ".join(parts)), loc="left", fontsize=ctx.sizes["label"],
                          color=st.ink())
+    return ", ".join(caption)
 
 
 def metric_names(spec: PlotSpec, metrics: list[str], percent: bool = False):
@@ -346,8 +418,14 @@ def _metric_label(spec: PlotSpec, metrics: list[str], percent: bool) -> str:
 
 def _style_axes(ctx, T, axes, cells):
     ax, s, spec, pre = ctx.ax, ctx.style, ctx.spec, ctx.pre
-    (r, c) = [rc for (lev, rc) in cells][ctx.facet_index]
-    nrows, ncols = axes.shape
+    grid_pos = getattr(ctx, "grid_pos", None)
+    if grid_pos:                          # one panel of a separately exported grid
+        r, c, nrows, ncols, last_row = grid_pos
+    else:
+        (r, c) = [rc for (lev, rc) in cells][ctx.facet_index]
+        nrows, ncols = axes.shape
+        last_row = r == nrows - 1 or not any((rr, c) in [rc for _, rc in cells]
+                                             for rr in range(r + 1, nrows))
     metrics_here = pre.metrics
     percent_all = s.fraction_as_percent and all(reg.is_fraction(m) for m in pre.metrics)
     common, _ = metric_names(spec, pre.metrics, percent_all)
@@ -374,14 +452,26 @@ def _style_axes(ctx, T, axes, cells):
         percent_x, percent_y = False, percent
     # outer labels only (unless axes differ per panel)
     metric_facet = METRIC in (ctx.roles["facet_col"], ctx.roles["facet_row"]) and not common
-    last_row = r == nrows - 1 or not any((rr, c) in [rc for _, rc in cells]
-                                         for rr in range(r + 1, nrows))
+    heat = ctx.ptype.name == "heatmap"
+    if heat:
+        metric_facet = False      # heatmap rows / columns are categories; the metric is on the colour bar
     if last_row or not s.sharex:
         ax.set_xlabel(T(xlab))
     if c == 0 or metric_facet or not s.sharey:
         ax.set_ylabel(T(ylab))
-    if ctx.ptype.name == "heatmap":
+    if heat:
+        # every panel has the same categories: label the outer ones only
+        if s.sharey and c > 0:
+            ax.tick_params(labelleft=False)
+        if s.sharex and not last_row:
+            ax.tick_params(labelbottom=False)
         return
+    if grid_pos and ctx.ptype.name != "ranking":
+        # separately exported panel: hide inner tick labels as a shared grid would
+        if s.sharex and not last_row:
+            ax.tick_params(labelbottom=False)
+        if s.sharey and not metric_facet and c > 0:
+            ax.tick_params(labelleft=False)
     if pre.x_is_metric and reg.is_fraction(pre.roles["x"]) and s.fraction_as_percent:
         percent_x = True
     if s.xlog:
@@ -449,23 +539,45 @@ def _plain_log_ticks(axis):
     axis.set_minor_formatter(FuncFormatter(minor))
 
 
-def _colorbar(fig, contexts, axes, T):
+def _colorbar_groups(contexts) -> list[list]:
+    """Panels that share one colour bar: all of them, or (e.g. one metric per facet row)
+    those with the same `colorbar_key`; otherwise one bar per panel."""
     maps = [c for c in contexts if c.colorbar_mappable is not None]
     if not maps:
-        return
+        return []
     ctx = maps[0]
-    shared = getattr(ctx, "colorbar_shared", ctx.ptype.shared_colorbar) or len(maps) == 1
-    targets = [m for m in maps] if not shared else [maps[0]]
-    for m in targets:
-        ax_list = [c.ax for c in maps] if shared else [m.ax]
-        cb = fig.colorbar(m.colorbar_mappable, ax=ax_list, pad=0.03, fraction=0.05,
-                          aspect=25 if len(ax_list) > 1 else 18)
-        cb.outline.set_visible(False)
-        cb.ax.tick_params(labelsize=ctx.sizes["tick"], length=2)
-        if getattr(m, "colorbar_label", ""):
-            cb.set_label(T(m.colorbar_label), fontsize=ctx.sizes["label"])
-        if getattr(m, "colorbar_percent", False):
-            cb.ax.yaxis.set_major_formatter(PercentFormatter(1.0))
+    if getattr(ctx, "colorbar_shared", ctx.ptype.shared_colorbar) or len(maps) == 1:
+        return [maps]
+    groups: dict = {}
+    for i, m in enumerate(maps):
+        groups.setdefault(getattr(m, "colorbar_key", None) or i, []).append(m)
+    return list(groups.values())
+
+
+def _colorbar(fig, contexts, axes, T):
+    groups = _colorbar_groups(contexts)
+    if not groups:
+        return
+    ctx = groups[0][0]
+    # metric per facet column: bars under each column; otherwise to the right
+    bottom = len(groups) > 1 and ctx.roles["facet_col"] == METRIC and \
+        ctx.roles["facet_row"] != METRIC
+    for grp in groups:
+        m = grp[0]
+        ax_list = [c.ax for c in grp]
+        cb = fig.colorbar(m.colorbar_mappable, ax=ax_list, pad=0.03 if not bottom else 0.02,
+                          fraction=0.05, aspect=25 if len(ax_list) > 1 else 18,
+                          location="bottom" if bottom else "right")
+        _style_colorbar(cb, m, ctx.sizes, T, horizontal=bottom)
+
+
+def _style_colorbar(cb, m, sizes, T, horizontal=False):
+    cb.outline.set_visible(False)
+    cb.ax.tick_params(labelsize=sizes["tick"], length=2)
+    if getattr(m, "colorbar_label", ""):
+        cb.set_label(T(m.colorbar_label), fontsize=sizes["label"])
+    if getattr(m, "colorbar_percent", False):
+        (cb.ax.xaxis if horizontal else cb.ax.yaxis).set_major_formatter(PercentFormatter(1.0))
 
 
 def _n_text(pre: Prepared, col: str, level, per_group: bool = False) -> str:
@@ -494,15 +606,17 @@ def _n_text(pre: Prepared, col: str, level, per_group: bool = False) -> str:
     return f"n = {lo}" if lo == hi else f"n = {lo}–{hi}"
 
 
-def _legend(fig, axes, contexts, spec, pre, T):
+def _legend(fig, axes, contexts, spec, pre, T, place=True):
+    """Draw the legend (when `place`); returns its items for a separate legend file."""
     s = spec.style
     if not contexts:
-        return
+        return None
     ctx = contexts[0]
     legend = ctx.legend
     if s.legend == "off" or not legend:
-        _single_n_annotation(contexts, spec, pre, T)
-        return
+        if place:
+            _single_n_annotation(contexts, spec, pre, T)
+        return None
     handles, labels = [], []
     sections = [("hue", pre.roles["hue"]), ("style", pre.roles["style"])]
     present = [(k, c) for k, c in sections if c and any(key[0] == k for key in legend)]
@@ -533,13 +647,16 @@ def _legend(fig, axes, contexts, spec, pre, T):
         if key[0] == "trend":
             handles.append(handle)
             labels.append(T(text))
-    if not pre.roles["hue"]:
+    if not pre.roles["hue"] and place:
         _single_n_annotation(contexts, spec, pre, T)
     if not handles:
-        return
+        return None
     loc = s.legend
     kw = dict(frameon=False, fontsize=ctx.sizes["legend"], handlelength=1.6, title=title,
               alignment="left")
+    items = {"handles": handles, "labels": labels, "kw": kw}
+    if not place:
+        return items
     if loc.startswith("outside"):
         where = {"outside right": "outside right upper", "outside top": "outside upper left",
                  "outside bottom": "outside lower center"}[loc]
@@ -549,6 +666,11 @@ def _legend(fig, axes, contexts, spec, pre, T):
         target = axes[0, -1] if axes[0, -1].has_data() else axes.flat[0]
         leg = target.legend(handles, labels, loc=loc, ncols=s.legend_cols or 1, **kw)
     _style_legend_headers(leg, labels, handles)
+    _style_legend_title(leg)
+    return items
+
+
+def _style_legend_title(leg):
     if leg.get_title().get_text():
         leg.get_title().set_color(st.ink())
         leg.get_title().set_fontweight("semibold")
@@ -566,6 +688,8 @@ def _style_legend_headers(leg, labels, handles):
 def _single_n_annotation(contexts, spec, pre, T):
     if not spec.style.show_n or spec.style.footnote_mode == "auto":
         return
+    if contexts[0].ptype.name == "heatmap":
+        return      # would sit on the cells; heatmaps have "n in each cell" instead
     unit = pre.unit_name
     if pre.aggregated:
         n = pre.data[N].dropna()
@@ -667,7 +791,8 @@ def _fit_labels(fig):
         labels = [t for t in ax.get_xticklabels() if t.get_text() and t.get_visible()]
         if len(labels) >= 2 and not labels[0].get_rotation():
             boxes = [t.get_window_extent(r) for t in labels]
-            if any(a.x1 + 2 > b.x0 for a, b in zip(boxes, boxes[1:])):
+            gap = labels[0].get_fontsize() * fig.dpi / 72 * 0.5     # half an em between labels
+            if any(a.x1 + gap > b.x0 for a, b in zip(boxes, boxes[1:])):
                 for t in labels:
                     t.set_rotation(30)
                     t.set_ha("right")

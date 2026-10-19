@@ -135,11 +135,24 @@ def axis_label(col: str | None, overrides: dict | None = None, percent: bool = F
     return f'{info["label"]} ({unit})' if unit else info["label"]
 
 
-def value_label(value, overrides: dict | None = None, prettify: bool = True) -> str:
-    """Display text for a category value."""
+def value_key(col: str | None, value) -> str:
+    """Key of a per-figure category rename that applies to `col` only."""
+    return f"{col}={_value_key(value)}"
+
+
+def value_label(value, overrides: dict | None = None, prettify: bool = True,
+                col: str | None = None) -> str:
+    """Display text for a category value.
+
+    Per-figure overrides keyed "column=value" (only that column) win over a plain
+    "value" key (every column; older figures), then the labels.yaml registry.
+    """
     key = _value_key(value)
-    if overrides and key in overrides:
-        return overrides[key]
+    if overrides:
+        if col and overrides.get(value_key(col, value)):
+            return overrides[value_key(col, value)]
+        if overrides.get(key):
+            return overrides[key]
     vals = labels_yaml().get("values", {})
     if key in vals:
         return vals[key]

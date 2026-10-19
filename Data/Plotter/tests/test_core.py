@@ -163,3 +163,11 @@ def test_rows_without_x_value_are_excluded(datasets):
     n_sets = int((ds.frame()["n_tilts"] > 1).sum())
     assert pre.n_nan_x == n_sets and f"{n_sets} rows without a tilt value" in pre.footnote
     assert not pre.data["__x__"].isna().any()
+
+
+def test_baseline_vs_best_selection_labels():
+    from rsplot import registry as reg
+    assert [reg.value_label(v) for v in ("1_baseline", "2_best_overall", "3_best_per_group")] == \
+        ["Baseline (no filters)", "Best overall", "Best for this shape & height"]
+    assert reg.axis_label("selection") == "Configuration"
+    assert "selection" in reg.family("filter_sweep").factors

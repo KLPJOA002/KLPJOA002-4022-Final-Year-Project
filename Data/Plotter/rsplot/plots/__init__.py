@@ -165,10 +165,12 @@ class DrawContext:
         if col == METRIC:
             return reg.axis_label(v, self.style.labels)
         if v is None or (isinstance(v, float) and np.isnan(v)) or v is pd.NA:
-            custom = (self.style.value_labels or {}).get("nan")
+            vl = self.style.value_labels or {}
+            custom = vl.get(f"{col}=nan") or vl.get("nan")
             derived = (self.ds.family.derived or {}).get(col) or {}
             return custom or derived.get("missing_label") or "no value"
-        return reg.value_label(_py(v), self.style.value_labels, self.style.prettify_values)
+        return reg.value_label(_py(v), self.style.value_labels, self.style.prettify_values,
+                               col=col)
 
     # ---- series iteration ----
     def series(self, df: pd.DataFrame | None = None):

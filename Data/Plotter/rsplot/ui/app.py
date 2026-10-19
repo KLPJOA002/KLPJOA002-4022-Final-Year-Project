@@ -521,13 +521,19 @@ class App:
     # ---- setters ----
     def set_attr(self, obj, attr, value, *panels):
         setattr(obj, attr, value)
+        if obj is self.spec.mapping and attr in ("x", "row", "hue", "style", "facet") \
+                and "style_panel" not in panels:
+            panels = (*panels, "style_panel")     # rename list follows the mapping
         self.changed(*panels)
 
     def set_option(self, name, value, typ, refresh=False):
         if value is not None and typ == "int":
             value = int(value)
         self.spec.options[name] = value
-        self.changed(*(["data_panel"] if refresh else []))
+        panels = ["data_panel"] if refresh else []
+        if name == "x_as_category":
+            panels.append("style_panel")
+        self.changed(*panels)
 
     def set_plot_type(self, name):
         old = PLOT_TYPES[self.spec.plot_type]
@@ -564,7 +570,7 @@ class App:
         if old.needs_raw and not new.needs_raw and self.spec.aggregation.func == "none":
             self.spec.aggregation.func = new.default_agg
             self.spec.aggregation.spread = new.default_spread
-        self.changed("data_panel")
+        self.changed("data_panel", "style_panel")
 
     def set_y(self, values):
         self.spec.mapping.y = list(values or [])
@@ -630,7 +636,8 @@ class App:
                     ui.button("Pick values instead", on_click=lambda: self.switch_filter_kind(i, "in")) \
                         .props("flat dense no-caps size=sm")
             else:
-                opts = {v: reg.value_label(v, self.spec.style.value_labels) for v in p.values}
+                opts = {v: reg.value_label(v, self.spec.style.value_labels, col=f.column)
+                        for v in p.values}
                 sel = ui.select(opts, value=[v for v in (f.values or []) if v in opts],
                                 multiple=True, with_input=True,
                                 on_change=lambda e, f=f: self.set_attr(f, "values", list(e.value))) \
@@ -891,7 +898,9 @@ class App:
 
     def columns_in_use(self):
         m = self.spec.mapping
-        cols = [m.x, *m.y, m.hue, m.facet, m.style, m.row, m.secondary]
+        roles = PLOT_TYPES[self.spec.plot_type].roles
+        cols = [m.x, *m.y, *[getattr(m, r) for r in ("hue", "facet", "style", "row")
+                             if r in roles], m.secondary]
         return [c for c in dict.fromkeys(cols) if c and c != "__metric__"]
 
     def label_overrides(self):
@@ -907,11 +916,11 @@ class App:
                     self.changed()
                 ui.input(col, value=s.labels.get(col, ""), placeholder=reg.axis_label(col),
                          on_change=set_).classes("w-full").props("dense debounce=500 clearable")
-            levels = self.hue_levels()
-            if levels:
-                ui.label("Category names (colour groups)").classes("rs-sec")
-                for v in levels:
-                    key = reg._value_key(v)
+            for col, values in self.category_columns():
+                ui.label(f"Categories: {reg.axis_label(col, s.labels).split(' (')[0]}") \
+                    .classes("rs-sec")
+                for v in values:
+                    key = reg.value_key(col, v)
 
                     def set_v(e, key=key):
                         if e.value:
@@ -919,9 +928,31 @@ class App:
                         else:
                             s.value_labels.pop(key, None)
                         self.changed()
-                    ui.input(key, value=s.value_labels.get(key, ""),
+                    # a plain "value" key from older figures still applies; show it
+                    cur = s.value_labels.get(key) or s.value_labels.get(reg._value_key(v), "")
+                    ui.input(reg.value_label(v, None, False), value=cur,
                              placeholder=reg.value_label(v, None, s.prettify_values),
                              on_change=set_v).classes("w-full").props("dense debounce=500 clearable")
+
+    MAX_RENAME_VALUES = 40
+
+    def category_columns(self) -> list[tuple[str, list]]:
+        """(column, values) for every mapped column whose values appear as text in the
+        figure: categorical x, heatmap rows, colour, style and panel columns."""
+        m = self.spec.mapping
+        ptype = PLOT_TYPES.get(self.spec.plot_type)
+        cols = [m.x, *[getattr(m, r) for r in ("row", "hue", "style", "facet")
+                       if ptype is None or r in ptype.roles]]
+        out = []
+        for col in dict.fromkeys(c for c in cols if c and c != "__metric__"):
+            p = self.ds.profile.get(col)
+            if p is None or p.values is None:
+                continue
+            if col == m.x and ptype is not None and ptype.x != "discrete" and \
+                    p.kind == "numeric" and not (self.spec.options or {}).get("x_as_category"):
+                continue      # numeric x axis: tick numbers, nothing to rename
+            out.append((col, p.values[:self.MAX_RENAME_VALUES]))
+        return out
 
     def hue_levels(self) -> list:
         h = self.spec.mapping.hue
@@ -937,7 +968,8 @@ class App:
         if not levels:
             levels_keys = [("__single__", "Series colour")]
         else:
-            levels_keys = [(reg._value_key(v), reg.value_label(v, s.value_labels))
+            levels_keys = [(reg._value_key(v), reg.value_label(v, s.value_labels,
+                                                               col=self.spec.mapping.hue))
                            if v not in self.spec.mapping.y else (v, reg.axis_label(v))
                            for v in levels]
         base = st.palette(s, len(levels_keys))
@@ -1104,6 +1136,29 @@ class App:
                 transp = ui.switch("Transparent background", value=e.transparent).props("dense")
             ui.label("PDF: vector, fonts embedded (TrueType), PDF 1.4 for pdfLaTeX.") \
                 .classes("text-xs text-gray-500")
+            pv = getattr(self, "pv", None)
+            n_panels = getattr(pv, "n_panels", 1) if pv else 1
+            grid_mode = {"v": e.grid_mode if n_panels > 1 else "single"}
+            if n_panels > 1:
+                ui.label("Grid export").classes("rs-sec")
+                mode = ui.toggle({"single": "Single image (gridded)",
+                                  "panels": "Separate panels + LaTeX grid"},
+                                 value=grid_mode["v"]).props("dense no-caps")
+                with ui.column().classes("w-full gap-1") as panel_opts:
+                    with ui.row().classes("w-full items-center no-wrap gap-4"):
+                        labels = ui.toggle({"outer": "Axis labels on outer panels",
+                                            "every": "Labels on every panel"},
+                                           value=e.panel_labels).props("dense no-caps")
+                        pcols = ui.number("Panels per row", value=e.panel_cols or pv.grid[1],
+                                          min=1, max=6, step=1).classes("w-32").props("dense")
+                    ui.label(f"{n_panels} panel files (<name>_p1 …) plus a legend / colour-bar "
+                             "file; the LaTeX snippet arranges them as subfigures "
+                             "(\\usepackage{subcaption}).").classes("text-xs text-gray-500")
+                panel_opts.bind_visibility_from(mode, "value", value="panels")
+
+                def upd_mode(ev):
+                    grid_mode["v"] = ev.value
+                mode.on_value_change(upd_mode)
 
             async def do_save(overwrite=False, name=None):
                 e.folder = f_in.value.strip()
@@ -1111,9 +1166,14 @@ class App:
                 e.formats = [f for f, cb in fmts.items() if cb.value] or ["pdf"]
                 e.dpi = int(dpi.value or 300)
                 e.transparent = bool(transp.value)
+                e.grid_mode = grid_mode["v"]
+                if e.grid_mode == "panels":
+                    e.panel_labels = labels.value
+                    e.panel_cols = int(pcols.value or 0)
                 spec, ds = self.spec.copy(), self.ds
+                save = ex.save_panels if e.grid_mode == "panels" else ex.save_figure
                 try:
-                    res = await run.io_bound(ex.save_figure, spec, ds, overwrite)
+                    res = await run.io_bound(save, spec, ds, overwrite)
                 except FileExistsError as err:
                     self.conflict_dialog(str(err).splitlines(), e, do_save)
                     return

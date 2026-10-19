@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.27)  18 OCT 2026 22:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.8.27)  19 OCT 2026 18:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1767,7 +1767,7 @@ Package hyperref Info: Link coloring OFF on input line 252.
 \openout2 = `0_titlepage.aux'.
 
  (./0_titlepage.tex
-<figs/0_logos/logo_uct.png, id=449, 356.532pt x 362.3136pt>
+<figs/0_logos/logo_uct.png, id=461, 356.532pt x 362.3136pt>
 File: figs/0_logos/logo_uct.png Graphic file (type png)
 <use figs/0_logos/logo_uct.png>
 Package pdftex.def Info: figs/0_logos/logo_uct.png  used on input line 21.
@@ -1808,7 +1808,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 75.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 75.
-<figs/0_logos/logo_eee.jpg, id=451, 1516.66624pt x 1511.6475pt>
+<figs/0_logos/logo_eee.jpg, id=463, 1516.66624pt x 1511.6475pt>
 File: figs/0_logos/logo_eee.jpg Graphic file (type jpg)
 <use figs/0_logos/logo_eee.jpg>
 Package pdftex.def Info: figs/0_logos/logo_eee.jpg  used on input line 75.
@@ -1871,19 +1871,19 @@ Package pdftex.def Info: figs/signature.jpg  used on input line 68.
 \tf@toc=\write8
 \openout8 = `0_main.toc'.
 
- [6] (./0_main.lof)
+ [6] (./0_main.lof [7])
 \tf@lof=\write9
 \openout9 = `0_main.lof'.
 
- [7] (./0_main.lot)
+ [8] (./0_main.lot)
 \tf@lot=\write10
 \openout10 = `0_main.lot'.
 
- [8]
+ [9]
 \openout2 = `iv_listofsymbols.aux'.
 
 
-(./iv_listofsymbols.tex) [9
+(./iv_listofsymbols.tex) [10
 
 
 
@@ -1892,7 +1892,7 @@ Package pdftex.def Info: figs/signature.jpg  used on input line 68.
 
  (./v_glossary.tex
 No file 0_main.gls.
-) [10
+) [11
 
 
 
@@ -1924,7 +1924,7 @@ l.51
 
  (./2_review.tex
 Chapter 2.
-<figs/ch2/Schenone_custom_incubation_tank.png, id=698, 987.69pt x 634.62094pt>
+<figs/ch2/Schenone_custom_incubation_tank.png, id=762, 987.69pt x 634.62094pt>
 File: figs/ch2/Schenone_custom_incubation_tank.png Graphic file (type png)
 <use figs/ch2/Schenone_custom_incubation_tank.png>
 Package pdftex.def Info: figs/ch2/Schenone_custom_incubation_tank.png  used on 
@@ -2015,152 +2015,527 @@ Chapter 5.
 
 
 ] [14]
-<figs/ch5/Scatter_Median_Depth_RMSE_VS_Height.png, id=795, 512.04805pt x 255.96
-593pt>
-File: figs/ch5/Scatter_Median_Depth_RMSE_VS_Height.png Graphic file (type png)
-<use figs/ch5/Scatter_Median_Depth_RMSE_VS_Height.png>
-Package pdftex.def Info: figs/ch5/Scatter_Median_Depth_RMSE_VS_Height.png  used
- on input line 132.
-(pdftex.def)             Requested size: 512.14963pt x 256.0395pt.
+<figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p1.png, id=859, 250.6212pt x
+ 106.66216pt>
+File: figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p1.png Graphic file (ty
+pe png)
+<use figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p1.png>
+Package pdftex.def Info: figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p1.p
+ng  used on input line 134.
+(pdftex.def)             Requested size: 250.64354pt x 106.6749pt.
+<figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p2.png, id=860, 240.97746pt 
+x 106.66216pt>
+File: figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p2.png Graphic file (ty
+pe png)
+<use figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p2.png>
+Package pdftex.def Info: figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p2.p
+ng  used on input line 140.
+(pdftex.def)             Requested size: 241.01572pt x 106.6814pt.
+<figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p3.png, id=861, 250.6212pt x
+ 128.27344pt>
+File: figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p3.png Graphic file (ty
+pe png)
+<use figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p3.png>
+Package pdftex.def Info: figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p3.p
+ng  used on input line 147.
+(pdftex.def)             Requested size: 250.64354pt x 128.28877pt.
+<figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p4.png, id=862, 240.97746pt 
+x 128.27344pt>
+File: figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p4.png Graphic file (ty
+pe png)
+<use figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p4.png>
+Package pdftex.def Info: figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p4.p
+ng  used on input line 153.
+(pdftex.def)             Requested size: 241.01572pt x 128.2966pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 133.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 157.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 133.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 157.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 133.
-<figs/ch5/Scatter_Plane_Fit_Valid_VS_Height.png, id=796, 512.04805pt x 255.9659
-3pt>
-File: figs/ch5/Scatter_Plane_Fit_Valid_VS_Height.png Graphic file (type png)
-<use figs/ch5/Scatter_Plane_Fit_Valid_VS_Height.png>
-Package pdftex.def Info: figs/ch5/Scatter_Plane_Fit_Valid_VS_Height.png  used o
-n input line 139.
-(pdftex.def)             Requested size: 512.14963pt x 256.0395pt.
-<figs/ch5/Scatter_Med_Depth_RMSE_VS_Angle.png, id=797, 512.04805pt x 255.96593p
-t>
-File: figs/ch5/Scatter_Med_Depth_RMSE_VS_Angle.png Graphic file (type png)
-<use figs/ch5/Scatter_Med_Depth_RMSE_VS_Angle.png>
-Package pdftex.def Info: figs/ch5/Scatter_Med_Depth_RMSE_VS_Angle.png  used on 
-input line 153.
-(pdftex.def)             Requested size: 512.14963pt x 256.0395pt.
-<figs/ch5/Scatter_PlaneRMS_Fill_VS_Angle.png, id=798, 512.04805pt x 255.96593pt
->
-File: figs/ch5/Scatter_PlaneRMS_Fill_VS_Angle.png Graphic file (type png)
-<use figs/ch5/Scatter_PlaneRMS_Fill_VS_Angle.png>
-Package pdftex.def Info: figs/ch5/Scatter_PlaneRMS_Fill_VS_Angle.png  used on i
-nput line 160.
-(pdftex.def)             Requested size: 512.14963pt x 256.0395pt.
- [15 <./figs/ch5/Scatter_Median_Depth_RMSE_VS_Height.png>] [16 <./figs/ch5/Scat
-ter_Plane_Fit_Valid_VS_Height.png> <./figs/ch5/Scatter_Med_Depth_RMSE_VS_Angle.
-png>]
-Overfull \hbox (86.63484pt too wide) in paragraph at lines 175--195
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 157.
+<figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p1.png, id=863, 249.4593pt x 1
+06.66216pt>
+File: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p1.png Graphic file (type
+ png)
+<use figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p1.png>
+Package pdftex.def Info: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p1.png
+  used on input line 172.
+(pdftex.def)             Requested size: 249.5182pt x 106.68954pt.
+<figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p2.png, id=864, 242.02316pt x 
+106.66216pt>
+File: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p2.png Graphic file (type
+ png)
+<use figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p2.png>
+Package pdftex.def Info: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p2.png
+  used on input line 178.
+(pdftex.def)             Requested size: 242.14105pt x 106.71558pt.
+<figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p3.png, id=865, 249.4593pt x 1
+34.54768pt>
+File: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p3.png Graphic file (type
+ png)
+<use figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p3.png>
+Package pdftex.def Info: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p3.png
+  used on input line 185.
+(pdftex.def)             Requested size: 249.5182pt x 134.58223pt.
+<figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p4.png, id=866, 242.02316pt x 
+134.54768pt>
+File: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p4.png Graphic file (type
+ png)
+<use figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p4.png>
+Package pdftex.def Info: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p4.png
+  used on input line 191.
+(pdftex.def)             Requested size: 242.14105pt x 134.61508pt.
+<figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_legend.png, id=867, 89.34988pt
+ x 19.05511pt>
+File: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_legend.png Graphic file (
+type png)
+<use figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_legend.png>
+Package pdftex.def Info: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_legend
+.png  used on input line 196.
+(pdftex.def)             Requested size: 89.34966pt x 19.05505pt.
+ [15 <./figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p1.png> <./figs/ch5/H
+eight_Analysis/Scatter_Metric_Vs_Height_p2.png> <./figs/ch5/Height_Analysis/Sca
+tter_Metric_Vs_Height_p3.png> <./figs/ch5/Height_Analysis/Scatter_Metric_Vs_Hei
+ght_p4.png>]
+Overfull \hbox (86.63484pt too wide) in paragraph at lines 210--230
  [][] 
  []
 
+<figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p1.png, id=879, 248.29741pt x 
+106.66216pt>
+File: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p1.png Graphic file (type
+ png)
+<use figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p1.png>
+Package pdftex.def Info: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p1.png
+  used on input line 236.
+(pdftex.def)             Requested size: 248.39287pt x 106.70908pt.
+<figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p2.png, id=880, 243.18506pt x 
+106.66216pt>
+File: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p2.png Graphic file (type
+ png)
+<use figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p2.png>
+Package pdftex.def Info: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p2.png
+  used on input line 242.
+(pdftex.def)             Requested size: 243.27419pt x 106.70581pt.
+<figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p3.png, id=881, 248.29741pt x 
+135.70958pt>
+File: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p3.png Graphic file (type
+ png)
+<use figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p3.png>
+Package pdftex.def Info: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p3.png
+  used on input line 249.
+(pdftex.def)             Requested size: 248.39287pt x 135.76929pt.
+<figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p4.png, id=882, 243.18506pt x 
+135.70958pt>
+File: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p4.png Graphic file (type
+ png)
+<use figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p4.png>
+Package pdftex.def Info: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p4.png
+  used on input line 255.
+(pdftex.def)             Requested size: 243.27419pt x 135.76515pt.
 
-LaTeX Warning: Reference `sec:reference' on page 17 undefined on input line 202
+LaTeX Warning: Reference `sec:reference' on page 16 undefined on input line 268
 .
 
-[17 <./figs/ch5/Scatter_PlaneRMS_Fill_VS_Angle.png>]
+[16 <./figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p1.png> <./figs/ch5/Angl
+e_Analysis/Scatter_Metric_Vs_Angle_p2.png> <./figs/ch5/Angle_Analysis/Scatter_M
+etric_Vs_Angle_p3.png> <./figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p4.pn
+g> <./figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_legend.png>]
 
-LaTeX Warning: Reference `ch:system' on page 18 undefined on input line 210.
+LaTeX Warning: Reference `ch:system' on page 17 undefined on input line 276.
+
+[17 <./figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p1.png> <./figs/ch5/Ligh
+t_Analysis/Scatter_Metric_Vs_Light_p2.png> <./figs/ch5/Light_Analysis/Scatter_M
+etric_Vs_Light_p3.png> <./figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p4.pn
+g>]
+
+LaTeX Warning: Reference `ch:system' on page 18 undefined on input line 289.
+
+
+LaTeX Warning: Reference `ch:system' on page 18 undefined on input line 297.
 
 [18]
 
-LaTeX Warning: Reference `ch:system' on page 19 undefined on input line 223.
+LaTeX Warning: Reference `ch:pipeline' on page 19 undefined on input line 305.
+
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p1.png, id=910, 248.06503pt 
+x 106.66216pt>
+File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p1.png Graphic file (ty
+pe png)
+<use figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p1.png>
+Package pdftex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p1.p
+ng  used on input line 315.
+(pdftex.def)             Requested size: 248.0881pt x 106.67163pt.
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p2.png, id=911, 243.53363pt 
+x 106.66216pt>
+File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p2.png Graphic file (ty
+pe png)
+<use figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p2.png>
+Package pdftex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p2.p
+ng  used on input line 321.
+(pdftex.def)             Requested size: 243.57896pt x 106.6814pt.
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p3.png, id=912, 248.06503pt 
+x 131.64294pt>
+File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p3.png Graphic file (ty
+pe png)
+<use figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p3.png>
+Package pdftex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p3.p
+ng  used on input line 328.
+(pdftex.def)             Requested size: 248.0881pt x 131.65465pt.
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p4.png, id=913, 243.53363pt 
+x 131.64294pt>
+File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p4.png Graphic file (ty
+pe png)
+<use figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p4.png>
+Package pdftex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p4.p
+ng  used on input line 334.
+(pdftex.def)             Requested size: 243.57896pt x 131.6667pt.
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_legend.png, id=914, 150.8142
+4pt x 19.05511pt>
+File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_legend.png Graphic file
+ (type png)
+<use figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_legend.png>
+Package pdftex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_lege
+nd.png  used on input line 339.
+(pdftex.def)             Requested size: 150.81386pt x 19.05505pt.
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p1.png, id=915, 248.
+06503pt x 106.66216pt>
+File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p1.png Graphic 
+file (type png)
+<use figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p1.png>
+Package pdftex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Un
+its_p1.png  used on input line 348.
+(pdftex.def)             Requested size: 248.0881pt x 106.67163pt.
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p2.png, id=916, 243.
+53363pt x 106.66216pt>
+File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p2.png Graphic 
+file (type png)
+<use figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p2.png>
+Package pdftex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Un
+its_p2.png  used on input line 354.
+(pdftex.def)             Requested size: 243.57896pt x 106.6814pt.
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p3.png, id=917, 248.
+06503pt x 130.01628pt>
+File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p3.png Graphic 
+file (type png)
+<use figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p3.png>
+Package pdftex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Un
+its_p3.png  used on input line 361.
+(pdftex.def)             Requested size: 248.0881pt x 130.02786pt.
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p4.png, id=918, 243.
+53363pt x 130.01628pt>
+File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p4.png Graphic 
+file (type png)
+<use figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p4.png>
+Package pdftex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Un
+its_p4.png  used on input line 367.
+(pdftex.def)             Requested size: 243.57896pt x 130.03976pt.
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_legend.png, id=919, 
+150.81424pt x 19.05511pt>
+File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_legend.png Grap
+hic file (type png)
+<use figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_legend.png>
+Package pdftex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Un
+its_legend.png  used on input line 372.
+(pdftex.def)             Requested size: 150.81386pt x 19.05505pt.
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p1.png, id=920, 248.06503
+pt x 106.66216pt>
+File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p1.png Graphic file 
+(type png)
+<use figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p1.png>
+Package pdftex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p
+1.png  used on input line 381.
+(pdftex.def)             Requested size: 248.0881pt x 106.67163pt.
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p2.png, id=921, 243.53363
+pt x 106.66216pt>
+File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p2.png Graphic file 
+(type png)
+<use figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p2.png>
+Package pdftex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p
+2.png  used on input line 387.
+(pdftex.def)             Requested size: 243.57896pt x 106.6814pt.
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p3.png, id=922, 248.06503
+pt x 131.062pt>
+File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p3.png Graphic file 
+(type png)
+<use figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p3.png>
+Package pdftex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p
+3.png  used on input line 394.
+(pdftex.def)             Requested size: 248.0881pt x 131.07365pt.
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p4.png, id=923, 243.53363
+pt x 131.062pt>
+File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p4.png Graphic file 
+(type png)
+<use figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p4.png>
+Package pdftex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p
+4.png  used on input line 400.
+(pdftex.def)             Requested size: 243.57896pt x 131.08565pt.
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_legend.png, id=924, 150.8
+1424pt x 19.05511pt>
+File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_legend.png Graphic f
+ile (type png)
+<use figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_legend.png>
+Package pdftex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_l
+egend.png  used on input line 405.
+(pdftex.def)             Requested size: 150.81386pt x 19.05505pt.
+<figs/ch5/Filter_Analysis/Filter_Comparison_p1.png, id=928, 245.74124pt x 92.37
+082pt>
+File: figs/ch5/Filter_Analysis/Filter_Comparison_p1.png Graphic file (type png)
+
+<use figs/ch5/Filter_Analysis/Filter_Comparison_p1.png>
+Package pdftex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_p1.png  use
+d on input line 441.
+(pdftex.def)             Requested size: 245.82962pt x 92.40582pt.
+<figs/ch5/Filter_Analysis/Filter_Comparison_p2.png, id=929, 245.74124pt x 92.37
+082pt>
+File: figs/ch5/Filter_Analysis/Filter_Comparison_p2.png Graphic file (type png)
+
+<use figs/ch5/Filter_Analysis/Filter_Comparison_p2.png>
+Package pdftex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_p2.png  use
+d on input line 447.
+(pdftex.def)             Requested size: 245.82962pt x 92.40582pt.
+<figs/ch5/Filter_Analysis/Filter_Comparison_p3.png, id=930, 245.74124pt x 96.43
+745pt>
+File: figs/ch5/Filter_Analysis/Filter_Comparison_p3.png Graphic file (type png)
+
+<use figs/ch5/Filter_Analysis/Filter_Comparison_p3.png>
+Package pdftex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_p3.png  use
+d on input line 454.
+(pdftex.def)             Requested size: 245.82962pt x 96.47397pt.
+<figs/ch5/Filter_Analysis/Filter_Comparison_p4.png, id=931, 245.74124pt x 96.43
+745pt>
+File: figs/ch5/Filter_Analysis/Filter_Comparison_p4.png Graphic file (type png)
+
+<use figs/ch5/Filter_Analysis/Filter_Comparison_p4.png>
+Package pdftex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_p4.png  use
+d on input line 460.
+(pdftex.def)             Requested size: 245.82962pt x 96.47397pt.
+<figs/ch5/Filter_Analysis/Filter_Comparison_p5.png, id=932, 245.74124pt x 92.37
+082pt>
+File: figs/ch5/Filter_Analysis/Filter_Comparison_p5.png Graphic file (type png)
+
+<use figs/ch5/Filter_Analysis/Filter_Comparison_p5.png>
+Package pdftex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_p5.png  use
+d on input line 467.
+(pdftex.def)             Requested size: 245.82962pt x 92.40582pt.
+<figs/ch5/Filter_Analysis/Filter_Comparison_p6.png, id=933, 245.74124pt x 92.37
+082pt>
+File: figs/ch5/Filter_Analysis/Filter_Comparison_p6.png Graphic file (type png)
+
+<use figs/ch5/Filter_Analysis/Filter_Comparison_p6.png>
+Package pdftex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_p6.png  use
+d on input line 473.
+(pdftex.def)             Requested size: 245.82962pt x 92.40582pt.
+<figs/ch5/Filter_Analysis/Filter_Comparison_p7.png, id=934, 245.74124pt x 118.0
+4875pt>
+File: figs/ch5/Filter_Analysis/Filter_Comparison_p7.png Graphic file (type png)
+
+<use figs/ch5/Filter_Analysis/Filter_Comparison_p7.png>
+Package pdftex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_p7.png  use
+d on input line 480.
+(pdftex.def)             Requested size: 245.82962pt x 118.09349pt.
+<figs/ch5/Filter_Analysis/Filter_Comparison_p8.png, id=935, 245.74124pt x 118.0
+4875pt>
+File: figs/ch5/Filter_Analysis/Filter_Comparison_p8.png Graphic file (type png)
+
+<use figs/ch5/Filter_Analysis/Filter_Comparison_p8.png>
+Package pdftex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_p8.png  use
+d on input line 486.
+(pdftex.def)             Requested size: 245.82962pt x 118.09349pt.
+<figs/ch5/Filter_Analysis/Filter_Comparison_legend.png, id=936, 303.13896pt x 3
+2.6493pt>
+File: figs/ch5/Filter_Analysis/Filter_Comparison_legend.png Graphic file (type 
+png)
+<use figs/ch5/Filter_Analysis/Filter_Comparison_legend.png>
+Package pdftex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_legend.png 
+ used on input line 491.
+(pdftex.def)             Requested size: 303.1382pt x 32.6492pt.
+[19] [20 <./figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p1.png> <./figs/c
+h5/Parameter_Analysis/Scatter_Metric_Vs_Res_p2.png> <./figs/ch5/Parameter_Analy
+sis/Scatter_Metric_Vs_Res_p3.png> <./figs/ch5/Parameter_Analysis/Scatter_Metric
+_Vs_Res_p4.png> <./figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_legend.png
+> <./figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p1.png> <./figs/
+ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p2.png> <./figs/ch5/Parame
+ter_Analysis/Scatter_Metric_Vs_Depth_Units_p3.png> <./figs/ch5/Parameter_Analys
+is/Scatter_Metric_Vs_Depth_Units_p4.png> <./figs/ch5/Parameter_Analysis/Scatter
+_Metric_Vs_Depth_Units_legend.png>]
+<figs/ch5/Combination_Analysis/Combination_Comparison_p1.png, id=962, 245.74124
+pt x 92.71939pt>
+File: figs/ch5/Combination_Analysis/Combination_Comparison_p1.png Graphic file 
+(type png)
+<use figs/ch5/Combination_Analysis/Combination_Comparison_p1.png>
+Package pdftex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_p
+1.png  used on input line 508.
+(pdftex.def)             Requested size: 245.82962pt x 92.7545pt.
+<figs/ch5/Combination_Analysis/Combination_Comparison_p2.png, id=963, 245.74124
+pt x 92.71939pt>
+File: figs/ch5/Combination_Analysis/Combination_Comparison_p2.png Graphic file 
+(type png)
+<use figs/ch5/Combination_Analysis/Combination_Comparison_p2.png>
+Package pdftex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_p
+2.png  used on input line 514.
+(pdftex.def)             Requested size: 245.82962pt x 92.7545pt.
+<figs/ch5/Combination_Analysis/Combination_Comparison_p3.png, id=964, 245.74124
+pt x 85.28325pt>
+File: figs/ch5/Combination_Analysis/Combination_Comparison_p3.png Graphic file 
+(type png)
+<use figs/ch5/Combination_Analysis/Combination_Comparison_p3.png>
+Package pdftex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_p
+3.png  used on input line 521.
+(pdftex.def)             Requested size: 245.82962pt x 85.31555pt.
+<figs/ch5/Combination_Analysis/Combination_Comparison_p4.png, id=965, 245.74124
+pt x 85.28325pt>
+File: figs/ch5/Combination_Analysis/Combination_Comparison_p4.png Graphic file 
+(type png)
+<use figs/ch5/Combination_Analysis/Combination_Comparison_p4.png>
+Package pdftex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_p
+4.png  used on input line 527.
+(pdftex.def)             Requested size: 245.82962pt x 85.31555pt.
+<figs/ch5/Combination_Analysis/Combination_Comparison_p5.png, id=966, 245.74124
+pt x 85.28325pt>
+File: figs/ch5/Combination_Analysis/Combination_Comparison_p5.png Graphic file 
+(type png)
+<use figs/ch5/Combination_Analysis/Combination_Comparison_p5.png>
+Package pdftex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_p
+5.png  used on input line 534.
+(pdftex.def)             Requested size: 245.82962pt x 85.31555pt.
+<figs/ch5/Combination_Analysis/Combination_Comparison_p6.png, id=967, 245.74124
+pt x 85.28325pt>
+File: figs/ch5/Combination_Analysis/Combination_Comparison_p6.png Graphic file 
+(type png)
+<use figs/ch5/Combination_Analysis/Combination_Comparison_p6.png>
+Package pdftex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_p
+6.png  used on input line 540.
+(pdftex.def)             Requested size: 245.82962pt x 85.31555pt.
+<figs/ch5/Combination_Analysis/Combination_Comparison_p7.png, id=968, 245.74124
+pt x 110.96117pt>
+File: figs/ch5/Combination_Analysis/Combination_Comparison_p7.png Graphic file 
+(type png)
+<use figs/ch5/Combination_Analysis/Combination_Comparison_p7.png>
+Package pdftex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_p
+7.png  used on input line 547.
+(pdftex.def)             Requested size: 245.82962pt x 111.0032pt.
+<figs/ch5/Combination_Analysis/Combination_Comparison_p8.png, id=969, 245.74124
+pt x 110.96117pt>
+File: figs/ch5/Combination_Analysis/Combination_Comparison_p8.png Graphic file 
+(type png)
+<use figs/ch5/Combination_Analysis/Combination_Comparison_p8.png>
+Package pdftex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_p
+8.png  used on input line 553.
+(pdftex.def)             Requested size: 245.82962pt x 111.0032pt.
+<figs/ch5/Combination_Analysis/Combination_Comparison_legend.png, id=970, 89.46
+608pt x 32.6493pt>
+File: figs/ch5/Combination_Analysis/Combination_Comparison_legend.png Graphic f
+ile (type png)
+<use figs/ch5/Combination_Analysis/Combination_Comparison_legend.png>
+Package pdftex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_l
+egend.png  used on input line 558.
+(pdftex.def)             Requested size: 89.46584pt x 32.6492pt.
 
 
-LaTeX Warning: Reference `ch:system' on page 19 undefined on input line 231.
+LaTeX Warning: Reference `ch:further' on page 21 undefined on input line 573.
 
-
-LaTeX Warning: Reference `ch:pipeline' on page 19 undefined on input line 239.
-
-[19]
-
-LaTeX Warning: Reference `ch:further' on page 20 undefined on input line 255.
-
-) [20]
+) [21 <./figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p1.png> <./figs/c
+h5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p2.png> <./figs/ch5/Parameter_An
+alysis/Scatter_Metric_Vs_Preset_p3.png> <./figs/ch5/Parameter_Analysis/Scatter_
+Metric_Vs_Preset_p4.png> <./figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Prese
+t_legend.png>] [22 <./figs/ch5/Filter_Analysis/Filter_Comparison_p1.png> <./fig
+s/ch5/Filter_Analysis/Filter_Comparison_p2.png> <./figs/ch5/Filter_Analysis/Fil
+ter_Comparison_p3.png> <./figs/ch5/Filter_Analysis/Filter_Comparison_p4.png> <.
+/figs/ch5/Filter_Analysis/Filter_Comparison_p5.png> <./figs/ch5/Filter_Analysis
+/Filter_Comparison_p6.png> <./figs/ch5/Filter_Analysis/Filter_Comparison_p7.png
+> <./figs/ch5/Filter_Analysis/Filter_Comparison_p8.png> <./figs/ch5/Filter_Anal
+ysis/Filter_Comparison_legend.png>] [23 <./figs/ch5/Combination_Analysis/Combin
+ation_Comparison_p1.png> <./figs/ch5/Combination_Analysis/Combination_Compariso
+n_p2.png> <./figs/ch5/Combination_Analysis/Combination_Comparison_p3.png> <./fi
+gs/ch5/Combination_Analysis/Combination_Comparison_p4.png> <./figs/ch5/Combinat
+ion_Analysis/Combination_Comparison_p5.png> <./figs/ch5/Combination_Analysis/Co
+mbination_Comparison_p6.png> <./figs/ch5/Combination_Analysis/Combination_Compa
+rison_p7.png> <./figs/ch5/Combination_Analysis/Combination_Comparison_p8.png> <
+./figs/ch5/Combination_Analysis/Combination_Comparison_legend.png>]
 \openout2 = `6_ch6.aux'.
 
- (./6_ch6.tex
+
+(./6_ch6.tex
 Chapter 6.
-[21
+[24
 
 
 
 
 
-] [22] [23] [24] [25]
+] [25] [26] [27] [28]
 
-Package natbib Warning: Citation `umeyama1991' on page 26 undefined on input li
+Package natbib Warning: Citation `umeyama1991' on page 29 undefined on input li
 ne 176.
 
 
-Package natbib Warning: Citation `rusu2009fpfh' on page 26 undefined on input l
+Package natbib Warning: Citation `rusu2009fpfh' on page 29 undefined on input l
 ine 178.
 
 
-Package natbib Warning: Citation `buch2013prerejective' on page 26 undefined on
+Package natbib Warning: Citation `buch2013prerejective' on page 29 undefined on
  input line 178.
 
 
-Package natbib Warning: Citation `besl1992icp' on page 26 undefined on input li
+Package natbib Warning: Citation `besl1992icp' on page 29 undefined on input li
 ne 190.
 
 
-Package natbib Warning: Citation `chen1992pointtoplane' on page 26 undefined on
+Package natbib Warning: Citation `chen1992pointtoplane' on page 29 undefined on
  input line 190.
 
 
-Package natbib Warning: Citation `low2004pointtoplane' on page 26 undefined on 
+Package natbib Warning: Citation `low2004pointtoplane' on page 29 undefined on 
 input line 198.
 
-[26] [27]
+[29] [30]
 
-Package natbib Warning: Citation `levin1998mls' on page 28 undefined on input l
+Package natbib Warning: Citation `levin1998mls' on page 31 undefined on input l
 ine 225.
 
 
-Package natbib Warning: Citation `alexa2003pointset' on page 28 undefined on in
+Package natbib Warning: Citation `alexa2003pointset' on page 31 undefined on in
 put line 225.
 
 
-Package natbib Warning: Citation `iso25178-2' on page 28 undefined on input lin
+Package natbib Warning: Citation `iso25178-2' on page 31 undefined on input lin
 e 238.
 
-[28] [29]
+[31] [32]
 
-Package natbib Warning: Citation `persson2005roughness' on page 30 undefined on
+Package natbib Warning: Citation `persson2005roughness' on page 33 undefined on
  input line 297.
 
-[30]
+[33]
 
-Package natbib Warning: Citation `riley1999tri' on page 31 undefined on input l
+Package natbib Warning: Citation `riley1999tri' on page 34 undefined on input l
 ine 308.
 
 
-Package natbib Warning: Citation `sappington2007vrm' on page 31 undefined on in
+Package natbib Warning: Citation `sappington2007vrm' on page 34 undefined on in
 put line 308.
 
 
-LaTeX Warning: Reference `ch:Results' on page 31 undefined on input line 317.
+LaTeX Warning: Reference `ch:Results' on page 34 undefined on input line 317.
 
-) [31]
+) [34]
 \openout2 = `7_ch7.aux'.
 
  (./7_ch7.tex
 Chapter 7.
-) [32
+) [35
 
 
 
 
 
-] [33]
+] [36]
 \openout2 = `7_discussion.aux'.
 
  (./7_discussion.tex
 Chapter 8.
-) [34
+) [37
 
 
 
@@ -2171,7 +2546,7 @@ Chapter 8.
 
  (./8_conclusions.tex
 Chapter 9.
-) [35
+) [38
 
 
 
@@ -2182,7 +2557,7 @@ Chapter 9.
 
  (./9_furtherwork.tex
 Chapter 10.
-) [36
+) [39
 
 
 
@@ -2193,7 +2568,7 @@ Chapter 10.
 
  (./A_gitrepo.tex
 Appendix A.
-) [37
+) [40
 
 
 
@@ -2204,32 +2579,249 @@ Appendix A.
 
  (./Appendix.tex
 Appendix B.
-<figs/Apendix/EGG_1PK.png, id=957, 465.74pt x 366.36874pt>
+<figs/Apendix/EGG_1PK.png, id=1122, 465.74pt x 366.36874pt>
 File: figs/Apendix/EGG_1PK.png Graphic file (type png)
 <use figs/Apendix/EGG_1PK.png>
 Package pdftex.def Info: figs/Apendix/EGG_1PK.png  used on input line 12.
 (pdftex.def)             Requested size: 307.2929pt x 241.73703pt.
-<figs/Apendix/EGG_2PKS.png, id=958, 419.5675pt x 327.72438pt>
+<figs/Apendix/EGG_2PKS.png, id=1123, 419.5675pt x 327.72438pt>
 File: figs/Apendix/EGG_2PKS.png Graphic file (type png)
 <use figs/Apendix/EGG_2PKS.png>
 Package pdftex.def Info: figs/Apendix/EGG_2PKS.png  used on input line 19.
 (pdftex.def)             Requested size: 307.2929pt x 240.0269pt.
-<figs/Apendix/PYRAMID_1.png, id=959, 462.72874pt x 369.38pt>
+<figs/Apendix/PYRAMID_1.png, id=1124, 462.72874pt x 369.38pt>
 File: figs/Apendix/PYRAMID_1.png Graphic file (type png)
 <use figs/Apendix/PYRAMID_1.png>
 Package pdftex.def Info: figs/Apendix/PYRAMID_1.png  used on input line 26.
 (pdftex.def)             Requested size: 307.2929pt x 245.30206pt.
-[38
+[41
 
 
 
 
 
- <./figs/Apendix/EGG_1PK.PNG> <./figs/Apendix/EGG_2PKS.PNG>]) [39 <./figs/Apend
-ix/PYRAMID_1.PNG>]
+ <./figs/Apendix/EGG_1PK.PNG> <./figs/Apendix/EGG_2PKS.PNG>] [42 <./figs/Apendi
+x/PYRAMID_1.PNG>]
+Appendix C.
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p1.png, id=1136, 184.62546pt
+ x 92.37082pt>
+File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p1.png Graphic file (ty
+pe png)
+<use figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p1.png>
+Package pdftex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p1.p
+ng  used on input line 38.
+(pdftex.def)             Requested size: 184.67896pt x 92.4044pt.
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p2.png, id=1137, 153.6028pt 
+x 92.37082pt>
+File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p2.png Graphic file (ty
+pe png)
+<use figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p2.png>
+Package pdftex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p2.p
+ng  used on input line 44.
+(pdftex.def)             Requested size: 153.64644pt x 92.4016pt.
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p3.png, id=1138, 153.6028pt 
+x 92.37082pt>
+File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p3.png Graphic file (ty
+pe png)
+<use figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p3.png>
+Package pdftex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p3.p
+ng  used on input line 50.
+(pdftex.def)             Requested size: 153.64644pt x 92.4016pt.
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p4.png, id=1139, 184.62546pt
+ x 92.37082pt>
+File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p4.png Graphic file (ty
+pe png)
+<use figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p4.png>
+Package pdftex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p4.p
+ng  used on input line 57.
+(pdftex.def)             Requested size: 184.67896pt x 92.4044pt.
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p5.png, id=1140, 153.6028pt 
+x 92.37082pt>
+File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p5.png Graphic file (ty
+pe png)
+<use figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p5.png>
+Package pdftex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p5.p
+ng  used on input line 63.
+(pdftex.def)             Requested size: 153.64644pt x 92.4016pt.
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p6.png, id=1141, 153.6028pt 
+x 92.37082pt>
+File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p6.png Graphic file (ty
+pe png)
+<use figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p6.png>
+Package pdftex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p6.p
+ng  used on input line 69.
+(pdftex.def)             Requested size: 153.64644pt x 92.4016pt.
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p7.png, id=1142, 184.62546pt
+ x 92.37082pt>
+File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p7.png Graphic file (ty
+pe png)
+<use figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p7.png>
+Package pdftex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p7.p
+ng  used on input line 76.
+(pdftex.def)             Requested size: 184.67896pt x 92.4044pt.
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p8.png, id=1143, 153.6028pt 
+x 92.37082pt>
+File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p8.png Graphic file (ty
+pe png)
+<use figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p8.png>
+Package pdftex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p8.p
+ng  used on input line 82.
+(pdftex.def)             Requested size: 153.64644pt x 92.4016pt.
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p9.png, id=1144, 153.6028pt 
+x 92.37082pt>
+File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p9.png Graphic file (ty
+pe png)
+<use figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p9.png>
+Package pdftex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p9.p
+ng  used on input line 88.
+(pdftex.def)             Requested size: 153.64644pt x 92.4016pt.
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p10.png, id=1145, 184.62546p
+t x 118.04875pt>
+File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p10.png Graphic file (t
+ype png)
+<use figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p10.png>
+Package pdftex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p10.
+png  used on input line 95.
+(pdftex.def)             Requested size: 184.67896pt x 118.09169pt.
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p11.png, id=1146, 153.6028pt
+ x 118.04875pt>
+File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p11.png Graphic file (t
+ype png)
+<use figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p11.png>
+Package pdftex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p11.
+png  used on input line 101.
+(pdftex.def)             Requested size: 153.64644pt x 118.08809pt.
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p12.png, id=1147, 153.6028pt
+ x 118.04875pt>
+File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p12.png Graphic file (t
+ype png)
+<use figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p12.png>
+Package pdftex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p12.
+png  used on input line 107.
+(pdftex.def)             Requested size: 153.64644pt x 118.08809pt.
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_1.png, id=1148, 310
+.11034pt x 40.89877pt>
+File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_1.png Graphic 
+file (type png)
+<use figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_1.png>
+Package pdftex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colo
+rbar_1.png  used on input line 112.
+(pdftex.def)             Requested size: 310.10956pt x 40.89865pt.
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_2.png, id=1149, 315
+.57126pt x 40.89877pt>
+File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_2.png Graphic 
+file (type png)
+<use figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_2.png>
+Package pdftex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colo
+rbar_2.png  used on input line 114.
+(pdftex.def)             Requested size: 315.57048pt x 40.89865pt.
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_3.png, id=1150, 314
+.40936pt x 40.89877pt>
+File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_3.png Graphic 
+file (type png)
+<use figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_3.png>
+Package pdftex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colo
+rbar_3.png  used on input line 116.
+(pdftex.def)             Requested size: 314.40858pt x 40.89865pt.
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_4.png, id=1151, 310
+.11034pt x 40.89877pt>
+File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_4.png Graphic 
+file (type png)
+<use figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_4.png>
+Package pdftex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colo
+rbar_4.png  used on input line 118.
+(pdftex.def)             Requested size: 310.10956pt x 40.89865pt.
+[43
+
+
+] [44 <./figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p1.png> <./figs/Apen
+dix/Parameter_Analysis/Parameter_Heatmap_p2.png> <./figs/Apendix/Parameter_Anal
+ysis/Parameter_Heatmap_p3.png> <./figs/Apendix/Parameter_Analysis/Parameter_Hea
+tmap_p4.png> <./figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p5.png> <./fi
+gs/Apendix/Parameter_Analysis/Parameter_Heatmap_p6.png> <./figs/Apendix/Paramet
+er_Analysis/Parameter_Heatmap_p7.png> <./figs/Apendix/Parameter_Analysis/Parame
+ter_Heatmap_p8.png> <./figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p9.png
+> <./figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p10.png> <./figs/Apendix
+/Parameter_Analysis/Parameter_Heatmap_p11.png> <./figs/Apendix/Parameter_Analys
+is/Parameter_Heatmap_p12.png> <./figs/Apendix/Parameter_Analysis/Parameter_Heat
+map_colorbar_1.png> <./figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorb
+ar_2.png> <./figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_3.png> 
+<./figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_4.png>]
+Appendix D.
+<figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Alph.png, id=1178, 512.048
+05pt x 199.14917pt>
+File: figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Alph.png Graphic file
+ (type png)
+<use figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Alph.png>
+Package pdftex.def Info: figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Al
+ph.png  used on input line 128.
+(pdftex.def)             Requested size: 512.14963pt x 199.20639pt.
+<figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Delt.png, id=1179, 512.048
+05pt x 199.14917pt>
+File: figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Delt.png Graphic file
+ (type png)
+<use figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Delt.png>
+Package pdftex.def Info: figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_De
+lt.png  used on input line 135.
+(pdftex.def)             Requested size: 512.14963pt x 199.20639pt.
+<figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Alph.png, id=1180, 512.
+04805pt x 199.14917pt>
+File: figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Alph.png Graphic f
+ile (type png)
+<use figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Alph.png>
+Package pdftex.def Info: figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial
+_Alph.png  used on input line 142.
+(pdftex.def)             Requested size: 512.14963pt x 199.20639pt.
+<figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Delt.png, id=1181, 512.
+04805pt x 199.14917pt>
+File: figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Delt.png Graphic f
+ile (type png)
+<use figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Delt.png>
+Package pdftex.def Info: figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial
+_Delt.png  used on input line 149.
+(pdftex.def)             Requested size: 512.14963pt x 199.20639pt.
+<figs/Apendix/Filter_Analysis/Filter_Comparison_Decimation.png, id=1182, 512.04
+805pt x 199.14917pt>
+File: figs/Apendix/Filter_Analysis/Filter_Comparison_Decimation.png Graphic fil
+e (type png)
+<use figs/Apendix/Filter_Analysis/Filter_Comparison_Decimation.png>
+Package pdftex.def Info: figs/Apendix/Filter_Analysis/Filter_Comparison_Decimat
+ion.png  used on input line 156.
+(pdftex.def)             Requested size: 512.14963pt x 199.20639pt.
+<figs/Apendix/Filter_Analysis/Filter_Comparison_Hole_Fill.png, id=1183, 512.048
+05pt x 199.14917pt>
+File: figs/Apendix/Filter_Analysis/Filter_Comparison_Hole_Fill.png Graphic file
+ (type png)
+<use figs/Apendix/Filter_Analysis/Filter_Comparison_Hole_Fill.png>
+Package pdftex.def Info: figs/Apendix/Filter_Analysis/Filter_Comparison_Hole_Fi
+ll.png  used on input line 163.
+(pdftex.def)             Requested size: 512.14963pt x 199.20639pt.
+[45
+
+
+ <./figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Alph.png> <./figs/Apend
+ix/Filter_Analysis/Filter_Comparison_Temp_Delt.png>] [46 <./figs/Apendix/Filter
+_Analysis/Filter_Comparison_Spatial_Alph.png> <./figs/Apendix/Filter_Analysis/F
+ilter_Comparison_Spatial_Delt.png> <./figs/Apendix/Filter_Analysis/Filter_Compa
+rison_Decimation.png>] [47 <./figs/Apendix/Filter_Analysis/Filter_Comparison_Ho
+le_Fill.png>]
+Appendix E.
+<figs/Apendix/Combination_Analysis/Combination_Sweep.png, id=1202, 512.04805pt 
+x 426.7648pt>
+File: figs/Apendix/Combination_Analysis/Combination_Sweep.png Graphic file (typ
+e png)
+<use figs/Apendix/Combination_Analysis/Combination_Sweep.png>
+Package pdftex.def Info: figs/Apendix/Combination_Analysis/Combination_Sweep.pn
+g  used on input line 172.
+(pdftex.def)             Requested size: 512.14963pt x 426.88747pt.
+) [48
+
+
+ <./figs/Apendix/Combination_Analysis/Combination_Sweep.png>]
 \openout2 = `B_ethics.aux'.
 
- (./B_ethics.tex) [40
+
+(./B_ethics.tex) [49
 
 
 
@@ -2238,7 +2830,7 @@ ix/PYRAMID_1.PNG>]
 ]
 \openout2 = `C_topicdescription.aux'.
 
- (./C_topicdescription.tex) [41
+ (./C_topicdescription.tex) [50
 
 
 
@@ -2247,13 +2839,12 @@ ix/PYRAMID_1.PNG>]
 ]
 \openout2 = `D_ECSA.aux'.
 
-
-(./D_ECSA.tex
+ (./D_ECSA.tex
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 11.
 
-) [42
+) [51
 
 
 
@@ -2276,7 +2867,7 @@ epth-post-processing-for-intel-realsense-d400-depth-
 
 Package natbib Warning: There were undefined citations.
 
-[43
+[52
 
 
 
@@ -2301,14 +2892,14 @@ L3 programming layer <2026-03-20>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `0_main.out' has not changed.
-(rerunfilecheck)             Checksum: F85A16250705EAD2D90A3281177CD8CD;18560.
+(rerunfilecheck)             Checksum: A47CE620BD3F80B7E60ECE407FC742ED;18964.
  ) 
 Here is how much of TeX's memory you used:
- 40267 strings out of 467363
- 781424 string characters out of 5419001
- 1356456 words of memory out of 6000000
- 68195 multiletter control sequences out of 15000+600000
- 719865 words of font info for 172 fonts, out of 8000000 for 9000
+ 41144 strings out of 467363
+ 831331 string characters out of 5419001
+ 1374334 words of memory out of 6000000
+ 69043 multiletter control sequences out of 15000+600000
+ 723396 words of font info for 176 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,17n,131p,2474b,763s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></app/texl
@@ -2321,10 +2912,10 @@ fonts/type1/urw/times/utmb8a.pfb></app/texlive/texmf-dist/fonts/type1/urw/times
 /utmbi8a.pfb></app/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></app/te
 xlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></app/texlive/texmf-dist/font
 s/type1/urw/times/utmri8a.pfb>
-Output written on 0_main.pdf (54 pages, 2269392 bytes).
+Output written on 0_main.pdf (64 pages, 9851159 bytes).
 PDF statistics:
- 1101 PDF objects out of 1200 (max. 8388607)
- 984 compressed objects within 10 object streams
- 250 named destinations out of 1000 (max. 500000)
- 956 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1343 PDF objects out of 1440 (max. 8388607)
+ 1085 compressed objects within 11 object streams
+ 276 named destinations out of 1000 (max. 500000)
+ 1305 words of extra memory for PDF output out of 10000 (max. 10000000)
 

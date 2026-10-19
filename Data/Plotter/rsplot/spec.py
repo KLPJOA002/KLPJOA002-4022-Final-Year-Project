@@ -117,6 +117,9 @@ class Export:
     filename: str = ""
     usetex: bool = False
     mathtext: str = "stix"          # stix (Times-style, matches mathptmx) | cm | custom (text font)
+    grid_mode: str = "single"       # faceted figures: single (one gridded image) | panels
+    panel_labels: str = "outer"     # panels mode: axis labels on outer panels only | every
+    panel_cols: int = 0             # panels mode: subfigures per row in LaTeX (0 = as the grid)
 
 
 @dataclass

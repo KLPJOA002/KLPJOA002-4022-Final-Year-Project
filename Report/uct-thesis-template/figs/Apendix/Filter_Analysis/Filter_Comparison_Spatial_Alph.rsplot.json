@@ -1,57 +1,56 @@
 {
   "tool": "rsplot",
   "version": "0.1.0",
-  "saved_at": "2026-10-18T22:17:50",
+  "saved_at": "2026-10-19T16:29:21",
   "dataset": {
-    "path": "/home/joab/Documents/4022/Data/Angle_Analysis/Plots/per_trial_summary.csv",
-    "family": "planar_summary",
-    "size": 49192,
-    "mtime": "2026-10-18T21:58:27",
-    "n_rows": 26
+    "path": "/home/joab/Documents/4022/Data/3D_Results/Filter_Results/V3/results.csv",
+    "family": "filter_sweep",
+    "size": 25370073,
+    "mtime": "2026-10-15T18:23:48",
+    "n_rows": 15420
   },
-  "family_title": "Planar characterisation (per-trial summary)",
+  "family_title": "Single-scan filter sweep",
   "size_cm": [
     18.0,
-    9.0
+    7.0
   ],
   "files": [
-    "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Scatter_Med_Depth_RMSE_VS_Angle.png"
+    "/home/joab/Documents/4022/Report/uct-thesis-template/figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Alph.png"
   ],
-  "latex": "\\includegraphics[width=\\textwidth]{figs/ch5/Scatter_Med_Depth_RMSE_VS_Angle}",
+  "latex": "\\includegraphics[width=\\textwidth]{figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Alph}",
   "footnote": "",
   "warnings": [],
   "columns_used": [
-    "absMean_IMU_angle",
-    "axis",
-    "z_err_median_mm",
-    "z_err_rmse_mm"
+    "acc_rmse_mm",
+    "height_mm",
+    "shape",
+    "spatial_alpha"
   ],
   "spec": {
-    "plot_type": "scatter",
+    "plot_type": "heatmap",
     "dataset": {
-      "path": "/home/joab/Documents/4022/Data/Angle_Analysis/Plots/per_trial_summary.csv",
-      "family": "planar_summary",
+      "path": "/home/joab/Documents/4022/Data/3D_Results/Filter_Results/V3/results.csv",
+      "family": "filter_sweep",
       "include_ignored": false
     },
     "mapping": {
-      "x": "absMean_IMU_angle",
+      "x": "height_mm",
       "y": [
-        "z_err_median_mm",
-        "z_err_rmse_mm"
+        "acc_rmse_mm"
       ],
-      "y_mode": "side_by_side",
-      "hue": "axis",
-      "facet": null,
+      "y_mode": "overlay",
+      "hue": "shape",
+      "facet": "shape",
       "facet_cols": 0,
       "style": null,
-      "row": null,
+      "row": "spatial_alpha",
       "secondary": null,
       "by": []
     },
     "filters": [],
     "aggregation": {
-      "func": "none",
-      "spread": "none",
+      "func": "median",
+      "spread": "iqr",
       "stored_stat": "median",
       "stored_spread": "iqr"
     },
@@ -62,10 +61,13 @@
       "subtitle": "",
       "footnote_mode": "off",
       "footnote": "",
-      "xlabel": "Absolute IMU Angle (degrees)",
+      "xlabel": null,
       "ylabel": null,
       "labels": {},
-      "value_labels": {},
+      "value_labels": {
+        "shape=Big_Wave": "Big Egg Carton",
+        "shape=Small_Wave": "Small Egg Carton"
+      },
       "prettify_values": true,
       "xlim": null,
       "ylim": null,
@@ -78,8 +80,8 @@
       "fraction_as_percent": true,
       "grid": true,
       "legend": "outside top",
-      "legend_cols": 1,
-      "legend_title": false,
+      "legend_cols": 0,
+      "legend_title": true,
       "show_n": false,
       "palette": "default",
       "greyscale": false,
@@ -100,21 +102,22 @@
     "export": {
       "size_preset": "thesis_full",
       "width_cm": null,
-      "height_cm": 9.0,
+      "height_cm": 7.0,
       "formats": [
         "png"
       ],
       "dpi": 622,
       "transparent": false,
-      "folder": "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5",
-      "filename": "Scatter_Med_Depth_RMSE_VS_Angle",
+      "folder": "/home/joab/Documents/4022/Report/uct-thesis-template/figs/Apendix/Filter_Analysis",
+      "filename": "Filter_Comparison_Spatial_Alph",
       "usetex": false,
-      "mathtext": "stix"
+      "mathtext": "stix",
+      "grid_mode": "single",
+      "panel_labels": "outer",
+      "panel_cols": 2
     },
     "options": {
-      "trend": "linear",
-      "trend_label": "R\u00b2",
-      "trend_band": false
+      "cell_gap": false
     },
     "version": 1
   }

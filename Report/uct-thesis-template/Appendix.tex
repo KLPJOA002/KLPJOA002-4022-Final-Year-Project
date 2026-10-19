@@ -28,6 +28,151 @@
 	\label{fig:pyramid1}
 \end{figure}
 
+\chapter{Parameter Heatmap}
+\label{Appendix:Parameter_Heatmap}
+
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}[t]{0.3606\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p1}
+		\caption{Accuracy RMSE, 0.1 mm}
+		\label{fig:Parameter-Heatmap-1}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p2}
+		\caption{Accuracy RMSE, 0.5 mm}
+		\label{fig:Parameter-Heatmap-2}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p3}
+		\caption{Accuracy RMSE, 1 mm}
+		\label{fig:Parameter-Heatmap-3}
+	\end{subfigure}
+	\par\medskip
+	\begin{subfigure}[t]{0.3606\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p4}
+		\caption{Completeness, 0.1 mm}
+		\label{fig:Parameter-Heatmap-4}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p5}
+		\caption{Completeness, 0.5 mm}
+		\label{fig:Parameter-Heatmap-5}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p6}
+		\caption{Completeness, 1 mm}
+		\label{fig:Parameter-Heatmap-6}
+	\end{subfigure}
+	\par\medskip
+	\begin{subfigure}[t]{0.3606\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p7}
+		\caption{Signed bias, 0.1 mm}
+		\label{fig:Parameter-Heatmap-7}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p8}
+		\caption{Signed bias, 0.5 mm}
+		\label{fig:Parameter-Heatmap-8}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p9}
+		\caption{Signed bias, 1 mm}
+		\label{fig:Parameter-Heatmap-9}
+	\end{subfigure}
+	\par\medskip
+	\begin{subfigure}[t]{0.3606\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p10}
+		\caption{F-score at 2 mm, 0.1 mm}
+		\label{fig:Parameter-Heatmap-10}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p11}
+		\caption{F-score at 2 mm, 0.5 mm}
+		\label{fig:Parameter-Heatmap-11}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p12}
+		\caption{F-score at 2 mm, 1 mm}
+		\label{fig:Parameter-Heatmap-12}
+	\end{subfigure}
+	\par\medskip
+	\includegraphics{figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_1}
+	\par\medskip
+	\includegraphics{figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_2}
+	\par\medskip
+	\includegraphics{figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_3}
+	\par\medskip
+	\includegraphics{figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_4}
+	\caption{Median with IQR of n = 1--3 scans per cell. Fixed: Laser power = 150; Emitter = Laser; Fps = 30; Status = ok. Median taken over: Object (2), Preset (5).}
+	\label{fig:Parameter-Heatmap}
+\end{figure}
+
+\chapter{Filter Heatmaps}
+\label{Appendix:Filter}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Alph}
+	\caption{Median with IRQ \% CI of the mean of n = 5--295 scans per cell. Fixed: Tilt = 0. Averaged over: Rotation (4), Decimation on (2), Decimation magnitude (7), Spatial filter on (2), Spatial magnitude (6), Spatial $\alpha$ (8) and 8 more. Spanning 257 filter configurations. 2,460 rows without a value excluded.}
+	\label{fig:Filter-Comparison-Temp-Alph}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Delt}
+	\caption{Median with IRQ \% CI of the mean of n = 5--815 scans per cell. Fixed: Tilt = 0. Averaged over: Rotation (4), Decimation on (2), Decimation magnitude (7), Spatial filter on (2), Spatial magnitude (6), Spatial $\alpha$ (8) and 8 more. Spanning 257 filter configurations. 2,460 rows without a value excluded.}
+	\label{fig:Filter-Comparison-Temp-Delt}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Alph}
+	\caption{Median with IQR of n = 5--315 scans per cell. Fixed: Tilt = 0. Median taken over: Rotation (4), Decimation on (2), Decimation magnitude (7), Spatial magnitude (6), Spatial $\delta$ (9), Spatial hole fill (7) and 8 more. Spanning 257 filter configurations. 2,460 rows without a value excluded.}
+	\label{fig:Filter-Comparison-Spatial-Alph}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Delt}
+	\caption{Median with IQR of n = 5--385 scans per cell. Fixed: Tilt = 0. Median taken over: Rotation (4), Decimation on (2), Decimation magnitude (7), Spatial magnitude (6), Spatial $\alpha$ (8), Spatial hole fill (7) and 8 more. Spanning 257 filter configurations. 2,460 rows without a value excluded.}
+	\label{fig:Filter-Comparison-Spatial-Delt}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figs/Apendix/Filter_Analysis/Filter_Comparison_Decimation}
+	\caption{Median with IQR of n = 5--950 scans per cell. Fixed: Tilt = 0. Median taken over: Rotation (4), Spatial filter on (2), Spatial magnitude (6), Spatial $\alpha$ (8), Spatial $\delta$ (9), Spatial hole fill (7) and 8 more. Spanning 257 filter configurations. 2,460 rows without a value excluded.}
+	\label{fig:Filter-Comparison-Decimation}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figs/Apendix/Filter_Analysis/Filter_Comparison_Hole_Fill}
+	\caption{Median with IQR of n = 55--915 scans per cell. Fixed: Tilt = 0. Median taken over: Rotation (4), Decimation on (2), Decimation magnitude (7), Spatial filter on (2), Spatial magnitude (6), Spatial $\alpha$ (8) and 8 more. Spanning 257 filter configurations. 2,460 rows without a value excluded.}
+	\label{fig:Filter-Comparison-Hole-Fill}
+\end{figure}
+
+\chapter{Combination Heatmaps}
+\label{Appendix:Combination}
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figs/Apendix/Combination_Analysis/Combination_Sweep}
+	\caption{Grey cells: no data for that combination. Median with IQR of n = 6 point clouds per cell. Fixed: Kind = fused; Fusion cell = 0.0005; Scan voxel = 0.0005; Status = ok. Median taken over: Height (6).}
+	\label{fig:Combination-Sweep}
+\end{figure}
 
 
 

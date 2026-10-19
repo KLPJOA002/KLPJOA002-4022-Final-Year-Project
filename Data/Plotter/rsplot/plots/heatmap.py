@@ -318,3 +318,4 @@ def heatmap(ctx):
     ctx.colorbar_mappable = mesh
     ctx.colorbar_label = label
     ctx.colorbar_shared = METRIC not in (ctx.roles["facet_col"], ctx.roles["facet_row"])
+    ctx.colorbar_key = metric        # one colour bar per metric, shared by its panels

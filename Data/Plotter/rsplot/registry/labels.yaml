@@ -36,6 +36,9 @@ variant_groups:
 secondary_indicators: [outlier_fraction]
 
 columns:
+  # --- filter sweep: baseline_vs_best.csv --------------------------------------
+  selection:            {label: "Configuration"}
+  selected_config:      {label: "Selected configuration"}
   # --- 3-D accuracy ---------------------------------------------------------
   acc_rmse_mm:          {label: "Accuracy RMSE", unit: mm, better: lower}
   acc_rmse_trim1_mm:    {label: "Accuracy RMSE, worst 1 % trimmed", unit: mm, better: lower}
@@ -169,6 +172,9 @@ patterns:
 
 # Display names for category values (applies to any column with these values).
 values:
+  1_baseline: "Baseline (no filters)"
+  2_best_overall: "Best overall"
+  3_best_per_group: "Best for this shape & height"
   Big_Wave: "Big wave"
   Small_Wave: "Small wave"
   Big_Pyramid: "Big pyramid"
