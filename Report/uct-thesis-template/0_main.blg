@@ -15,7 +15,6 @@ A level-1 auxiliary file: 4_ch4.aux
 A level-1 auxiliary file: 5_ch5.aux
 A level-1 auxiliary file: 6_ch6.aux
 A level-1 auxiliary file: 7_ch7.aux
-A level-1 auxiliary file: 6_results.aux
 A level-1 auxiliary file: 7_discussion.aux
 A level-1 auxiliary file: 8_conclusions.aux
 A level-1 auxiliary file: 9_furtherwork.aux
@@ -34,50 +33,64 @@ Database file #1: 4022.bib
 Warning--I didn't find a database entry for "rusu2009fpfh"
 Warning--I didn't find a database entry for "fischler1981ransac"
 Warning--I didn't find a database entry for "besl1992icp"
+Warning--I didn't find a database entry for "umeyama1991"
+Warning--I didn't find a database entry for "buch2013prerejective"
+Warning--I didn't find a database entry for "chen1992pointtoplane"
+Warning--I didn't find a database entry for "low2004pointtoplane"
+Warning--I didn't find a database entry for "levin1998mls"
+Warning--I didn't find a database entry for "alexa2003pointset"
+Warning--I didn't find a database entry for "iso25178-2"
+Warning--I didn't find a database entry for "persson2005roughness"
+Warning--I didn't find a database entry for "riley1999tri"
+Warning--I didn't find a database entry for "sappington2007vrm"
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty journal in grunnet-jepsenBestKnownMethodsTuningIntel
+Warning--empty year in grunnet-jepsenBestKnownMethodsTuningIntel
+Warning--empty journal in lowLinearLeastSquaresOptimizationa
+Warning--empty year in lowLinearLeastSquaresOptimizationa
 
 Done.
-You've used 12 entries,
+You've used 38 entries,
             4087 wiz_defined-function locations,
-            930 strings with 11367 characters,
-and the built_in function-call counts, 10414 in all, are:
-= -- 819
-> -- 292
-< -- 90
-+ -- 162
-- -- 59
-* -- 520
-:= -- 1471
-add.period$ -- 24
-call.type$ -- 12
-change.case$ -- 12
-chr.to.int$ -- 204
-cite$ -- 12
-duplicate$ -- 737
-empty$ -- 790
-format.name$ -- 65
-if$ -- 2421
+            1111 strings with 17183 characters,
+and the built_in function-call counts, 30476 in all, are:
+= -- 2435
+> -- 715
+< -- 281
++ -- 404
+- -- 123
+* -- 1465
+:= -- 4333
+add.period$ -- 78
+call.type$ -- 38
+change.case$ -- 35
+chr.to.int$ -- 648
+cite$ -- 42
+duplicate$ -- 2191
+empty$ -- 2440
+format.name$ -- 147
+if$ -- 7155
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 135
-newline$ -- 59
-num.names$ -- 12
-pop$ -- 317
+int.to.str$ -- 38
+missing$ -- 379
+newline$ -- 137
+num.names$ -- 36
+pop$ -- 877
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 789
+skip$ -- 2342
 stack$ -- 0
-substring$ -- 522
-swap$ -- 639
-text.length$ -- 22
+substring$ -- 1597
+swap$ -- 1867
+text.length$ -- 65
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 12
-warning$ -- 0
-while$ -- 46
-width$ -- 14
-write$ -- 137
-(There were 3 warnings)
+type$ -- 38
+warning$ -- 4
+while$ -- 140
+width$ -- 40
+write$ -- 378
+(There were 17 warnings)

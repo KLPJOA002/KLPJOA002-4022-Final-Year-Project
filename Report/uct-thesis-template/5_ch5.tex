@@ -1,10 +1,13 @@
 %*********************************************************************
 %	EXPERIMENTS
 %*********************************************************************
+
+%\newcommand{\comment}[1]{\vspace{-2em}\hspace{3em}{\small\textit{#1}}\par}
+
 \chapter{Intel RealSense Characterisation}
 \label{ch:experiments}
 %---------------------------------------------------------------------
-\providecommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+%\providecommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
 
 %Before any action is taken on developing the capture and processing pipeline for extracting surface roughness metrics, an in depth characterisation on the Intel RealSense D456 is required. This characterisation will inform decisions about the experimental rig, as well as the configuration of the camera itself for optimal scanning, considering the conditions experienced in situ.
 
@@ -48,6 +51,7 @@ The characterisation was performed in two stages. In the first stage the camera 
 %=====================================================================
 \section{Plane Surface Characterisation}
 \label{sec5.1:plane}
+\comment{As Plain As That}
 %=====================================================================
 \subsection{Capture procedure and metrics}
 
@@ -277,6 +281,7 @@ Two conclusions follow. First, ambient light degrades the depth from active ster
 
 \section{3D Reference Characterisation}
 \label{sec5.2:reference}
+\comment{A Whole New Dimension}
 %=====================================================================
 The planar tests establish the sensor's noise behaviour but not how accurately it reconstructs three-dimensional relief, which is affected by resolution, filtering, foreshortening and the fusion of several views. These effects were measured against reference objects with known geometry using a modified version of the main capture program, which records scans under controlled software settings and hardware set-ups.
 

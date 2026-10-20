@@ -35,7 +35,7 @@
 %---------------------------------------------------------------------
 % BASIC DOCUMENT CONFIGURATION
 %---------------------------------------------------------------------
-\usepackage[T1]{fontenc}              % Modern font encoding
+%\usepackage[T1]{fontenc}              % Modern font encoding
 \usepackage[british]{babel}            % British English hyphenation and dates
 \usepackage{setspace}                 % Line spacing commands
 
@@ -72,14 +72,16 @@
 \usepackage[nonumberlist]{glossaries} % Glossary without page numbers
 
 %---------------------------------------------------------------------
-% S AND TYPOGRAPHY
+% FONTS AND TYPOGRAPHY
 %---------------------------------------------------------------------
-\usepackage{fix-cm}                  % Enable scalable font sizes
+%\usepackage{fix-cm}                  % Enable scalable font sizes
 \usepackage{color}                   % Basic colour support
 \usepackage[dvipsnames,table,xcdraw]{xcolor} % Extended colours
 \usepackage{gensymb}                 % Generic symbols (e.g. °)
 %\usepackage{ebgaramond}    % Use EB Garamond font
-\usepackage{mathptmx}
+%\usepackage{mathptmx}
+%\usepackage{newtxtext}
+%\usepackage{newtxmath}
 %---------------------------------------------------------------------
 % GRAPHICS AND VISUALS
 %---------------------------------------------------------------------
@@ -169,12 +171,24 @@
 % VERBATIM AND CODE LISTINGS
 %---------------------------------------------------------------------
 \usepackage{fancyvrb}                % Code-style text environments
+\usepackage{epigraph}
 
 %---------------------------------------------------------------------
 % MATHS
 %---------------------------------------------------------------------
-\usepackage{amsmath, amsthm, amssymb} % Core maths packages
-\usepackage{bm}                       % Bold maths symbols
+%\usepackage{amsmath, amsthm, amssymb} % Core maths packages
+\usepackage{amsmath, amsthm}
+%\usepackage{newtxmath}
+\usepackage{unicode-math}
+\usepackage{fontspec}
+
+%\setmainfont{Times New Roman}
+%\setmathfont{STIX Two Math}
+\setmainfont{TeX Gyre Termes}
+\setmathfont{TeX Gyre Termes Math}
+\setmathfont{TeX Gyre Termes}[range={bfup,bfit}]
+%\let\mathbf\symbfit
+%\usepackage{bm}                       % Bold maths symbols
 
 %---------------------------------------------------------------------
 % GLOSSARY DEFINITIONS
@@ -322,6 +336,8 @@
 %---------------------------------------------------------------------
 % Chapter 1: Introduction
 %---------------------------------------------------------------------
+\newcommand{\comment}[1]{\vspace{-2em}\hspace{3em}{\small\textit{#1}}\par}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
 %   Marks the first page of the body, for the automatic page count.
 \label{body:start}
 \include{1_intro}

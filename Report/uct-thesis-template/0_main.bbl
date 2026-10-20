@@ -90,4 +90,133 @@ A.~{Grunnet-Jepsen} and Tong, ``Depth {{Post-Processing}} for
 A.~{Grunner-Jepsen}, J.~N. Sweetser, P.~Winer, A.~Takagi, and J.~Woodfill,
   ``Projectors for {{D400 Series Depth Cameras}}.''
 
+\bibitem{intel_d456}
+``Intel {{RealSense Product Family D400 Series}},'' 2023.
+
+\bibitem{hartley2003multiple}
+R.~Hartley, A.~Zisserman \emph{et~al.}, \emph{Multiple View Geometry in
+  Computer Vision}.\hskip 1em plus 0.5em minus 0.4em\relax Cambridge university
+  press, Cambridge, 2003, vol.~2.
+
+\bibitem{zhangFlexibleNewTechnique2000}
+Z.~Zhang, ``A flexible new technique for camera calibration,'' \emph{IEEE
+  Transactions on Pattern Analysis and Machine Intelligence}, vol.~22, no.~11,
+  pp. 1330--1334, Nov. 2000.
+
+\bibitem{grunnet-jepsenBestKnownMethodsTuningIntel}
+A.~{Grunnet-Jepsen}, J.~N. Sweetser, and J.~Woodfill, ``Best-{{Known-Methods}}
+  for {{Tuning Intel}}\textregistered{} {{RealSense}}™ {{D400 Depth Cameras}}
+  for {{Best Performance}}.''
+
+\bibitem{arunLeastSquaresFittingTwo1987}
+K.~S. Arun, T.~S. Huang, and S.~D. Blostein, ``Least-{{Squares Fitting}} of
+  {{Two}} 3-{{D Point Sets}},'' \emph{IEEE Transactions on Pattern Analysis and
+  Machine Intelligence}, vol. PAMI-9, no.~5, pp. 698--700, Sep. 1987.
+
+\bibitem{umeyamaLeastsquaresEstimationTransformation1991}
+S.~Umeyama, ``Least-squares estimation of transformation parameters between two
+  point patterns,'' \emph{IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}, vol.~13, no.~4, pp. 376--380, Apr. 1991.
+
+\bibitem{olsonAprilTagRobustFlexible2011}
+E.~Olson, ``{{AprilTag}}: {{A}} robust and flexible visual fiducial system,''
+  in \emph{2011 {{IEEE International Conference}} on {{Robotics}} and
+  {{Automation}}}, May 2011, pp. 3400--3407.
+
+\bibitem{wangAprilTag2Efficient2016}
+J.~Wang and E.~Olson, ``{{AprilTag}} 2: {{Efficient}} and robust fiducial
+  detection,'' in \emph{2016 {{IEEE}}/{{RSJ International Conference}} on
+  {{Intelligent Robots}} and {{Systems}} ({{IROS}})}, Oct. 2016, pp.
+  4193--4198.
+
+\bibitem{schweighoferRobustPoseEstimation2006}
+G.~Schweighofer and A.~Pinz, ``Robust {{Pose Estimation}} from a {{Planar
+  Target}},'' \emph{IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}, vol.~28, no.~12, pp. 2024--2030, Dec. 2006.
+
+\bibitem{rusuFastPointFeature2009}
+R.~B. Rusu, N.~Blodow, and M.~Beetz, ``Fast {{Point Feature Histograms}}
+  ({{FPFH}}) for {{3D}} registration,'' in \emph{2009 {{IEEE International
+  Conference}} on {{Robotics}} and {{Automation}}}, May 2009, pp. 3212--3217.
+
+\bibitem{fischlerRandomSampleConsensus1981}
+M.~A. Fischler and R.~C. Bolles, ``Random sample consensus: A paradigm for
+  model fitting with applications to image analysis and automated
+  cartography,'' \emph{Communications of the ACM}, vol.~24, no.~6, pp.
+  381--395, Jun. 1981.
+
+\bibitem{beslMethodRegistration3D1992}
+P.~J. Besl and N.~D. McKay, ``Method for registration of 3-{{D}} shapes,'' in
+  \emph{Sensor {{Fusion IV}}: {{Control Paradigms}} and {{Data Structures}}},
+  vol. 1611.\hskip 1em plus 0.5em minus 0.4em\relax SPIE, Apr. 1992, p. 586.
+
+\bibitem{chenObjectModellingRegistration1992}
+Y.~Chen and G.~Medioni, ``Object modelling by registration of multiple range
+  images,'' \emph{Image and Vision Computing}, vol.~10, no.~3, pp. 145--155,
+  Apr. 1992.
+
+\bibitem{lowLinearLeastSquaresOptimizationa}
+K.-L. Low, ``Linear {{Least-Squares Optimization}} for {{Point}}-to-{{Plane ICP
+  Surface Registration}}.''
+
+\bibitem{rusinkiewiczEfficientVariantsICP2001}
+S.~Rusinkiewicz and M.~Levoy, ``Efficient variants of the {{ICP}} algorithm,''
+  in \emph{Proceedings {{Third International Conference}} on 3-{{D Digital
+  Imaging}} and {{Modeling}}}, May 2001, pp. 145--152.
+
+\bibitem{gelfandGeometricallyStableSampling2003}
+N.~Gelfand, L.~Ikemoto, S.~Rusinkiewicz, and M.~Levoy, ``Geometrically stable
+  sampling for the {{ICP}} algorithm,'' in \emph{Fourth {{International
+  Conference}} on 3-{{D Digital Imaging}} and {{Modeling}}, 2003. {{3DIM}}
+  2003. {{Proceedings}}.}, Oct. 2003, pp. 260--267.
+
+\bibitem{curlessVolumetricMethodBuilding1996}
+B.~Curless and M.~Levoy, ``A volumetric method for building complex models from
+  range images,'' in \emph{Proceedings of the 23rd Annual Conference on
+  {{Computer}} Graphics and Interactive Techniques}, ser. {{SIGGRAPH}}
+  '96.\hskip 1em plus 0.5em minus 0.4em\relax New York, NY, USA: Association
+  for Computing Machinery, Aug. 1996, pp. 303--312.
+
+\bibitem{newcombeKinectFusionRealtimeDense2011}
+R.~A. Newcombe, S.~Izadi, O.~Hilliges, D.~Molyneaux, D.~Kim, A.~J. Davison,
+  P.~Kohi, J.~Shotton, S.~Hodges, and A.~Fitzgibbon, ``{{KinectFusion}}:
+  {{Real}}-time dense surface mapping and tracking,'' in \emph{2011 10th {{IEEE
+  International Symposium}} on {{Mixed}} and {{Augmented Reality}}}, Oct. 2011,
+  pp. 127--136.
+
+\bibitem{huberRobustStatistics2011}
+P.~J. Huber and E.~M. Ronchetti, \emph{Robust {{Statistics}}}.\hskip 1em plus
+  0.5em minus 0.4em\relax John Wiley \& Sons, Sep. 2011.
+
+\bibitem{levin1998approximation}
+D.~Levin, ``The approximation power of moving least-squares,''
+  \emph{Mathematics of computation}, vol.~67, no. 224, pp. 1517--1531, 1998.
+
+\bibitem{alexaComputingRenderingPoint2003}
+M.~Alexa, J.~Behr, D.~{Cohen-Or}, S.~Fleishman, D.~Levin, and C.~Silva,
+  ``Computing and rendering point set surfaces,'' \emph{IEEE Transactions on
+  Visualization and Computer Graphics}, vol.~9, no.~1, pp. 3--15, Jan. 2003.
+
+\bibitem{knapitschTanksTemplesBenchmarking2017}
+A.~Knapitsch, J.~Park, Q.-Y. Zhou, and V.~Koltun, ``Tanks and temples:
+  Benchmarking large-scale scene reconstruction,'' \emph{ACM Transactions on
+  Graphics (TOG)}, vol.~36, no.~4, pp. 78:1--78:13, Jul. 2017.
+
+\bibitem{huttenlocherComparingImagesUsing1993}
+D.~Huttenlocher, G.~Klanderman, and W.~Rucklidge, ``Comparing images using the
+  {{Hausdorff}} distance,'' \emph{IEEE Transactions on Pattern Analysis and
+  Machine Intelligence}, vol.~15, no.~9, pp. 850--863, Sep. 1993.
+
+\bibitem{ISO2517822021}
+``{{ISO}} 25178-2:2021,'' https://www.iso.org/standard/74591.html.
+
+\bibitem{leachCharacterisationArealSurface2013}
+R.~Leach, \emph{Characterisation of {{Areal Surface Texture}}}.\hskip 1em plus
+  0.5em minus 0.4em\relax Springer Science \& Business Media, Apr. 2013.
+
+\bibitem{jacobsQuantitativeCharacterizationSurface2017}
+T.~D.~B. Jacobs, T.~Junge, and L.~Pastewka, ``Quantitative characterization of
+  surface topography using spectral analysis,'' \emph{Surface Topography:
+  Metrology and Properties}, vol.~5, no.~1, p. 013001, Jan. 2017.
+
 \end{thebibliography}

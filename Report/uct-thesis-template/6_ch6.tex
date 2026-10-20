@@ -32,11 +32,17 @@ Each stage is a separate program that reads the previous stage's output files, s
 %\end{figure}
 
 %---------------------------------------------------------------------
+
+
+
 \section{Point Cloud Cropping}
 \label{sec:crop}
+\comment{In Too Deep}
 %---------------------------------------------------------------------
 
-\subsection{Too Much Depth}
+
+%\subsection{Too Much Depth}
+
 
 The raw point clouds have three problems that make them unsuitable for direct use.
 
@@ -127,11 +133,13 @@ The automatic crop assumes that the sediment near the edge of the square is roug
 %---------------------------------------------------------------------
 \section{Multi-Scan Fusion}
 \label{sec:fuse}
+\comment{Together is Almost Always Better}
 %---------------------------------------------------------------------
+A single scan is noisy, has holes where relief hides the surface, and has errors that depend on the viewpoint. Combining registered scans addresses all three. Views from different directions see regions occluded in others, and the mean of $n$ measurements with independent errors of standard deviation $\sigma$ has a standard deviation of $\sigma/\sqrt{n}$. This however does not alleviate errors shared by all scans, such as a calibration or scale bias, all of which cannot be reduced through averaging.
 
-\subsection{Together is Better}
+%\subsection{}
 
-The current process takes several scans at different camera pose. Individually, each scan has noise, and this noise varies depending on a variety of conditions, such as light, surface angle and texture. Furthermore, at a single orientation, there are some surface details that may be obscured by the features of the surface. Multiple viewpoints helps to alleviate these issues, by providing multiple view points of the same region. Fusions combines the scans so that each region of the surface can be represented by several measurements. However fusion requires the solving of two main issues. Firstly is registration, which finds the rigid transformation that places each scan in a common coordinate frame. Secondly is reconciliation, which merges the overlapping measurements into a single surface
+%The current process takes several scans at different camera pose. Individually, each scan has noise, and this noise varies depending on a variety of conditions, such as light, surface angle and texture. Furthermore, at a single orientation, there are some surface details that may be obscured by the features of the surface. Multiple viewpoints helps to alleviate these issues, by providing multiple view points of the same region. Fusions combines the scans so that each region of the surface can be represented by several measurements. However fusion requires the solving of two main issues. Firstly is registration, which finds the rigid transformation that places each scan in a common coordinate frame. Secondly is reconciliation, which merges the overlapping measurements into a single surface
 
 %Each scan sees the surface from one viewpoint. It is noisy, the noise is largest where the surface is seen at a grazing angle, and wherever relief blocks the line of sight there is no data at all. The rig captures the same patch from many rotations and tilts, so a region that is hidden or poorly measured in one scan is usually seen well in another. Fusion combines the scans so that each region of the surface is represented by its best measurements. This requires solving two problems: \emph{registration}, which finds the rigid transformation (rotation and translation) that places each scan in a common coordinate frame, and \emph{reconciliation}, which merges the overlapping measurements into a single surface.
 

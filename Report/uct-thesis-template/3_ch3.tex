@@ -2,70 +2,210 @@
 \chapter{Theoretical Background}
 \label{ch:theory}
 %*********************************************************************
-\providecommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
-Whilst this report mainly focuses on a higher level approach of developing a processing pipeline, an understanding of the general theory behind how the scans are captured and processed is recommended for a better understanding. 
 
-This chapter aims to provide a high level explanation of the theory behind each stage. It does not provide in depth explanation, and is mainly meant to provide a brief overview of the required theory.
 
+This chapter outlines the theory behind the project, seperated by each stage: depth measurement, registration, fusion, evaluation and roughness estimation. The main aim of this section is to provide a high level description of some of the fundamentals. Implementation details and parameter choices are given in \autoref{ch:design} and \autoref{ch:Pipeline}.
+
+%=====================================================================
 \section{Depth Capture}
-The Intel RealSense D456 camera operates using a combination of passive and active stereo vision. The D456 captures stereo images of the same surface and using its dedicated ASIC, can resolve depth using small disparities between the two images. The camera features an infrared laser projector, which can project a pattern onto the surface, which can then be used by the two stereo cameras to create artificial texture when there is non present on the subject. A third camera sensor with an IR filter, captures RGB images of the subject, and this can then be projected onto the depth image to form colour depth images.
+\label{sec:theory_depth}
+\comment{I Am Seeing Double}
+%=====================================================================
+The Intel RealSense D456 is an IP65-rated version of the D455, built from the same D450 optical module and D4 vision processor \cite{intel_d456}. It contains two global-shutter imagers separated by a baseline of 95\,mm, an infrared (IR) laser projector, a global-shutter RGB camera and an inertial measurement unit (IMU). The Camera features the D4 processor, which computes depth on the camera, so the host receives depth images rather than stereo image pairs.
 
-\subsection{Stereo Vision}
-The method behind how the camera produces depth images is based in stereo vision. Two OmniVision Technologies OV9782 image sensors on the left and right of the camera capture images of the same subject. By comparing the slight differences between the two images, such as the slight shift in feature posistion, and knowing the geometry that relates the two image sensors. You can determine the depth of any point in the image frame. 
-
-\todo{Provide maths and theory behind how stereo vision works}
-\todo{Want general high level theory behind image transformations, camera calibration, intrinsics and extrinsics, etc}
-
-\subsection{Active vs Passive Vision. The Hidden Spots}
-Two main fields of stereo vision are active and passive stereo vision. Passive stereo vision relies on the natural environment to have features that can be tracked between the two images. Whilst this method can result in high quality reconstructions, it does require the subject have high texture density, otherwise the reconstruction algorithm may fail to identify similarities.
-
-Active stereo vision involves using a known pattern being projected onto the subject, and the depth converting algorithm measuring the warping of this known pattern to infer depth information.
-
-The RealSense D456 uses a hybrid of these two methods. The camera is fundamentally based on passive stereo vision, determining depth using textured features on the subject. The camera however does feature an infrared laser projector, which projects a dot pattern onto the subject. What differentiates this from active stereo vision, is that this pattern is not used directly for depth inference. The pattern is used to add artificial texture to the surface. This helps the camera operate in low texture environments, and can add additional texture to textured surfaces. Why this matters for this use case, is that the camera can still function when the pattern is not present, and so can still function when the laser pattern is lost in high IR conditions such as in sunlight.
+\subsection{Camera Model}
+\label{sec:theory_camera}
+Each imager is modelled as a pinhole camera \cite{hartley2003multiple}. A point $\mathbf{X}_w$, in a world frame is mapped to the pixel $(u,v)$ by
 
 
-\subsection{What the Camera Actually Does}
-The Intel RealSense D456 camera is a comercial product, which features a dedicated ASIC chip which performs all the nececary maths to compute a depth image. This chip is hardware optimised, and therefore allows for very efficient and fast depth processing. The camera features calibrated intrinsics and extrinsics. These two combined mean that the camera directly outputs a depth image, and therefore no computing is required on the host device to process the stereo images in order to get a 3D representation of the subject. This makes the camera a very useful tool for implementing 3D computer vission in projects, as it allows for an affordable and computationally easy method to get depth images.
+\begin{equation}
+\lambda\,(u,\,v,\,1)^\top = \mathbf{K}\,[\mathbf{R}\mid\mathbf{t}]\,(\mathbf{X}_w^\top,\,1)^\top,
+\qquad
+\mathbf{K}=\left[\begin{smallmatrix} f_x & 0 & c_x\\ 0 & f_y & c_y\\ 0 & 0 & 1\end{smallmatrix}\right],
+\label{eq:pinhole}
+\end{equation}
 
-\section{Capture Alignment}
+where $\mathbf{X}_w=(X_w,Y_w,Z_w)^\top$ is the point in the world frame, and $(X,Y,Z)^\top=\mathbf{R}\mathbf{X}_w+\mathbf{t}$ is the same point in the camera frame, whose depth $Z$ equals $\lambda$. The intrinsic matrix $\mathbf{K}$ holds the focal lengths $f_x, f_y$ in pixels and the principal point $(c_x, c_y)$. The extrinsic parameters $\mathbf{R}$ and $\mathbf{t}$ give the pose of the camera relative to another frame, such as the world or a second sensor. Real lenses add radial and tangential distortion, and calibration estimates all of these parameters, typically from images of a known planar target \cite{zhangFlexibleNewTechnique2000}. The D456 is factory calibrated, and because its stereo images are rectified on the camera, the depth stream is described by a distortion-free pinhole model while the colour stream has its own distortion coefficients.
+% VERIFY: run `rs-enumerate-devices -c` and confirm the depth stream reports
+% zero distortion coefficients and the colour stream reports non-zero ones.
 
-Alignment of two surfaces is a fundamental requirement for scan fusion and for evaluation. Each individual scan is only ever taken in the reference frame of the Camera. And so a rotated or tilted camera does not change the frame of the scan.  
+Inverting \autoref{eq:pinhole} for a pixel with measured depth $Z$ gives the corresponding point in the camera frame,
+\begin{equation}
+X=\frac{(u-c_x)\,Z}{f_x},\qquad Y=\frac{(v-c_y)\,Z}{f_y},
+\label{eq:backproject}
+\end{equation}
+which is how a depth image becomes a point cloud. Depth is aligned to the colour image by back-projecting each pixel, transforming it with the depth-to-colour extrinsics and projecting it with the colour intrinsics.
 
-\subsection{Feature based Alignment}
+\subsection{Stereo Triangulation}
+\label{sec:theory_stereo}
+After rectification the image rows of the two cameras are aligned, so a scene point appears on the same row in both images and the search for its match is one-dimensional \cite{hartley2003multiple}. In the geometry of \autoref{fig:stereo}, a point at depth $Z$ projects to horizontal image coordinates $x_L$ and $x_R$, measured from each principal point, and similar triangles give
+\begin{equation}
+Z=\frac{fB}{d},\qquad d=x_L-x_R,
+\label{eq:depth}
+\end{equation}
+where $f$ is the focal length in pixels, $B$ the baseline and $d$ the disparity. The camera finds $d$ for each pixel by comparing small image patches along the row, and interpolates the best match to a fraction of a pixel \cite{keselmanIntelRRealSenseTMStereoscopic2017}.
 
-A widely applicable method for aligning two 3D point clouds, is fast point feature histograms(FPFH) with Random Sample Consensus (RANSAC).
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=0.7, >={Stealth[length=4pt]}, font=\small]
+  % image planes, one focal length (1.4) in front of each camera centre
+  \draw[thick] (-0.9,1.4) -- (0.9,1.4);
+  \draw[thick] (3.1,1.4) -- (4.9,1.4);
+  % optical axes
+  \draw[dashed, gray] (0,0) -- (0,3.5);
+  \draw[dashed, gray] (4,0) -- (4,3.5);
+  % rays from P = (1.6, 3.2) to the camera centres
+  \draw (0,0) -- (1.6,3.2);
+  \draw (4,0) -- (1.6,3.2);
+  \fill (0,0) circle (1.5pt) node[below left] {$O_L$};
+  \fill (4,0) circle (1.5pt) node[below right] {$O_R$};
+  \fill (1.6,3.2) circle (1.8pt) node[above] {$P$};
+  \fill (0.7,1.4) circle (1.2pt);
+  \fill (2.95,1.4) circle (1.2pt);
+  % image coordinates, measured from each principal point (x_R < 0 here)
+  \draw[<->] (0,1.65) -- (0.7,1.65) node[midway, above] {$x_L$};
+  \draw[<->] (2.95,1.65) -- (4,1.65) node[midway, above] {$x_R$};
+  % dimensions
+  \draw[<->] (0,-0.6) -- (4,-0.6) node[midway, below] {$B$};
+  \draw[<->] (-1.15,0) -- (-1.15,1.4) node[midway, left] {$f$};
+  \draw[<->] (5.2,0) -- (5.2,3.2) node[midway, right] {$Z$};
+\end{tikzpicture}
+\caption{Rectified stereo geometry: camera centres $O_L$, $O_R$, baseline $B$, focal length $f$ and the projections $x_L$, $x_R$ of a point $P$ at depth $Z$.}
+\label{fig:stereo}
+\end{figure}
 
-FPFH works by providing a local geometry descriptor, in the form of a 33-dimensional vector, for each point in a down sampled scan. RANSAC is then used to determine the transformation between two 3D scans. It works by randomly sampling 3 points on the surface, and estimating the transform that minimises the distance between points with similar descriptors. This is repeated many times keeping track of whichever transofmration results in the highest score of points that agree with the transfomration.
+Differentiating \autoref{eq:depth} gives the depth uncertainty caused by an uncertainty $\sigma_d$ in disparity,
+\begin{equation}
+\sigma_Z=\frac{Z^2}{fB}\,\sigma_d .
+\label{eq:depthnoise}
+\end{equation}
+For a fixed matching error, depth noise grows with the square of the range and falls with a longer baseline or focal length \cite{keselmanIntelRRealSenseTMStereoscopic2017}. Since $f$ in pixels is proportional to the horizontal resolution, a lower resolution also increases the noise. A constant $\sigma_d$ is optimistic: it depends on the contrast of the matched texture, which falls as the projected pattern dims with distance or is washed out by ambient light.
 
-\subsection{The tag pose estimation?}
-\todo{Im not really sure how this section works, but the theory behind it is necesary}
+The disparity search also has a finite range. The D4 processor searches 126 disparities \cite{grunnet-jepsenBestKnownMethodsTuningIntel}, so the minimum measurable depth is $Z_{\min}=\frac{fB}{126}$.
+% VERIFY: the value 126 appears in Intel's tuning material by Grunnet-Jepsen;
+% confirm it in the version of the white paper you cite.
+At $1280\times720$, $f\approx \frac{640}{\tan(87^\circ/2)}\approx 674$\,px, giving $Z_{\min}\approx 0.51$\,m, consistent with the specified 0.52\,m \cite{intel_d456}. \autoref{eq:depthnoise} and $Z_{\min}$ together set the working-distance trade-off characterised in \autoref{ch:experiments}. the camera should be as close as $Z_{\min}$ and the required field of view allow.
+
+\subsection{Passive Stereo, Structured Light and Active Stereo}
+\label{sec:theory_active}
+Passive stereo matches natural texture between two cameras, and fails where the surface is uniform because many patches along a row look alike. Structured light, used by the Asus Xtion in the system of \cite{azharRGBDFrameworkCapturing2022}, projects a known pattern and triangulates between the projector and a single camera, so the pattern itself must be known and calibrated. Active stereo, the principle of the D456, combines a stereo pair with a projector of a semi-random dot pattern, which can be seen in \autoref{Appendix:Theory},  \cite{keselmanIntelRRealSenseTMStereoscopic2017,ProjectorsD400Series}. Matching is still performed between the two cameras, so the pattern does not need to be know, the main purpose is to add aditional texture onto the surface. On a featureless surface, such as the white board of \autoref{ch:experiments}, depth therefore depends entirely on the dots and fails when sunlight, whose near-infrared component can outshine them, washes them out. On a naturally textured surface in sunlight the camera behaves as a passive stereo camera and still returns dense depth. Both behaviours were observed in \autoref{ch:experiments}. The RGB camera has an IR-cut filter, so the dots do not appear in the colour image.
+% VERIFY: IR-cut filter on the D455/D456 RGB camera. Confirmed only by
+% resellers' listings; check the Intel D400 Series datasheet.
+
+%=====================================================================
+\section{Registration}
+\label{sec:theory_registration}
+\comment{We Need To Align Ourselves}
+%=====================================================================
+Each scan is expressed in the frame of the camera at the moment of capture, so the same point on the sediment has different coordinates in scans taken at different rotations and tilts. Registration finds the rigid transformation that maps one scan into the frame of another, and is needed both for fusion (\autoref{sec:fuse}) and for comparison with a reference model (\autoref{sec:eval_framework}).
+
+\subsection{Rigid Transformations and Closed-Form Alignment}
+\label{sec:theory_rigid}
+A rigid transformation maps a point $\mathbf{p}$ to $\mathbf{R}\mathbf{p}+\mathbf{t}$, where $\mathbf{R}$ is a rotation matrix ($\mathbf{R}^\top\mathbf{R}=\mathbf{I}$, $\det\mathbf{R}=+1$) and $\mathbf{t}$ a translation, giving six degrees of freedom. If $N$ corresponding point pairs $(\mathbf{p}_i,\mathbf{q}_i)$ are known, the transformation that minimises $\sum_i\lVert\mathbf{R}\mathbf{p}_i+\mathbf{t}-\mathbf{q}_i\rVert^2$ has a closed-form solution \cite{arunLeastSquaresFittingTwo1987,umeyamaLeastsquaresEstimationTransformation1991}. With centroids $\bar{\mathbf{p}}$ and $\bar{\mathbf{q}}$, and the singular value decomposition $\mathbf{H}=\sum_i(\mathbf{p}_i-\bar{\mathbf{p}})(\mathbf{q}_i-\bar{\mathbf{q}})^\top=\mathbf{U}\boldsymbol{\Sigma}\mathbf{V}^\top$,
+
+\begin{equation}
+\mathbf{R}=\mathbf{V}\,\mathrm{diag}\bigl(1,1,\det(\mathbf{V}\mathbf{U}^\top)\bigr)\,\mathbf{U}^\top,\qquad
+\mathbf{t}=\bar{\mathbf{q}}-\mathbf{R}\bar{\mathbf{p}} .
+\label{eq:svd}
+\end{equation}
+
+The determinant term ensures a proper rotation rather than a reflection when the data are noisy \cite{umeyamaLeastsquaresEstimationTransformation1991}. At least three non-collinear pairs are needed because if the points lie close to a line, rotation about that line is poorly determined, which is why the tag-based alignment in \autoref{sec:fuse} takes the tilt from the IMU when the visible tags are nearly collinear. A stationary accelerometer measures only gravity, which fixes the two tilt angles but not the rotation about the vertical axis, which can be determined from tag identification or surface geometry.
+
+\subsection{Fiducial Markers}
+\label{sec:theory_apriltag}
+AprilTags are square black-and-white markers that encode an identifier in a binary grid. The codes are chosen to keep a large minimum Hamming distance between all identifiers in all four rotations, so a tag is rarely misidentified even when some bits are read incorrectly \cite{olsonAprilTagRobustFlexible2011}. The detector fits quadrilaterals to the boundaries between light and dark regions, decodes the bits inside each candidate, and returns each tag's identifier and the sub-pixel positions of its four corners \cite{wangAprilTag2Efficient2016}.
+
+The corners of a planar tag of known size are related to their image positions by a homography $\mathbf{H}\simeq\mathbf{K}[\mathbf{r}_1\;\mathbf{r}_2\;\mathbf{t}]$, where $\mathbf{r}_1$ and $\mathbf{r}_2$ are the first two columns of the tag's rotation matrix \cite{zhangFlexibleNewTechnique2000,hartley2003multiple}. Given $\mathbf{K}$, the pose follows from $\mathbf{K}^{-1}\mathbf{H}$ with $\mathbf{r}_3=\mathbf{r}_1\times\mathbf{r}_2$. This monocular estimate rests on four closely spaced points and is sensitive to corner noise. For a small or nearly fronto-parallel tag, two different orientations can fit the corners almost equally well \cite{schweighoferRobustPoseEstimation2006}. The pipeline instead uses the depth data, intersecting the corner pixel rays with a plane fitted to the measured depth of each tag (\autoref{sec:crop}). This gives 3D corners in every scan, so aligning two scans becomes a 3D-to-3D problem solved with \autoref{eq:svd}.
+
+\subsection{Feature-Based Coarse Alignment}
+\label{sec:theory_fpfh}
+When no prior pose is available, correspondences must be found from the shape of the surface. Fast Point Feature Histograms (FPFH) describe the geometry around each point by the angles between its surface normal and those of its neighbours, expressed in a local coordinate frame. Three angular features are each binned into 11 bins and concatenated into a 33-element histogram \cite{rusuFastPointFeature2009}. Because only relative angles are used, the descriptor does not change under rigid motion. Candidate correspondences are formed by pairing points with similar descriptors, and many of these pairs are wrong.
+
+Random Sample Consensus (RANSAC) estimates the transformation in the presence of these outliers \cite{fischlerRandomSampleConsensus1981}. It repeatedly selects three correspondences at random, computes their transformation with \autoref{eq:svd}, and counts the inliers (correspondences brought within a distance threshold), keeping the transformation with the most inliers. If a fraction $w$ of the correspondences is correct, drawing at least one all-inlier sample with probability $p$ takes $N=\log(1-p)/\log(1-w^{3})$ trials, or about 4600 for $w=0.1$ and $p=0.99$. On flat or smoothly undulating sediment most points have nearly identical descriptors, so $w$ is small and an incorrect transformation can gather as many inliers as the correct one. This is why feature matching is only a fallback in this pipeline (\autoref{sec:fuse}).
 
 \subsection{Iterative Closest Point}
-Whilst the two methods above, do generally align two point clouds, with good accuracy, they are primarily focused on giving fast transformation estimates, and lack higher quality reconsignment.
+\label{sec:theory_icp}
+Iterative Closest Point (ICP) refines an approximate alignment by alternately pairing each source point with its nearest target point and solving for the transformation that minimises the distance between the pairs. The point-to-point form \cite{beslMethodRegistration3D1992} minimises Euclidean distance and is solved with \autoref{eq:svd}. The point-to-plane form \cite{chenObjectModellingRegistration1992} minimises the distance from each source point to the tangent plane at its paired target point,
+\begin{equation}
+E(\mathbf{R},\mathbf{t})=\sum_i\Bigl(\bigl(\mathbf{R}\mathbf{p}_i+\mathbf{t}-\mathbf{q}_i\bigr)\cdot\mathbf{n}_i\Bigr)^2 ,
+\label{eq:p2plane}
+\end{equation}
+where $\mathbf{n}_i$ is the target normal. This has no closed-form solution, but for the small rotations of a refinement step it can be linearised and solved as a six-parameter linear least-squares problem \cite{lowLinearLeastSquaresOptimizationa}.
 
-Iterative Closest Point (ICP), specifically point-to-plane ICP, is cost minimisation method used to minimise the perpendicular distance from a point in source cloud, to the tangent plane of its corresponding point, in the target cloud.
+Two scans never sample exactly the same points. Point-to-point ICP penalises the resulting tangential offsets, which slows convergence, whereas point-to-plane ICP lets points slide along the surface and on smooth surfaces usually converges in far fewer iterations and to a more accurate pose, at the cost of requiring normals \cite{rusinkiewiczEfficientVariantsICP2001}. Both forms are local, descending to the nearest minimum of the cost, so the initial pose must already be close, and both are limited by the geometry of the surface rather than by the error metric. On a plane, translation within the plane and rotation about its normal leave the point-to-plane cost unchanged and change the point-to-point cost only slightly, so these motions are effectively unconstrained \cite{gelfandGeometricallyStableSampling2003}. A nearly flat sediment bed is close to this degenerate case, so its in-plane pose must be fixed by the tags or the coarse stages, with ICP refining the remaining degrees of freedom.
 
-This specific form of ICP is used as it offeres faster performance to traditional point-to-point ICP, at the cost of weakness to smooth, planar surfaces. ICP is a highly effective method for refignmning the alignment between two surfaces, however, since it is a cost minimisation function, it has the tendancy to find local minima in a cost function, and so requires a fairly accurate initial seed to find the true minima, and thus the true transform that aligns two surfaces. 
-
-Due to this fact, ICP is often used in conjunction with other coarser methods, such as those mentioned above.
-
-\todo{Any other alignment methods mention in this paper}
-
+%=====================================================================
 \section{Fusion}
+\label{sec:theory_fusion}
+\comment{Putting Bits Together}
+%=====================================================================
+\todo{I am not liking this fusion section}
+%A single scan is noisy, has holes where relief hides the surface, and has errors that depend on the viewpoint. Combining registered scans addresses all three: views from different directions see regions occluded in others, and the mean of $n$ measurements with independent errors of standard deviation $\sigma$ has a standard deviation of $\sigma/\sqrt{n}$. Errors shared by all scans, such as a calibration or scale bias, are not reduced by averaging.
 
-\todo{Describe the fusion thoery used in this paper}
+Volumetric methods store a weighted running average of the signed distance to the surface in a voxel grid and extract the surface where it is zero \cite{curlessVolumetricMethodBuilding1996,newcombeKinectFusionRealtimeDense2011}. For a nearly flat bed, a 2.5D height field $z(x,y)$ on a grid aligned with the mean plane is a simpler equivalent in which each cell collects the heights from all scans (\autoref{sec:fuse}).
+\todo{It cannot represent overhangs such as burrow walls}
 
+%\paragraph{Weighting.} 
+First all scans points are weighted. When measurements have independent errors with different variances $\sigma_k^2$, the combination with the lowest variance is the weighted mean with weights $w_k\propto1/\sigma_k^2$. Depth error grows with range (\autoref{eq:depthnoise}) and with obliquity, therefore a surface seen at a grazing angle is foreshortened and its depth varies across each matching window, and the axial noise of depth sensors has been observed to rise sharply as the angle between the surface normal and the viewing direction approaches $90^\circ$ \cite{nguyenModelingKinectSensor2012}. Measurements are therefore down-weighted with both, in the spirit of the angle-based weights of \cite{curlessVolumetricMethodBuilding1996}.
+
+%\paragraph{Robust averaging.} 
+A misregistered scan or stray point produces errors that are neither small nor normally distributed. One such value can move the mean arbitrarily far, while the median tolerates up to half the data being bad but discards much of the information in good data. The trimmed mean, which discards a fixed fraction of the lowest and highest values (by cumulative weight, in a weighted version) before averaging, lies between the two \cite{huberRobustStatistics2011}.
+
+%\paragraph{Smoothing.} 
+Moving Least Squares (MLS) fits a low-order polynomial surface to the neighbours of each point within a radius $h$, with weights that decrease with distance, and projects the point onto it \cite{levin1998approximation, alexaComputingRenderingPoint2003}. This removes noise and residual layer offsets on scales below $h$, but it is a low-pass filter that also attenuates relief with wavelengths comparable to or shorter than $h$, so $h$ sets a lower bound on the scale of roughness the fused surface can represent.
+
+%=====================================================================
 \section{Evaluation}
+\label{sec:theory_evaluation}
+\comment{Are We Winning?}
+%=====================================================================
+\todo{Not liking the evaluation section}
+Each reconstruction is first registered to the reference model (\autoref{sec:eval_framework}). For each reconstructed point $\mathbf{s}_i$, $d_i$ is its signed distance to the closest point on the reference mesh (positive outside the object), which avoids any dependence on how densely the reference is sampled.
 
-In order to evaluate performance, a very common metric used is the root mean square error (RMSE). This provides a metric about how close the average point on a point cloud is to its ground truth. \todo{describe RMSE better in the context of this paper}
+%\paragraph{Accuracy.} 
+Over $N$ points the bias $\mu$, standard deviation $\sigma$ and root-mean-square error are
+\begin{equation}
+\mu=\frac{1}{N}\sum_i d_i,\qquad
+\sigma^2=\frac{1}{N}\sum_i(d_i-\mu)^2,\qquad
+\mathrm{RMSE}=\sqrt{\frac{1}{N}\sum_i d_i^2}=\sqrt{\mu^2+\sigma^2}.
+\label{eq:rmse}
+\end{equation}
+The bias measures systematic offset, $\sigma$ random spread, and the RMSE acts as a combination of both. The RMSE however is not the average distance, since squaring weights large errors more heavily, so the mean absolute error $\frac{1}{N}\sum_i\lvert d_i\rvert$ is less affected by outliers. Because registration chooses the pose that best fits the reference, part of any systematic error, such as a small scale error or tilt, is absorbed into the pose, so the metrics measure shape error after the best rigid fit rather than absolute accuracy.
 
-\todo{Provide theoretical background to evaluation used in this project}
+%\paragraph{Completeness.} 
+Accuracy metrics are computed only over points that exist, so a reconstruction that covers only the easy parts of an object can still score well. Following \cite{knapitschTanksTemplesBenchmarking2017}, the precision $P(\tau)$ is the fraction of reconstructed points within a distance $\tau$ of the reference, and the completeness $R(\tau)$ is the fraction of the reference, sampled uniformly, within $\tau$ of the reconstruction. The F-score, $F=2PR/(P+R)$, is high only when both are high.
 
+%\paragraph{Set distances.} 
+With $d(\mathbf{a},\mathcal{B})$ the distance from a point $\mathbf{a}$ to the nearest point of a set $\mathcal{B}$, the Chamfer distance averages nearest-neighbour distances in both directions between the reconstruction $\mathcal{S}$ and the reference $\mathcal{M}$, while the Hausdorff distance takes the worst case \cite{huttenlocherComparingImagesUsing1993}:
+
+\begin{equation}
+d_{\mathrm{CD}}=\frac{1}{\lvert\mathcal{S}\rvert}\sum_{\mathbf{s}\in\mathcal{S}}d(\mathbf{s},\mathcal{M})+\frac{1}{\lvert\mathcal{M}\rvert}\sum_{\mathbf{m}\in\mathcal{M}}d(\mathbf{m},\mathcal{S}),\qquad
+d_{\mathrm{H}}=\max\Bigl\{\max_{\mathbf{s}\in\mathcal{S}}d(\mathbf{s},\mathcal{M}),\;\max_{\mathbf{m}\in\mathcal{M}}d(\mathbf{m},\mathcal{S})\Bigr\}.
+\label{eq:chamfer}
+\end{equation}
+
+\todo{Confirm the Chamfer convention used by evaluate\_scans (sum or mean of the two directions, squared or unsquared distances) and edit \autoref{eq:chamfer} to match.}
+The second Chamfer term penalises missing regions. The Hausdorff distance is set by the single worst point and is very sensitive to outliers, which is why percentiles of $\lvert d_i\rvert$ are also reported.
+
+%=====================================================================
 \section{Roughness Calculation}
-\todo{Provide explanation behind how roughness metrics are calculated, what they mean and such}
+\label{sec:theory_roughness}
+\comment{Rough Times Ahead}
+%=====================================================================
+A measured surface combines form, waviness and roughness at progressively shorter wavelengths. ISO~25178-2 defines areal texture parameters on a scale-limited surface, obtained by removing the form and restricting the wavelength band with filters \cite{ISO2517822021, leachCharacterisationArealSurface2013}. Here the form is removed by subtracting a fitted low-order polynomial, and the band is set implicitly, at the short end by the grid spacing and MLS radius, and at the long end by the polynomial degree and patch size (\autoref{sec:rugosity}). A higher degree removes more long-wavelength relief, so the degree decides what counts as roughness. \cite{azharRGBDFrameworkCapturing2022} found a planar fit the most robust for sediment in the intertidal region.\todo{Fact check this}
 
-\section{Feature Detection}
-\todo{Not implemented yet}
+The parameters, defined in Section~\autoref{sec:rugosity}, fall into three groups. Height parameters ($S_a$, $S_q$, $S_{sk}$, $S_{ku}$) describe the distribution of residual heights but not their arrangement, so two surfaces can share the same $S_q$ yet have very different feature sizes. Spatial parameters ($S_{al}$, $S_{tr}$) describe feature size and directionality. Hybrid parameters combine height and spacing through the slope: $S_{dq}$ is the root-mean-square gradient and $S_{dr}$ the developed interfacial area ratio, the percentage by which the true surface area exceeds the projected area. Rugosity, as used in benthic ecology, is the same quantity expressed as the ratio $A_{\mathrm{true}}/A_{\mathrm{proj}}=1+S_{dr}/100$. For gentle slopes the area element $\sqrt{1+\lvert\nabla z\rvert^2}\approx1+\tfrac{1}{2}\lvert\nabla z\rvert^2$, so $S_{dr}\approx50\,S_{dq}^2$\,\% and rugosity is essentially a measure of the mean squared slope.
 
+\paragraph{Scale dependence.} Slopes are estimated from height differences between neighbouring grid cells a distance $g$ apart. Natural surfaces have relief over a wide range of scales, often approximately self-affine with a power-law spectrum, so $S_{dq}$, $S_{dr}$ and rugosity depend on $g$ \cite{jacobsQuantitativeCharacterizationSurface2017}. Noise makes this worse since uncorrelated height noise $\sigma_n$ adds a variance of $2\sigma_n^2/g^2$ to a forward-difference slope along each axis. For example, $\sigma_n=0.5$\,mm on a 2\,mm grid adds a root-mean-square slope of about 0.35 per axis, which can exceed the true slope of a gently rippled bed. Slope-based parameters are therefore comparable only between surfaces processed with the same grid spacing and smoothing, and the noise contribution must be removed before rugosity is attributed to the sediment. Height parameters are much less sensitive to $g$.
+
+%=====================================================================
+% \section{Feature Detection}
+% \label{sec:theory_features}
+%=====================================================================
+% CUT to keep the chapter within 5 pages, and because feature detection is
+% not implemented. Suggested text for Further Work (or restore here if it is
+% implemented before submission):
+%
+% Burrow openings appear in the detrended height map as small closed depressions, and mounds as local elevations. In mathematical morphology, the black top-hat transform (the closing of the height map minus the map itself) highlights depressions narrower than the structuring element, and watershed segmentation separates individual features, which can then be filtered by area, depth and shape \citep{soille2003}.
 
 %*********************************************************************
