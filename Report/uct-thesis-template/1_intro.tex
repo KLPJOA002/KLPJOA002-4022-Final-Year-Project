@@ -2,85 +2,108 @@
 %	CHAPTER 1 - INTRODUCTION
 %****************************************************
 \providecommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+%----------------------------------------------------
+%   Cross-references assumed in this chapter. If the other chapter files
+%   use different labels, either rename these \ref targets or add the
+%   matching \label directly after each \chapter command:
+%     ch:review          Chapter 2  Literature review
+%     ch:theory          Chapter 3  Theoretical background
+%     ch:design          Chapter 4  System design
+%     ch:characterisation Chapter 5 Intel RealSense characterisation
+%     ch:pipeline        Chapter 6  Data processing pipeline
+%     ch:validation      Chapter 7  Experimental validation
+%     ch:discussion      Chapter 8  Discussion
+%     ch:conclusions     Chapter 9  Conclusions
+%     ch:furtherwork     Chapter 10 Further work
+%----------------------------------------------------
 \chapter{Introduction}
 \label{ch:introduction}
 %====================================================
 \section{Background}
 \label{sec:ch1.background}
-
 %====================================================
-\subsection{Biological Activity}
+\subsection{Sand prawns and bioturbation}
 \label{subsec:ch1.section1.subsec1}
 %----------------------------------------------------
-Sand prawn activity has a large effect on the surrounding ecosystem. Pillay and Branch \cite{inbook} explain that by physically burrowing into the sediment, they distribute buried sediment to the surface, alter the surface structure via the introduced mounds, which can increase surface area, and alter both chemical and structural properties of the sediment through burrowing and nutrient mixing. Venter et al \cite{venterWaterFiltrationBurrowing2020} further shows that sand prawn bi-directional water pumping filters can reduce phytoplankton biomass by up to 70\% in estuarine environments which can help with ecosystem resilience.
-%The microtopography of sediment surface in inter-coastal regions is strongly linked to the bio-diversity (cite) and bio-density within the benthic ecosystem. Specifically, sand prawn population within the Langebaan lagoon are strong members in the bioturbation industry and play a large part in moving sediment around, which alters the physical structure of the sediment, and the chemical properties therein. Measuring and analysing the microtopography presents itself as a strong measurement for the bio-density and activity of sand prawns in these regions. 
+Bioturbation, the reworking of sediment particles and the ventilation of burrows by animals \cite{kristensenWhatBioturbationNeed2012}, is one of the main ways in which benthic fauna shape soft-sediment ecosystems. Burrowing thalassinidean shrimps, the group to which sand prawns belong, are among the most influential bioturbators. Pillay and Branch~\cite{inbook} describe how their burrowing brings buried sediment to the surface, builds mounds that change the structure and increase the area of the sediment surface, and alters the physical and chemical properties of the sediment through burrow construction and irrigation.
 
-\subsection{Technical application}
-Schenone et al \cite{schenoneSedimentMicrotopographyPredicts2024} demonstrates that surface microtopography can be used as a reliable metric to predict biochemical processes. However common metrics for measuring surface roughness characteristics such as (list them here) are often invasive and result in the damage of the very structures under measurement. Azhar et al \cite{azharRGBDFrameworkCapturing2022} demonstrated that the use of low cost RGB-D cameras can be used to produce depth images of the sediment surface, which can then be processed to analyse the surface properties. 
-%====================================================
+On the South African coast, the sand prawn \textit{Callichirus kraussi} is a key ecosystem engineer. Venter et al.~\cite{venterWaterFiltrationBurrowing2020} showed experimentally that sand prawns filter phytoplankton from the overlying water by pumping water in both directions through their burrows. Long-term estuarine data further showed reductions in phytoplankton biomass of roughly 70\% in sand prawn-dominated areas, which suggests that sand prawns help to buffer coastal ecosystems against eutrophication. Their methodology, however, relied on manual visual counts of burrow openings, which are laborious and describe only one aspect of the altered surface. This project forms part of a wider study of sand prawn bioturbation on the intertidal flats of the Langebaan Lagoon. \todo{Name the overarching project and research group, and cite or acknowledge it.}
 
+%----------------------------------------------------
+\subsection{Measuring sediment microtopography}
+\label{subsec:ch1.background.microtopography}
+%----------------------------------------------------
+Bioturbators leave mounds, burrow openings and depressions at the sediment surface. The microtopography of the surface, its relief at millimetre to centimetre scales, therefore carries a signature of the activity beneath it. Schenone et al. showed in laboratory incubations that sediment microtopography predicted localised benthic ecosystem functioning~\cite{schenoneSedimentMicrotopographyPredicts2024}. In a later field study using structure-from-motion (SfM) photogrammetry, they found that it explained a substantial proportion of the variance in biodiversity and ecosystem functioning across subtidal habitats~\cite{schenoneSeafloorSedimentMicrotopography2025}. Microtopography is summarised by areal roughness parameters. Of these, rugosity is the ratio of the true surface area to its projected area, and is closely related to the developed interfacial area ratio defined in ISO 25178-2~\cite{ISO2517822021}.
+
+Measuring microtopography in the field is not straightforward. Traditional sampling methods are invasive and damage the fragile structures being measured. Non-contact alternatives such as LiDAR and SfM photogrammetry can be expensive and cumbersome to process~\cite{azharRGBDFrameworkCapturing2022}. Azhar et al.~\cite{azharRGBDFrameworkCapturing2022} addressed this with a low-cost framework. A consumer RGB-D camera, the Asus Xtion Pro Live, captured depth images of intertidal sediment, from which roughness parameters were computed after detrending. Low-cost RGB-D sensors have similarly been used to quantify habitat complexity~\cite{kamalInvestigatingThreedimensionalMesoscale2014}. The Xtion relies on structured light, which is degraded by strong ambient light~\cite{halmetschlager-funekEmpiricalEvaluationTen2019}. It therefore had to be operated inside an opaque enclosure, which limited the area of each scan.
 
 %====================================================
 \section{Problem statement}
 \label{sec:ch1.problemstatement}
 %====================================================
-Currently, The system makes use of a single scan to estimate surface roughness. And whilst each surface is scanned at least four times, using the original camera mount which allowed rotations, these repetitions were not combined together and each was evaluated individually. Further, the current configuration of the system, both in terms of hardware and software, has not been thoroughly investigated. This project aims to provide a comprehensive characterisation of the Intel RealSense D456 camera, and provide a method for high quality three dimensional reconstruction and analysis using multi-view scans.
-%Equations are numbered and include the chapter number. As they are considered part of the text, they include punctuation, and each parameter must be described in the text below. Ensure that the units are stated and where possible use SI units. For example, the Maxwell equations are expressed as:
-%\begin{align}
-%\nabla \cdot \bm{E} &= \frac{\rho}{\epsilon_0}, \\
-%\nabla \cdot \bm{B} &= 0, \\
-%\nabla \times \bm{E} &= -\frac{\partial \bm{B}}{\partial t}, \\
-%\nabla \times \bm{B} &= \mu_0 \bm{J} + \mu_0 \epsilon_0 \frac{\partial \bm{E}}{\partial t},
-%\end{align}
+The overarching project adapted the framework of Azhar et al.~\cite{azharRGBDFrameworkCapturing2022} to an Intel RealSense D456, mounted on a portable aluminium rig above the sediment. The D456 is an active stereo camera~\cite{intel_d456}. It computes depth on the camera by matching texture between two infrared imagers, and a projected infrared dot pattern adds texture where the surface has little of its own~\cite{keselmanIntelRRealSenseTMStereoscopic2017, ProjectorsD400Series}. Unlike a structured-light camera, it can therefore still recover depth from naturally textured surfaces when ambient light washes out the projected pattern. As inherited, however, the system had three shortcomings.
 
-%where $\bm{B}$ is the magnetic flux density in T, $\bm{J}$ is the total current density in A/m$^2$, $\bm{E}$ is the electric field in V/m, $\mu_0$ is the permeability of free space (4\(\pi \times 10^{-7}\) H/m), and $\epsilon_0$ is the permittivity of free space (8.85 \(\times 10^{-12}\) C$^2$/N·m$^2$).
+First, its configuration had not been systematically evaluated. This covers the working distance, viewing angle, lighting, stream resolution, depth unit, visual preset and post-processing filters. Published evaluations of depth cameras~\cite{carfagniMetrologicalCriticalCharacterization2019, halmetschlager-funekEmpiricalEvaluationTen2019, rustlerEmpiricalComparisonFour2025} consider other camera models and mostly indoor scenes of planar or manufactured objects. None characterises the D456 on sediment-like relief at the sub-metre working distances of the rig.
 
+Second, each surface was scanned at least four times from different mount rotations, but each scan was analysed individually. A single scan is noisy and has viewpoint-dependent errors. It also contains holes wherever relief hides the surface from the camera. The repeated scans were not combined to reduce these effects.
+
+Third, the accuracy of the reconstructions, and of the roughness parameters computed from them, had not been quantified against a known ground truth. \todo{Confirm that no ground-truth validation was done before this project.}
+
+This project therefore characterises the D456 for close-range scanning of sediment-like surfaces. It also develops a processing pipeline that fuses multi-view scans into a single reconstruction, from which roughness parameters are computed and validated.
 
 %====================================================
 \section{Project objectives}
 \label{sec:ch1.projectobjectives}
 %====================================================
-%The \gls{gps} is used for positioning. The \gls{miz} is of particular interest in the \gls{so}.
-The objectives of this project are as follows:
+The objectives of this project were to:
 \begin{itemize}
-	\item Characterise the Intel RealSense D456 camera across different external configurations such as: height, angle and lighting
+	\item Characterise the D456 as functions of working distance, camera tilt and ambient lighting, using planar targets.
 	
-	\item Characterise the Intel RealSense D456 camera under different firmware and software configurations, such as: Image Resolutions, depth units, presets, and filter combinations
+	\item Characterise the D456 stream settings (resolution, depth unit and visual preset) and post-processing filter settings, by evaluating scans of 3D-printed reference objects of known geometry across the different parameters.
 	
-	\item Develop a multi-view fusion process to combine different view point scans into a single scan, and characterise this process against different combinations of tilts and rotations
+	\item Develop a pipeline that automatically crops each scan to the analysis region marked by AprilTags, registers scans taken at different tilts and rotations, and fuses them into a single surface. Characterise how reconstruction accuracy depends on the combination of views.
 	
-	\item Develop a roughness metric evaluation pipeline to process fused scans and obtain surface roughness metrics required for the overarching project.
+	\item Develop a roughness estimation pipeline that levels, detrends and grids the fused surface and computes standardised areal roughness parameters, including rugosity. Validate it against the reference objects and against laboratory sand.
 	
-	\item Develop a feature detection process to help record useful sediment features such as burrows. 
+	\item Investigate the automated detection and counting of discrete biogenic features, such as burrow openings and mounds, in the fused surfaces.
 \end{itemize}
+
 %====================================================
 \section{Scope, limitations and assumptions}
 \label{sec:ch1.scope}
 %====================================================
-The project is limited to a duration of only 12 weeks, with the final submission on the 27th of October 2026. The project is limited to the hardware present on the current existing system. This includes an Intel RealSense D456 camera, a rotating camera mount, staged on top of a servo operated tilt stage. 
+\paragraph{Scope.} The project was carried out over 12 weeks, with final submission on 27 October 2026. It was limited to the existing hardware, and no other cameras were evaluated. The hardware comprised:
+\begin{itemize}
+	\item A single Intel RealSense D456 on a 1\,m aluminium-extrusion frame with a height-adjustable cross member.
+	
+	\item A manually rotated camera mount, turned in 45$^{\circ}$ increments, on a servo-driven tilt stage.
+	
+	\item Four adjustable AprilTag boundary markers.
+	
+	\item An overhead shading tarp.
+\end{itemize}
+Testing used planar targets, three 3D-printed reference objects, and sand collected from the Langebaan Lagoon. The sand was scanned in the laboratory in dry, wet and waterlogged states. Field deployment on the intertidal flats was not possible within the time available.
 
-This project is primarily focused on the optimisation of the Intel RealSense D456 camera for operation on intertidal sediment surfaces. The resulting configuration analysis are primarily oriented for resolving features present in this environment, and therefore the process may not be applicable for all reconstruction objectives, such as angular objects with sharp corners.
+\paragraph{Limitations.} The characterisation and the chosen configuration target smooth, gently undulating relief of a few centimetres, representative of sand prawn mounds. They may not transfer to objects with sharp edges. The fused surface is represented as a single-valued height field, so overhangs such as burrow walls cannot be represented. It is also smoothed with a 10\,mm moving least squares radius by default, so relief at shorter wavelengths is attenuated. Each characterisation condition was recorded once, so the repeatability of the set-up was not quantified. Automated feature detection was not implemented within the project timeframe and is discussed as further work in \autoref{ch:furtherwork}. \todo{Update this sentence if feature detection is implemented before submission.}
 
-This project assumes that the camera has been calibrated, and that .... \todo{What other assumptions}
+\paragraph{Assumptions.} The following assumptions were made:
+\begin{itemize}
+	\item The factory calibration of the D456 (camera intrinsics and depth-to-colour extrinsics) is accurate, and the camera was not recalibrated. \todo{Confirm that no recalibration was performed.}
+	
+	\item The surface does not change during a capture session, and the AprilTags remain fixed relative to it, so every scan in a session observes the same region.
+	
+	\item The sediment within the analysis region is approximately planar at the scale of the region, with relief superimposed on it.
+	
+	\item The camera is stationary while each scan is captured, so its accelerometer measures gravity alone.
+	
+	\item The 3D-printed reference objects match their CAD models closely enough to serve as ground truth. These reference objects were printed using a Bambu lab X1 carbon.
+\end{itemize}
+
 %====================================================
 \section{Plan of development}
 \label{sec:ch1.planofdevelopment}
-\todo{Should i keep this seciton?}
-
-Plan of development involves the following:
-
-Firstly, the existing capture pipeline is altered to interface with the tilt stage servo motor, to automate the tilt stage for capture. 
-
-Secondly, a cropping tool is to be made to automatically crop the scaned region into a known defined region for analysis.
-
-Thirdly, a fusion tool is to be made. This will take multi-view scans taken of each surface, align them, and then fuse them into one higher quality reconstruction of the surface.
-
-Fourthly, a metric evaluation tool is to be made to analyse the resulting surfaces and produce roughness metrics for them.
-
-lastly, a feature detection and segmentation tool is made to automatically characterise and count surface features such as burrows.
-\pagebreak
 %====================================================
-%----------------------------------------------------
+\hyperref[ch:review]{Chapter 2} reviews the literature on sand prawn bioturbation, microtopography as a proxy for benthic activity, and depth sensing for surface measurement. \hyperref[ch:theory]{Chapter 3} presents the theory of stereo depth capture, registration, fusion, evaluation and roughness estimation. \hyperref[ch:design]{Chapter 4} defines the system requirements and describes the rig and software architecture. \hyperref[ch:experiments]{Chapter 5} characterises the D456 camera across different conditions. \hyperref[ch:Pipeline]{Chapter 6} describes the cropping, fusion and roughness estimation pipeline. \hyperref[ch:Validation]{Chapter 7} validates the complete pipeline on reference objects and laboratory sand. \hyperref[ch:discussion]{Chapter 8} provides a summary of the results found in the project, \autoref{ch:conclusions} draws conclusions against the objectives, and \autoref{ch:furtherwork} outlines further work.
 %****************************************************
 % END
 %****************************************************

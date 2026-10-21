@@ -5,14 +5,15 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Published depth-camera characterisations relevant to this project. SL: structured light; AS: active stereo; PS: passive stereo; ToF: time of flight.}}{7}{table.caption.10}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces System requirements and where they are addressed.}}{11}{table.caption.9}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces System requirements and where they are addressed.}}{14}{table.caption.14}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.2}{\ignorespaces Hardware summary.}}{13}{table.caption.11}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Hardware summary.}}{16}{table.caption.16}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Planar characterisation against a white wall at different working distances (one trial per distance; values averaged over the valid frames).}}{17}{table.caption.17}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Planar characterisation under different lighting conditions at a height of approximately 0.9\,m. Lux values are indicative (smartphone sensor). A dash indicates that no valid plane fit was obtained.}}{18}{table.caption.22}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Post-processing filter settings of the best-performing configuration for all objects combined and for each object.}}{21}{table.caption.35}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Planar characterisation against a white wall at different working distances (one trial per distance; values averaged over the valid frames).}}{20}{table.caption.22}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Planar characterisation under different lighting conditions at a height of approximately 0.9\,m. Lux values are indicative (smartphone sensor). A dash indicates that no valid plane fit was obtained.}}{21}{table.caption.27}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Post-processing filter settings of the best-performing configuration for all objects combined and for each object.}}{24}{table.caption.40}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

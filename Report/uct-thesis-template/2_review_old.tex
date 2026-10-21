@@ -1,0 +1,125 @@
+%=====================================================================
+%   LITERATURE REVIEW
+%=====================================================================
+%   Replace this chapter with your own. What is here is a demonstration of
+%   how to cite, kept because it is the thing people get wrong.
+%
+%   The keys cited below are PLACEHOLDERS from thesis.bib. They exist to show
+%   the citation commands working. Do not leave them in your thesis.
+%=====================================================================
+\chapter{Literature review}
+\label{ch:review}
+
+ \section{Sandprawn Bioturbation and Ecological Significance}
+ Pillay and Branch \cite{inbook} describe how sand prawn species are prominent members in the benthic ecosystem. The sand prawns continuously change the sediment properties such as surface topography porosity and biochemistry, through actions such as burrowing and water pumping. These actions redistribute buried sediment to the surface which results in surface mounds which increase the effective surface area of the sediment by up to 15 times. Kristensen et al \cite{kristensenWhatBioturbationNeed2012} further explains how thalassinid shrimp populations can turn up to 12kg of sediment per square meter per day.  These mounds can increase the effective hydrodynamic resistance which can help to stagnate the water flow close to the sediment. While the paper mentions measurements specific to sand prawn species located in other regions, they provide an insight into approximate feature sizes that can be expected, for example \textit{Callianassa subterranea} present in the North sea can produce mounds 5.4cm tall and 11.7cm wide, and \textit{Pestarella candida}, located in the Mediterranean and Adriatic Seas, which can produce mounds 3cm tall and 15cm wide.
+ 
+ 
+ Venter et al \cite{venterWaterFiltrationBurrowing2020} further explains how sand prawns, \textit{Callianassa kraussi}, present in the South African coastlines and at the Langebaan Lagoon, function as prominent water filterers. Within the burrows they actively irrigate the sediment through bi-directional pumping of water to replenish oxygen levels within the burrows, and to remove waste products. This irrigation has a secondary effect where phytoplankton are filtered out of the water by the burrow walls. This filtering can help improve ecosystem resilience to harmful conditions such as nutrient pollution which promote phytoplankton blooms. In relation to this project, the papers methodology entails manual visual counting of burrow openings.
+ 
+
+ 
+ \todo{Talk more about the biological significance of sandprawns in the intertidal zone, and what they do, what other creatures in these regions do, why it is important, and why its important to measure them}
+  %The pipeline involved taking images perpendicular to the sediment cross section, manually extracting the surface line distance using the image processing application ImageJ, and computing the rugosity as a ration between this measured distance, and the distance of a straight line from end to end. Whilst the authors did find a correlation, rugosity explained 35\% to 61\% of variability observed, Their implementation is still under controlled laboratory conditions. The cross sectional profile imaging is not possible in situ, and the two-dimensional rugosity calculation relies on a thin 'slice' of sediment. These limitations point to a need for three dimensional surface scans.
+ \section{Surface Microtopography as a Proxy for Bioturbation}
+ 
+  The next question with regards to biological activity, is weather surface roughness, specifically rugosity, is a valid measurement to gauge the underlying biological activity within the benthic ecosystem. To this, Schenone et al \cite{schenoneSedimentMicrotopographyPredicts2024,schenoneSeafloorSedimentMicrotopography2025} determined experimentally that analysing two dimensional surface rugosity, they were able to correlate surface roughness measurements with sub-surface activity. One paper \cite{schenoneSedimentMicrotopographyPredicts2024} described the testing of a controlled laboratory environment to simulate the benthic ecosystem, which can be seen in \autoref{fig:schenonecustomincubationtank}. They found that the simple two dimensional rugosity estimate managed to account for up to 61\% of nutrient variability. The second paper\cite{schenoneSeafloorSedimentMicrotopography2025} describes a more complex implementation, with the use of a single diver operated camera recording video of the sediment surface, and the use of visual based structure from motion (SFM) photogrammetry to obtain a three dimensional representation of the surface. similarly, the find that sediment microtopography explains up to 55\% of species richness variance, which is of particular interest with regards to this project. These papers show that surface rugosity is a useful measurement when gauging biological activity, and they provide a useful insight into the computational pipeline which is used to convert from spatial meshes to elevation matrices, however there are considerations that need to be considered, these papers discuss fully submerged environments, thus the requirement of under water cameras and SFM, whilst this project focuses on tidally exposed surfaces, where fixed clear observations can be made with the use of a rig.
+ 
+ \begin{figure}
+ 	\centering
+ 	\includegraphics[width=0.5\linewidth]{figs/ch2/Schenone_custom_incubation_tank}
+ 	\caption{Custom incubation and flow through chamber by Schenone et al \cite{schenoneSedimentMicrotopographyPredicts2024} }
+ 	\label{fig:schenonecustomincubationtank}
+ \end{figure}
+ 
+ \todo{Talk about more how it is a valid metric, more soruces}
+ 
+ \section{RGB-D Sensing for Non-Contact Surface Measurement}
+ 
+\todo{This section looks way too bulky, maybe slim it down. Also want more discussion about different ways of getting surface measurement, and why RGB-D cameras are chosen}
+ 
+ 
+% With the understanding that surface roughness statistics can provide a feasible proxy for benthic activity, there is a need for a method to scan sediment surface and extract the topographical information. To this Schenone et al \cite{schenoneSeafloorSedimentMicrotopography2025} describes the use of video recordings of submerged sediment to derive the surface topography. Since this project focuses on inter-tidal regions of the Langebaan lagoon, surface scans are taken of exposed sediment, therefore there is little need to consider submerged imaging, and limitations that arise from this. Azhar er al \cite{azharRGBDFrameworkCapturing2022} develop a
+ 
+ With the understanding that surface roughness statistics can provide a feasible proxy for benthic activity, there is a need for a method  to scan sediment surfaces and extract topographical information. The current project, under the biological side \todo{PLEASE CHANGE THIS, SOMEHOW TIE IN THE EXISTING PROJECT}, takes surface scans of static, exposed sediment, within the inter-tidal region in the Langebaan lagoon. These conditions mean that there is no need for submersion rated hardware, operated under dynamic conditions.
+ 
+ The current project is based off the work developed by Azhar et al \cite{azharRGBDFrameworkCapturing2022}. The authors develop a framework that allows for extracting a millimetre scale 3D surface scans non-invasively, and at lower price scales than expensive LiDAR based systems. The system makes use of an off the shelf Asus Xiton pro Live 3D RGB-D structured light camera, mounted within an opaque plastic container to block infrared interference from sunlight. They then tested four polynomial de-trending algorithms to remove natural sediment gradients, and isolate the bioturbation. Due to the nature of the Asus Xiton, which makes use of structured light projection and a single IR camera, the system suffers when the surface is exposed to sunlight. Therefore the authors made use of an opaque plastic enclosure which is set on the sediment for scanning, however this limits the spatial resolution to only $0.3m^2$ with an effective camera resolution of only 240 x 200 pixels. Additionally the authors found that the higher order polynomial de-trending algorithms were sensitive to elevations at the edges of the image frame, requiring them to use a planar model which proved to be more robust.
+ 
+ Halmetschlager-Funek et al \cite{halmetschlager-funekEmpiricalEvaluationTen2019} and Rustler et al \cite{rustlerEmpiricalComparisonFour2025} provide useful insight by comparing several types of commonly available depth sensing cameras, encompassing different technologies such as structured light, active and passive stereo vision and time of flight (ToF). Halmetschlager-Funek et al \cite{halmetschlager-funekEmpiricalEvaluationTen2019} compares ten different sensors, with varying technologies and shows that sensor technologies like structured light and ToF generally struggle when exposed to high ambient light or reflective materials. These make it impractical to apply in the exposed environmental conditions considered for this project, as there is often direct sunlight, and small water pools which can increase reflectivity of the sediment. Rustler et al \cite{rustlerEmpiricalComparisonFour2025} compares four different stereo vision cameras, and finds that the Intel RealSense D435 is the superior camera for applications what are within one meter, however distance bias against planar surfaces increases significantly, compared to similar sensors such as the Intel RealSense D455, past 300cm distance. The author finds that for longer distance, the ZED 2 or Intel RealSense D455 are the best performers, with the main discerning factor being the image processing, as the ZED 2 requires dedicated GPU hardware for image processing, whereas the D455 does most of the processing on-board with some post precessing offloaded to the connected device.
+ 
+ 
+ %Kinect sensor noise 
+ Nguyen et al \cite{nguyenModelingKinectSensor2012} discusses a method of deriving the lateral and axial noise profiles of the Microsoft Kinect using through analysis of specific scenes. To characterise lateral noise the authors make use of the fact the pixel statistical distributions along a depth edge are the same as statistical distribution of the point spreading factor (PSF), and thus can obtain a characterisation on how points get blurred through the optics of the camera. For axial noise profiles, they analyse depth distributions across a plane of best fit, across various angles. Using these noise profiles, they are able to implement sensor specific filters that can filter noisy depth readings, whilst preserving geometric features. The benefit to this method is that it can be implemented across different sensors, enabling the application on the Intel RealSense D456 for improved depth filtering.
+ 
+ Metrological and critical characteriseation of intel d415 \todo{DONT THINK SHOULD USE THIS ONE}
+ 
+A benefit of using the Intel RealSense RGB-D cameras is the advanced ASIC which does all depth processing on device, thus eliminating the need for high performance computers during scans. Additionally the software development kit (SDK) for the RealSense family provides useful tools to the developer to tweak settings for specific applications, and to apply post-processing to scans for improved performance. Keselman et al, and Grunnet-Jepsen and Tong \cite{keselmanIntelRRealSenseTMStereoscopic2017,DepthPostProcessingIntel} provide useful insight into the operation and theory of the Intel RealSense r200 and D400 series cameras respectfully. Keselman et al \cite{keselmanIntelRRealSenseTMStereoscopic2017} describes how the correlation algorithm performs well under texture sparse conditions, and is more robust to noise compared to similar algorithms. The author also explains the limitations of the sensor, such as the minimum depth is dictated by the limited disparity search range, and maximum distance is limited by signal to noise ratio. Additionally, the use of a laser based feature projector can introduce some artifacting due to the effect of laser speckle noise. Grunnet-Jepsen and Tong \cite{DepthPostProcessingIntel} provide an outline on the post-processing methods provided by the Intel RealsSense SDK. This white paper explains how some of the processes work, and gives a general outline on the pipeline that should be applied to achieve a baseline filtered depth map.
+ 
+One fundamental requirement of stereo vision is the need for textured surfaces, in order to perform disparity matching for depth computation. This need results as a reduction in performance on texture sparse environments. The Intel RealSense family address this with the use of a laser based IR projector which project semi random patterns onto the surface to artificially introduce visual texture. Grunnet-Jepsen et al \cite{ProjectorsD400Series} describes how the illumination power of the internal projector can be optimised for different light environments, and further how an external projector or dot pattern can be overlaid onto the surface to improve performance on texture sparse environments, as the D400 series cameras do not require a predefined pattern. These projected patterns can improve performance, as the achievable dot density is far higher than what the on board projector can achieve, and does not suffer with the same laser speckle problem. 
+
+\todo{LOOK FOR A PAPER DISCUSSING TEXTURE OF WATER LOGGED SAND}
+
+Intel Realsense camera depth testing methodology
+ 
+pixel level extrinsics self calib??????
+
+
+ \section{Summary and identified Research Gap}
+
+summary of the bilogical sugnificane, the rugosity metrics, RGB--D camera use
+
+
+the basis of this project uses the Asus  Ziton Pro Live 3D. This project uses the Intel RealSense D456, and so the metrics used there cannot be applied here.
+
+Other papers characterise performance of different cameras, therefore they cannot be directly applied to this project. Additionally, if they did, such as Rustler, they only characterised against planar targets, and only at height characterisation (maybe also light, cannot remember)
+
+This means that there is little reaserch done on the rigourus performance of the realsense D456 under conditions similar to that of this project, in exposed intertidal regions.
+
+further more, there is little on the concept of combining multiple of such sediment scans into a single scan for better analysis.
+
+
+%---------------------------------------------------------------------
+%   HOW TO CITE
+%---------------------------------------------------------------------
+%   natbib gives you two forms, and they are NOT interchangeable.
+%
+%     \citet{key}   TEXTUAL. The author becomes part of the sentence.
+%                   "As \citet{shannon1948} showed, ..."
+%                   -> As Shannon (1948) showed, ...
+%
+%     \citep{key}   PARENTHETICAL. The whole citation sits in brackets at
+%                   the end of a clause.
+%                   "...is a solved problem \citep{shannon1948}."
+%                   -> ...is a solved problem (Shannon, 1948).
+%
+%   \cite{key} behaves like \citet in author-year mode and like a numeric
+%   citation in IEEE mode, so it reads differently depending on the switch at
+%   the top of 0_main.tex. Prefer \citet and \citep: they always mean what
+%   they say.
+%
+%   In IEEE mode both come out as [1], which is why IEEE citations are easier
+%   to write and harder to read.
+%---------------------------------------------------------------------
+
+%Textual, where the author is the subject of the sentence:
+%\citet{shannon1948} established the information-theoretic limits that still
+%bound modern communication systems.
+%
+%Parenthetical, at the end of a clause:
+%The effect is well documented \citep{placeholder_article}.
+%
+%Several sources at once, which natbib sorts and compresses:
+%The same conclusion is reached by three independent routes
+%\citep{placeholder_article,placeholder_book,placeholder_conference}.
+%
+%A page, chapter or section within a source:
+%The register map is given in full \citep[Ch.~8]{placeholder_website}.
+%
+%The year alone, where the sentence already names the author:
+%Shannon's channel capacity theorem \citeyearpar{shannon1948} is the origin of
+%the result. \citet{azharRGBDFrameworkCapturing2022} 
+
+%---------------------------------------------------------------------
+%   thesis.bib ships with one example of each entry type: article, book,
+%   chapter in an edited book, conference paper, thesis, technical report and
+%   website. Copy the nearest one and edit it.
+%---------------------------------------------------------------------

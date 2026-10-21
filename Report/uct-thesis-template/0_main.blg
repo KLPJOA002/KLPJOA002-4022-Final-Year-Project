@@ -23,12 +23,7 @@ A level-1 auxiliary file: Appendix.aux
 A level-1 auxiliary file: B_ethics.aux
 A level-1 auxiliary file: C_topicdescription.aux
 A level-1 auxiliary file: D_ECSA.aux
-The style file: IEEEtran.bst
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
+The style file: plainnat.bst
 Database file #1: 4022.bib
 Warning--I didn't find a database entry for "rusu2009fpfh"
 Warning--I didn't find a database entry for "fischler1981ransac"
@@ -43,54 +38,60 @@ Warning--I didn't find a database entry for "iso25178-2"
 Warning--I didn't find a database entry for "persson2005roughness"
 Warning--I didn't find a database entry for "riley1999tri"
 Warning--I didn't find a database entry for "sappington2007vrm"
--- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
--- http://www.michaelshell.org/tex/ieeetran/bibtex/
--- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--to sort, need author or key in ISO2517822021
+Warning--to sort, need author or key in intel_d456
+Warning--to sort, need author or key in CameraDepthTesting
+Warning--empty year in CameraDepthTesting
+Warning--empty year in ISO2517822021
+Warning--empty year in ProjectorsD400Series
+Warning--empty year in TuningDepthCameras
+Warning--empty year in DepthPostProcessingIntel
 Warning--empty journal in grunnet-jepsenBestKnownMethodsTuningIntel
+Warning--empty year in grunnet-jepsenBestKnownMethodsTuningIntel
 Warning--empty year in grunnet-jepsenBestKnownMethodsTuningIntel
 Warning--empty journal in lowLinearLeastSquaresOptimizationa
 Warning--empty year in lowLinearLeastSquaresOptimizationa
-
-Done.
-You've used 38 entries,
-            4087 wiz_defined-function locations,
-            1111 strings with 17183 characters,
-and the built_in function-call counts, 30476 in all, are:
-= -- 2435
-> -- 715
-< -- 281
-+ -- 404
-- -- 123
-* -- 1465
-:= -- 4333
-add.period$ -- 78
-call.type$ -- 38
-change.case$ -- 35
-chr.to.int$ -- 648
-cite$ -- 42
-duplicate$ -- 2191
-empty$ -- 2440
-format.name$ -- 147
-if$ -- 7155
-int.to.chr$ -- 0
-int.to.str$ -- 38
-missing$ -- 379
-newline$ -- 137
-num.names$ -- 36
-pop$ -- 877
+Warning--empty year in lowLinearLeastSquaresOptimizationa
+Warning--empty publisher in inbook
+You've used 53 entries,
+            2773 wiz_defined-function locations,
+            1049 strings with 19948 characters,
+and the built_in function-call counts, 28461 in all, are:
+= -- 2646
+> -- 1676
+< -- 35
++ -- 567
+- -- 513
+* -- 2503
+:= -- 4283
+add.period$ -- 229
+call.type$ -- 53
+change.case$ -- 326
+chr.to.int$ -- 52
+cite$ -- 124
+duplicate$ -- 1196
+empty$ -- 2196
+format.name$ -- 593
+if$ -- 6009
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 50
+newline$ -- 340
+num.names$ -- 200
+pop$ -- 617
 preamble$ -- 1
-purify$ -- 0
-quote$ -- 2
-skip$ -- 2342
+purify$ -- 276
+quote$ -- 0
+skip$ -- 940
 stack$ -- 0
-substring$ -- 1597
-swap$ -- 1867
-text.length$ -- 65
+substring$ -- 1173
+swap$ -- 208
+text.length$ -- 14
 text.prefix$ -- 0
-top$ -- 5
-type$ -- 38
-warning$ -- 4
-while$ -- 140
-width$ -- 40
-write$ -- 378
-(There were 17 warnings)
+top$ -- 0
+type$ -- 568
+warning$ -- 15
+while$ -- 234
+width$ -- 0
+write$ -- 821
+(There were 28 warnings)

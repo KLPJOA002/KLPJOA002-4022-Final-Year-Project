@@ -58,14 +58,17 @@ The characterisation was performed in two stages. In the first stage the camera 
 All planar characterisation used custom C++ software built on the Intel RealSense SDK, following the plane-fit metrics of Intel's Depth Quality Tool. Details of each trial including: distance, tilt angle and a lux reading, are entered into the tool and the scan is started, after which approximately 600 frames are recorded. A region of interest (ROI) is then applied whose pixel size is adjusted with distance so that it always covers a fixed 50\,$\times$\,50\,cm area of the target. A plane is fitted to the ROI points of every frame and compared with the ground-truth plane. Frames flagged as repeated or as outliers were discarded, leaving roughly 400 to 600 valid frames per trial\todo{confirm the same frame rejection was applied in all three sweeps}. Several metrics are reported by the tool, however there are four main metrics that will be discussed here to represent the general performance, each averaged over the valid frames of a trial:
 
 \begin{itemize}
-	\item \textbf{Plane-fit RMS} (mm): the root-mean-square distance of the ROI points from the best-fit plane. This measures spatial noise and is independent of any constant offset in the depth.
 	\item \textbf{Median depth error} (mm): the median signed difference between the measured and ground-truth depth, which measures systematic bias.
-	\item \textbf{Fill rate} (\%): the proportion of ROI pixels that returned a valid depth value.
+	
+	\item \textbf{Depth RMSE} (mm): the root mean square depth noise
+	
+	\item \textbf{Plane-fit RMS} (mm): the root-mean-square distance of the ROI points from the best-fit plane. This measures spatial noise and is independent of any constant offset in the depth.
+	
+	\item \textbf{Valid Pixels} (\%): the proportion of ROI pixels that returned a valid depth value.
 	%\item \textbf{Plane-fit angle} (\degree): the tilt of the fitted plane, used to confirm the actual camera orientation.
-	\item \textbf{Plane Distance Error} (mm): Error between perpendicular distance from camera to the fitted plane, and the ground truth.\todo{is this a good metric?}
 \end{itemize}
 
-The distinction between precision and bias matters for this project. A smooth, systematic bias is removed when the fused surface is detrended to extract microtopography, whereas random noise adds directly to the measured roughness. Plane-fit RMS and fill rate are therefore treated as the primary metric, with depth error and Plane Distance Error treated as secondary indicators. Each condition was recorded as a single trial. The frames within a trial capture temporal variation but not the repeatability of re-setting the experiment, which is discussed in \autoref{sec5.3:chapsummary}.
+The distinction between precision and bias matters for this project. A smooth, systematic bias is removed when the fused surface is detrended to extract microtopography, whereas random noise adds directly to the measured roughness. Plane-fit RMS and fill rate are therefore treated as the primary metric, with depth error and depth RMSE treated as secondary indicators. Each condition was recorded as a single trial. The frames within a trial capture temporal variation but not the repeatability of re-setting the experiment, which is discussed in \autoref{sec5.3:chapsummary}.
 
 %---------------------------------------------------------------------
 \subsection{Planar Characterisation Methodology}
