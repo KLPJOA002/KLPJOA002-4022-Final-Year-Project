@@ -63,22 +63,22 @@
 \contentsline {subsubsection}{Ambient lighting}{19}{subsubsection*.20}%
 \contentsline {subsection}{\numberline {5.1.3}Planar testing Results}{20}{subsection.5.1.3}%
 \contentsline {subsubsection}{Working Distance}{20}{subsubsection*.21}%
-\contentsline {subsubsection}{Camera Tilt}{20}{subsubsection*.24}%
-\contentsline {subsubsection}{Ambient Lighting}{21}{subsubsection*.26}%
+\contentsline {subsubsection}{Camera Tilt}{20}{subsubsection*.23}%
+\contentsline {subsubsection}{Ambient Lighting}{20}{subsubsection*.25}%
 \contentsline {subsection}{\numberline {5.1.4}Discusion}{22}{subsection.5.1.4}%
-\contentsline {subsubsection}{Working Distance}{22}{subsubsection*.29}%
-\contentsline {subsubsection}{Camera Tilt}{22}{subsubsection*.30}%
-\contentsline {subsubsection}{Ambient Lighting}{23}{subsubsection*.31}%
+\contentsline {subsubsection}{Working Distance}{22}{subsubsection*.28}%
+\contentsline {subsubsection}{Camera Tilt}{22}{subsubsection*.29}%
+\contentsline {subsubsection}{Ambient Lighting}{22}{subsubsection*.30}%
 \contentsline {section}{\numberline {5.2}3D Reference Characterisation}{23}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Reference objects and evaluation}{23}{subsection.5.2.1}%
 \contentsline {subsection}{\numberline {5.2.2}Testing Procedure}{23}{subsection.5.2.2}%
-\contentsline {subsubsection}{Camera configuration}{23}{subsubsection*.32}%
-\contentsline {subsubsection}{Post-processing filters}{24}{subsubsection*.33}%
-\contentsline {subsubsection}{Tilt and rotation}{24}{subsubsection*.34}%
+\contentsline {subsubsection}{Camera configuration}{23}{subsubsection*.31}%
+\contentsline {subsubsection}{Post-processing filters}{23}{subsubsection*.32}%
+\contentsline {subsubsection}{Tilt and rotation}{24}{subsubsection*.33}%
 \contentsline {subsection}{\numberline {5.2.3}3D Characterisation Results}{24}{subsection.5.2.3}%
-\contentsline {subsubsection}{Camera Configuration}{24}{subsubsection*.35}%
-\contentsline {subsubsection}{Filters}{24}{subsubsection*.39}%
-\contentsline {subsubsection}{Tilt and Rotation}{26}{subsubsection*.42}%
+\contentsline {subsubsection}{Camera Configuration}{24}{subsubsection*.34}%
+\contentsline {subsubsection}{Filters}{26}{subsubsection*.38}%
+\contentsline {subsubsection}{Tilt and Rotation}{26}{subsubsection*.41}%
 \contentsline {section}{\numberline {5.3}Chapter Summary}{26}{section.5.3}%
 \contentsline {chapter}{\numberline {6}Data Processing Pipeline}{29}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Point Cloud Cropping}{29}{section.6.1}%
@@ -95,11 +95,11 @@
 \contentsline {subsection}{\numberline {6.2.3}Coarse alignment}{33}{subsection.6.2.3}%
 \contentsline {subsection}{\numberline {6.2.4}Fine registration}{34}{subsection.6.2.4}%
 \contentsline {subsection}{\numberline {6.2.5}Reconciling the overlapping scans}{35}{subsection.6.2.5}%
-\contentsline {paragraph}{Weighting each measurement.}{35}{paragraph*.44}%
-\contentsline {paragraph}{Grouping measurements into cells.}{35}{paragraph*.45}%
-\contentsline {paragraph}{Choosing one value per cell.}{35}{paragraph*.46}%
-\contentsline {paragraph}{Removing off-surface outliers.}{35}{paragraph*.47}%
-\contentsline {paragraph}{Smoothing.}{35}{paragraph*.48}%
+\contentsline {paragraph}{Weighting each measurement.}{35}{paragraph*.43}%
+\contentsline {paragraph}{Grouping measurements into cells.}{35}{paragraph*.44}%
+\contentsline {paragraph}{Choosing one value per cell.}{35}{paragraph*.45}%
+\contentsline {paragraph}{Removing off-surface outliers.}{35}{paragraph*.46}%
+\contentsline {paragraph}{Smoothing.}{35}{paragraph*.47}%
 \contentsline {subsection}{\numberline {6.2.6}Limitations}{36}{subsection.6.2.6}%
 \contentsline {section}{\numberline {6.3}Surface Roughness Estimation}{36}{section.6.3}%
 \contentsline {subsection}{\numberline {6.3.1}Levelling}{36}{subsection.6.3.1}%
@@ -108,8 +108,8 @@
 \contentsline {subsection}{\numberline {6.3.4}Height parameters}{37}{subsection.6.3.4}%
 \contentsline {subsection}{\numberline {6.3.5}Rugosity and slope}{37}{subsection.6.3.5}%
 \contentsline {subsection}{\numberline {6.3.6}Spatial and spectral parameters}{38}{subsection.6.3.6}%
-\contentsline {paragraph}{Autocorrelation.}{38}{paragraph*.49}%
-\contentsline {paragraph}{Power spectrum.}{38}{paragraph*.50}%
+\contentsline {paragraph}{Autocorrelation.}{38}{paragraph*.48}%
+\contentsline {paragraph}{Power spectrum.}{38}{paragraph*.49}%
 \contentsline {subsection}{\numberline {6.3.7}Additional measures and uncertainty}{38}{subsection.6.3.7}%
 \contentsline {subsection}{\numberline {6.3.8}Validation}{39}{subsection.6.3.8}%
 \contentsline {subsection}{\numberline {6.3.9}Limitations}{39}{subsection.6.3.9}%
@@ -133,11 +133,12 @@
 \renewcommand {\cftchappresnum }{Appendix }
 \contentsline {chapter}{\numberline {B}Theory}{46}{chapter.B}%
 \contentsline {chapter}{\numberline {C}Reference Objects}{47}{chapter.C}%
-\contentsline {chapter}{\numberline {D}Parameter Heatmap}{49}{chapter.D}%
-\contentsline {chapter}{\numberline {E}Filter Heatmaps}{51}{chapter.E}%
-\contentsline {chapter}{\numberline {F}Combination Heatmaps}{54}{chapter.F}%
-\contentsline {chapter}{Appendix B: Ethics approval}{55}{appendix*.63}%
-\contentsline {chapter}{Appendix C: Topic description}{56}{appendix*.64}%
-\contentsline {chapter}{Appendix D: ECSA Graduate Attributes}{57}{appendix*.65}%
-\contentsline {section}{Project mapping to ECSA Graduate Attributes}{57}{section*.66}%
-\contentsline {chapter}{Bibliography}{60}{appendix*.67}%
+\contentsline {chapter}{\numberline {D}Characterisation Results}{49}{chapter.D}%
+\contentsline {chapter}{\numberline {E}Parameter Heatmap}{51}{chapter.E}%
+\contentsline {chapter}{\numberline {F}Filter Heatmaps}{53}{chapter.F}%
+\contentsline {chapter}{\numberline {G}Combination Heatmaps}{56}{chapter.G}%
+\contentsline {chapter}{Appendix B: Ethics approval}{57}{appendix*.65}%
+\contentsline {chapter}{Appendix C: Topic description}{58}{appendix*.66}%
+\contentsline {chapter}{Appendix D: ECSA Graduate Attributes}{59}{appendix*.67}%
+\contentsline {section}{Project mapping to ECSA Graduate Attributes}{59}{section*.68}%
+\contentsline {chapter}{Bibliography}{62}{appendix*.69}%

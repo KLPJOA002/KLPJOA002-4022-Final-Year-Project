@@ -1,0 +1,178 @@
+{
+  "tool": "rstable",
+  "version": "0.1.0",
+  "saved_at": "2026-10-21T18:10:56",
+  "dataset": {
+    "path": "/home/joab/Documents/4022/Data/Angle_Analysis/Plots/per_trial_summary.csv",
+    "family": "planar_summary",
+    "size": 49192,
+    "mtime": "2026-10-18T21:58:27",
+    "n_rows": 26
+  },
+  "statistic": "per-trial median [Q1, Q3]",
+  "n": "n = 527\u2013574 frames",
+  "files": [
+    "/home/joab/Documents/4022/Report/uct-thesis-template/tables/Scatter_Metric_Vs_Angle_table.tex",
+    "/home/joab/Documents/4022/Report/uct-thesis-template/tables/Scatter_Metric_Vs_Angle_table.csv"
+  ],
+  "latex_input": "\\input{tables/Scatter_Metric_Vs_Angle_table}",
+  "spec": {
+    "source": {
+      "sidecar": "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle.rsplot.json",
+      "sidecar_saved_at": "2026-10-19T13:11:11",
+      "plot": {
+        "plot_type": "scatter",
+        "dataset": {
+          "path": "/home/joab/Documents/4022/Data/Angle_Analysis/Plots/per_trial_summary.csv",
+          "family": "planar_summary",
+          "include_ignored": false
+        },
+        "mapping": {
+          "x": "absMean_IMU_angle",
+          "y": [
+            "z_err_median_mm",
+            "z_err_rmse_mm",
+            "plane_rms_mm",
+            "fill_pct"
+          ],
+          "y_mode": "side_by_side",
+          "hue": "axis",
+          "facet": null,
+          "facet_cols": 0,
+          "style": null,
+          "row": null,
+          "secondary": null,
+          "by": []
+        },
+        "filters": [],
+        "aggregation": {
+          "func": "none",
+          "spread": "none",
+          "stored_stat": "median",
+          "stored_spread": "iqr"
+        },
+        "style": {
+          "preset": "thesis",
+          "show_title": false,
+          "title": "",
+          "subtitle": "",
+          "footnote_mode": "off",
+          "footnote": "",
+          "xlabel": null,
+          "ylabel": null,
+          "labels": {},
+          "value_labels": {},
+          "prettify_values": true,
+          "xlim": null,
+          "ylim": null,
+          "xlog": false,
+          "ylog": false,
+          "x_ticks": 0,
+          "y_ticks": 0,
+          "x_tick_format": "",
+          "y_tick_format": "",
+          "fraction_as_percent": true,
+          "grid": true,
+          "legend": "outside top",
+          "legend_cols": 0,
+          "legend_title": false,
+          "show_n": false,
+          "palette": "default",
+          "greyscale": false,
+          "colors": {},
+          "cmap": "rs_sequential",
+          "marker": "o",
+          "marker_size": null,
+          "line_width": null,
+          "linestyle": "-",
+          "band_alpha": 0.18,
+          "annotate": false,
+          "margin": "normal",
+          "pad_pct": null,
+          "font_scale": 1.0,
+          "sharex": true,
+          "sharey": true
+        },
+        "export": {
+          "size_preset": "thesis_full",
+          "width_cm": null,
+          "height_cm": 7.5,
+          "formats": [
+            "png"
+          ],
+          "dpi": 622,
+          "transparent": false,
+          "folder": "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5",
+          "filename": "Scatter_Metric_Vs_Angle",
+          "usetex": false,
+          "mathtext": "stix",
+          "grid_mode": "panels",
+          "panel_labels": "outer",
+          "panel_cols": 2
+        },
+        "options": {
+          "trend": "quadratic",
+          "trend_label": "R\u00b2"
+        },
+        "version": 1
+      }
+    },
+    "stats": {
+      "inherit": true,
+      "func": "median",
+      "spread": "iqr",
+      "stored_stat": "median",
+      "stored_spread": "iqr"
+    },
+    "layout": {
+      "row_keys": [
+        "__xvalue__",
+        "axis"
+      ],
+      "col_keys": [
+        "__metric__"
+      ],
+      "metrics": [
+        "z_err_median_mm",
+        "z_err_rmse_mm",
+        "plane_rms_mm",
+        "fill_pct"
+      ],
+      "hidden": {},
+      "repeat_labels": false,
+      "group_sep": "space"
+    },
+    "format": {
+      "spread_format": "auto",
+      "decimals": {},
+      "sig_figs": 3,
+      "max_decimals": 4,
+      "percent": null,
+      "spread_small": false,
+      "stat_place": "header",
+      "n_mode": "caption",
+      "best": {},
+      "bold_best": false,
+      "best_scope": "column",
+      "header_labels": {},
+      "value_labels": {},
+      "wrap": 14,
+      "math_minus": true
+    },
+    "output": {
+      "caption": "Results for Planar Characterisation Against Scan Angle. Per-trial values over n=527-574 frames.",
+      "caption_auto": false,
+      "caption_detail": true,
+      "label": "tab:Scatter_Metric_Vs_Angle",
+      "placement": "ht",
+      "font_size": "small",
+      "tabcolsep": 8.0,
+      "makecell": true,
+      "resize": false,
+      "folder": "/home/joab/Documents/4022/Report/uct-thesis-template/tables",
+      "filename": "Scatter_Metric_Vs_Angle_table",
+      "write_csv": true
+    },
+    "version": 1
+  }
+}
