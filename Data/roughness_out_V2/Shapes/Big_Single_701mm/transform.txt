@@ -1,0 +1,10 @@
+# scan_eval transform: scan -> reference frame, metres (written by roughness_scans.py)
+# scan /home/joab/Documents/4022/Data/3D_Results/Single/Big_701mm.ply
+# reference EGG_1PK
+# includes: auto-placed (rotation 192 deg) -> adjusted
+# reuse with: roughness_scans.py --transform <this file> (and none of --flip/--rotate-deg/--shift-mm/--refine/--adjust) <same scan>
+#        or:  evaluate_scans.py --init-transform <this file> --align refine|none <same scan>
+0.009052113021 0.999920589648 0.008767761869 0.032451485999
+-0.999915182603 0.009133477303 -0.009284782868 0.040596530149
+-0.009364125714 -0.008682971307 0.999918456255 0.702893425434
+0.000000000000 0.000000000000 0.000000000000 1.000000000000

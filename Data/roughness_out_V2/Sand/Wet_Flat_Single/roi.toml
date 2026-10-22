@@ -1,0 +1,7 @@
+# Evaluated area for /home/joab/Documents/4022/Data/Wet_Flat_Single.ply, chosen with --pick-roi.
+# mm in the analysis frame (orientation: plane). Re-run exactly with
+#   roughness_scans.py --config roi.toml <same flags> <scan>
+# or copy these lines into your own config.
+orient_mode = "plane"
+[crop]
+roi_polygon_mm = [[-189.51, -131.78], [-151.82, -155.77], [161.56, -138.36], [192.28, -132.15], [205.31, -115.3], [196.3, 115.86], [180.75, 137.36], [-171.36, 124.72], [-196.54, 106.43]]

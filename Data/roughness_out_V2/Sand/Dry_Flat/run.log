@@ -1,0 +1,86 @@
+
+######## /home/joab/Documents/4022/Data/Dry_Flat.ply  ->  roughness_out_V2/Sand/Dry_Flat
+
+=== Stage: load ===
+[scan] Dry_Flat.ply: 250258 points
+
+=== Stage: orient ===
+[orient] plane normal (scan frame) (+0.1570, +0.0932, +0.9832), facing the sensor
+[orient] tilt removed 10.52 deg; plane RMS 15.363 mm over 44.6% inliers
+
+=== Stage: crop ===
+[grid] point spacing 1.190 mm (median nearest neighbour 0.245 mm) -> grid 2 mm
+[grid] the points come in clusters (nearest neighbour 0.245 mm, but one point per 1.190 mm on average): a grid below ~2.4 mm leaves most cells empty
+[roi] pick the area in the window: drag a rectangle, or press p and click a polygon (click the first vertex to close it); Enter accepts, Esc keeps the whole scan
+[roi] chosen: --roi-polygon "-198.98,-177.34;151.41,-164.17;174.89,-133.48;171.4,82.38;108.79,101.18;-204.5,93.51;-224.96,71.46;-216.66,-159.52"
+[crop] ROI polygon (8 vertices) keeps 75960 of 250258 points
+[crop] 75960 points; footprint 400.0 x 280.0 mm -> 200 x 140 cells
+
+=== Stage: detrend ===
+[detrend] planar     3 coef  trend RMS   21.735 mm  removes  99.4% of height variance  residual Sq 1.617 mm  (100.0% inliers, 1 it, 0.0 s)
+[detrend] quadratic  6 coef  trend RMS   21.804 mm  removes  99.9% of height variance  residual Sq 0.613 mm  (98.7% inliers, 5 it, 0.1 s)
+[detrend] cubic     10 coef  trend RMS   21.844 mm  removes  99.9% of height variance  residual Sq 0.563 mm  (97.8% inliers, 5 it, 0.1 s)
+[detrend] quartic   15 coef  trend RMS   21.799 mm  removes 100.0% of height variance  residual Sq 0.416 mm  (97.9% inliers, 5 it, 0.1 s)
+
+=== Stage: grid ===
+[grid] 26214 valid cells of 26228 in the footprint (99.9%, 99.9% in complete 2 x 2 quads); 3 small hole(s) interpolated (0.01% of valid cells), 0 larger hole(s) masked; 2.9 points / cell
+[grid] footprint 400.0 x 280.0 mm
+
+=== Stage: metrics ===
+[metrics] planar (primary)
+  height    Sq 1.6161  Sa 1.3523  Sp 4.195  Sv 4.731  Sz 8.926 mm   Ssk -0.379  Sku 2.406
+  area      rugosity 1.00365  Sdr 0.365%  Sdq 0.0834  mean slope 3.93 deg
+  spatial   Sal 78.12 mm  Str 0.324 (upper bound)  Std 0 deg  anisotropy 0.821
+  dominant  214.56 mm, wave vector at 69.5 deg (peak 22138x median)
+  spectrum  slope -3.264  Hurst 0.632  D 2.368  R^2 0.784  over 8..70 mm
+  windows   Sq 0.0533 -> 0.5579 mm and rugosity 1.0011 -> 1.0034 from 8 to 140 mm windows
+  95% CI    Sq [1.2508, 1.8310] mm  Sdr [0.300, 0.381]%  Sal [15.32, 17.79] mm  (24 windows of 62 mm)
+  rugged    TRI 0.3521 mm  VRM 7.27e-04  (3x3 cells)
+  (0.0 s)
+[metrics] quadratic
+  height    Sq 0.6092  Sa 0.4740  Sp 2.985  Sv 3.313  Sz 6.298 mm   Ssk +0.028  Sku 4.381
+  area      rugosity 1.00339  Sdr 0.339%  Sdq 0.0803  mean slope 3.77 deg
+  spatial   Sal 41.25 mm  Str 0.551  Std 0 deg  anisotropy 0.820
+  dominant  186.72 mm, wave vector at 84.0 deg (peak 30721x median)
+  spectrum  slope -3.260  Hurst 0.630  D 2.370  R^2 0.782  over 8..70 mm
+  windows   Sq 0.0532 -> 0.4707 mm and rugosity 1.0011 -> 1.0032 from 8 to 140 mm windows
+  95% CI    Sq [0.4823, 0.6422] mm  Sdr [0.271, 0.349]%  Sal [11.40, 14.51] mm  (24 windows of 62 mm)
+  rugged    TRI 0.3384 mm  VRM 7.26e-04  (3x3 cells)
+  (0.0 s)
+[metrics] cubic
+  height    Sq 0.5580  Sa 0.4057  Sp 4.334  Sv 2.137  Sz 6.471 mm   Ssk +1.255  Sku 8.337
+  area      rugosity 1.00342  Sdr 0.342%  Sdq 0.0807  mean slope 3.78 deg
+  spatial   Sal 32.39 mm  Str 0.568  Std 0 deg  anisotropy 0.827
+  dominant  171.69 mm, wave vector at 81.8 deg (peak 15120x median)
+  spectrum  slope -3.263  Hurst 0.632  D 2.368  R^2 0.783  over 8..70 mm
+  windows   Sq 0.0532 -> 0.4675 mm and rugosity 1.0011 -> 1.0033 from 8 to 140 mm windows
+  95% CI    Sq [0.4262, 0.5311] mm  Sdr [0.272, 0.345]%  Sal [10.97, 13.59] mm  (24 windows of 62 mm)
+  rugged    TRI 0.3388 mm  VRM 7.27e-04  (3x3 cells)
+  (0.0 s)
+[metrics] quartic
+  height    Sq 0.4111  Sa 0.3108  Sp 1.935  Sv 2.315  Sz 4.250 mm   Ssk +0.279  Sku 4.945
+  area      rugosity 1.00313  Sdr 0.313%  Sdq 0.0770  mean slope 3.65 deg
+  spatial   Sal 22.50 mm  Str 0.749  Std 0 deg  anisotropy 0.835
+  dominant  142.00 mm, wave vector at 89.4 deg (peak 3472x median)
+  spectrum  slope -3.274  Hurst 0.637  D 2.363  R^2 0.784  over 8..70 mm
+  windows   Sq 0.0531 -> 0.3672 mm and rugosity 1.0011 -> 1.0031 from 8 to 140 mm windows
+  95% CI    Sq [0.3433, 0.4468] mm  Sdr [0.262, 0.334]%  Sal [9.58, 12.13] mm  (24 windows of 62 mm)
+  rugged    TRI 0.3289 mm  VRM 7.23e-04  (3x3 cells)
+  (0.0 s)
+  [!] planar: no clear spectral peak: the dominant wavelength is at the edge of the search
+      range (8..140 mm), so the surface has no distinct ripple wavelength there (or it is
+      longer than wavelength_max_fraction x footprint)
+  [!] quadratic: no clear spectral peak: the dominant wavelength is at the edge of the
+      search range (8..140 mm), so the surface has no distinct ripple wavelength there (or
+      it is longer than wavelength_max_fraction x footprint)
+  [!] cubic: no clear spectral peak: the dominant wavelength is at the edge of the search
+      range (8..140 mm), so the surface has no distinct ripple wavelength there (or it is
+      longer than wavelength_max_fraction x footprint)
+  [!] quartic: no clear spectral peak: the dominant wavelength is at the edge of the search
+      range (8..140 mm), so the surface has no distinct ripple wavelength there (or it is
+      longer than wavelength_max_fraction x footprint)
+
+=== Stage: write ===
+[write] heightmap_<method>.npy (planar, quadratic, cubic, quartic, mm, NaN = invalid); psd_<method>.csv; multiscale_<method>.csv; roi.toml; heightmap_<method>.png, roi_preview.png, detrend_comparison.png, detrend_explained.png, detrend_metrics.png, psd.png, multiscale.png
+[write] metrics.json, run.log; 4 row(s) appended to roughness_out_V2/Sand/roughness_results.csv
+[done] 34.8 s

@@ -1,0 +1,7 @@
+# Evaluated area for /home/joab/Documents/4022/Data/Dry_Flat.ply, chosen with --pick-roi.
+# mm in the analysis frame (orientation: plane). Re-run exactly with
+#   roughness_scans.py --config roi.toml <same flags> <scan>
+# or copy these lines into your own config.
+orient_mode = "plane"
+[crop]
+roi_polygon_mm = [[-198.98, -177.34], [151.41, -164.17], [174.89, -133.48], [171.4, 82.38], [108.79, 101.18], [-204.5, 93.51], [-224.96, 71.46], [-216.66, -159.52]]

@@ -1,0 +1,7 @@
+# Evaluated area for /home/joab/Documents/4022/Data/Soaked.ply, chosen with --pick-roi.
+# mm in the analysis frame (orientation: plane). Re-run exactly with
+#   roughness_scans.py --config roi.toml <same flags> <scan>
+# or copy these lines into your own config.
+orient_mode = "plane"
+[crop]
+roi_polygon_mm = [[37.44, -221.08], [60.75, -216.81], [217.54, -50.04], [221.87, -21.06], [-43.34, 227.34], [-67.28, 230.82], [-231.82, 57.2], [-236.53, 35.87]]

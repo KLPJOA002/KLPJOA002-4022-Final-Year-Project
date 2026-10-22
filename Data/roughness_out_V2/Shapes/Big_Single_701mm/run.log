@@ -1,0 +1,136 @@
+
+######## /home/joab/Documents/4022/Data/3D_Results/Single/Big_701mm.ply  ->  roughness_out_V2/Shapes/Big_701mm
+
+=== Stage: load ===
+  [!] Big_701mm.ply is a mesh (1633936 faces), not a point cloud - is it a reference rather
+      than a scan? Evaluating its vertices as scan points.
+[scan] Big_701mm.ply: 820918 points
+
+=== Stage: align ===
+[align] the scan is nowhere near the part (raw camera coordinates?) - auto-placing it
+[align] auto-place: levelled on the bed (tilt 1.0 deg), part found at (381, -317) mm in the levelled scan (11664 mm^2); best rotations 192 deg (8.11 mm), 202 deg (8.43 mm), 212 deg (8.69 mm) - median |dz|
+  [!] auto-place: rotations 192 and 202 deg fit almost equally well (the part is symmetric):
+      check the pose (reference_comparison.png, or --adjust; r turns by 90 deg)
+  [!] refine: ICP moved the scan 9.5 mm / 8.2 deg and made the fit worse (RMS dz 17.07 ->
+      19.67 mm, outline covered 82% -> 82%), so it is ignored; only the +2.81 mm height
+      match is kept. Get closer by hand first (--adjust, or --rotate-deg / --shift-mm)
+[align] move the scan in the window (keys and buttons at the bottom); Enter accepts, Esc cancels
+  [!] refine: ICP moved the scan 47.8 mm / 11.6 deg and made the fit worse (RMS dz 15.82 ->
+      18.68 mm, outline covered 100% -> 72%), so it is ignored; only the -3.36 mm height
+      match is kept. Get closer by hand first (--adjust, or --rotate-deg / --shift-mm)
+[align] refine: height -0.82 mm, then 23 ICP iterations on 8806 points; moved 6.19 mm / 1.51 deg in all, RMS dz 5.408 -> 3.142 mm
+  [!] refine: ICP moved the scan 4.6 mm / 14.5 deg and made the fit worse (RMS dz 20.00 ->
+      20.39 mm, outline covered 100% -> 98%), so it is ignored; only the +7.40 mm height
+      match is kept. Get closer by hand first (--adjust, or --rotate-deg / --shift-mm)
+  [!] refine: ICP moved the scan 9.2 mm / 14.5 deg and made the fit worse (RMS dz 20.00 ->
+      20.39 mm, outline covered 100% -> 98%), so it is ignored; only the +0.00 mm height
+      match is kept. Get closer by hand first (--adjust, or --rotate-deg / --shift-mm)
+  [!] refine: ICP moved the scan 9.2 mm / 14.5 deg and made the fit worse (RMS dz 20.00 ->
+      20.39 mm, outline covered 100% -> 98%), so it is ignored; only the +0.00 mm height
+      match is kept. Get closer by hand first (--adjust, or --rotate-deg / --shift-mm)
+[align] refine: height -4.36 mm, then 28 ICP iterations on 8063 points; moved 21.49 mm / 0.97 deg in all, RMS dz 15.842 -> 3.252 mm
+[align] refine: height +0.42 mm, then 10 ICP iterations on 8807 points; moved 0.33 mm / 0.97 deg in all, RMS dz 3.708 -> 3.141 mm
+[align] adjusted: flip no, rotate +0.00 deg, shift +0.00,+0.00,+0.00 mm (after auto-place / auto-fit)
+[align] vs reference: median |dz| 1.865 mm, RMS dz 2.971 mm, height correlation +0.961, outline covered 100%
+
+=== Stage: orient ===
+[orient] none: keeping the input frame (scan already aligned, e.g. to a reference)
+
+=== Stage: crop ===
+[grid] point spacing 1.112 mm (median nearest neighbour 1.067 mm) -> grid 2.1 mm
+[roi] pick the area in the window: drag a rectangle, or press p and click a polygon (click the first vertex to close it); Enter accepts, Esc keeps the whole scan
+[roi] chosen: --roi 3.74,3,97.16,94.73
+[crop] reference footprint keeps 8926 of 820918 points
+[crop] ROI x 3.74..97.16, y 3..94.73 mm keeps 7810 of 820918 points
+[crop] 7810 points; footprint 94.5 x 92.4 mm -> 45 x 44 cells
+
+=== Stage: detrend ===
+[detrend] planar     3 coef  trend RMS    0.958 mm  removes   1.3% of height variance  residual Sq 8.408 mm  (100.0% inliers, 1 it, 0.0 s)
+[detrend] quadratic  6 coef  trend RMS    1.040 mm  removes   1.5% of height variance  residual Sq 8.398 mm  (100.0% inliers, 1 it, 0.0 s)
+[detrend] cubic     10 coef  trend RMS    7.932 mm  removes  63.9% of height variance  residual Sq 5.086 mm  (98.2% inliers, 5 it, 0.0 s)
+[detrend] quartic   15 coef  trend RMS    7.918 mm  removes  64.9% of height variance  residual Sq 5.011 mm  (98.3% inliers, 5 it, 0.0 s)
+
+=== Stage: grid ===
+[grid] 1980 valid cells of 1980 in the footprint (100.0%, 100.0% in complete 2 x 2 quads); 0 small hole(s) interpolated (0.00% of valid cells), 0 larger hole(s) masked; 3.9 points / cell
+[grid] footprint 94.5 x 92.4 mm
+
+=== Stage: metrics ===
+[metrics] planar (primary)
+  height    Sq 8.3541  Sa 6.6826  Sp 16.958  Sv 20.366  Sz 37.324 mm   Ssk -0.037  Sku 2.414
+  area      rugosity 1.30909  Sdr 30.909%  Sdq 0.9018  mean slope 34.22 deg
+  spatial   Sal 17.28 mm  Str 0.683  Std 118 deg  anisotropy 0.769
+  dominant  67.06 mm, wave vector at 29.0 deg (peak 1502x median)
+  spectrum  slope -4.229  Hurst 1.114  D 1.886  R^2 0.933  over 8.4..23.1 mm
+  windows   Sq 0.4445 -> 3.9510 mm and rugosity 1.0683 -> 1.2290 from 8.4 to 46.2 mm windows
+  95% CI    Sq [7.7695, 9.0274] mm  Sdr [27.554, 36.997]%  Sal [7.47, 7.80] mm  (16 windows of 23.1 mm)
+  rugged    TRI 4.0755 mm  VRM 1.62e-02  (3x3 cells)
+  (0.0 s)
+[metrics] quadratic
+  height    Sq 8.3452  Sa 6.6689  Sp 16.852  Sv 20.737  Sz 37.588 mm   Ssk -0.025  Sku 2.406
+  area      rugosity 1.30861  Sdr 30.861%  Sdq 0.9013  mean slope 34.16 deg
+  spatial   Sal 17.25 mm  Str 0.683  Std 118 deg  anisotropy 0.768
+  dominant  67.05 mm, wave vector at 29.0 deg (peak 1505x median)
+  spectrum  slope -4.226  Hurst 1.113  D 1.887  R^2 0.932  over 8.4..23.1 mm
+  windows   Sq 0.4443 -> 3.9513 mm and rugosity 1.0683 -> 1.2288 from 8.4 to 46.2 mm windows
+  95% CI    Sq [7.7759, 9.0013] mm  Sdr [27.240, 37.538]%  Sal [7.47, 7.80] mm  (16 windows of 23.1 mm)
+  rugged    TRI 4.0698 mm  VRM 1.62e-02  (3x3 cells)
+  (0.0 s)
+[metrics] cubic
+  height    Sq 5.2377  Sa 3.8721  Sp 33.578  Sv 26.084  Sz 59.662 mm   Ssk +0.325  Sku 7.293
+  area      rugosity 1.26231  Sdr 26.231%  Sdq 0.8363  mean slope 30.15 deg
+  spatial   Sal 10.78 mm  Str 0.728  Std 118 deg  anisotropy 0.700
+  dominant  54.92 mm, wave vector at 34.2 deg (peak 706x median)
+  spectrum  slope -4.258  Hurst 1.129  D 1.871  R^2 0.937  over 8.4..23.1 mm
+  windows   Sq 0.4593 -> 4.8235 mm and rugosity 1.0702 -> 1.2632 from 8.4 to 46.2 mm windows
+  95% CI    Sq [4.1746, 5.7976] mm  Sdr [20.706, 34.975]%  Sal [6.55, 7.07] mm  (16 windows of 23.1 mm)
+  rugged    TRI 3.4812 mm  VRM 2.16e-02  (3x3 cells)
+  (0.0 s)
+[metrics] quartic
+  height    Sq 5.1838  Sa 3.8565  Sp 26.773  Sv 30.949  Sz 57.722 mm   Ssk +0.026  Sku 6.816
+  area      rugosity 1.26085  Sdr 26.085%  Sdq 0.8345  mean slope 30.10 deg
+  spatial   Sal 10.75 mm  Str 0.728  Std 118 deg  anisotropy 0.695
+  dominant  54.96 mm, wave vector at 34.1 deg (peak 703x median)
+  spectrum  slope -4.253  Hurst 1.127  D 1.873  R^2 0.936  over 8.4..23.1 mm
+  windows   Sq 0.4581 -> 4.7943 mm and rugosity 1.0701 -> 1.2621 from 8.4 to 46.2 mm windows
+  95% CI    Sq [4.1970, 5.8920] mm  Sdr [20.002, 35.842]%  Sal [6.59, 7.08] mm  (16 windows of 23.1 mm)
+  rugged    TRI 3.4719 mm  VRM 2.16e-02  (3x3 cells)
+  (0.0 s)
+
+=== Stage: validate ===
+[validate] 7920 reference samples over 100.0% of the scan's valid cells; median |scan z - reference z| 1.768 mm
+  planar    Sq_mm                    scan     8.3541  reference     9.9881  error    -1.6339 (-16.4%)
+  planar    Sa_mm                    scan     6.6826  reference     8.2368  error    -1.5542 (-18.9%)
+  planar    Sdr_pct                  scan    30.9093  reference    34.2463  error    -3.3370 (-9.7%)
+  planar    Sdq                      scan     0.9018  reference     0.9074  error    -0.0056 (-0.6%)
+  planar    Sal_mm                   scan    17.2766  reference    17.6141  error    -0.3375 (-1.9%)
+  planar    dominant_wavelength_mm   scan    67.0559  reference    70.3204  error    -3.2644 (-4.6%)
+  planar    hurst                    scan     1.1144  reference     2.7891  error    -1.6747 (-60.0%)
+  [!] planar: no clear spectral peak: the dominant wavelength is at the edge of the search
+      range (8.4..46.2 mm), so the surface has no distinct ripple wavelength there (or it is
+      longer than wavelength_max_fraction x footprint)
+  [!] planar: Hurst exponent 1.11 is outside the self-affine range 0..1 over the PSD band:
+      the surface is not a simple fractal there (e.g. a ripple peak or noise floor inside
+      the band)
+  [!] quadratic: no clear spectral peak: the dominant wavelength is at the edge of the
+      search range (8.4..46.2 mm), so the surface has no distinct ripple wavelength there
+      (or it is longer than wavelength_max_fraction x footprint)
+  [!] quadratic: Hurst exponent 1.11 is outside the self-affine range 0..1 over the PSD
+      band: the surface is not a simple fractal there (e.g. a ripple peak or noise floor
+      inside the band)
+  [!] cubic: no clear spectral peak: the dominant wavelength is at the edge of the search
+      range (8.4..46.2 mm), so the surface has no distinct ripple wavelength there (or it is
+      longer than wavelength_max_fraction x footprint)
+  [!] cubic: Hurst exponent 1.13 is outside the self-affine range 0..1 over the PSD band:
+      the surface is not a simple fractal there (e.g. a ripple peak or noise floor inside
+      the band)
+  [!] quartic: no clear spectral peak: the dominant wavelength is at the edge of the search
+      range (8.4..46.2 mm), so the surface has no distinct ripple wavelength there (or it is
+      longer than wavelength_max_fraction x footprint)
+  [!] quartic: Hurst exponent 1.13 is outside the self-affine range 0..1 over the PSD band:
+      the surface is not a simple fractal there (e.g. a ripple peak or noise floor inside
+      the band)
+
+=== Stage: write ===
+[write] heightmap_<method>.npy (planar, quadratic, cubic, quartic, mm, NaN = invalid); psd_<method>.csv; multiscale_<method>.csv; transform.txt; roi.toml; heightmap_<method>.png, roi_preview.png, detrend_comparison.png, detrend_explained.png, detrend_metrics.png, psd.png, multiscale.png, reference_comparison.png
+[write] metrics.json, run.log; 4 row(s) appended to roughness_out_V2/Shapes/roughness_results.csv
+[done] 57.2 s

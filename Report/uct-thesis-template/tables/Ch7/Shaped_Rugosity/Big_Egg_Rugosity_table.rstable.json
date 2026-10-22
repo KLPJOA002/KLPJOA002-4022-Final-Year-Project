@@ -1,0 +1,194 @@
+{
+  "tool": "rstable",
+  "version": "0.1.0",
+  "saved_at": "2026-10-22T23:40:11",
+  "dataset": {
+    "path": "/home/joab/Documents/4022/Data/roughness_out_V2/Shapes/roughness_results.csv",
+    "family": "generic",
+    "size": 24657,
+    "mtime": "2026-10-22T23:14:32",
+    "n_rows": 16
+  },
+  "statistic": "mean \u00b1 SD",
+  "n": "n = 1 rows",
+  "files": [
+    "/home/joab/Documents/4022/Report/uct-thesis-template/tables/Ch7/Shaped_Rugosity/Big_Egg_Rugosity_table.tex",
+    "/home/joab/Documents/4022/Report/uct-thesis-template/tables/Ch7/Shaped_Rugosity/Big_Egg_Rugosity_table.csv"
+  ],
+  "latex_input": "\\input{tables/Ch7/Shaped_Rugosity/Big_Egg_Rugosity_table}",
+  "spec": {
+    "source": {
+      "sidecar": "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch7/Shaped/Big_Egg_Rugosity.rsplot.json",
+      "sidecar_saved_at": "2026-10-22T23:28:50",
+      "plot": {
+        "plot_type": "bar",
+        "dataset": {
+          "path": "/home/joab/Documents/4022/Data/roughness_out_V2/Shapes/roughness_results.csv",
+          "family": "generic",
+          "include_ignored": false
+        },
+        "mapping": {
+          "x": "scan",
+          "y": [
+            "rugosity",
+            "ref_rugosity"
+          ],
+          "y_mode": "overlay",
+          "hue": null,
+          "facet": "detrend",
+          "facet_cols": 0,
+          "style": null,
+          "row": null,
+          "secondary": null,
+          "by": []
+        },
+        "filters": [
+          {
+            "column": "label",
+            "kind": "in",
+            "values": [
+              "Big_701mm",
+              "Big_wave_701mm"
+            ],
+            "lo": null,
+            "hi": null,
+            "keep_nan": false,
+            "enabled": true
+          }
+        ],
+        "aggregation": {
+          "func": "mean",
+          "spread": "std",
+          "stored_stat": "median",
+          "stored_spread": "iqr"
+        },
+        "style": {
+          "preset": "thesis",
+          "show_title": false,
+          "title": "",
+          "subtitle": "",
+          "footnote_mode": "off",
+          "footnote": "",
+          "xlabel": null,
+          "ylabel": null,
+          "labels": {},
+          "value_labels": {
+            "scan=/home/joab/Documents/4022/Data/3D_Results/Fused/Big_wave_701mm.ply": "Big Egg Box Fused",
+            "scan=/home/joab/Documents/4022/Data/3D_Results/Fused/Small_wave_701mm.ply": "Small Egg Box Fused",
+            "scan=/home/joab/Documents/4022/Data/3D_Results/Single/Big_701mm.ply": "Big Egg Box Single",
+            "scan=/home/joab/Documents/4022/Data/3D_Results/Single/Small_701mm.ply": "Small Egg Box Single"
+          },
+          "prettify_values": true,
+          "xlim": null,
+          "ylim": null,
+          "xlog": false,
+          "ylog": false,
+          "x_ticks": 0,
+          "y_ticks": 0,
+          "x_tick_format": "",
+          "y_tick_format": "",
+          "fraction_as_percent": true,
+          "grid": true,
+          "legend": "outside top",
+          "legend_cols": 0,
+          "legend_title": false,
+          "show_n": false,
+          "palette": "default",
+          "greyscale": false,
+          "colors": {},
+          "cmap": "rs_sequential",
+          "marker": "o",
+          "marker_size": null,
+          "line_width": null,
+          "linestyle": "-",
+          "band_alpha": 0.18,
+          "annotate": false,
+          "margin": "normal",
+          "pad_pct": null,
+          "font_scale": 1.0,
+          "sharex": true,
+          "sharey": true
+        },
+        "export": {
+          "size_preset": "thesis_full",
+          "width_cm": null,
+          "height_cm": 7.5,
+          "formats": [
+            "png"
+          ],
+          "dpi": 622,
+          "transparent": false,
+          "folder": "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch7/Shaped",
+          "filename": "Big_Egg_Rugosity",
+          "usetex": false,
+          "mathtext": "stix",
+          "grid_mode": "panels",
+          "panel_labels": "outer",
+          "panel_cols": 2
+        },
+        "options": {
+          "baseline": 1.0,
+          "value_labels": true
+        },
+        "version": 1
+      }
+    },
+    "stats": {
+      "inherit": true,
+      "func": "median",
+      "spread": "iqr",
+      "stored_stat": "median",
+      "stored_spread": "iqr"
+    },
+    "layout": {
+      "row_keys": [
+        "detrend",
+        "scan"
+      ],
+      "col_keys": [
+        "__metric__"
+      ],
+      "metrics": [
+        "rugosity",
+        "ref_rugosity"
+      ],
+      "hidden": {},
+      "repeat_labels": false,
+      "group_sep": "space"
+    },
+    "format": {
+      "spread_format": "auto",
+      "decimals": {},
+      "sig_figs": 3,
+      "max_decimals": 4,
+      "percent": null,
+      "spread_small": false,
+      "stat_place": "header",
+      "n_mode": "caption",
+      "best": {},
+      "bold_best": false,
+      "best_scope": "column",
+      "header_labels": {
+        "detrend": "Detrend Method"
+      },
+      "value_labels": {},
+      "wrap": 14,
+      "math_minus": true
+    },
+    "output": {
+      "caption": "",
+      "caption_auto": true,
+      "caption_detail": true,
+      "label": "tab:Big_Egg_Rugosity",
+      "placement": "ht",
+      "font_size": "small",
+      "tabcolsep": 8.0,
+      "makecell": true,
+      "resize": false,
+      "folder": "/home/joab/Documents/4022/Report/uct-thesis-template/tables/Ch7/Shaped_Rugosity",
+      "filename": "Big_Egg_Rugosity_table",
+      "write_csv": true
+    },
+    "version": 1
+  }
+}

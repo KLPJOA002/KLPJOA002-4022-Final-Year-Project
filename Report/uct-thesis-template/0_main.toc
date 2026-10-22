@@ -121,32 +121,34 @@
 \contentsline {section}{\numberline {7.1}Known Relief and Controlled Targets}{45}{section.7.1}%
 \contentsline {subsection}{\numberline {7.1.1}Process}{45}{subsection.7.1.1}%
 \contentsline {subsection}{\numberline {7.1.2}Results}{45}{subsection.7.1.2}%
-\contentsline {section}{\numberline {7.2}Controlled Laboratory Sand}{45}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Results}{46}{subsection.7.2.1}%
-\contentsline {chapter}{\numberline {8}Discussion}{47}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Optimal Configuration}{47}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Roughness Estimation}{47}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Feature Detection}{47}{section.8.3}%
-\contentsline {chapter}{\numberline {9}Conclusions}{48}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Further work}{49}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Characterisation}{49}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Hardware Choices}{49}{section.10.2}%
-\contentsline {chapter}{\numberline {A}GitHub repository}{50}{chapter.A}%
-\contentsline {section}{\numberline {A.1}Title for appendix A.1}{50}{section.A.1}%
+\contentsline {section}{\numberline {7.2}Controlled Laboratory Sand}{46}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Results}{48}{subsection.7.2.1}%
+\contentsline {chapter}{\numberline {8}Discussion}{49}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Optimal Configuration}{49}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Roughness Estimation}{49}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Feature Detection}{49}{section.8.3}%
+\contentsline {chapter}{\numberline {9}Conclusions}{50}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Further work}{51}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Characterisation}{51}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Hardware Choices}{51}{section.10.2}%
+\contentsline {chapter}{\numberline {A}GitHub repository}{52}{chapter.A}%
+\contentsline {section}{\numberline {A.1}Title for appendix A.1}{52}{section.A.1}%
 \renewcommand {\cftchappresnum }{Appendix }
-\contentsline {chapter}{\numberline {B}Theory}{51}{chapter.B}%
-\contentsline {chapter}{\numberline {C}Reference Objects}{52}{chapter.C}%
-\contentsline {chapter}{\numberline {D}Characterisation Results}{54}{chapter.D}%
-\contentsline {section}{\numberline {D.1}Planar Characterisation Results}{54}{section.D.1}%
-\contentsline {section}{\numberline {D.2}Camera Configuration Results}{56}{section.D.2}%
-\contentsline {section}{\numberline {D.3}Filter Configuration Results}{57}{section.D.3}%
-\contentsline {section}{\numberline {D.4}Fusion Combination Results}{58}{section.D.4}%
-\contentsline {chapter}{\numberline {E}Characterisation Plots}{59}{chapter.E}%
-\contentsline {section}{\numberline {E.1}Filter Heatmaps}{59}{section.E.1}%
-\contentsline {section}{\numberline {E.2}Combination Heatmaps}{62}{section.E.2}%
-\contentsline {section}{\numberline {E.3}Parameter Heatmap}{62}{section.E.3}%
-\contentsline {chapter}{Appendix B: Ethics approval}{64}{appendix*.75}%
-\contentsline {chapter}{Appendix C: Topic description}{65}{appendix*.76}%
-\contentsline {chapter}{Appendix D: ECSA Graduate Attributes}{66}{appendix*.77}%
-\contentsline {section}{Project mapping to ECSA Graduate Attributes}{66}{section*.78}%
-\contentsline {chapter}{Bibliography}{70}{appendix*.79}%
+\contentsline {chapter}{\numberline {B}Theory}{53}{chapter.B}%
+\contentsline {chapter}{\numberline {C}Reference Objects}{54}{chapter.C}%
+\contentsline {chapter}{\numberline {D}Characterisation Results}{56}{chapter.D}%
+\contentsline {section}{\numberline {D.1}Planar Characterisation Results}{56}{section.D.1}%
+\contentsline {section}{\numberline {D.2}Camera Configuration Results}{58}{section.D.2}%
+\contentsline {section}{\numberline {D.3}Filter Configuration Results}{59}{section.D.3}%
+\contentsline {section}{\numberline {D.4}Fusion Combination Results}{60}{section.D.4}%
+\contentsline {chapter}{\numberline {E}Characterisation Plots}{61}{chapter.E}%
+\contentsline {section}{\numberline {E.1}Filter Heatmaps}{61}{section.E.1}%
+\contentsline {section}{\numberline {E.2}Combination Heatmaps}{64}{section.E.2}%
+\contentsline {section}{\numberline {E.3}Parameter Heatmap}{64}{section.E.3}%
+\contentsline {chapter}{\numberline {F}Validation Results}{66}{chapter.F}%
+\contentsline {section}{\numberline {F.1}Reference Shapes Rugosity}{66}{section.F.1}%
+\contentsline {chapter}{Appendix B: Ethics approval}{68}{appendix*.85}%
+\contentsline {chapter}{Appendix C: Topic description}{69}{appendix*.86}%
+\contentsline {chapter}{Appendix D: ECSA Graduate Attributes}{70}{appendix*.87}%
+\contentsline {section}{Project mapping to ECSA Graduate Attributes}{70}{section*.88}%
+\contentsline {chapter}{Bibliography}{74}{appendix*.89}%

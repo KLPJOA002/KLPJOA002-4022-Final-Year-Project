@@ -1,0 +1,98 @@
+
+######## /home/joab/Documents/4022/Data/Dry_Shaped.ply  ->  roughness_out_V2/Sand/Dry_Shaped
+
+=== Stage: load ===
+[scan] Dry_Shaped.ply: 259477 points
+
+=== Stage: orient ===
+[orient] plane normal (scan frame) (-0.0295, +0.0070, +0.9995), facing the sensor
+[orient] tilt removed 1.74 deg; plane RMS 34.446 mm over 83.7% inliers
+
+=== Stage: crop ===
+[grid] point spacing 1.185 mm (median nearest neighbour 0.314 mm) -> grid 2 mm
+[grid] the points come in clusters (nearest neighbour 0.314 mm, but one point per 1.185 mm on average): a grid below ~2.4 mm leaves most cells empty
+[roi] pick the area in the window: drag a rectangle, or press p and click a polygon (click the first vertex to close it); Enter accepts, Esc keeps the whole scan
+[roi] chosen: --roi-polygon "-193.21,-127.22;-172.42,-143.83;188.11,-132.33;209.95,-112.73;205.96,10.85;201.49,127.03;189.72,145.85;-173.57,134.69;-197.02,101.76"
+[crop] ROI polygon (9 vertices) keeps 83161 of 259477 points
+[crop] 83161 points; footprint 408.0 x 290.0 mm -> 204 x 145 cells
+
+=== Stage: detrend ===
+[detrend] planar     3 coef  trend RMS    4.444 mm  removes  46.1% of height variance  residual Sq 5.222 mm  (87.4% inliers, 5 it, 0.0 s)
+[detrend] quadratic  6 coef  trend RMS    4.967 mm  removes  62.1% of height variance  residual Sq 4.377 mm  (91.4% inliers, 5 it, 0.1 s)
+[detrend] cubic     10 coef  trend RMS    4.964 mm  removes  63.0% of height variance  residual Sq 4.323 mm  (88.9% inliers, 5 it, 0.1 s)
+[detrend] quartic   15 coef  trend RMS    5.250 mm  removes  68.3% of height variance  residual Sq 4.000 mm  (82.1% inliers, 5 it, 0.1 s)
+
+=== Stage: grid ===
+[grid] 27772 valid cells of 27779 in the footprint (100.0%, 100.0% in complete 2 x 2 quads); 0 small hole(s) interpolated (0.00% of valid cells), 0 larger hole(s) masked; 3.0 points / cell
+[grid] footprint 408.0 x 290.0 mm
+
+=== Stage: metrics ===
+[metrics] planar (primary)
+  height    Sq 4.9631  Sa 3.6128  Sp 6.498  Sv 25.695  Sz 32.192 mm   Ssk -1.857  Sku 6.855
+  area      rugosity 1.05858  Sdr 5.858%  Sdq 0.3613  mean slope 12.56 deg
+  spatial   Sal 49.76 mm  Str 0.240 (upper bound)  Std 90 deg  anisotropy 0.908
+  dominant  144.23 mm, wave vector at 0.4 deg (peak 354756x median)
+  spectrum  slope -5.927  Hurst 1.964  D 1.036  R^2 0.974  over 8..72.5 mm
+  windows   Sq 0.1146 -> 3.6370 mm and rugosity 1.0063 -> 1.0607 from 8 to 144 mm windows
+  95% CI    Sq [3.8963, 6.4166] mm  Sdr [3.982, 9.157]%  Sal [16.49, 19.06] mm  (24 windows of 64 mm)
+  rugged    TRI 1.2188 mm  VRM 3.01e-03  (3x3 cells)
+  (0.0 s)
+[metrics] quadratic
+  height    Sq 4.1578  Sa 2.8658  Sp 7.041  Sv 23.024  Sz 30.065 mm   Ssk -1.960  Sku 8.002
+  area      rugosity 1.05802  Sdr 5.802%  Sdq 0.3589  mean slope 12.82 deg
+  spatial   Sal 35.09 mm  Str 0.908  Std 90 deg  anisotropy 0.904
+  dominant  145.56 mm, wave vector at 0.7 deg (peak 347483x median)
+  spectrum  slope -5.931  Hurst 1.966  D 1.034  R^2 0.974  over 8..72.5 mm
+  windows   Sq 0.1146 -> 3.7057 mm and rugosity 1.0062 -> 1.0609 from 8 to 144 mm windows
+  95% CI    Sq [3.3285, 5.3978] mm  Sdr [3.917, 9.058]%  Sal [17.24, 19.12] mm  (24 windows of 64 mm)
+  rugged    TRI 1.2389 mm  VRM 3.03e-03  (3x3 cells)
+  (0.0 s)
+[metrics] cubic
+  height    Sq 4.1049  Sa 2.8056  Sp 7.005  Sv 22.542  Sz 29.546 mm   Ssk -1.984  Sku 7.837
+  area      rugosity 1.05793  Sdr 5.793%  Sdq 0.3587  mean slope 12.74 deg
+  spatial   Sal 33.96 mm  Str 0.897  Std 90 deg  anisotropy 0.904
+  dominant  146.14 mm, wave vector at 0.8 deg (peak 345927x median)
+  spectrum  slope -5.930  Hurst 1.965  D 1.035  R^2 0.974  over 8..72.5 mm
+  windows   Sq 0.1146 -> 3.6562 mm and rugosity 1.0062 -> 1.0608 from 8 to 144 mm windows
+  95% CI    Sq [3.3291, 5.3668] mm  Sdr [4.073, 9.300]%  Sal [17.20, 18.92] mm  (24 windows of 64 mm)
+  rugged    TRI 1.2316 mm  VRM 3.03e-03  (3x3 cells)
+  (0.0 s)
+[metrics] quartic
+  height    Sq 3.8068  Sa 2.3960  Sp 9.354  Sv 21.510  Sz 30.864 mm   Ssk -1.748  Sku 8.444
+  area      rugosity 1.05771  Sdr 5.771%  Sdq 0.3570  mean slope 13.12 deg
+  spatial   Sal 27.99 mm  Str 0.846  Std 90 deg  anisotropy 0.897
+  dominant  144.38 mm, wave vector at 1.3 deg (peak 349782x median)
+  spectrum  slope -5.930  Hurst 1.965  D 1.035  R^2 0.974  over 8..72.5 mm
+  windows   Sq 0.1148 -> 3.4668 mm and rugosity 1.0062 -> 1.0604 from 8 to 144 mm windows
+  95% CI    Sq [2.8637, 5.0572] mm  Sdr [3.722, 8.926]%  Sal [15.67, 17.65] mm  (24 windows of 64 mm)
+  rugged    TRI 1.2564 mm  VRM 3.07e-03  (3x3 cells)
+  (0.0 s)
+  [!] planar: no clear spectral peak: the dominant wavelength is at the edge of the search
+      range (8..145 mm), so the surface has no distinct ripple wavelength there (or it is
+      longer than wavelength_max_fraction x footprint)
+  [!] planar: Hurst exponent 1.96 is outside the self-affine range 0..1 over the PSD band:
+      the surface is not a simple fractal there (e.g. a ripple peak or noise floor inside
+      the band)
+  [!] quadratic: no clear spectral peak: the dominant wavelength is at the edge of the
+      search range (8..145 mm), so the surface has no distinct ripple wavelength there (or
+      it is longer than wavelength_max_fraction x footprint)
+  [!] quadratic: Hurst exponent 1.97 is outside the self-affine range 0..1 over the PSD
+      band: the surface is not a simple fractal there (e.g. a ripple peak or noise floor
+      inside the band)
+  [!] cubic: no clear spectral peak: the dominant wavelength is at the edge of the search
+      range (8..145 mm), so the surface has no distinct ripple wavelength there (or it is
+      longer than wavelength_max_fraction x footprint)
+  [!] cubic: Hurst exponent 1.97 is outside the self-affine range 0..1 over the PSD band:
+      the surface is not a simple fractal there (e.g. a ripple peak or noise floor inside
+      the band)
+  [!] quartic: no clear spectral peak: the dominant wavelength is at the edge of the search
+      range (8..145 mm), so the surface has no distinct ripple wavelength there (or it is
+      longer than wavelength_max_fraction x footprint)
+  [!] quartic: Hurst exponent 1.96 is outside the self-affine range 0..1 over the PSD band:
+      the surface is not a simple fractal there (e.g. a ripple peak or noise floor inside
+      the band)
+
+=== Stage: write ===
+[write] heightmap_<method>.npy (planar, quadratic, cubic, quartic, mm, NaN = invalid); psd_<method>.csv; multiscale_<method>.csv; roi.toml; heightmap_<method>.png, roi_preview.png, detrend_comparison.png, detrend_explained.png, detrend_metrics.png, psd.png, multiscale.png
+[write] metrics.json, run.log; 4 row(s) appended to roughness_out_V2/Sand/roughness_results.csv
+[done] 24.3 s

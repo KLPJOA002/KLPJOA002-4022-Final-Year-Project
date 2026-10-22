@@ -1,0 +1,17 @@
+Detrend,Scan,Metric,metric,statistic,spread,value,lo,hi,n,as_percent,text
+cubic,/home/joab/Documents/4022/Data/3D_Results/Fused/Small_wave_701mm.ply,rugosity,rugosity,mean,std,1.257061,,,1.0,False,1.26
+cubic,/home/joab/Documents/4022/Data/3D_Results/Fused/Small_wave_701mm.ply,ref_rugosity,ref_rugosity,mean,std,1.690316,,,1.0,False,1.69
+cubic,/home/joab/Documents/4022/Data/3D_Results/Single/Small_701mm.ply,rugosity,rugosity,mean,std,1.307797,,,1.0,False,1.31
+cubic,/home/joab/Documents/4022/Data/3D_Results/Single/Small_701mm.ply,ref_rugosity,ref_rugosity,mean,std,1.690271,,,1.0,False,1.69
+planar,/home/joab/Documents/4022/Data/3D_Results/Fused/Small_wave_701mm.ply,rugosity,rugosity,mean,std,1.259085,,,1.0,False,1.26
+planar,/home/joab/Documents/4022/Data/3D_Results/Fused/Small_wave_701mm.ply,ref_rugosity,ref_rugosity,mean,std,1.691754,,,1.0,False,1.69
+planar,/home/joab/Documents/4022/Data/3D_Results/Single/Small_701mm.ply,rugosity,rugosity,mean,std,1.309703,,,1.0,False,1.31
+planar,/home/joab/Documents/4022/Data/3D_Results/Single/Small_701mm.ply,ref_rugosity,ref_rugosity,mean,std,1.689985,,,1.0,False,1.69
+quadratic,/home/joab/Documents/4022/Data/3D_Results/Fused/Small_wave_701mm.ply,rugosity,rugosity,mean,std,1.257601,,,1.0,False,1.26
+quadratic,/home/joab/Documents/4022/Data/3D_Results/Fused/Small_wave_701mm.ply,ref_rugosity,ref_rugosity,mean,std,1.691751,,,1.0,False,1.69
+quadratic,/home/joab/Documents/4022/Data/3D_Results/Single/Small_701mm.ply,rugosity,rugosity,mean,std,1.308145,,,1.0,False,1.31
+quadratic,/home/joab/Documents/4022/Data/3D_Results/Single/Small_701mm.ply,ref_rugosity,ref_rugosity,mean,std,1.689912,,,1.0,False,1.69
+quartic,/home/joab/Documents/4022/Data/3D_Results/Fused/Small_wave_701mm.ply,rugosity,rugosity,mean,std,1.254509,,,1.0,False,1.25
+quartic,/home/joab/Documents/4022/Data/3D_Results/Fused/Small_wave_701mm.ply,ref_rugosity,ref_rugosity,mean,std,1.690263,,,1.0,False,1.69
+quartic,/home/joab/Documents/4022/Data/3D_Results/Single/Small_701mm.ply,rugosity,rugosity,mean,std,1.30643,,,1.0,False,1.31
+quartic,/home/joab/Documents/4022/Data/3D_Results/Single/Small_701mm.ply,ref_rugosity,ref_rugosity,mean,std,1.691052,,,1.0,False,1.69

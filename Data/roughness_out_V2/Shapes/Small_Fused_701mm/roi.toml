@@ -1,0 +1,7 @@
+# Evaluated area for /home/joab/Documents/4022/Data/3D_Results/Fused/Small_wave_701mm.ply, chosen with --pick-roi.
+# mm in the analysis frame (orientation: none). Re-run exactly with
+#   roughness_scans.py --config roi.toml <same flags> <scan>
+# or copy these lines into your own config.
+orient_mode = "none"
+[crop]
+roi_mm = [2.3, 3.36, 96.79, 97.11]
