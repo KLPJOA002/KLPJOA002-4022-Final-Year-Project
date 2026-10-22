@@ -1,7 +1,7 @@
 {
   "tool": "rsplot",
   "version": "0.1.0",
-  "saved_at": "2026-10-19T13:00:48",
+  "saved_at": "2026-10-22T16:34:27",
   "dataset": {
     "path": "/home/joab/Documents/4022/Code/Processing/Parameter_Sweep/results/Parameter_Results/all_scans.csv",
     "family": "param_scans",
@@ -15,49 +15,49 @@
     7.5
   ],
   "files": [
-    "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Scatter_Metric_Vs_Depth_Units_p1.png",
-    "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Scatter_Metric_Vs_Depth_Units_p2.png",
-    "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Scatter_Metric_Vs_Depth_Units_p3.png",
-    "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Scatter_Metric_Vs_Depth_Units_p4.png",
-    "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Scatter_Metric_Vs_Depth_Units_legend.png"
+    "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p1.png",
+    "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p2.png",
+    "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p3.png",
+    "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p4.png",
+    "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_legend.png"
   ],
-  "latex": "    \\begin{subfigure}[t]{0.4844\\textwidth}\n        \\centering\n        \\includegraphics[width=\\linewidth]{figs/ch5/Scatter_Metric_Vs_Depth_Units_p1}\n        \\caption{Accuracy RMSE}\n        \\label{fig:Scatter-Metric-Vs-Depth-Units-1}\n    \\end{subfigure}\\hfill\n    \\begin{subfigure}[t]{0.4756\\textwidth}\n        \\centering\n        \\includegraphics[width=\\linewidth]{figs/ch5/Scatter_Metric_Vs_Depth_Units_p2}\n        \\caption{Completeness at 2 mm}\n        \\label{fig:Scatter-Metric-Vs-Depth-Units-2}\n    \\end{subfigure}\n    \\par\\medskip\n    \\begin{subfigure}[t]{0.4844\\textwidth}\n        \\centering\n        \\includegraphics[width=\\linewidth]{figs/ch5/Scatter_Metric_Vs_Depth_Units_p3}\n        \\caption{Covered fraction of reference}\n        \\label{fig:Scatter-Metric-Vs-Depth-Units-3}\n    \\end{subfigure}\\hfill\n    \\begin{subfigure}[t]{0.4756\\textwidth}\n        \\centering\n        \\includegraphics[width=\\linewidth]{figs/ch5/Scatter_Metric_Vs_Depth_Units_p4}\n        \\caption{F-score at 2 mm}\n        \\label{fig:Scatter-Metric-Vs-Depth-Units-4}\n    \\end{subfigure}\n    \\par\\medskip\n    \\includegraphics{figs/ch5/Scatter_Metric_Vs_Depth_Units_legend}",
+  "latex": "    \\begin{subfigure}[t]{0.4939\\textwidth}\n        \\centering\n        \\includegraphics[width=\\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p1}\n        \\caption{Accuracy RMSE}\n        \\label{fig:Scatter-Metric-Vs-Depth-Units-1}\n    \\end{subfigure}\\hfill\n    \\begin{subfigure}[t]{0.4661\\textwidth}\n        \\centering\n        \\includegraphics[width=\\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p2}\n        \\caption{Signed bias}\n        \\label{fig:Scatter-Metric-Vs-Depth-Units-2}\n    \\end{subfigure}\n    \\par\\medskip\n    \\begin{subfigure}[t]{0.4939\\textwidth}\n        \\centering\n        \\includegraphics[width=\\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p3}\n        \\caption{Completeness}\n        \\label{fig:Scatter-Metric-Vs-Depth-Units-3}\n    \\end{subfigure}\\hfill\n    \\begin{subfigure}[t]{0.4661\\textwidth}\n        \\centering\n        \\includegraphics[width=\\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p4}\n        \\caption{F-score at 2 mm}\n        \\label{fig:Scatter-Metric-Vs-Depth-Units-4}\n    \\end{subfigure}\n    \\par\\medskip\n    \\includegraphics{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_legend}",
   "footnote": "",
   "warnings": [],
   "columns_used": [
     "acc_rmse_mm",
-    "completeness@2mm",
-    "covered_fraction",
+    "completeness_full@2mm",
     "depth_units_mm",
     "fscore@2mm",
-    "object"
+    "object",
+    "signed_bias_mm"
   ],
   "panels": {
     "cols": 2,
     "size_cm": [
       [
-        8.72,
+        8.89,
         3.75
       ],
       [
-        8.56,
+        8.39,
         3.75
       ],
       [
-        8.72,
-        4.57
+        8.89,
+        4.49
       ],
       [
-        8.56,
-        4.57
+        8.39,
+        4.49
       ]
     ],
     "rects": [
       [
-        0.0949101681957186,
-        0.020313996556581164,
-        0.9050898318042814,
-        0.9796860034434186
+        0.07524305555555555,
+        0.0,
+        0.9247569444444445,
+        0.9562047769928924
       ],
       [
         0.0,
@@ -72,18 +72,18 @@
         1.0
       ],
       [
-        0.05770245164849433,
+        0.0003363792875115949,
         0.0,
-        0.9422975483515057,
+        0.9996636207124884,
         1.0
       ]
     ],
     "labels": "outer",
     "files": [
-      "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Scatter_Metric_Vs_Depth_Units_p1.png",
-      "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Scatter_Metric_Vs_Depth_Units_p2.png",
-      "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Scatter_Metric_Vs_Depth_Units_p3.png",
-      "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Scatter_Metric_Vs_Depth_Units_p4.png"
+      "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p1.png",
+      "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p2.png",
+      "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p3.png",
+      "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p4.png"
     ]
   },
   "spec": {
@@ -97,8 +97,8 @@
       "x": "depth_units_mm",
       "y": [
         "acc_rmse_mm",
-        "completeness@2mm",
-        "covered_fraction",
+        "signed_bias_mm",
+        "completeness_full@2mm",
         "fscore@2mm"
       ],
       "y_mode": "side_by_side",
@@ -175,7 +175,7 @@
       ],
       "dpi": 622,
       "transparent": false,
-      "folder": "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5",
+      "folder": "/home/joab/Documents/4022/Report/uct-thesis-template/figs/ch5/Parameter_Analysis",
       "filename": "Scatter_Metric_Vs_Depth_Units",
       "usetex": false,
       "mathtext": "stix",
@@ -184,7 +184,8 @@
       "panel_cols": 2
     },
     "options": {
-      "trend": "none"
+      "trend": "linear",
+      "trend_label": "R\u00b2"
     },
     "version": 1
   }

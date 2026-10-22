@@ -10,10 +10,13 @@ The capture stage (\autoref{ch:design}) produces one session per experiment. A s
 A single scan of the surface contains several factors that result in lower quality reconstructions. It contains the rig and regions outside of the frames bound due to the wide field of view of the camera. It is noisy, particularly where the surface is seen at a grazing angle. It also has holes wherever relief hides part of the surface from that viewpoint. The processing pipeline turns a session of multiple of such scans into a single, clean reconstruction of the region of interest and then into numbers that describe its roughness. There are four main stage in the data processing pipeline.
 
 \begin{enumerate}
-	\item \textbf{Cropping} (Section~\ref{sec:crop}) cuts every scan down to the square of sediment bounded by the four corner AprilTags.
-	\item \textbf{Fusion} (Section~\ref{sec:fuse}) registers the cropped scans into one common coordinate frame and merges their overlapping regions into a single, lower-noise surface with fewer holes.
-	\item \textbf{Roughness estimation} (Section~\ref{sec:rugosity}) levels and detrends the fused surface and computes standardised surface-texture parameters, including rugosity.
-	\item \textbf{Feature detection} (Section~\ref{sec:features}) locates and counts discrete features such as sandprawn burrow openings.
+	\item \textbf{Cropping} (\autoref{sec:crop}) cuts every scan down to the square of sediment bounded by the four corner AprilTags.
+	
+	\item \textbf{Fusion} (\autoref{sec:fuse}) registers the cropped scans into one common coordinate frame and merges their overlapping regions into a single, lower-noise surface with fewer holes.
+	
+	\item \textbf{Roughness estimation} (\autoref{sec:rugosity}) levels and detrends the fused surface and computes standardised surface-texture parameters, including rugosity.
+	
+	\item \textbf{Feature detection} (\autoref{sec:features}) locates and counts discrete features such as sandprawn burrow openings.
 \end{enumerate}
 
 Each stage is a separate program that reads the previous stage's output files, so any stage can be rerun or inspected on its own. The language of each program was chosen for its workload. Cropping is mostly bookkeeping and image geometry, so it is written in Python with Open3D and NumPy. Fusion runs nearest-neighbour searches, feature matching and iterative registration on millions of points, so it is written in C++ with the Point Cloud Library. The roughness metrics are array operations on a regular grid and are written in Python with NumPy and SciPy. A small Python script (\texttt{bulk\_process.py}) chains cropping and fusion over many sessions without user interaction.
@@ -65,9 +68,11 @@ The point cloud of a scan comes from one particular frame of the recording. The 
 Not every tag will be detected, or visible in each scan wi thin a session. Glare, shadow or a steep tilt often hide tags. Therefore, in order to maintain the ability to automatically crop each scan to the correct region, the program first learns the layout of the tags from the scans in the session where all four were detected. From those frames it records:
 
 \begin{itemize}
-	\item the order in which the four tag IDs appear going around the square, which says which tags share a side and which are diagonal;
-	\item the ratio of the square's side length to a tag's side length;
-	\item the aspect ratio of the square, i.e.\ how each side compares to its neighbours.
+	\item The order in which the four tag IDs appear going around the square, which says which tags share a side and which are diagonal.
+	
+	\item The ratio of the square's side length to a tag's side length.
+	
+	\item The aspect ratio of the square, i.e.\ how each side compares to its neighbours.
 \end{itemize}
 
 The median of each quantity over all four-tag frames is used, which makes the layout robust to a few poor detections. With this layout, missing corners can be predicted from the tags that were seen. With three tags, the fourth is placed to complete a parallelogram, $\mathbf{p}_4 = \mathbf{p}_1 + \mathbf{p}_3 - \mathbf{p}_2$. With two tags on the same side, the square is completed by stepping perpendicular to that side by the learned aspect ratio. With two diagonal tags, the side vector is solved from the diagonal and the aspect ratio before stepping out in the same way.
@@ -84,7 +89,7 @@ The tag positions are known in the 2D colour image, but the crop has to be appli
 	\label{eq:projection}
 \end{equation}
 
-where $(x_d, y_d)$ are the normalised coordinates $(X/Z,\, Y/Z)$ after lens distortion has been applied. The distortion is computed exactly as the RealSense SDK computes it, which differs slightly from the textbook Brown--Conrady model. Using the SDK's form reprojects the cloud onto the pixel grid to within about $10^{-5}$~pixels, compared with about $10^{-2}$~pixels for the textbook form. \todo{Do i waNt this text book comparison?}
+where $(x_d, y_d)$ are the normalised coordinates $(X/Z,\, Y/Z)$ after lens distortion has been applied. The distortion is computed exactly as the RealSense SDK computes it. Using the SDK's form reprojects the cloud onto the pixel grid to within about $10^{-5}$~pixels.
 
 This property also provides a self-check. If the intrinsics really belong to this cloud, every reprojected point should land almost exactly on an integer pixel. The cropper measures the root-mean-square distance of the reprojected points from the nearest integer pixel centre,
 

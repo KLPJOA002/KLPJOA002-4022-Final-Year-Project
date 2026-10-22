@@ -55,12 +55,12 @@ The characterisation was performed in two stages. In the first stage the camera 
 %=====================================================================
 \subsection{Capture procedure and metrics}
 
-All planar characterisation used custom C++ software built on the Intel RealSense SDK, following the plane-fit metrics of Intel's Depth Quality Tool. Details of each trial including: distance, tilt angle and a lux reading, are entered into the tool and the scan is started, after which approximately 600 frames are recorded. A region of interest (ROI) is then applied whose pixel size is adjusted with distance so that it always covers a fixed 50\,$\times$\,50\,cm area of the target. A plane is fitted to the ROI points of every frame and compared with the ground-truth plane. Frames flagged as repeated or as outliers were discarded, leaving roughly 400 to 600 valid frames per trial\todo{confirm the same frame rejection was applied in all three sweeps}. Several metrics are reported by the tool, however there are four main metrics that will be discussed here to represent the general performance, each averaged over the valid frames of a trial:
+All planar characterisation used custom C++ software built on the Intel RealSense SDK, following the plane-fit metrics of Intel's Depth Quality Tool. Details of each trial, such as distance, tilt angle and a lux reading, are entered into the tool and the scan is started. A region of interest (ROI) is then applied whose pixel size is adjusted with distance so that it always covers a fixed 50\,$\times$\,50\,cm area of the target. A plane is fitted to the ROI points of every frame and compared with the ground-truth plane. Several metrics are reported by the tool, however there are four main metrics that will be discussed here to represent the general performance, each averaged over the valid frames of a trial.
 
 \begin{itemize}
 	\item \textbf{Median depth error} (mm): the median signed difference between the measured and ground-truth depth, which measures systematic bias.
 	
-	\item \textbf{Depth RMSE} (mm): the root mean square depth noise
+	\item \textbf{Depth RMSE} (mm): the root mean square representing depth noise from camera to plane.
 	
 	\item \textbf{Plane-fit RMS} (mm): the root-mean-square distance of the ROI points from the best-fit plane. This measures spatial noise and is independent of any constant offset in the depth.
 	
@@ -84,7 +84,7 @@ The camera was mounted on a tripod and pointed at a white, featureless wall, as 
 \subsubsection{Camera tilt}
 %label{sec5.3:tilt}
 
-The camera was mounted on the experimental rig so that its angle could be set with the tilt servo. A large flat white foam board was placed on the floor and re-centred in the field of view (FOV) after each change of angle. Two rotations were tested independently. The pitch axis is parallel to the line through the two IR imagers, and the roll axis is perpendicular to both the pitch axis and the optical axis. The angle was changed in steps of approximately 2\degree, covering pitch angles from $-27$\degree\ to $-2$\degree\ and roll angles from $+3$\degree\ to $+25$\degree\ for 26 trials in total\todo{confirm that the opposite signs were not recorded, or add them}. The camera mount height was kept fixed. For each trial the vertical height of the left IR imager, the centre of the resulting depth image, above the board was measured, and the axial ground-truth distance was calculated from that height and the tilt angle. This axial distance varied between 657\,mm and 743\,mm over the sweep. The angle of the fitted plane agreed with the set angle to within 1\degree\ in every trial (mean 0.4\degree), which verifies the angle settings.
+The camera was mounted on the experimental rig so that its angle could be set with the tilt servo. A large flat white foam board was placed on the floor and re-centred in the field of view (FOV) after each change of angle. Two rotations were tested independently. The pitch axis is parallel to the line through the two IR imagers, and the roll axis is perpendicular to both the pitch axis and the optical axis. The angle was changed in steps of approximately 2\degree, covering pitch angles from $-27$\degree\ to $-2$\degree\ and roll angles from $+3$\degree\ to $+25$\degree\ for 26 trials in total. The camera mount height was kept fixed. For each trial the vertical height of the left IR imager, which is the centre of the resulting depth image, above the board was measured, and the axial ground-truth distance was calculated from that height and the tilt angle. This axial distance varied between 657\,mm and 743\,mm over the sweep. The angle of the fitted plane agreed with the set angle to within 1\degree\ in every trial (mean 0.4\degree), which verifies the angle settings.
 
 \todo{Maybe talk more about methodology?}
 
@@ -92,7 +92,7 @@ The camera was mounted on the experimental rig so that its angle could be set wi
 \subsubsection{Ambient lighting}
 %\label{sec:lighting}
 
-The same foam board was scanned at a camera height of approximately 900\,,m under a range of lighting conditions, with the camera exposure left on automatic. Indoor conditions ranged from a dark room in the evening (blinds closed, lights off) to an afternoon room with the blinds open and the lights on. Outdoor trials were performed around midday in shade, in shade within direct sunlight, and in direct sunlight.
+The same foam board was scanned at a camera height of approximately 900\,mm under a range of lighting conditions, with the camera exposure left on automatic. Indoor conditions ranged from a dark room in the evening (blinds closed, lights off) to an afternoon room with the blinds open and the lights on. Outdoor trials were performed around midday in shade, in shade within direct sunlight, and in direct sunlight.
 The outdoor trials were taken twice per condition, one with the foam board, and one without the foam board. This was done as the effects of the high ambient light resulted in exposure settings that were unable to detect the cameras built in projected pattern, and thus the featureless white surface lost detection. The brick flooring was able to be detected in this condition, thus the results for the outdoor trials provide relational performance compare to the rest of the trials.
 %To separate the effect of illumination from the effect of the white target, the outdoor trials were repeated on the ground surface without the board\todo{state what this surface was. 
 Illuminance was read with a smartphone running the Physics Toolbox Suite application, which uses the front camera as a lux meter. Such readings are uncalibrated and are used here to indicate the order of magnitude and ranking of conditions, not precise values. The lux was recorded as 0 in the darkest condition and 24\,400 in full sun.
@@ -104,7 +104,7 @@ Illuminance was read with a smartphone running the Physics Toolbox Suite applica
 
 \subsubsection{Working Distance}
 
-Results for planar distance characterisation are shown in \autoref{tab:Scatter_Metric_Vs_Height}. These are then plotted in \autoref{fig:Scatter-Metric-Vs-Height}
+Results for planar distance characterisation are shown in \autoref{tab:Scatter_Metric_Vs_Height}. These are then plotted in \autoref{fig:Scatter-Metric-Vs-Height}.
 %Table~\ref{tab:distance} gives the results. Plane-fit RMS increased from 1.22\,mm at 604\,mm to 4.58\,mm at 903\,mm, a 3.7-fold increase for a 1.5-fold increase in distance. Relative to distance it rose from 0.20\% to 0.50\%. The fill rate fell from 99.6\% to 96.5\%. The median depth error was positive in every trial, between 4.7\,mm and 8.0\,mm, which corresponds to 0.74\% to 0.97\% of the distance with no clear trend.
 
 
@@ -135,16 +135,17 @@ Results for planar distance characterisation are shown in \autoref{tab:Scatter_M
 		\caption{Valid pixels}
 		\label{fig:Scatter-Metric-Vs-Height-4}
 	\end{subfigure}
-	\caption{Dashed lines: linear least-squares fit per panel (R\textsuperscript{2} 0.83 to 0.98). Per-trial median with IQR over n = 385--552 frames. Fixed: Condition = lights; Label = Afternoon Lights.}
+	\caption{Plots Showing Planar Performance Against Height. Per-trial Median with IQR Over n = 385--552 Frames.}
 	\label{fig:Scatter-Metric-Vs-Height}
 \end{figure}
 
-\todo{Figure: plane-fit RMS and fill rate versus distance, with the power-law fit overlaid}
 
 %---------------------------------------------------------------------
 
 \subsubsection{Camera Tilt}
-\todo{Figure: plane-fit RMS versus tilt angle for pitch and roll, with the range-predicted curve overlaid} Plane-fit RMS was lowest near 0\degree\ (about 1.6\,mm) and rose to 2.30\,mm at $-27$\degree\ pitch and 2.12\,mm at $+25$\degree\ roll. The fill rate stayed between 98.4\% and 99.5\%. The median depth error varied between 5\,mm and 11\,mm without a clear dependence on angle. Trials at almost the same angle differed by up to 6\,mm (5.0\,mm at $-26.8$\degree\ against 10.7\,mm at $-27.3$\degree\ pitch).
+%\todo{Figure: plane-fit RMS versus tilt angle for pitch and roll, with the range-predicted curve overlaid} Plane-fit RMS was lowest near 0\degree\ (about 1.6\,mm) and rose to 2.30\,mm at $-27$\degree\ pitch and 2.12\,mm at $+25$\degree\ roll. The fill rate stayed between 98.4\% and 99.5\%. The median depth error varied between 5\,mm and 11\,mm without a clear dependence on angle. Trials at almost the same angle differed by up to 6\,mm (5.0\,mm at $-26.8$\degree\ against 10.7\,mm at $-27.3$\degree\ pitch).
+
+Results for planar angle characterisation are shown in \autoref{tab:Scatter_Metric_Vs_Angle}. These are then plotted in \autoref{fig:Scatter-Metric-Vs-Angle}.
 
 \begin{figure}[htbp]
 	\centering
@@ -175,37 +176,39 @@ Results for planar distance characterisation are shown in \autoref{tab:Scatter_M
 	\end{subfigure}
 	\par\medskip
 	\includegraphics{figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_legend}
-	\caption{Dashed lines: quadratic least-squares fit per series and panel (R\textsuperscript{2} 0.40 to 0.99). Per-trial median with IQR over n = 527--574 frames. Points pooled across: Set angle (26), IMU angle (26).}
+	\caption{Plots Showing Planar Performance Against Scan Angle. Per-trial Median with IQR Over n = 527--574 Frames.}
 	\label{fig:Scatter-Metric-Vs-Angle}
 \end{figure}
 %---------------------------------------------------------------------
 
 \subsubsection{Ambient Lighting}
 
-The results are listed in Table~\ref{tab:lighting}. Indoors, plane-fit RMS increased with illumination from 1.80\,mm in darkness to 4.44\,mm at 151\,lux, and the fill rate fell from 99.9\% to 96.3\%. Adding artificial light increased the noise within both the evening session (1.80 to 2.84\,mm) and the afternoon session (2.73 to 3.44\,mm). Outdoors, the foam board in shade (388\,lux) returned only 86.5\% valid pixels and a plane-fit RMS of 6.00\,mm. In direct sunlight (2\,650 and 24\,400\,lux) no valid plane could be recovered, with fill rates of 3.7\% and 5.4\%. The ground surface without the board returned a 100\% fill rate in all three outdoor conditions, including direct sun at around 10\,000\,lux, with a plane-fit RMS of 1.1 to 1.2\,mm.
+%The results are listed in \autoref{tab:Scatter_Metric_Vs_Light}.
+
+Results for planar angle characterisation are shown in \autoref{tab:Scatter_Metric_Vs_Light}. These are then plotted in \autoref{fig:Scatter-Metric-Vs-Light}. Lighting conditions with corresponding illumination values are shown in \autoref{tab:Lighting_Descriptors}
+%Indoors, plane-fit RMS increased with illumination from 1.80\,mm in darkness to 4.44\,mm at 151\,lux, and the fill rate fell from 99.9\% to 96.3\%. Adding artificial light increased the noise within both the evening session (1.80 to 2.84\,mm) and the afternoon session (2.73 to 3.44\,mm). Outdoors, the foam board in shade (388\,lux) returned only 86.5\% valid pixels and a plane-fit RMS of 6.00\,mm. In direct sunlight (2\,650 and 24\,400\,lux) no valid plane could be recovered, with fill rates of 3.7\% and 5.4\%. The ground surface without the board returned a 100\% fill rate in all three outdoor conditions, including direct sun at around 10\,000\,lux, with a plane-fit RMS of 1.1 to 1.2\,mm.
 
 \begin{table}[ht]
 	\centering
-	\caption{Planar characterisation under different lighting conditions at a height of approximately 0.9\,m. Lux values are indicative (smartphone sensor). A dash indicates that no valid plane fit was obtained.}
-	\label{tab:lighting}
-	\begin{tabular}{llcccc}
+	\caption{Planar characterisation under different lighting conditions at a height of approximately 0.9\,m. Lux values are indicative (smartphone sensor).}
+	\label{tab:Lighting_Descriptors}
+	\begin{tabular}{llc}
 		\hline
-		Surface & Condition & Lux & Fill rate (\%) & Plane-fit RMS (mm) & Median depth error (mm) \\
+		Surface & Condition & Lux \\
 		\hline
-		Indoor foam board & Evening, blinds closed, lights off & 0 & 99.9 & 1.80 & 4.9 \\
-		& Afternoon, blinds closed, lights off & 17 & 99.4 & 2.73 & 7.3 \\
-		& Evening, blinds closed, lights on & 65 & 99.3 & 2.84 & 5.2 \\
-		& Afternoon, blinds closed, lights on & 78 & 98.7 & 3.44 & 7.3 \\
-		& Afternoon, blinds open, lights off & 91 & 97.0 & 4.14 & 7.1 \\
-		& Afternoon, blinds open, lights on & 151 & 96.3 & 4.44 & 7.5 \\
+		Indoor foam board & Evening, blinds closed, Florescent lights off & 0 \\
+		& Afternoon, blinds closed, Florescent lights off & 17  \\
+		& Evening, blinds closed, Florescent lights on & 65  \\
+		& Afternoon, blinds closed, Florescent lights on & 78 \\
+		& Afternoon, blinds open, Florescent lights off & 91  \\
+		& Afternoon, blinds open, Florescent lights on & 151 \\
 		\hline
-		Outdoor foam board & Shade & 388 & 86.5 & 6.00 & $-2.5$ \\
-		& Direct sun, under shade & 2\,650 & 3.7 & -- & -- \\
-		& Direct sun & 24\,400 & 5.4 & -- & -- \\
+		Outdoor foam board & Shade & 388 \\
+		& Direct sun, under shade & 2\,650 \\
 		\hline
-		Outdoor, no board & Shade & 213 & 100 & 1.20 & 5.7 \\
-		& Direct sun & 9\,800 & 100 & 1.09 & 4.6 \\
-		& Direct sun, under shade & 10\,000 & 100 & 1.17 & 4.3 \\
+		Outdoor, no board & Shade & 213 \\
+		& Direct sun & 9\,800 \\
+		& Direct sun, under shade & 10\,000 \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -237,7 +240,7 @@ The results are listed in Table~\ref{tab:lighting}. Indoors, plane-fit RMS incre
 		\caption{Valid pixels}
 		\label{fig:Scatter-Metric-Vs-Light-4}
 	\end{subfigure}
-	\caption{Dashed lines: linear least-squares fit per panel (R\textsuperscript{2} 0.26 to 0.87). Per-trial median with IQR over n = 592--599 frames. Fixed: Environment = indoor; Surface = foam board; Series = indoor, foam board; Board detected = On.}
+	\caption{Plots Showing Planar Performance Against Light Intensity, for Indoor Conditions with Foam Board. Per-trial Median with IQR Over n = 592--599 Frames.}
 	\label{fig:Scatter-Metric-Vs-Light}
 \end{figure}
 
@@ -246,49 +249,64 @@ The results are listed in Table~\ref{tab:lighting}. Indoors, plane-fit RMS incre
 \subsection{Discusion}
 
 \subsubsection{Working Distance}
-Stereo triangulation noise is expected to grow with the square of the range. A power-law fit to these data gives an exponent of approximately 3.3, which is steeper than expected. Part of the difference may come from the ambient light, which was not constant across the sweep. The auto-exposure value dropped from around 5300 for the three closest distances to between 1700 and 2050 for the remainder, and the largest step in noise (from 1.56\,mm to 2.64\,mm) coincides with this change. The trials were recorded in a different order to their distance (between about 15:40 and 17:35), so distance and ambient light are partly confounded. Even allowing for this, the trend is clear: noise grows rapidly with working distance, so the camera should be operated at the shortest distance that still frames the analysis region. The roughly constant relative depth error of about 0.8\% is consistent with a scale or ground-truth referencing offset rather than a distance-dependent effect. It does not affect the roughness metrics, but it would appear as a scale error in an absolute reconstruction, which the 3D reference tests in Section~\ref{sec:reference} quantify. 
+Stereo noise is expected to grow with the square of the range, however as can be seen in \autoref{fig:Scatter-Metric-Vs-Height}, the data is closer to a linear trend. Part of the difference may come from the ambient light, which was not completely constant across the sweep, as trials were taken across a time period between 15:40 and 17:35, where the auto-exposure value dropped from around 5300 for the three closest distances to between 1700 and 2050 for the remainder. However another reason for the linear appearance is likely due to the small distance variation, revealing a locally linear like region, compared to the larger exponential shape. Even allowing for this, there is a useful trend that can used for this project. Depth noise shown i \autoref{fig:Scatter-Metric-Vs-Height-1} grows with working distance, simultaneously while the percentage of valid pixels shown in \autoref{fig:Scatter-Metric-Vs-Height-4} declines. This shows that the camera should generally be operated as close to the target as feasible to minimise absolute errors. By looking at the depth error as a percentage of actual height, we see that there is a slight upward trend from 0.77\% to 0.90\%, however there is significant variance in the trend, with an trend fit score of only 0.18, thus the approximately constant relative depth error is consistent with a bias or scale, rather than a distance dependant effect.
 
 \subsubsection{Camera Tilt}
 
-Because the camera pivots, tilting it also increases the axial distance to the board. When the power law from the distance sweep is applied to the measured axial distance of each trial, the predicted plane-fit RMS matches the observed value to within about 7\% (for example 2.42\,mm predicted against 2.30\,mm observed at $-27.3$\degree, and 2.04\,mm against 2.12\,mm at $+25.3$\degree). The increase in noise with tilt over $\pm25$\degree\ can therefore be explained almost entirely by the longer range, and tilt itself does not appear to degrade the depth significantly. This is the result needed to justify multi-view scanning, since oblique views add information about occluded relief at little cost in noise. The scatter in depth error between neighbouring angles, which is larger than any trend, points to the repeatability of the experimental set-up (re-positioning the board and measuring its height) as the dominant source of uncertainty in this metric, and the depth-error values should be read with that in mind. A flat board cannot reveal the effects of foreshortening and self-occlusion on relief, which are examined with the 3D reference objects.
+Stereo noise is expected to follow a sinusoidal relationship between the noise and the tilt angle. Whilst not completely sinusoidal, it can be seen in \autoref{fig:Scatter-Metric-Vs-Angle-3} and \autoref{fig:Scatter-Metric-Vs-Angle-4}, that there is a similar relationship present with the plane fit RMS and percentage of valid pixels. The trends fitted to these data are however quadratic, as to avoid over fitting with a higher order polynomial. Whilst there is a weak trend in \autoref{fig:Scatter-Metric-Vs-Angle-1} and \autoref{fig:Scatter-Metric-Vs-Angle-2}, \autoref{fig:Scatter-Metric-Vs-Angle-3} and \autoref{fig:Scatter-Metric-Vs-Angle-4} both show that scans taken at lower tilt angles, generally are able to higher quality planar scans, compared to higher angles of incidence. One consideration that must be taken here, is that axial distance varies with tilt angle, and as such the results seen here are compounded with performance of distance, and as such these do not represent absolute angle performance. However this is accepted for the purposes of this study, where the cameras operating height remains static when scanning sediment, thus this result better reflects the performance of the camera in this specific use case.
+
+%Because the camera pivots, tilting it also increases the axial distance to the board. When the power law from the distance sweep is applied to the measured axial distance of each trial, the predicted plane-fit RMS matches the observed value to within about 7\% (for example 2.42\,mm predicted against 2.30\,mm observed at $-27.3$\degree, and 2.04\,mm against 2.12\,mm at $+25.3$\degree). The increase in noise with tilt over $\pm25$\degree\ can therefore be explained almost entirely by the longer range, and tilt itself does not appear to degrade the depth significantly. This is the result needed to justify multi-view scanning, since oblique views add information about occluded relief at little cost in noise. The scatter in depth error between neighbouring angles, which is larger than any trend, points to the repeatability of the experimental set-up (re-positioning the board and measuring its height) as the dominant source of uncertainty in this metric, and the depth-error values should be read with that in mind. A flat board cannot reveal the effects of foreshortening and self-occlusion on relief, which are examined with the 3D reference objects.
 
 \subsubsection{Ambient Lighting}
 
-Two conclusions follow. First, ambient light degrades the depth from active stereo even when the surface is well within the sensor's range, because the projected infrared pattern has to compete with the ambient light for contrast. Daylight appears more damaging per lux than artificial light (4.14\,mm at 91\,lux of daylight against 2.84\,mm at 65\,lux of artificial light), which is consistent with the greater near-infrared content of sunlight, so illuminance in lux is only a rough predictor of performance. Second, the surface matters as much as the illumination. The board failed at 2\,650\,lux, whereas the ground surface returned complete, low-noise data at 9\,800\,lux, so the failure cannot be attributed to the light level alone. A bright, featureless, highly reflective white surface is a worst case for stereo matching. The ground surface supplies natural texture, so the planar results on white targets should be read as pessimistic bounds on the noise expected on sediment. The outdoor tests did not include a matched pair of lux levels for the two surfaces, and wet or glossy sediment, which is more specular, was not tested. These results support retaining the shading tarp on the rig, which the Chapter~\ref{ch:system} design already includes, to limit the ambient infrared reaching the scan area\todo{check the label of the System Design chapter}.
+Two conclusions follow. First, ambient light degrades the depth from active stereo even when the surface is well within the sensor's range, because the projected infrared pattern has to compete with the ambient light for contrast. Daylight appears more damaging per lux than artificial light which can be seen in \autoref{fig:Scatter-Metric-Vs-Light-3} and \autoref{fig:Scatter-Metric-Vs-Light-4}, with 4.14\,mm RMS and 97.0\% valid pixels at 91\,lux of daylight against 2.84\,mm RMS and 99.3\% valid pixels at 65\,lux of artificial light, which is consistent with the greater near-infrared content of sunlight, so illuminance in lux is only a rough predictor of performance. Second, the surface matters as much as the illumination. The board completely failed at 2\,650\,lux in outdoor sun exposed areas, whereas the ground surface returned complete, low-noise data at 9\,800\,lux, so the failure cannot be attributed to the light level alone. A bright, featureless, highly reflective white surface is a worst case for stereo matching. The ground surface supplies natural texture, so the planar results on white targets should be read as pessimistic bounds on the noise expected on sediment. The outdoor tests did not include wet or glossy sediment, which is more specular, and thus could influence results more. These results support retaining the shading tarp on the rig, to limit the ambient infrared reaching the scan area.
 
 \section{3D Reference Characterisation}
 \label{sec5.2:reference}
 \comment{A Whole New Dimension}
 %=====================================================================
-The planar tests establish the sensor's noise behaviour but not how accurately it reconstructs three-dimensional relief, which is affected by resolution, filtering, foreshortening and the fusion of several views. These effects were measured against reference objects with known geometry using a modified version of the main capture program, which records scans under controlled software settings and hardware set-ups.
+The planar tests establish the sensor's noise behaviour but not how accurately it reconstructs three-dimensional relief, which is affected by resolution, filtering, distance and the fusion of several views. These effects were measured against reference objects with known geometry using a modified version of the main capture program, which records scans under controlled software settings and hardware set-ups.
 
 
 
 \subsection{Reference objects and evaluation}
 
-Three 3D-printed reference objects were used (Appendix~\todo{ref}). Each has a 100\,$\times$\,100\,mm footprint. Two are sinusoidal ``egg carton'' surfaces of the form $z = \sin(x) + \sin(y)$ at a large scale (feature spacing 50\,mm) and a small scale (25\,mm), and the third is a square-based pyramid of 50\,mm height\todo{confirm the egg carton amplitude and wavelength against the CAD drawings}. The smooth sinusoidal surfaces approximate the mounds produced by sand prawns, whose heights of 3 to 5\,cm were reported in the literature review, and the small carton tests the lateral resolution of the camera. The pyramid has sharp edges and planar facets, which show whether the filters preserve geometric edges or smooth them.
+Three 3D-printed reference objects were used (\autoref{Apendix:Reference_Objects}). Each has a 100\,$\times$\,100\,mm footprint. Two are sinusoidal ``egg carton'' surfaces of the form $z = \sin(x) + \sin(y)$ at a large scale (feature spacing 50\,mm, amplitude 20\,mm) and a small scale (25\,mm, amplitude 15\,mm), and the third is a square-based pyramid of 50\,mm height. The smooth sinusoidal surfaces are analogous to the smooth mounds produced by sand prawns, whose heights of 3 to 5\,cm were reported in the literature review, and the small carton tests the lateral resolution of the camera. The pyramid has sharp edges and planar facets, which show whether the filters preserve geometric edges or smooth them.
 
-Scans were evaluated with the \texttt{evaluate\_scans} tool described in Chapter~\ref{ch:system}\todo{Section ref}. The tool rigidly aligns each scan to the reference .stl model, using feature-matching starts followed by point-to-plane ICP, and then computes point-to-surface distances. Scale is not estimated, so any scale error in the camera data appears as geometric error. The metrics used are RMSE, mean absolute error, bias and standard deviation of the point-to-surface distance, the completeness, precision and F-score at distance thresholds of 0.5, 1, 2 and 5\,mm, and the fraction of the reference surface covered. Every evaluation logs its parameters, reference hash and random seed, so all results can be reproduced and compared directly.
+Scans were evaluated with the \texttt{evaluate\_scans} tool described in \autoref{sec:eval_framework}. The tool rigidly aligns each scan to the reference .stl model, using feature-matching starts followed by point-to-plane ICP, and then computes point-to-surface distances. Scale is not estimated, so any scale error in the camera data appears as geometric error. The metrics used are Accuracy RMSE, signed bias, completeness at 2mm and computed F-score at 2mm. F-score is a combined metric which aims to represent both precision and completeness.
+
+\begin{align}
+	P(\tau) &= \frac{1}{|S|} \sum_{s \in S}
+	\mathbb{1}\!\left[\, \min_{r \in R} \lVert s - r \rVert < \tau \,\right] \label{eq:precision} \\
+	C(\tau) &= \frac{1}{|R|} \sum_{r \in R}
+	\mathbb{1}\!\left[\, \min_{s \in S} \lVert r - s \rVert < \tau \,\right] \label{eq:completeness} \\
+	F(\tau) &= \frac{2\, P(\tau)\, C(\tau)}{P(\tau) + C(\tau)} \label{eq:fscore}
+\end{align}
+Let $S$ denote the set of scanned points and $R$ the set of points sampled from the reference model. For a distance threshold $\tau$, precision \autoref{eq:precision}) is the fraction of scanned points lying within $\tau$ of the reference surface, and completeness (\autoref{eq:completeness}) is the fraction of reference points lying within $\tau$ of the scan. The F-score (\autoref{eq:fscore}) is their harmonic mean, and therefore penalises both spurious points and missing coverage. It is calculated at $\tau = 0.5$, $1$, $2$ and $5$~mm, however for the purposes of this report, all results consider the threshold of $\tau = 2$~mm as this gives a balance of high accuracy representation, whilst still including relatively large bias/point spread.
 
 \subsection{Testing Procedure}
 
 \subsubsection{Camera configuration}
 
-The first sweep fixed the height and tilt of the camera and scanned the large egg carton and the pyramid with different stream configurations. The resolution ranged from 1280\,$\times$\,720 to 640\,$\times$\,360 pixels, the depth units from 0.001\,m to 0.0001\,m, and all of the built-in visual presets were tested except the Hand preset, which is intended for gesture tracking. The depth unit sets the quantisation step of the 16-bit depth values, and the finest setting (0.1\,mm) still provides a maximum range of 6.5\,m, well beyond the working distance. \todo{Results table: RMSE, completeness and F-score for each resolution, depth unit and preset on both objects, plus one or two sentences of discussion}
+The first sweep fixed the height and tilt of the camera and scanned the large egg carton and the pyramid with different stream configurations. The resolution ranged from 1280\,$\times$\,720 to 640\,$\times$\,360 pixels, the depth units from 1\,mm to 0.1\,mm, and all of the built-in visual presets were tested except the Hand preset, which is intended for gesture tracking. The depth unit sets the quantisation step of the 16-bit depth values, and the finest setting (0.1\,mm) still provides a maximum range of 6.5\,m, well beyond the working distance. 
+%\todo{Results table: RMSE, completeness and F-score for each resolution, depth unit and preset on both objects, plus one or two sentences of discussion}
 
-Based on this sweep, a resolution of 1280\,$\times$\,720, a depth unit of 0.0001\,m and the High Density preset were used for all later scans\todo{confirm that this was the outcome of the sweep}. These are the settings listed in Chapter~\ref{ch:system}.
+Based on this sweep, a resolution of 1280\,$\times$\,720, a depth unit of 0.1\,mm and the High Density preset were used for all later scans\todo{confirm that this was the outcome of the sweep}. These are the settings listed in \autoref{ch:design}.
 
 \subsubsection{Post-processing filters}
 
-With the configuration fixed, five stationary scans of each object were recorded at each of the tested heights, without tilt or rotation. The data were recorded to file so that the RealSense post-processing filters could be applied offline in many combinations to the same scans (Grunnet-Jepsen and Tong~\todo{cite}). The filters were decimation, spatial, temporal and hole-filling, and a sweep was made over their smoothing alpha, smoothing delta and magnitude parameters\todo{list the values or ranges tested for each filter}. Decimation reduces the resolution, the spatial filter performs edge-preserving smoothing, the temporal filter averages depth across frames, and hole filling interpolates invalid pixels. Each combination was evaluated against the reference, and the process was repeated at each height to determine whether the best filter settings depend on the working distance. \todo{Results: best-performing settings per height and object, and the trade-off between noise reduction and loss of fine relief or edges}
+With the configuration fixed, five stationary scans of each object were recorded at each of the tested heights, without tilt or rotation. The data were recorded to files so that the RealSense post-processing filters could be applied offline in many combinations to the same scans. The filters investigated were decimation, spatial, temporal and hole-filling, and a sweep was made over their smoothing alpha, smoothing delta and magnitude parameters\todo{list the values or ranges tested for each filter}. Decimation reduces the resolution, the spatial filter performs edge-preserving smoothing, the temporal filter averages depth across frames, and hole filling interpolates invalid pixels. Each combination was evaluated against the reference, and the process was repeated at each height to determine whether the best filter settings depend on the working distance.
 
 \subsubsection{Tilt and rotation}
 
-Finally, a full scan of each object was recorded at rotations of $-45$\degree, 0\degree, $45$\degree\ and $90$\degree\ and at tilts from $-25$\degree\ to $+25$\degree\ in steps of 5\degree. This gives 44 views of each object. Offline, these views were aligned and fused by the pipeline in Chapter~\ref{ch:pipeline}. For each view, several coarse alignment hypotheses are generated (from the IMU orientation, the detected AprilTag positions, the known rotation and tilt settings, and RANSAC matching of FPFH features) and scored. The best hypothesis is refined with ICP and the aligned scans are merged\todo{expand once the fusion method is finalised}. Subsets of the views were fused and each fusion was evaluated against the reference, which shows how the reconstruction accuracy depends on the number of views and on the combination of tilt and rotation. \todo{Results: accuracy and coverage versus the views included, and the recommended tilt and rotation set}
+Finally, a full scan of each object was recorded at rotations of $-45$\degree, 0\degree, $45$\degree\ and $90$\degree\ and at tilts from $-25$\degree\ to $+25$\degree\ in steps of 5\degree. This gives 44 views of each object. These views were aligned and fused by the pipeline in \autoref{ch:Pipeline}. Subsets of the views were fused and each fusion was evaluated against the reference, which shows how the reconstruction accuracy depends on the number of views and on the combination of tilt and rotation.
 
 \subsection{3D Characterisation Results}
 
 \subsubsection{Camera Configuration}
+
+Results for 3D parameter characterisation are shown in \autoref{tab:Scatter_Metric_Vs_Res}, \autoref{tab:Scatter_Metric_Vs_Depth_Units} and \autoref{tab:Scatter_Metric_Vs_Preset}. These are then plotted in \autoref{fig:Scatter-Metric-Vs-Res}, \autoref{fig:Scatter-Metric-Vs-Depth-Units} and \autoref{fig:Scatter-Metric-Vs-Preset} respectfully.
+
 
 \begin{figure}[htbp]
 	\centering
@@ -296,7 +314,7 @@ Finally, a full scan of each object was recorded at rotations of $-45$\degree, 0
 		\centering
 		\includegraphics[width=\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p1}
 		\caption{Accuracy RMSE}
-		\label{fig:Scatter-Metric-Vs-Res-1}
+		\label{fig:ScatterMetric-Vs-Res-1}
 	\end{subfigure}\hfill
 	\begin{subfigure}[t]{0.4756\textwidth}
 		\centering
@@ -319,7 +337,7 @@ Finally, a full scan of each object was recorded at rotations of $-45$\degree, 0
 	\end{subfigure}
 	\par\medskip
 	\includegraphics{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_legend}
-	\caption{Median with IQR of n = 15 scans per point. Fixed: Laser power = 150; Emitter = Laser; Fps = 30; Status = ok. Median taken over: Depth unit (3), Preset (5), Preset actual (5).}
+	\caption{Plots Showing 3D Performance Against Camera Resolution. Median with IQR of n = 15 scans per point, Taken Over Three Depth Units, and Five Presets.}
 	\label{fig:Scatter-Metric-Vs-Res}
 \end{figure}
 
@@ -352,7 +370,7 @@ Finally, a full scan of each object was recorded at rotations of $-45$\degree, 0
 	\end{subfigure}
 	\par\medskip
 	\includegraphics{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_legend}
-	\caption{Median with IQR of n = 15 scans per point. Fixed: Laser power = 150; Emitter = Laser; Fps = 30; Status = ok. Median taken over: Resolution (3), Preset (5), Preset actual (5).}
+	\caption{Plots Showing 3D Performance Against Depth Units. Median with IQR of n = 15 scans per point, Taken Over Three Resolutions, and Five Presets.}
 	\label{fig:Scatter-Metric-Vs-Depth-Units}
 \end{figure}
 
@@ -385,15 +403,15 @@ Finally, a full scan of each object was recorded at rotations of $-45$\degree, 0
 	\end{subfigure}
 	\par\medskip
 	\includegraphics{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_legend}
-	\caption{Median with IQR of n = 8--10 scans per point. Fixed: Laser power = 150; Emitter = Laser; Fps = 30; Status = ok. Median taken over: Resolution (3), Depth unit (3), Preset (5).}
+	\caption{Plots Showing 3D Performance Against Camera Preset. Median with IQR of n = 15 scans per point, Taken Over Three Depth Units, and Three Resolutions.}
 	\label{fig:Scatter-Metric-Vs-Preset}
 \end{figure}
 
-A full heatmap of the parameter sweep can be found in \autoref{Appendix:Parameter_Heatmap}
+A full heatmap describing the performance of all parameter combinations can be found in \autoref{Appendix:Parameter_Heatmap}.
 
 \subsubsection{Filters}
 
-A full comparison of all filter parameters is infeasible for the scope of this report. Thus only a comparison between a baseline evaluation, with no filters applied, and the best performing filters is shown in \autoref{fig:Filter-Comparison}. The filter settings can be found in \autoref{tab:filter_settings}
+A full comparison of all filter parameters is infeasible for the scope of this report. Thus only a comparison between a baseline evaluation, with no filters applied, and the best performing filters is shown in \autoref{fig:Filter-Comparison}, with the data shown in \autoref{tab:Filter_Comparison}. The filter settings can be found in \autoref{tab:filter_settings}
 
 % Requires: \usepackage{booktabs}
 \begin{table}[htbp]
@@ -471,7 +489,7 @@ A full comparison of all filter parameters is infeasible for the scope of this r
 	\end{subfigure}
 	\par\medskip
 	\includegraphics{figs/ch5/Filter_Analysis/Filter_Comparison_legend}
-	\caption{Dashed lines: linear least-squares fit per series and panel (R\textsuperscript{2} 0.00 to 1.00). Median with IQR of n = 4--5 scans per point. Fixed: Tilt = 0; Spatial filter on = Off; HDR merge on = Off; Status = ok. Median taken over: Rotation (4).}
+	\caption{Plots Showing 3D Performance Comparison Between No Filter and Best Performing Filter, Best Fit (R\textsuperscript{2} 0.00 to 1.00). Median with IQR of n = 4--5 Scans Per Point.}
 	\label{fig:Filter-Comparison}
 \end{figure}
 
@@ -479,7 +497,7 @@ A full comparison of all filter parameters is infeasible for the scope of this r
 
 \subsubsection{Tilt and Rotation}
 
-Again, a full comparison of all metrics agsainst all variables is infeasible for the scope of this project. The results shown in \autoref{fig:Combination-Comparison}, describe the comparison between a fusion of every tilt and rotation, compared to a single scan. This combination was chosen as it represents the best overall performance of the system as a whole.
+Again, a full comparison of all metrics agsainst all variables is infeasible for the scope of this project. The results shown in \autoref{tab:Combination_Comparison} are plotted in \autoref{fig:Combination-Comparison}, and describe the comparison between a fusion of every tilt and rotation, compared to a single scan. This combination was chosen as it represents the best overall performance of the system as a whole.
 
 A More in depth comparison of the different combinations can be seen in \autoref{Appendix:Combination}.
 
@@ -538,20 +556,89 @@ A More in depth comparison of the different combinations can be seen in \autoref
 	\end{subfigure}
 	\par\medskip
 	\includegraphics{figs/ch5/Combination_Analysis/Combination_Comparison_legend}
-	\caption{Dashed lines: linear least-squares fit per series and panel (R\textsuperscript{2} 0.25 to 1.00). Median with IQR of n = 1 point clouds per point. Fixed: Status = ok.}
+	\caption{Plots Showing 3D Performance Between No Fusion and All View-Point Fusion. Median with IQR of n = 1 Point Clouds Per Point.}
 	\label{fig:Combination-Comparison}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[t]{0.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Fusion_Analysis/Small_Wave_701mm_Single_Side}
+		\caption{3D Mesh of Single Scan Viewed From Side}
+		\label{fig:smallwave701mmsingleside}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Fusion_Analysis/Single_Small_error_map}
+		\caption{Evaluation Showing Error Map of Single Scan Compared Against Reference Object}
+		\label{fig:singlesmallerrormap}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Fusion_Analysis/Single_Small_error_histogram}
+		\caption{Histogram Showing Spread of Signed Error}
+		\label{fig:singlesmallerrorhistogram}
+	\end{subfigure}
+	\caption{Visual Representation of Single Scan Performance Using Small Egg Box Surface}
+	\label{fig:Single_Scan_Evaluation}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{subfigure}[t]{0.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Fusion_Analysis/Small_Wave_701mm_Fused_Side}
+		\caption{3D Mesh of Fused Scan Viewed From Side}
+		\label{fig:smallwave701mmfusedside}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Fusion_Analysis/Fused_Small_error_map}
+		\caption{Evaluation Showing Error Map of Fused Scan Compared Against Reference Object}
+		\label{fig:fusedsmallerrormap}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.32\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{figs/ch5/Fusion_Analysis/Fused_Small_error_histogram}
+		\caption{Histogram Showing Spread of Signed Error}
+		\label{fig:fusedsmallerrorhistogram}
+	\end{subfigure}
+	\caption{Visual Representation of Fused Scan Performance Using Small Egg Box Surface}
+	\label{fig:Fused_Scan_Evaluation}
 \end{figure}
 
 
 
 
+\subsection{Discussion}
+
+\subsubsection{Camera Configuration}
+Out of all results shown for the different camera calibrations, the comparison between depth image resolution and accuracy shown in \autoref{fig:Scatter-Metric-Vs-Res} shows the trend. For the egg box surface, it can be seen that a higher depth resolution results in a higher performance. Going from the default resolution of 848 $\times$ 480, to the highest supported resolution of 1280 $\times$720 results in an RMSE that drops by 0.32mm, or a decrease of 13.4\%, and a completeness that increases by 9.6\%. An interesting observation is that the results for the large pyramid are generally much better than that of the large wave, which is contrary to expectation, as the generally more geometrically sharp features of the pyramid tend to get smoothed much more than the smooth features of the egg box surfaces. This is likely due to the egg box shape having a higher feature density than the pyramid, resulting in more accuracy loss.
+
+Results from depth unit show that there is a slight trend in the data, tending to higher performance at lower depth units, which makes sense, however the result difference is smaller than expected, especially considering the results for the large pyramid, which was expected to have more significant results changes, due to the improved quantisation of the depth, on angled planar surfaces. Generally the best performance is achieved with the minimum depth unit scale of 0.1mm, however larger depth units are likely able to produce very similar results
+
+The highest performing preset was shown to be high density, which achieved the highest metrics across both shapes. This result does make sense, as the high density preset tends to maximise the resulting pointloud, which produces less depth holes in the scan, which help to provide higher accuracy reconstructions. Further consideration needs to be taken to investigate the performance of this setting as the multi-view fusion will likely have a large effect on this. It is expected that high accuracy will likely proove to be the best performing preset, given that the multi-scan fusion will resolve large depth holes in the scan. 
+\subsubsection{Filters}
+
+The analysis of different filters show that there is a minimal benefit from applying these filters. The best performing filters are described in \autoref{tab:filter_settings}. inspecting more detailed plots shown in \autoref{Appendix:Filter}, show that there is a general trend finding that more aggressive temporal filtering, less agressive spatial filtering and minimal decimation improve the results the most. However these results are generally dwarfed by the effects of height, as can be seen in these plots, where accuracy variation across a single hight is less than between heights. These results differ from what is expected, since it was expected that a very agressive temporal filter would help to reduce temporal noise which generally results in high variance, especisally in this case where each scan is static. A possible reason for this, could be the fact that each reference object is reletivly small, being effected less by large scale temporal noise, or that temporal noise generally averages out to zero.
+
+It can be seen though, that decimation results in a minimal degredation in the accuracy, potentially leading to processing performance, by decimating the scans to lower resolutions after the fact. However this is still not recommended, as large area scans are likely to suffer from large information loss.
+
+\subsubsection{Tilt and rotation}
+
+it can be seen in \autoref{fig:Combination-Comparison} that multi-view fusion generally always improves the accuracy of the scans taken. This fusion of all different viewpoints
+increase the f-score of the resulting fusion by an average of 14.0\% for the big egg box surface and by 5.77\% on the small egg box surface. This shows that fusion is a viable way to add extra accuracy to a scan without requiring differing hardware.
+by inspecting \autoref{fig:singlesmallerrorhistogram} and \autoref{fig:fusedsmallerrorhistogram}, it can be seen that whilst the fusion process does not significanly reduce the RMSE or standard deviation of the reconstruction, but it does smooth out the distribution significanylu, and looking at the error maps and 3D meshes, the fused scan produces a much smoother reconstruction, that much closer matches the reference object. This smoothing is specifically a very important metric. Even if the absolutre accuracy is only slightly improved, the roughness metrics of the single scan should be drastically larger than that of the fused scan, showing that a single scan may skew results. This can also be seen by looking at the floor surface surrounding the object. The single scan features large undulations and variability across the flat surface, whilst the fused scan has a much more consistently flat surface
+
+
 
 %=====================================================================
-\section{Chapter Summary}
-\label{sec5.3:chapsummary}
+%\section{Chapter Summary}
+%\label{sec5.3:chapsummary}
 %=====================================================================
-This chapter characterised the Intel RealSense D456 in two stages. The planar tests showed that depth noise grows rapidly with distance (from 1.2\,mm at 604\,mm to 4.6\,mm at 903\,mm), so the working distance should be as short as the analysis region allows. Tilts of up to about $\pm25$\degree\ add little noise beyond that caused by the increased range, which supports a multi-view strategy. Ambient light increases noise, and the white foam board failed in direct sun while a textured ground surface did not, so the tarp shading and the textured nature of sediment are both important. The 3D reference tests then fix the stream configuration, filter settings and view combinations used in the remainder of the project.
+%This chapter characterised the Intel RealSense D456 in two stages. The planar tests showed that depth noise grows rapidly with distance (from 1.2\,mm at 604\,mm to 4.6\,mm at 903\,mm), so the working distance should be as short as the analysis region allows. Tilts of up to about $\pm25$\degree\ add little noise beyond that caused by the increased range, which supports a multi-view strategy. Ambient light increases noise, and the white foam board failed in direct sun while a textured ground surface did not, so the tarp shading and the textured nature of sediment are both important. The 3D reference tests then fix the stream configuration, filter settings and view combinations used in the remainder of the project.
 
-The results have limitations that affect how they should be used. Each condition was recorded once, so the effect of re-setting the experiment is not quantified, and the scatter in depth error between neighbouring tilt angles suggests that it is significant. The distance sweep was not recorded in order of distance and the lighting changed between sessions, so distance and ambient light are partly confounded. The lux values come from an uncalibrated smartphone sensor. The distance sweep was performed with a tripod because the rig brackets could not hold the camera level, and the white featureless planar targets are likely to overstate the noise expected on textured sediment. Wet and specular sediment has not yet been tested. These points are taken up in Chapter~\ref{ch:further}\todo{ref to Further work}.
+%The results have limitations that affect how they should be used. Each condition was recorded once, so the effect of re-setting the experiment is not quantified, and the scatter in depth error between neighbouring tilt angles suggests that it is significant. The distance sweep was not recorded in order of distance and the lighting changed between sessions, so distance and ambient light are partly confounded. The lux values come from an uncalibrated smartphone sensor. The distance sweep was performed with a tripod because the rig brackets could not hold the camera level, and the white featureless planar targets are likely to overstate the noise expected on textured sediment. Wet and specular sediment has not yet been tested. These points are taken up in Chapter~\ref{ch:further}\todo{ref to Further work}.
 
 %*********************************************************************
