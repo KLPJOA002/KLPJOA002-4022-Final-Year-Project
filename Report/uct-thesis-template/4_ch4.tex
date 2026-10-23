@@ -5,10 +5,10 @@
 \chapter{System Design}
 \label{ch:design}
 %---------------------------------------------------------------------
-This chapter defines the general requirements of the system as a whole and describes the hardware rig used to capture scans, and the software pipeline built to capture, and process the data to provide useful metrics about the sediment surface. The theory in Chapter~\todo{theory chapter ref} is applied here, and the sensor characterisation in Chapter~\todo{characterisation chapter ref} uses the system as specified below.
+This chapter defines the general requirements of the system as a whole and describes the hardware rig used to capture scans, and the software pipeline built to capture, and process the data to provide useful metrics about the sediment surface. The theory in \autoref{ch:theory} is applied here, and the sensor characterisation in \autoref{ch:experiments} uses the system as specified below.
 
 \section{Requirements Definition}
-The aim of the overarching project is to quantify sandprawn bioturbation on intertidal sediment, within the Langebaan Lagoon, by measuring surface microtopography and extracting roughness metrics and visible biogenic features (mounds and burrow openings). The initial stages of the project were adapted from the framework of Azhar \textit{et al.}~\cite{azharRGBDFrameworkCapturing2022}, primarily modified to use the Intel RealSense D456.
+The aim of the overarching project is to quantify sandprawn bioturbation on intertidal sediment, within the Langebaan Lagoon, by measuring surface microtopography and extracting roughness metrics and visible biogenic features (mounds and burrow openings). The initial stages of the project were adapted from the framework of \citet{azharRGBDFrameworkCapturing2022}, primarily modified to use the Intel RealSense D456.
 
 This project aims to provide an investigation into the performance of the RealSense D456 camera currently used. The central aim is to characterise the depth camera in order to determine the optimal hardware and software configuration, and then to use scans taken under those configurations to build a high-quality reconstruction of the sediment on which the analysis is performed. The key output is an analysis of depth noise and reconstruction accuracy under different conditions.
 
@@ -123,10 +123,38 @@ Each hypothesis is scored with a common alignment-quality measure, and the highe
 
 \begin{figure}[!t]
 	\centering
-	% \includegraphics[width=\linewidth]{figs/fusion_flow.pdf}
-	\fbox{\parbox{0.9\linewidth}{\centering\vspace{1.2cm}\todo{Flowchart: tag crop $\rightarrow$ four coarse alignments $\rightarrow$ score $\rightarrow$ select best $\rightarrow$ ICP $\rightarrow$ fused cloud}\vspace{1.2cm}}}
-	\caption{Multi-angle fusion pipeline.}
-	\label{fig:fusion}
+	\begin{tikzpicture}[node distance=7mm, every node/.style={font=\small},
+		box/.style={draw, rounded corners=2pt, minimum width=2.7cm, minimum height=1.1cm, align=center}]
+		\node[box] (crop) {Crop};
+		
+		\node[box, above right=of crop] (IMU) {IMU};
+		
+		\node[box, above=of IMU] (Feature) {Feature};
+		
+		\node[box, below right=of crop] (TAG) {Tags};
+		
+		\node[box, below=of TAG] (Known) {Known};
+		
+		\node[box, below right=of IMU] (Score) {Score};
+		
+		\node[box, right=of Score] (ICP) {Refine};
+		
+		\node[box, right=of ICP] (Fuse) {Fuse};
+		%\node[box, right=of proc] (eval) {Evaluation\\(ground truth)};
+		\draw[-{Latex}] (crop) -- (Feature);
+		\draw[-{Latex}] (crop) -- (IMU);
+		\draw[-{Latex}] (crop) -- (TAG);
+		\draw[-{Latex}] (crop) -- (Known);
+		\draw[-{Latex}] (Feature) -- (Score);
+		\draw[-{Latex}] (IMU) -- (Score);
+		\draw[-{Latex}] (TAG) -- (Score);
+		\draw[-{Latex}] (Known) -- (Score);
+		\draw[-{Latex}] (Score) -- (ICP);
+		\draw[-{Latex}] (ICP) -- (Fuse);
+		%\draw[-{Latex}] (proc) -- (eval);
+	\end{tikzpicture}
+	\caption{System overview. \todo{Replace with a fuller diagram showing the data formats (.bag, .ply) passed between stages.}}
+	\label{fig:Multi-Angle-fusion}
 \end{figure}
 
 \subsection{Microtopography Processing}
@@ -144,7 +172,7 @@ For characterisation and validation, a separate Python tool, \texttt{evaluate\_s
 The reference objects used for validation include a 3D printed egg carton surface $z = sin(x) + sin(y)$, at large and small scale, and a square based pyramid. These reference objects provide a balance of condition matching of the actual sediment surface, using the soft sinusoidal surface, and general performance to less natural sharp shapes. For the purpose of validation, the 3D model files (.stl) are used for evaluation as the 3D mesh surface allows for point to surface distance calculation across the entire 3D object.
 
 \subsection{Alignment and Metrics}
-Alignment uses several seeded feature-matching starts, systematic perturbations of the best pose (quarter turns, a flip, and slides of a quarter and half of the part), and point-to-plane ICP, followed by a final refinement against the exact surface. Candidate poses are ranked by a truncated least-squares cost computed in both directions (scan to reference and reference to scan), which prevents a pose that matches fewer points from winning by default. This matters on periodic targets such as the egg carton, where several look-alike poses exist. The tool flags a result as \textit{ambiguous} when the two best poses are too close to call, and reports degrees of freedom the surface cannot constrain.
+Alignment uses several seeded feature-matching starts, systematic perturbations of the best pose (quarter turns, a flip, and slides of a quarter and half of the part), and point-to-plane ICP, followed by a final refinement against the exact surface. Candidate poses are ranked by a truncated least-squares cost computed in both directions (scan to reference and reference to scan), which prevents a pose that matches fewer points from winning by default. This matters on periodic targets such as the egg carton, where several look-alike poses exist. The tool flags a result as ambiguous when the two best poses are too close to call, and reports degrees of freedom the surface cannot constrain.
 
 For each aligned scan the tool reports accuracy (RMSE, MAE, bias, standard deviation, trimmed statistics, percentiles), the vertical error for height-field references, and coverage of the reference. It also reports completeness, precision and F-score at several distance thresholds, Chamfer and Hausdorff distances, outlier fraction and point density. Every run appends a row to a shared table with the exact parameters, reference hash and random seed, so experiments are reproducible and comparable across configurations.
 
@@ -152,7 +180,7 @@ For each aligned scan the tool reports accuracy (RMSE, MAE, bias, standard devia
 \section{Summary}
 \label{sec:design_summary}
 
-The rig provides repeatable, multi-angle capture of a user-defined surface region. The software fuses those scans, extracts microtopography, and is checked against analytic ground truth. Chapter~\todo{characterisation chapter ref} uses this system to characterise the D456's depth noise.
+The rig provides repeatable, multi-angle capture of a user-defined surface region. The software fuses those scans, extracts microtopography, and is checked against analytic ground truth. \autoref{ch:experiments} uses this system to characterise the D456's depth noise.
 %*********************************************************************
 % End of Design
 %*********************************************************************

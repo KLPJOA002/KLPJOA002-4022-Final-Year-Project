@@ -291,7 +291,7 @@ Let $S$ denote the set of scanned points and $R$ the set of points sampled from 
 The first sweep fixed the height and tilt of the camera and scanned the large egg carton and the pyramid with different stream configurations. The resolution ranged from 1280\,$\times$\,720 to 640\,$\times$\,360 pixels, the depth units from 1\,mm to 0.1\,mm, and all of the built-in visual presets were tested except the Hand preset, which is intended for gesture tracking. The depth unit sets the quantisation step of the 16-bit depth values, and the finest setting (0.1\,mm) still provides a maximum range of 6.5\,m, well beyond the working distance. 
 %\todo{Results table: RMSE, completeness and F-score for each resolution, depth unit and preset on both objects, plus one or two sentences of discussion}
 
-Based on this sweep, a resolution of 1280\,$\times$\,720, a depth unit of 0.1\,mm and the High Density preset were used for all later scans\todo{confirm that this was the outcome of the sweep}. These are the settings listed in \autoref{ch:design}.
+%Based on this sweep, a resolution of 1280\,$\times$\,720, a depth unit of 0.1\,mm and the High Density preset were used for all later scans\todo{confirm that this was the outcome of the sweep}. These are the settings listed in \autoref{ch:design}.
 
 \subsubsection{Post-processing filters}
 
@@ -562,48 +562,37 @@ A More in depth comparison of the different combinations can be seen in \autoref
 
 \begin{figure}
 	\centering
-	\begin{subfigure}[t]{0.32\textwidth}
+	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/ch5/Fusion_Analysis/Small_Wave_701mm_Single_Side}
 		\caption{3D Mesh of Single Scan Viewed From Side}
 		\label{fig:smallwave701mmsingleside}
 	\end{subfigure}\hfill
-	\begin{subfigure}[t]{0.32\textwidth}
+	\begin{subfigure}[t]{0.35\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/ch5/Fusion_Analysis/Single_Small_error_map}
 		\caption{Evaluation Showing Error Map of Single Scan Compared Against Reference Object}
 		\label{fig:singlesmallerrormap}
 	\end{subfigure}\hfill
-	\begin{subfigure}[t]{0.32\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/ch5/Fusion_Analysis/Single_Small_error_histogram}
-		\caption{Histogram Showing Spread of Signed Error}
-		\label{fig:singlesmallerrorhistogram}
-	\end{subfigure}
+
 	\caption{Visual Representation of Single Scan Performance Using Small Egg Box Surface}
 	\label{fig:Single_Scan_Evaluation}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\begin{subfigure}[t]{0.32\textwidth}
+	\begin{subfigure}[t]{0.5\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/ch5/Fusion_Analysis/Small_Wave_701mm_Fused_Side}
 		\caption{3D Mesh of Fused Scan Viewed From Side}
 		\label{fig:smallwave701mmfusedside}
 	\end{subfigure}\hfill
-	\begin{subfigure}[t]{0.32\textwidth}
+	\begin{subfigure}[t]{0.35\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/ch5/Fusion_Analysis/Fused_Small_error_map}
 		\caption{Evaluation Showing Error Map of Fused Scan Compared Against Reference Object}
 		\label{fig:fusedsmallerrormap}
 	\end{subfigure}\hfill
-	\begin{subfigure}[t]{0.32\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{figs/ch5/Fusion_Analysis/Fused_Small_error_histogram}
-		\caption{Histogram Showing Spread of Signed Error}
-		\label{fig:fusedsmallerrorhistogram}
-	\end{subfigure}
 	\caption{Visual Representation of Fused Scan Performance Using Small Egg Box Surface}
 	\label{fig:Fused_Scan_Evaluation}
 \end{figure}

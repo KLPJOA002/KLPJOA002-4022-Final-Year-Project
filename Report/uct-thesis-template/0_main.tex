@@ -158,9 +158,11 @@
 \ifIEEEcite
     % IEEE: numeric, square brackets, sorted and compressed ([1]-[3], not [1],[2],[3])
     \PassOptionsToPackage{numbers,square,comma,sort&compress}{natbib}
+    %\bibliographystyle{IEEEtranN}
 \else
     % Harvard: author-year, round brackets, semicolon between citations
     \PassOptionsToPackage{authoryear,round,semicolon}{natbib}
+    %\bibliographystyle{plainnat}
 \fi
 \usepackage{natbib}
 %=====================================================================

@@ -11,27 +11,27 @@
 \contentsline {table}{\numberline {4.1}{\ignorespaces System requirements and where they are addressed.}}{17}{table.caption.14}%
 \contentsline {table}{\numberline {4.2}{\ignorespaces Hardware summary.}}{18}{table.caption.16}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Planar characterisation under different lighting conditions at a height of approximately 0.9\,m. Lux values are indicative (smartphone sensor).}}{24}{table.caption.26}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Post-processing filter settings of the best-performing configuration for all objects combined and for each object.}}{26}{table.caption.39}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Planar characterisation under different lighting conditions at a height of approximately 0.9\,m. Lux values are indicative (smartphone sensor).}}{25}{table.caption.26}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Post-processing filter settings of the best-performing configuration for all objects combined and for each object.}}{27}{table.caption.39}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces Each value is over n = 1 rows.}}{46}{table.caption.55}%
-\contentsline {table}{\numberline {7.2}{\ignorespaces Each value is over n = 1 rows. Fixed: Grid nx = 45.}}{46}{table.caption.56}%
-\contentsline {table}{\numberline {7.3}{\ignorespaces Each value is over n = 4 rows. Averaged over: Detrend (4), Primary (2), Flags (3), Str bounded (2), Detrend n coef (4), Detrend order (4) and 1 more.}}{48}{table.caption.59}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {7.1}{\ignorespaces Each value is over n = 1 rows.}}{47}{table.caption.55}%
+\contentsline {table}{\numberline {7.2}{\ignorespaces Each value is over n = 1 rows. Fixed: Grid nx = 45.}}{47}{table.caption.56}%
+\contentsline {table}{\numberline {7.3}{\ignorespaces Each value is over n = 4 rows. Averaged over: Detrend (4), Primary (2), Flags (3), Str bounded (2), Detrend n coef (4), Detrend order (4) and 1 more.}}{49}{table.caption.59}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {D.1}{\ignorespaces Results for Planar Characterisation Against Distance. Per-Trial Values Over n = 385-552 Frames.}}{56}{table.caption.65}%
-\contentsline {table}{\numberline {D.2}{\ignorespaces Results for Planar Characterisation Against Scan Angle. Per-trial values over n=527-574 frames.}}{57}{table.caption.66}%
-\contentsline {table}{\numberline {D.3}{\ignorespaces Results for Planar Characterisation Against Light Intensity. Per-trial values over n = 592-599 Frames.}}{57}{table.caption.67}%
-\contentsline {table}{\numberline {D.4}{\ignorespaces Each value is over n = 15 scans. Fixed: Laser power = 150; Emitter = Laser; Fps = 30; Status = ok. Median taken over: Depth unit (3), Preset (5), Preset actual (5).}}{58}{table.caption.68}%
-\contentsline {table}{\numberline {D.5}{\ignorespaces Each value is over n = 15 scans. Fixed: Laser power = 150; Emitter = Laser; Fps = 30; Status = ok. Median taken over: Resolution (3), Preset (5), Preset actual (5).}}{58}{table.caption.69}%
-\contentsline {table}{\numberline {D.6}{\ignorespaces Each value is over n = 8--10 scans. Fixed: Laser power = 150; Emitter = Laser; Fps = 30; Status = ok. Median taken over: Resolution (3), Depth unit (3), Preset (5).}}{58}{table.caption.70}%
-\contentsline {table}{\numberline {D.7}{\ignorespaces Each value is over n = 4--5 scans. Fixed: Tilt = 0; Spatial filter on = Off; HDR merge on = Off; Status = ok. Median taken over: Rotation (4).}}{59}{table.caption.71}%
-\contentsline {table}{\numberline {D.8}{\ignorespaces Each value is over n = 1 point clouds. Fixed: Status = ok.}}{60}{table.caption.72}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {D.1}{\ignorespaces Results for Planar Characterisation Against Distance. Per-Trial Values Over n = 385-552 Frames.}}{60}{table.caption.65}%
+\contentsline {table}{\numberline {D.2}{\ignorespaces Results for Planar Characterisation Against Scan Angle. Per-trial values over n=527-574 frames.}}{61}{table.caption.66}%
+\contentsline {table}{\numberline {D.3}{\ignorespaces Results for Planar Characterisation Against Light Intensity. Per-trial values over n = 592-599 Frames.}}{61}{table.caption.67}%
+\contentsline {table}{\numberline {D.4}{\ignorespaces Each value is over n = 15 scans. Fixed: Laser power = 150; Emitter = Laser; Fps = 30; Status = ok. Median taken over: Depth unit (3), Preset (5), Preset actual (5).}}{62}{table.caption.68}%
+\contentsline {table}{\numberline {D.5}{\ignorespaces Each value is over n = 15 scans. Fixed: Laser power = 150; Emitter = Laser; Fps = 30; Status = ok. Median taken over: Resolution (3), Preset (5), Preset actual (5).}}{62}{table.caption.69}%
+\contentsline {table}{\numberline {D.6}{\ignorespaces Each value is over n = 8--10 scans. Fixed: Laser power = 150; Emitter = Laser; Fps = 30; Status = ok. Median taken over: Resolution (3), Depth unit (3), Preset (5).}}{62}{table.caption.70}%
+\contentsline {table}{\numberline {D.7}{\ignorespaces Each value is over n = 4--5 scans. Fixed: Tilt = 0; Spatial filter on = Off; HDR merge on = Off; Status = ok. Median taken over: Rotation (4).}}{63}{table.caption.71}%
+\contentsline {table}{\numberline {D.8}{\ignorespaces Each value is over n = 1 point clouds. Fixed: Status = ok.}}{64}{table.caption.72}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

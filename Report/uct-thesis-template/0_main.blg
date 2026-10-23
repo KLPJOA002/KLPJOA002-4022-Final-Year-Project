@@ -1,6 +1,7 @@
 This is BibTeX, Version 0.99e (TeX Live 2026)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: 0_main.aux
+The style file: IEEEtranN.bst
 A level-1 auxiliary file: 0_documentproperties.aux
 A level-1 auxiliary file: 0_titlepage.aux
 A level-1 auxiliary file: i_declaration.aux
@@ -23,7 +24,15 @@ A level-1 auxiliary file: Appendix.aux
 A level-1 auxiliary file: B_ethics.aux
 A level-1 auxiliary file: C_topicdescription.aux
 A level-1 auxiliary file: D_ECSA.aux
-The style file: plainnat.bst
+Illegal, another \bibstyle command---line 46 of file 0_main.aux
+ : \bibstyle
+ :          {IEEEtran}
+I'm skipping whatever remains of this command
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: 4022.bib
 Warning--I didn't find a database entry for "rusu2009fpfh"
 Warning--I didn't find a database entry for "fischler1981ransac"
@@ -38,60 +47,58 @@ Warning--I didn't find a database entry for "iso25178-2"
 Warning--I didn't find a database entry for "persson2005roughness"
 Warning--I didn't find a database entry for "riley1999tri"
 Warning--I didn't find a database entry for "sappington2007vrm"
-Warning--to sort, need author or key in ISO2517822021
-Warning--to sort, need author or key in intel_d456
-Warning--to sort, need author or key in CameraDepthTesting
-Warning--empty year in CameraDepthTesting
-Warning--empty year in ISO2517822021
-Warning--empty year in ProjectorsD400Series
-Warning--empty year in TuningDepthCameras
-Warning--empty year in DepthPostProcessingIntel
+-- IEEEtranN.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+** Natbib version - not for normal IEEE work.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Warning--empty journal in grunnet-jepsenBestKnownMethodsTuningIntel
-Warning--empty year in grunnet-jepsenBestKnownMethodsTuningIntel
 Warning--empty year in grunnet-jepsenBestKnownMethodsTuningIntel
 Warning--empty journal in lowLinearLeastSquaresOptimizationa
 Warning--empty year in lowLinearLeastSquaresOptimizationa
-Warning--empty year in lowLinearLeastSquaresOptimizationa
-Warning--empty publisher in inbook
+
+Done.
 You've used 53 entries,
-            2773 wiz_defined-function locations,
-            1049 strings with 19948 characters,
-and the built_in function-call counts, 28461 in all, are:
-= -- 2646
-> -- 1676
-< -- 35
-+ -- 567
-- -- 513
-* -- 2503
-:= -- 4283
-add.period$ -- 229
+            4855 wiz_defined-function locations,
+            1328 strings with 22053 characters,
+and the built_in function-call counts, 50707 in all, are:
+= -- 4475
+> -- 1556
+< -- 396
++ -- 780
+- -- 348
+* -- 2905
+:= -- 7408
+add.period$ -- 108
 call.type$ -- 53
-change.case$ -- 326
-chr.to.int$ -- 52
-cite$ -- 124
-duplicate$ -- 1196
-empty$ -- 2196
-format.name$ -- 593
-if$ -- 6009
+change.case$ -- 103
+chr.to.int$ -- 868
+cite$ -- 60
+duplicate$ -- 3393
+empty$ -- 3552
+format.name$ -- 466
+if$ -- 11534
 int.to.chr$ -- 2
-int.to.str$ -- 1
-missing$ -- 50
-newline$ -- 340
-num.names$ -- 200
-pop$ -- 617
+int.to.str$ -- 54
+missing$ -- 535
+newline$ -- 183
+num.names$ -- 150
+pop$ -- 1312
 preamble$ -- 1
-purify$ -- 276
-quote$ -- 0
-skip$ -- 940
+purify$ -- 53
+quote$ -- 2
+skip$ -- 3736
 stack$ -- 0
-substring$ -- 1173
-swap$ -- 208
-text.length$ -- 14
+substring$ -- 2171
+swap$ -- 2696
+text.length$ -- 103
 text.prefix$ -- 0
-top$ -- 0
-type$ -- 568
-warning$ -- 15
-while$ -- 234
+top$ -- 6
+type$ -- 818
+warning$ -- 4
+while$ -- 238
 width$ -- 0
-write$ -- 821
-(There were 28 warnings)
+write$ -- 638
+(There was 1 error message)

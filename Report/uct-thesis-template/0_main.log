@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.8.27)  23 OCT 2026 00:22
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.8.27)  23 OCT 2026 17:56
  restricted system commands enabled.
 **0_main.tex
 (./0_main.tex
@@ -1827,13 +1827,13 @@ Package fontspec Info:
 
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/TeXGyreTermes(1)/m/n on input line 1
-88.
+90.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/TeXGyreTermes(1)/m/it on input line
- 188.
+ 190.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/TeXGyreTermes(1)/b/n on input line 
-188.
+190.
 
 Package fontspec Info: 
 (fontspec)             Could not resolve font "TeX Gyre Termes Math/B" (it
@@ -1887,16 +1887,16 @@ etex;+ssty=0;"<-7.06275>"name:TeX
 etex;+ssty=1;"
 
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 189.
+(Font)              `operators' in the math version `normal' on input line 191.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/TeXGyreTermesMath(1)/m/n on input li
-ne 189.
+ne 191.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 189.
+(Font)              `operators' in the math version `bold' on input line 191.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/TeXGyreTermesMath(1)/b/n on input l
-ine 189.
+ine 191.
 
 Package fontspec Info: 
 (fontspec)             Could not resolve font "TeX Gyre Termes Math/B" (it
@@ -1930,15 +1930,15 @@ etex;mathfontdimen=tex2;+ssty=0;"<-7.06275>"name:TeX
 etex;mathfontdimen=tex2;+ssty=1;"
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 189.
+(Font)              `symbols' in the math version `normal' on input line 191.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/cmsy/m/n --> TU/TeXGyreTermesMath(2)/m/n on input l
-ine 189.
+ine 191.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 189.
+(Font)              `symbols' in the math version `bold' on input line 191.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/cmsy/b/n --> TU/TeXGyreTermesMath(2)/b/n on input l
-ine 189.
+ine 191.
 
 Package fontspec Info: 
 (fontspec)             Could not resolve font "TeX Gyre Termes Math/B" (it
@@ -1973,16 +1973,16 @@ etex;mathfontdimen=tex3;+ssty=1;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
 (Font)              `largesymbols' in the math version `normal' on input line 1
-89.
+91.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/cmex/m/n --> TU/TeXGyreTermesMath(3)/m/n on input l
-ine 189.
+ine 191.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 189
+(Font)              `largesymbols' in the math version `bold' on input line 191
 .
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/cmex/m/n --> TU/TeXGyreTermesMath(3)/b/n on input l
-ine 189.
+ine 191.
 
 Package fontspec Info: 
 (fontspec)             Script 'Math' not explicitly supported within font 'TeX
@@ -2022,45 +2022,45 @@ en=xetex;"
 \sym__um_fam1=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `__um_fam1' in version `normal'
 (Font)                  TU/TeXGyreTermes(2)/m/n --> TU/TeXGyreTermes(2)/m/n on 
-input line 189.
+input line 191.
 LaTeX Font Info:    Overwriting symbol font `__um_fam1' in version `bold'
 (Font)                  TU/TeXGyreTermes(2)/m/n --> TU/TeXGyreTermes(2)/b/n on 
-input line 189.
+input line 191.
+
+(./thesis-wordcount.tex)
 \glswrite=\write5
 \glo@main@file=\write6
 
 \openout6 = 0_main.glo
-Package glossaries Info: Writing glossary file 0_main.glo on input line 256.
-
-(./0_glossaryentries.tex) (./0_main.aux (./0_documentproperties.aux)
-(./0_titlepage.aux) (./i_declaration.aux) (./ii_abstract.aux)
-(./iii_acknowledgments.aux) (./iv_listofsymbols.aux) (./v_glossary.aux)
-(./1_intro.aux) (./2_review.aux) (./3_ch3.aux) (./4_ch4.aux) (./5_ch5.aux)
-(./6_ch6.aux) (./7_ch7.aux) (./7_discussion.aux) (./8_conclusions.aux)
-(./9_furtherwork.aux) (./A_gitrepo.aux) (./Appendix.aux) (./B_ethics.aux)
-(./C_topicdescription.aux) (./D_ECSA.aux))
+Package glossaries Info: Writing glossary file 0_main.glo on input line 258.
+ (./0_glossaryentries.tex) (./0_main.aux
+(./0_documentproperties.aux) (./0_titlepage.aux) (./i_declaration.aux)
+(./ii_abstract.aux) (./iii_acknowledgments.aux) (./iv_listofsymbols.aux)
+(./v_glossary.aux) (./1_intro.aux) (./2_review.aux) (./3_ch3.aux) (./4_ch4.aux) (./5_ch5.aux) (./6_ch6.aux) (./7_ch7.aux) (./7_discussion.aux)
+(./8_conclusions.aux) (./9_furtherwork.aux) (./A_gitrepo.aux) (./Appendix.aux)
+(./B_ethics.aux) (./C_topicdescription.aux) (./D_ECSA.aux))
 \openout1 = 0_main.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 266.
-LaTeX Font Info:    ... okay on input line 266.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 268.
+LaTeX Font Info:    ... okay on input line 268.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 268.
+LaTeX Font Info:    ... okay on input line 268.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 268.
+LaTeX Font Info:    ... okay on input line 268.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 268.
+LaTeX Font Info:    ... okay on input line 268.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 268.
+LaTeX Font Info:    ... okay on input line 268.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 268.
+LaTeX Font Info:    ... okay on input line 268.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 268.
+LaTeX Font Info:    ... okay on input line 268.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 268.
+LaTeX Font Info:    ... okay on input line 268.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 268.
+LaTeX Font Info:    ... okay on input line 268.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 268.
+LaTeX Font Info:    ... okay on input line 268.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: luatex
@@ -2126,45 +2126,45 @@ Package: pdflscape-nometadata 2025-06-23 v0.14 Display of landscape pages in PD
 F (HO)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
-LaTeX Info: Redefining \celsius on input line 266.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 266
+LaTeX Info: Redefining \celsius on input line 268.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 268
 .
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 266.
-Package gensymb Info: Using \Omega for \ohm on input line 266.
+LaTeX Info: Redefining \ohm on input line 268.
+Package gensymb Info: Using \Omega for \ohm on input line 268.
 
 Package gensymb Warning: Not defining \micro.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 266.
+Package hyperref Info: Link coloring OFF on input line 268.
 (./0_main.out) (./0_main.out)
 \@outlinefile=\write7
 
 \openout7 = 0_main.out
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 266.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 268.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 266.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 268.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 266.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 268.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 266.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 268.
 
 \openout2 = 0_documentproperties.aux
  (./0_documentproperties.tex)
 \openout2 = 0_titlepage.aux
  (./0_titlepage.tex
-<figs/0_logos/logo_uct.png, id=497, 356.532pt x 362.3136pt>
+<figs/0_logos/logo_uct.png, id=505, 356.532pt x 362.3136pt>
 File: figs/0_logos/logo_uct.png Graphic file (type png)
 <use figs/0_logos/logo_uct.png>
 Package luatex.def Info: figs/0_logos/logo_uct.png  used on input line 21.
 (luatex.def)             Requested size: 97.9949pt x 99.58464pt.
-<figs/0_logos/logo_eee.jpg, id=498, 1516.66624pt x 1511.6475pt>
+<figs/0_logos/logo_eee.jpg, id=506, 1516.66624pt x 1511.6475pt>
 File: figs/0_logos/logo_eee.jpg Graphic file (type jpg)
 <use figs/0_logos/logo_eee.jpg>
 Package luatex.def Info: figs/0_logos/logo_eee.jpg  used on input line 75.
@@ -2184,7 +2184,7 @@ Package luatex.def Info: figs/0_logos/logo_eee.jpg  used on input line 75.
 uct.png><./figs/0_logos/logo_eee.jpg>])
 \openout2 = i_declaration.aux
  (./i_declaration.tex
-Overfull \hbox (113.49063pt too wide) in paragraph at lines 68--68
+Overfull \hbox (81.12245pt too wide) in paragraph at lines 68--68
 []|[]|  
  []
 
@@ -2276,7 +2276,7 @@ Chapter 2.
 
 
 ]
-<figs/ch2/Schenone_custom_incubation_tank.png, id=925, 987.69pt x 634.62094pt>
+<figs/ch2/Schenone_custom_incubation_tank.png, id=950, 987.69pt x 634.62094pt>
 File: figs/ch2/Schenone_custom_incubation_tank.png Graphic file (type png)
 <use figs/ch2/Schenone_custom_incubation_tank.png>
 Package luatex.def Info: figs/ch2/Schenone_custom_incubation_tank.png  used on 
@@ -2297,7 +2297,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 82--82
 []|\TU/TeXGyreTermes(0)/m/n/10 Planes, 3D-printed re-lief, sand,
  []
 
-<figs/ch2/Effect_of_Moisture_on_Sediment.png, id=1007, 236.8047pt x 134.1813pt>
+<figs/ch2/Effect_of_Moisture_on_Sediment.png, id=1032, 236.8047pt x 134.1813pt>
 
 File: figs/ch2/Effect_of_Moisture_on_Sediment.png Graphic file (type png)
 <use figs/ch2/Effect_of_Moisture_on_Sediment.png>
@@ -2369,6 +2369,9 @@ LaTeX Warning: Reference `sec:hardware' on page 16 undefined on input line 38.
 
 ] [17]
 
+LaTeX Warning: Reference `fig:fusion' on page 18 undefined on input line 115.
+
+
 Package natbib Warning: Citation `rusu2009fpfh' on page 18 undefined on input l
 ine 120.
 
@@ -2380,22 +2383,22 @@ nput line 120.
 Package natbib Warning: Citation `besl1992icp' on page 18 undefined on input li
 ne 122.
 
-[18]) [19]
+[18]) [19] [20]
 \openout2 = 5_ch5.aux
  (./5_ch5.tex
 Chapter 5.
 
-LaTeX Warning: Reference `sec5.3:chapsummary' on page 20 undefined on input lin
+LaTeX Warning: Reference `sec5.3:chapsummary' on page 21 undefined on input lin
 e 71.
 
-[20
+[21
 
 
 
 
 
-] [21]
-<figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p1.png, id=1218, 250.6212pt 
+] [22]
+<figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p1.png, id=1249, 250.6212pt 
 x 106.66216pt>
 File: figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p1.png Graphic file (ty
 pe png)
@@ -2403,7 +2406,7 @@ pe png)
 Package luatex.def Info: figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p1.p
 ng  used on input line 115.
 (luatex.def)             Requested size: 236.71889pt x 100.74905pt.
-<figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p2.png, id=1219, 240.97746pt
+<figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p2.png, id=1250, 240.97746pt
  x 106.66216pt>
 File: figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p2.png Graphic file (ty
 pe png)
@@ -2411,7 +2414,7 @@ pe png)
 Package luatex.def Info: figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p2.p
 ng  used on input line 121.
 (luatex.def)             Requested size: 227.62596pt x 100.75557pt.
-<figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p3.png, id=1220, 250.6212pt 
+<figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p3.png, id=1251, 250.6212pt 
 x 128.27344pt>
 File: figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p3.png Graphic file (ty
 pe png)
@@ -2419,7 +2422,7 @@ pe png)
 Package luatex.def Info: figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p3.p
 ng  used on input line 128.
 (luatex.def)             Requested size: 236.71889pt x 121.16226pt.
-<figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p4.png, id=1221, 240.97746pt
+<figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p4.png, id=1252, 240.97746pt
  x 128.27344pt>
 File: figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p4.png Graphic file (ty
 pe png)
@@ -2427,7 +2430,7 @@ pe png)
 Package luatex.def Info: figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p4.p
 ng  used on input line 134.
 (luatex.def)             Requested size: 227.62596pt x 121.17009pt.
-<figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p1.png, id=1224, 249.4593pt x 
+<figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p1.png, id=1255, 249.4593pt x 
 106.66216pt>
 File: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p1.png Graphic file (type
  png)
@@ -2435,7 +2438,7 @@ File: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p1.png Graphic file (type
 Package luatex.def Info: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p1.png
   used on input line 154.
 (luatex.def)             Requested size: 235.65608pt x 100.76207pt.
-<figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p2.png, id=1225, 242.02316pt x
+<figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p2.png, id=1256, 242.02316pt x
  106.66216pt>
 File: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p2.png Graphic file (type
  png)
@@ -2443,7 +2446,7 @@ File: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p2.png Graphic file (type
 Package luatex.def Info: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p2.png
   used on input line 160.
 (luatex.def)             Requested size: 228.68877pt x 100.78812pt.
-<figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p3.png, id=1226, 249.4593pt x 
+<figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p3.png, id=1257, 249.4593pt x 
 134.54768pt>
 File: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p3.png Graphic file (type
  png)
@@ -2451,7 +2454,7 @@ File: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p3.png Graphic file (type
 Package luatex.def Info: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p3.png
   used on input line 167.
 (luatex.def)             Requested size: 235.65608pt x 127.10509pt.
-<figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p4.png, id=1227, 242.02316pt x
+<figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p4.png, id=1258, 242.02316pt x
  134.54768pt>
 File: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p4.png Graphic file (type
  png)
@@ -2459,7 +2462,7 @@ File: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p4.png Graphic file (type
 Package luatex.def Info: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p4.png
   used on input line 173.
 (luatex.def)             Requested size: 228.68877pt x 127.13794pt.
-<figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_legend.png, id=1228, 89.34988p
+<figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_legend.png, id=1259, 89.34988p
 t x 19.05511pt>
 File: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_legend.png Graphic file (
 type png)
@@ -2467,7 +2470,7 @@ type png)
 Package luatex.def Info: figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_legend
 .png  used on input line 178.
 (luatex.def)             Requested size: 89.34966pt x 19.05505pt.
-<figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p1.png, id=1232, 248.29741pt x
+<figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p1.png, id=1263, 248.29741pt x
  106.66216pt>
 File: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p1.png Graphic file (type
  png)
@@ -2475,7 +2478,7 @@ File: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p1.png Graphic file (type
 Package luatex.def Info: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p1.png
   used on input line 220.
 (luatex.def)             Requested size: 234.59326pt x 100.77997pt.
-<figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p2.png, id=1233, 243.18506pt x
+<figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p2.png, id=1264, 243.18506pt x
  106.66216pt>
 File: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p2.png Graphic file (type
  png)
@@ -2483,7 +2486,7 @@ File: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p2.png Graphic file (type
 Package luatex.def Info: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p2.png
   used on input line 226.
 (luatex.def)             Requested size: 229.75896pt x 100.77835pt.
-<figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p3.png, id=1234, 248.29741pt x
+<figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p3.png, id=1265, 248.29741pt x
  135.70958pt>
 File: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p3.png Graphic file (type
  png)
@@ -2491,7 +2494,7 @@ File: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p3.png Graphic file (type
 Package luatex.def Info: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p3.png
   used on input line 233.
 (luatex.def)             Requested size: 234.59326pt x 128.22551pt.
-<figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p4.png, id=1235, 243.18506pt x
+<figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p4.png, id=1266, 243.18506pt x
  135.70958pt>
 File: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p4.png Graphic file (type
  png)
@@ -2499,18 +2502,18 @@ File: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p4.png Graphic file (type
 Package luatex.def Info: figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p4.png
   used on input line 239.
 (luatex.def)             Requested size: 229.75896pt x 128.22345pt.
- [22<./figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p1.png><./figs/ch5/Heig
+ [23<./figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p1.png><./figs/ch5/Heig
 ht_Analysis/Scatter_Metric_Vs_Height_p2.png><./figs/ch5/Height_Analysis/Scatter_
 Metric_Vs_Height_p3.png><./figs/ch5/Height_Analysis/Scatter_Metric_Vs_Height_p4.
-png>] [23<./figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p1.png><./figs/ch5/A
+png>] [24<./figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p1.png><./figs/ch5/A
 ngle_Analysis/Scatter_Metric_Vs_Angle_p2.png><./figs/ch5/Angle_Analysis/Scatter_
 Metric_Vs_Angle_p3.png><./figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_p4.png
 ><./figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_legend.png><./figs/ch5/Light
 _Analysis/Scatter_Metric_Vs_Light_p1.png><./figs/ch5/Light_Analysis/Scatter_Metr
 ic_Vs_Light_p2.png><./figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p3.png><./
 figs/ch5/Light_Analysis/Scatter_Metric_Vs_Light_p4.png>]
-[24] [25]
-<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p1.png, id=1302, 252.945pt x
+[25] [26]
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p1.png, id=1333, 252.945pt x
  106.66216pt>
 File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p1.png Graphic file (ty
 pe png)
@@ -2518,7 +2521,7 @@ pe png)
 Package luatex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p1.p
 ng  used on input line 315.
 (luatex.def)             Requested size: 234.30542pt x 98.80415pt.
-<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p2.png, id=1303, 238.65367pt
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p2.png, id=1334, 238.65367pt
  x 106.66216pt>
 File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p2.png Graphic file (ty
 pe png)
@@ -2526,7 +2529,7 @@ pe png)
 Package luatex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p2.p
 ng  used on input line 321.
 (luatex.def)             Requested size: 230.0468pt x 102.81927pt.
-<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p3.png, id=1304, 252.945pt x
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p3.png, id=1335, 252.945pt x
  132.80484pt>
 File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p3.png Graphic file (ty
 pe png)
@@ -2534,7 +2537,7 @@ pe png)
 Package luatex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p3.p
 ng  used on input line 328.
 (luatex.def)             Requested size: 234.30542pt x 123.02086pt.
-<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p4.png, id=1305, 238.65367pt
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p4.png, id=1336, 238.65367pt
  x 132.80484pt>
 File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p4.png Graphic file (ty
 pe png)
@@ -2542,7 +2545,7 @@ pe png)
 Package luatex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p4.p
 ng  used on input line 334.
 (luatex.def)             Requested size: 230.0468pt x 128.02008pt.
-<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_legend.png, id=1306, 150.814
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_legend.png, id=1337, 150.814
 24pt x 19.05511pt>
 File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_legend.png Graphic file
  (type png)
@@ -2550,7 +2553,7 @@ File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_legend.png Graphic file
 Package luatex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_lege
 nd.png  used on input line 339.
 (luatex.def)             Requested size: 150.81386pt x 19.05505pt.
-<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p1.png, id=1307, 252
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p1.png, id=1338, 252
 .945pt x 106.66216pt>
 File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p1.png Graphic 
 file (type png)
@@ -2558,7 +2561,7 @@ file (type png)
 Package luatex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Un
 its_p1.png  used on input line 348.
 (luatex.def)             Requested size: 234.30542pt x 98.80415pt.
-<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p2.png, id=1308, 238
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p2.png, id=1339, 238
 .65367pt x 106.66216pt>
 File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p2.png Graphic 
 file (type png)
@@ -2566,7 +2569,7 @@ file (type png)
 Package luatex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Un
 its_p2.png  used on input line 354.
 (luatex.def)             Requested size: 230.0468pt x 102.81927pt.
-<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p3.png, id=1309, 252
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p3.png, id=1340, 252
 .945pt x 127.69249pt>
 File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p3.png Graphic 
 file (type png)
@@ -2574,7 +2577,7 @@ file (type png)
 Package luatex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Un
 its_p3.png  used on input line 361.
 (luatex.def)             Requested size: 234.30542pt x 118.28516pt.
-<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p4.png, id=1310, 238
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p4.png, id=1341, 238
 .65367pt x 127.69249pt>
 File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p4.png Graphic 
 file (type png)
@@ -2582,7 +2585,7 @@ file (type png)
 Package luatex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Un
 its_p4.png  used on input line 367.
 (luatex.def)             Requested size: 230.0468pt x 123.09192pt.
-<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_legend.png, id=1311,
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_legend.png, id=1342,
  150.81424pt x 19.05511pt>
 File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_legend.png Grap
 hic file (type png)
@@ -2590,7 +2593,7 @@ hic file (type png)
 Package luatex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Un
 its_legend.png  used on input line 372.
 (luatex.def)             Requested size: 150.81386pt x 19.05505pt.
-<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p1.png, id=1312, 252.945p
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p1.png, id=1343, 252.945p
 t x 106.66216pt>
 File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p1.png Graphic file 
 (type png)
@@ -2598,7 +2601,7 @@ File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p1.png Graphic file
 Package luatex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p
 1.png  used on input line 381.
 (luatex.def)             Requested size: 234.30542pt x 98.80415pt.
-<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p2.png, id=1313, 238.6536
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p2.png, id=1344, 238.6536
 7pt x 106.66216pt>
 File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p2.png Graphic file 
 (type png)
@@ -2606,7 +2609,7 @@ File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p2.png Graphic file
 Package luatex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p
 2.png  used on input line 387.
 (luatex.def)             Requested size: 230.0468pt x 102.81927pt.
-<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p3.png, id=1314, 252.945p
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p3.png, id=1345, 252.945p
 t x 133.15341pt>
 File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p3.png Graphic file 
 (type png)
@@ -2614,7 +2617,7 @@ File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p3.png Graphic file
 Package luatex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p
 3.png  used on input line 394.
 (luatex.def)             Requested size: 234.30542pt x 123.34375pt.
-<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p4.png, id=1315, 238.6536
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p4.png, id=1346, 238.6536
 7pt x 133.15341pt>
 File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p4.png Graphic file 
 (type png)
@@ -2622,7 +2625,7 @@ File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p4.png Graphic file
 Package luatex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p
 4.png  used on input line 400.
 (luatex.def)             Requested size: 230.0468pt x 128.3561pt.
-<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_legend.png, id=1316, 150.
+<figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_legend.png, id=1347, 150.
 81424pt x 19.05511pt>
 File: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_legend.png Graphic f
 ile (type png)
@@ -2630,7 +2633,7 @@ ile (type png)
 Package luatex.def Info: figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_l
 egend.png  used on input line 405.
 (luatex.def)             Requested size: 150.81386pt x 19.05505pt.
-<figs/ch5/Filter_Analysis/Filter_Comparison_p1.png, id=1321, 245.74124pt x 92.3
+<figs/ch5/Filter_Analysis/Filter_Comparison_p1.png, id=1352, 245.74124pt x 92.3
 7082pt>
 File: figs/ch5/Filter_Analysis/Filter_Comparison_p1.png Graphic file (type png)
 
@@ -2638,7 +2641,7 @@ File: figs/ch5/Filter_Analysis/Filter_Comparison_p1.png Graphic file (type png)
 Package luatex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_p1.png  use
 d on input line 441.
 (luatex.def)             Requested size: 232.17242pt x 87.27255pt.
-<figs/ch5/Filter_Analysis/Filter_Comparison_p2.png, id=1322, 245.74124pt x 92.3
+<figs/ch5/Filter_Analysis/Filter_Comparison_p2.png, id=1353, 245.74124pt x 92.3
 7082pt>
 File: figs/ch5/Filter_Analysis/Filter_Comparison_p2.png Graphic file (type png)
 
@@ -2646,7 +2649,7 @@ File: figs/ch5/Filter_Analysis/Filter_Comparison_p2.png Graphic file (type png)
 Package luatex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_p2.png  use
 d on input line 447.
 (luatex.def)             Requested size: 232.17242pt x 87.27255pt.
-<figs/ch5/Filter_Analysis/Filter_Comparison_p3.png, id=1323, 245.74124pt x 96.4
+<figs/ch5/Filter_Analysis/Filter_Comparison_p3.png, id=1354, 245.74124pt x 96.4
 3745pt>
 File: figs/ch5/Filter_Analysis/Filter_Comparison_p3.png Graphic file (type png)
 
@@ -2654,7 +2657,7 @@ File: figs/ch5/Filter_Analysis/Filter_Comparison_p3.png Graphic file (type png)
 Package luatex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_p3.png  use
 d on input line 454.
 (luatex.def)             Requested size: 232.17242pt x 91.11472pt.
-<figs/ch5/Filter_Analysis/Filter_Comparison_p4.png, id=1324, 245.74124pt x 96.4
+<figs/ch5/Filter_Analysis/Filter_Comparison_p4.png, id=1355, 245.74124pt x 96.4
 3745pt>
 File: figs/ch5/Filter_Analysis/Filter_Comparison_p4.png Graphic file (type png)
 
@@ -2662,7 +2665,7 @@ File: figs/ch5/Filter_Analysis/Filter_Comparison_p4.png Graphic file (type png)
 Package luatex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_p4.png  use
 d on input line 460.
 (luatex.def)             Requested size: 232.17242pt x 91.11472pt.
-<figs/ch5/Filter_Analysis/Filter_Comparison_p5.png, id=1325, 245.74124pt x 92.3
+<figs/ch5/Filter_Analysis/Filter_Comparison_p5.png, id=1356, 245.74124pt x 92.3
 7082pt>
 File: figs/ch5/Filter_Analysis/Filter_Comparison_p5.png Graphic file (type png)
 
@@ -2670,7 +2673,7 @@ File: figs/ch5/Filter_Analysis/Filter_Comparison_p5.png Graphic file (type png)
 Package luatex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_p5.png  use
 d on input line 467.
 (luatex.def)             Requested size: 232.17242pt x 87.27255pt.
-<figs/ch5/Filter_Analysis/Filter_Comparison_p6.png, id=1326, 245.74124pt x 92.3
+<figs/ch5/Filter_Analysis/Filter_Comparison_p6.png, id=1357, 245.74124pt x 92.3
 7082pt>
 File: figs/ch5/Filter_Analysis/Filter_Comparison_p6.png Graphic file (type png)
 
@@ -2678,7 +2681,7 @@ File: figs/ch5/Filter_Analysis/Filter_Comparison_p6.png Graphic file (type png)
 Package luatex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_p6.png  use
 d on input line 473.
 (luatex.def)             Requested size: 232.17242pt x 87.27255pt.
-<figs/ch5/Filter_Analysis/Filter_Comparison_p7.png, id=1327, 245.74124pt x 118.
+<figs/ch5/Filter_Analysis/Filter_Comparison_p7.png, id=1358, 245.74124pt x 118.
 04875pt>
 File: figs/ch5/Filter_Analysis/Filter_Comparison_p7.png Graphic file (type png)
 
@@ -2686,7 +2689,7 @@ File: figs/ch5/Filter_Analysis/Filter_Comparison_p7.png Graphic file (type png)
 Package luatex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_p7.png  use
 d on input line 480.
 (luatex.def)             Requested size: 232.17242pt x 111.53323pt.
-<figs/ch5/Filter_Analysis/Filter_Comparison_p8.png, id=1328, 245.74124pt x 118.
+<figs/ch5/Filter_Analysis/Filter_Comparison_p8.png, id=1359, 245.74124pt x 118.
 04875pt>
 File: figs/ch5/Filter_Analysis/Filter_Comparison_p8.png Graphic file (type png)
 
@@ -2694,7 +2697,7 @@ File: figs/ch5/Filter_Analysis/Filter_Comparison_p8.png Graphic file (type png)
 Package luatex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_p8.png  use
 d on input line 486.
 (luatex.def)             Requested size: 232.17242pt x 111.53323pt.
-<figs/ch5/Filter_Analysis/Filter_Comparison_legend.png, id=1329, 303.13896pt x 
+<figs/ch5/Filter_Analysis/Filter_Comparison_legend.png, id=1360, 303.13896pt x 
 32.6493pt>
 File: figs/ch5/Filter_Analysis/Filter_Comparison_legend.png Graphic file (type 
 png)
@@ -2702,7 +2705,7 @@ png)
 Package luatex.def Info: figs/ch5/Filter_Analysis/Filter_Comparison_legend.png 
  used on input line 491.
 (luatex.def)             Requested size: 303.1382pt x 32.6492pt.
- [26] [27<./figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p1.png><./figs/ch5
+ [27] [28<./figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p1.png><./figs/ch5
 /Parameter_Analysis/Scatter_Metric_Vs_Res_p2.png><./figs/ch5/Parameter_Analysis/
 Scatter_Metric_Vs_Res_p3.png><./figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Re
 s_p4.png><./figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_legend.png><./figs
@@ -2711,7 +2714,7 @@ er_Analysis/Scatter_Metric_Vs_Depth_Units_p2.png><./figs/ch5/Parameter_Analysis/
 Scatter_Metric_Vs_Depth_Units_p3.png><./figs/ch5/Parameter_Analysis/Scatter_Metr
 ic_Vs_Depth_Units_p4.png><./figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_
 Units_legend.png>]
-<figs/ch5/Combination_Analysis/Combination_Comparison_p1.png, id=1357, 245.7412
+<figs/ch5/Combination_Analysis/Combination_Comparison_p1.png, id=1387, 245.7412
 4pt x 92.71939pt>
 File: figs/ch5/Combination_Analysis/Combination_Comparison_p1.png Graphic file 
 (type png)
@@ -2719,7 +2722,7 @@ File: figs/ch5/Combination_Analysis/Combination_Comparison_p1.png Graphic file
 Package luatex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_p
 1.png  used on input line 508.
 (luatex.def)             Requested size: 232.17242pt x 87.60187pt.
-<figs/ch5/Combination_Analysis/Combination_Comparison_p2.png, id=1358, 245.7412
+<figs/ch5/Combination_Analysis/Combination_Comparison_p2.png, id=1388, 245.7412
 4pt x 92.71939pt>
 File: figs/ch5/Combination_Analysis/Combination_Comparison_p2.png Graphic file 
 (type png)
@@ -2727,7 +2730,7 @@ File: figs/ch5/Combination_Analysis/Combination_Comparison_p2.png Graphic file
 Package luatex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_p
 2.png  used on input line 514.
 (luatex.def)             Requested size: 232.17242pt x 87.60187pt.
-<figs/ch5/Combination_Analysis/Combination_Comparison_p3.png, id=1359, 245.7412
+<figs/ch5/Combination_Analysis/Combination_Comparison_p3.png, id=1389, 245.7412
 4pt x 85.28325pt>
 File: figs/ch5/Combination_Analysis/Combination_Comparison_p3.png Graphic file 
 (type png)
@@ -2735,7 +2738,7 @@ File: figs/ch5/Combination_Analysis/Combination_Comparison_p3.png Graphic file
 Package luatex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_p
 3.png  used on input line 521.
 (luatex.def)             Requested size: 232.17242pt x 80.57616pt.
-<figs/ch5/Combination_Analysis/Combination_Comparison_p4.png, id=1360, 245.7412
+<figs/ch5/Combination_Analysis/Combination_Comparison_p4.png, id=1390, 245.7412
 4pt x 85.28325pt>
 File: figs/ch5/Combination_Analysis/Combination_Comparison_p4.png Graphic file 
 (type png)
@@ -2743,7 +2746,7 @@ File: figs/ch5/Combination_Analysis/Combination_Comparison_p4.png Graphic file
 Package luatex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_p
 4.png  used on input line 527.
 (luatex.def)             Requested size: 232.17242pt x 80.57616pt.
-<figs/ch5/Combination_Analysis/Combination_Comparison_p5.png, id=1361, 245.7412
+<figs/ch5/Combination_Analysis/Combination_Comparison_p5.png, id=1391, 245.7412
 4pt x 85.28325pt>
 File: figs/ch5/Combination_Analysis/Combination_Comparison_p5.png Graphic file 
 (type png)
@@ -2751,7 +2754,7 @@ File: figs/ch5/Combination_Analysis/Combination_Comparison_p5.png Graphic file
 Package luatex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_p
 5.png  used on input line 534.
 (luatex.def)             Requested size: 232.17242pt x 80.57616pt.
-<figs/ch5/Combination_Analysis/Combination_Comparison_p6.png, id=1362, 245.7412
+<figs/ch5/Combination_Analysis/Combination_Comparison_p6.png, id=1392, 245.7412
 4pt x 85.28325pt>
 File: figs/ch5/Combination_Analysis/Combination_Comparison_p6.png Graphic file 
 (type png)
@@ -2759,7 +2762,7 @@ File: figs/ch5/Combination_Analysis/Combination_Comparison_p6.png Graphic file
 Package luatex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_p
 6.png  used on input line 540.
 (luatex.def)             Requested size: 232.17242pt x 80.57616pt.
-<figs/ch5/Combination_Analysis/Combination_Comparison_p7.png, id=1363, 245.7412
+<figs/ch5/Combination_Analysis/Combination_Comparison_p7.png, id=1393, 245.7412
 4pt x 110.96117pt>
 File: figs/ch5/Combination_Analysis/Combination_Comparison_p7.png Graphic file 
 (type png)
@@ -2767,7 +2770,7 @@ File: figs/ch5/Combination_Analysis/Combination_Comparison_p7.png Graphic file
 Package luatex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_p
 7.png  used on input line 547.
 (luatex.def)             Requested size: 232.17242pt x 104.83682pt.
-<figs/ch5/Combination_Analysis/Combination_Comparison_p8.png, id=1364, 245.7412
+<figs/ch5/Combination_Analysis/Combination_Comparison_p8.png, id=1394, 245.7412
 4pt x 110.96117pt>
 File: figs/ch5/Combination_Analysis/Combination_Comparison_p8.png Graphic file 
 (type png)
@@ -2775,7 +2778,7 @@ File: figs/ch5/Combination_Analysis/Combination_Comparison_p8.png Graphic file
 Package luatex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_p
 8.png  used on input line 553.
 (luatex.def)             Requested size: 232.17242pt x 104.83682pt.
-<figs/ch5/Combination_Analysis/Combination_Comparison_legend.png, id=1365, 89.4
+<figs/ch5/Combination_Analysis/Combination_Comparison_legend.png, id=1395, 89.4
 6608pt x 32.6493pt>
 File: figs/ch5/Combination_Analysis/Combination_Comparison_legend.png Graphic f
 ile (type png)
@@ -2783,65 +2786,49 @@ ile (type png)
 Package luatex.def Info: figs/ch5/Combination_Analysis/Combination_Comparison_l
 egend.png  used on input line 558.
 (luatex.def)             Requested size: 89.46584pt x 32.6492pt.
-<figs/ch5/Fusion_Analysis/Small_Wave_701mm_Single_Side.png, id=1366, 1465.475pt
+<figs/ch5/Fusion_Analysis/Small_Wave_701mm_Single_Side.png, id=1396, 1465.475pt
  x 941.5175pt>
 File: figs/ch5/Fusion_Analysis/Small_Wave_701mm_Single_Side.png Graphic file (t
 ype png)
 <use figs/ch5/Fusion_Analysis/Small_Wave_701mm_Single_Side.png>
 Package luatex.def Info: figs/ch5/Fusion_Analysis/Small_Wave_701mm_Single_Side.
 png  used on input line 567.
-(luatex.def)             Requested size: 154.78653pt x 99.44409pt.
-<figs/ch5/Fusion_Analysis/Single_Small_error_map.png, id=1367, 448.074pt x 404.
+(luatex.def)             Requested size: 241.84843pt x 155.37242pt.
+<figs/ch5/Fusion_Analysis/Single_Small_error_map.png, id=1397, 448.074pt x 404.
 712pt>
 File: figs/ch5/Fusion_Analysis/Single_Small_error_map.png Graphic file (type pn
 g)
 <use figs/ch5/Fusion_Analysis/Single_Small_error_map.png>
 Package luatex.def Info: figs/ch5/Fusion_Analysis/Single_Small_error_map.png  u
 sed on input line 573.
-(luatex.def)             Requested size: 154.78653pt x 139.80487pt.
-<figs/ch5/Fusion_Analysis/Single_Small_error_histogram.png, id=1368, 542.025pt 
-x 303.534pt>
-File: figs/ch5/Fusion_Analysis/Single_Small_error_histogram.png Graphic file (t
-ype png)
-<use figs/ch5/Fusion_Analysis/Single_Small_error_histogram.png>
-Package luatex.def Info: figs/ch5/Fusion_Analysis/Single_Small_error_histogram.
-png  used on input line 579.
-(luatex.def)             Requested size: 154.78653pt x 86.67944pt.
-<figs/ch5/Fusion_Analysis/Small_Wave_701mm_Fused_Side.png, id=1369, 1465.475pt 
+(luatex.def)             Requested size: 169.29684pt x 152.91525pt.
+<figs/ch5/Fusion_Analysis/Small_Wave_701mm_Fused_Side.png, id=1398, 1465.475pt 
 x 941.5175pt>
 File: figs/ch5/Fusion_Analysis/Small_Wave_701mm_Fused_Side.png Graphic file (ty
 pe png)
 <use figs/ch5/Fusion_Analysis/Small_Wave_701mm_Fused_Side.png>
 Package luatex.def Info: figs/ch5/Fusion_Analysis/Small_Wave_701mm_Fused_Side.p
-ng  used on input line 591.
-(luatex.def)             Requested size: 154.78653pt x 99.44409pt.
-<figs/ch5/Fusion_Analysis/Fused_Small_error_map.png, id=1370, 448.074pt x 404.7
+ng  used on input line 586.
+(luatex.def)             Requested size: 241.84843pt x 155.37242pt.
+<figs/ch5/Fusion_Analysis/Fused_Small_error_map.png, id=1399, 448.074pt x 404.7
 12pt>
 File: figs/ch5/Fusion_Analysis/Fused_Small_error_map.png Graphic file (type png
 )
 <use figs/ch5/Fusion_Analysis/Fused_Small_error_map.png>
 Package luatex.def Info: figs/ch5/Fusion_Analysis/Fused_Small_error_map.png  us
-ed on input line 597.
-(luatex.def)             Requested size: 154.78653pt x 139.80487pt.
-<figs/ch5/Fusion_Analysis/Fused_Small_error_histogram.png, id=1371, 542.025pt x
- 303.534pt>
-File: figs/ch5/Fusion_Analysis/Fused_Small_error_histogram.png Graphic file (ty
-pe png)
-<use figs/ch5/Fusion_Analysis/Fused_Small_error_histogram.png>
-Package luatex.def Info: figs/ch5/Fusion_Analysis/Fused_Small_error_histogram.p
-ng  used on input line 603.
-(luatex.def)             Requested size: 154.78653pt x 86.67944pt.
- [28<./figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p1.png><./figs/ch5/P
+ed on input line 592.
+(luatex.def)             Requested size: 169.29684pt x 152.91525pt.
+ [29<./figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p1.png><./figs/ch5/P
 arameter_Analysis/Scatter_Metric_Vs_Preset_p2.png><./figs/ch5/Parameter_Analysis
 /Scatter_Metric_Vs_Preset_p3.png><./figs/ch5/Parameter_Analysis/Scatter_Metric_V
 s_Preset_p4.png><./figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_legend.p
-ng>] [29<./figs/ch5/Filter_Analysis/Filter_Comparison_p1.png><./figs/ch5/Filter_
+ng>] [30<./figs/ch5/Filter_Analysis/Filter_Comparison_p1.png><./figs/ch5/Filter_
 Analysis/Filter_Comparison_p2.png><./figs/ch5/Filter_Analysis/Filter_Comparison_
 p3.png><./figs/ch5/Filter_Analysis/Filter_Comparison_p4.png><./figs/ch5/Filter_A
 nalysis/Filter_Comparison_p5.png><./figs/ch5/Filter_Analysis/Filter_Comparison_p
 6.png><./figs/ch5/Filter_Analysis/Filter_Comparison_p7.png><./figs/ch5/Filter_An
 alysis/Filter_Comparison_p8.png><./figs/ch5/Filter_Analysis/Filter_Comparison_le
-gend.png>] [30<./figs/ch5/Combination_Analysis/Combination_Comparison_p1.png><./
+gend.png>] [31<./figs/ch5/Combination_Analysis/Combination_Comparison_p1.png><./
 figs/ch5/Combination_Analysis/Combination_Comparison_p2.png><./figs/ch5/Combinat
 ion_Analysis/Combination_Comparison_p3.png><./figs/ch5/Combination_Analysis/Comb
 ination_Comparison_p4.png><./figs/ch5/Combination_Analysis/Combination_Compariso
@@ -2849,81 +2836,80 @@ n_p5.png><./figs/ch5/Combination_Analysis/Combination_Comparison_p6.png><./figs/
 ch5/Combination_Analysis/Combination_Comparison_p7.png><./figs/ch5/Combination_A
 nalysis/Combination_Comparison_p8.png><./figs/ch5/Combination_Analysis/Combinati
 on_Comparison_legend.png><./figs/ch5/Fusion_Analysis/Small_Wave_701mm_Single_Sid
-e.png><./figs/ch5/Fusion_Analysis/Single_Small_error_map.png><./figs/ch5/Fusion_
-Analysis/Single_Small_error_histogram.png>] [31<./figs/ch5/Fusion_Analysis/Small
-_Wave_701mm_Fused_Side.png><./figs/ch5/Fusion_Analysis/Fused_Small_error_map.png
-><./figs/ch5/Fusion_Analysis/Fused_Small_error_histogram.png>]) [32]
+e.png><./figs/ch5/Fusion_Analysis/Single_Small_error_map.png>] [32<./figs/ch5/Fu
+sion_Analysis/Small_Wave_701mm_Fused_Side.png><./figs/ch5/Fusion_Analysis/Fused_
+Small_error_map.png>])
+[33]
 \openout2 = 6_ch6.aux
- (./6_ch6.t
-ex
+ (./6_ch6.tex
 Chapter 6.
-[33
+[34
 
 
 
 
 
-] [34] [35] [36] [37]
+] [35] [36] [37] [38]
 
-Package natbib Warning: Citation `umeyama1991' on page 38 undefined on input li
+Package natbib Warning: Citation `umeyama1991' on page 39 undefined on input li
 ne 189.
 
 
-Package natbib Warning: Citation `rusu2009fpfh' on page 38 undefined on input l
+Package natbib Warning: Citation `rusu2009fpfh' on page 39 undefined on input l
 ine 191.
 
 
-Package natbib Warning: Citation `buch2013prerejective' on page 38 undefined on
+Package natbib Warning: Citation `buch2013prerejective' on page 39 undefined on
  input line 191.
 
 
-Package natbib Warning: Citation `besl1992icp' on page 38 undefined on input li
+Package natbib Warning: Citation `besl1992icp' on page 39 undefined on input li
 ne 203.
 
 
-Package natbib Warning: Citation `chen1992pointtoplane' on page 38 undefined on
+Package natbib Warning: Citation `chen1992pointtoplane' on page 39 undefined on
  input line 203.
-
-[38]
-
-Package natbib Warning: Citation `low2004pointtoplane' on page 39 undefined on 
-input line 211.
 
 [39]
 
-Package natbib Warning: Citation `levin1998mls' on page 40 undefined on input l
-ine 238.
-
-
-Package natbib Warning: Citation `alexa2003pointset' on page 40 undefined on in
-put line 238.
+Package natbib Warning: Citation `low2004pointtoplane' on page 40 undefined on 
+input line 211.
 
 [40]
 
-Package natbib Warning: Citation `iso25178-2' on page 41 undefined on input lin
+Package natbib Warning: Citation `levin1998mls' on page 41 undefined on input l
+ine 238.
+
+
+Package natbib Warning: Citation `alexa2003pointset' on page 41 undefined on in
+put line 238.
+
+[41]
+
+Package natbib Warning: Citation `iso25178-2' on page 42 undefined on input lin
 e 251.
 
-[41] [42]
+[42] [43]
 
-Package natbib Warning: Citation `persson2005roughness' on page 43 undefined on
+Package natbib Warning: Citation `persson2005roughness' on page 44 undefined on
  input line 310.
 
 
-Package natbib Warning: Citation `riley1999tri' on page 43 undefined on input l
+Package natbib Warning: Citation `riley1999tri' on page 44 undefined on input l
 ine 321.
 
 
-Package natbib Warning: Citation `sappington2007vrm' on page 43 undefined on in
+Package natbib Warning: Citation `sappington2007vrm' on page 44 undefined on in
 put line 321.
 
 
-LaTeX Warning: Reference `ch:Results' on page 43 undefined on input line 330.
+LaTeX Warning: Reference `ch:Results' on page 44 undefined on input line 330.
 
-[43]) [44]
+[44]) [45]
 \openout2 = 7_ch7.aux
  (./7_ch7.tex
 Chapter 7.
-[45
+[46
 
 
 
@@ -2931,117 +2917,117 @@ Chapter 7.
 
 ] (./tables/Ch7/Shaped_Rugosity/Big_Egg_Rugosity_table.tex)
 (./tables/Ch7/Shaped_Rugosity/Small_Egg_Rugosity_table.tex)
-<figs/ch7/Shaped/Big_Egg_Rugosity_p1.png, id=1542, 259.684pt x 106.66216pt>
+<figs/ch7/Shaped/Big_Egg_Rugosity_p1.png, id=1569, 259.684pt x 106.66216pt>
 File: figs/ch7/Shaped/Big_Egg_Rugosity_p1.png Graphic file (type png)
 <use figs/ch7/Shaped/Big_Egg_Rugosity_p1.png>
 Package luatex.def Info: figs/ch7/Shaped/Big_Egg_Rugosity_p1.png  used on input
  line 33.
 (luatex.def)             Requested size: 245.33208pt x 100.7702pt.
-<figs/ch7/Shaped/Big_Egg_Rugosity_p2.png, id=1543, 231.79848pt x 106.66216pt>
+<figs/ch7/Shaped/Big_Egg_Rugosity_p2.png, id=1570, 231.79848pt x 106.66216pt>
 File: figs/ch7/Shaped/Big_Egg_Rugosity_p2.png Graphic file (type png)
 <use figs/ch7/Shaped/Big_Egg_Rugosity_p2.png>
 Package luatex.def Info: figs/ch7/Shaped/Big_Egg_Rugosity_p2.png  used on input
  line 39.
 (luatex.def)             Requested size: 219.02014pt x 100.7816pt.
-<figs/ch7/Shaped/Big_Egg_Rugosity_p3.png, id=1544, 259.684pt x 126.5306pt>
+<figs/ch7/Shaped/Big_Egg_Rugosity_p3.png, id=1571, 259.684pt x 126.5306pt>
 File: figs/ch7/Shaped/Big_Egg_Rugosity_p3.png Graphic file (type png)
 <use figs/ch7/Shaped/Big_Egg_Rugosity_p3.png>
 Package luatex.def Info: figs/ch7/Shaped/Big_Egg_Rugosity_p3.png  used on input
  line 46.
 (luatex.def)             Requested size: 245.33208pt x 119.54114pt.
-<figs/ch7/Shaped/Big_Egg_Rugosity_p4.png, id=1545, 231.79848pt x 126.5306pt>
+<figs/ch7/Shaped/Big_Egg_Rugosity_p4.png, id=1572, 231.79848pt x 126.5306pt>
 File: figs/ch7/Shaped/Big_Egg_Rugosity_p4.png Graphic file (type png)
 <use figs/ch7/Shaped/Big_Egg_Rugosity_p4.png>
 Package luatex.def Info: figs/ch7/Shaped/Big_Egg_Rugosity_p4.png  used on input
  line 52.
 (luatex.def)             Requested size: 219.02014pt x 119.55466pt.
-<figs/ch7/Shaped/Big_Egg_Rugosity_legend.png, id=1546, 136.17435pt x 19.05511pt
+<figs/ch7/Shaped/Big_Egg_Rugosity_legend.png, id=1573, 136.17435pt x 19.05511pt
 >
 File: figs/ch7/Shaped/Big_Egg_Rugosity_legend.png Graphic file (type png)
 <use figs/ch7/Shaped/Big_Egg_Rugosity_legend.png>
 Package luatex.def Info: figs/ch7/Shaped/Big_Egg_Rugosity_legend.png  used on i
 nput line 57.
 (luatex.def)             Requested size: 136.17401pt x 19.05505pt.
-<figs/ch7/Shaped/Small_Egg_Rugosity_p1.png, id=1547, 259.684pt x 106.66216pt>
+<figs/ch7/Shaped/Small_Egg_Rugosity_p1.png, id=1574, 259.684pt x 106.66216pt>
 File: figs/ch7/Shaped/Small_Egg_Rugosity_p1.png Graphic file (type png)
 <use figs/ch7/Shaped/Small_Egg_Rugosity_p1.png>
 Package luatex.def Info: figs/ch7/Shaped/Small_Egg_Rugosity_p1.png  used on inp
 ut line 66.
 (luatex.def)             Requested size: 245.33208pt x 100.7702pt.
-<figs/ch7/Shaped/Small_Egg_Rugosity_p2.png, id=1548, 231.79848pt x 106.66216pt>
+<figs/ch7/Shaped/Small_Egg_Rugosity_p2.png, id=1575, 231.79848pt x 106.66216pt>
 
 File: figs/ch7/Shaped/Small_Egg_Rugosity_p2.png Graphic file (type png)
 <use figs/ch7/Shaped/Small_Egg_Rugosity_p2.png>
 Package luatex.def Info: figs/ch7/Shaped/Small_Egg_Rugosity_p2.png  used on inp
 ut line 72.
 (luatex.def)             Requested size: 219.02014pt x 100.7816pt.
-<figs/ch7/Shaped/Small_Egg_Rugosity_p3.png, id=1549, 259.684pt x 126.5306pt>
+<figs/ch7/Shaped/Small_Egg_Rugosity_p3.png, id=1576, 259.684pt x 126.5306pt>
 File: figs/ch7/Shaped/Small_Egg_Rugosity_p3.png Graphic file (type png)
 <use figs/ch7/Shaped/Small_Egg_Rugosity_p3.png>
 Package luatex.def Info: figs/ch7/Shaped/Small_Egg_Rugosity_p3.png  used on inp
 ut line 79.
 (luatex.def)             Requested size: 245.33208pt x 119.54114pt.
-<figs/ch7/Shaped/Small_Egg_Rugosity_p4.png, id=1550, 231.79848pt x 126.5306pt>
+<figs/ch7/Shaped/Small_Egg_Rugosity_p4.png, id=1577, 231.79848pt x 126.5306pt>
 File: figs/ch7/Shaped/Small_Egg_Rugosity_p4.png Graphic file (type png)
 <use figs/ch7/Shaped/Small_Egg_Rugosity_p4.png>
 Package luatex.def Info: figs/ch7/Shaped/Small_Egg_Rugosity_p4.png  used on inp
 ut line 85.
 (luatex.def)             Requested size: 219.02014pt x 119.55466pt.
-<figs/ch7/Shaped/Small_Egg_Rugosity_legend.png, id=1551, 136.17435pt x 19.05511
+<figs/ch7/Shaped/Small_Egg_Rugosity_legend.png, id=1578, 136.17435pt x 19.05511
 pt>
 File: figs/ch7/Shaped/Small_Egg_Rugosity_legend.png Graphic file (type png)
 <use figs/ch7/Shaped/Small_Egg_Rugosity_legend.png>
 Package luatex.def Info: figs/ch7/Shaped/Small_Egg_Rugosity_legend.png  used on
  input line 90.
 (luatex.def)             Requested size: 136.17401pt x 19.05505pt.
- [46] [47<./figs/ch7/Shaped/Big_Egg_Rugosity_p1.png><./figs/ch7/Shaped/Big_Egg_R
+ [47] [48<./figs/ch7/Shaped/Big_Egg_Rugosity_p1.png><./figs/ch7/Shaped/Big_Egg_R
 ugosity_p2.png><./figs/ch7/Shaped/Big_Egg_Rugosity_p3.png><./figs/ch7/Shaped/Big
 _Egg_Rugosity_p4.png><./figs/ch7/Shaped/Big_Egg_Rugosity_legend.png><./figs/ch7/
 Shaped/Small_Egg_Rugosity_p1.png><./figs/ch7/Shaped/Small_Egg_Rugosity_p2.png><.
 /figs/ch7/Shaped/Small_Egg_Rugosity_p3.png><./figs/ch7/Shaped/Small_Egg_Rugosity
 _p4.png><./figs/ch7/Shaped/Small_Egg_Rugosity_legend.png>]
 (./tables/Ch7/Sand_Rugosity/Sand_Rugosity_table.tex)
-<figs/ch7/Sand/Sand_Rugosity.png, id=1571, 512.04805pt x 213.32431pt>
+<figs/ch7/Sand/Sand_Rugosity.png, id=1598, 512.04805pt x 213.32431pt>
 File: figs/ch7/Sand/Sand_Rugosity.png Graphic file (type png)
 <use figs/ch7/Sand/Sand_Rugosity.png>
 Package luatex.def Info: figs/ch7/Sand/Sand_Rugosity.png  used on input line 11
 5.
 (luatex.def)             Requested size: 483.69687pt x 201.51765pt.
-) [48<./figs/ch7/Sand/Sand_Rugosity.png>]
+) [49<./figs/ch7/Sand/Sand_Rugosity.png>]
 \openout2 = 7_discussion.aux
  (./7_discussion.tex
 Chapter 8.
-) [49
+[50
 
 
 
 
 
-]
+]) [51]
 \openout2 = 8_conclusions.aux
  (./8_conclusions.tex
 Chapter 9.
-) [50
+[52
 
 
 
 
 
-]
+]) [53]
 \openout2 = 9_furtherwork.aux
  (./9_furtherwork.tex
 Chapter 10.
-) [51
+[54
 
 
 
 
 
-]
+]) [55]
 \openout2 = A_gitrepo.aux
  (./A_gitrepo.tex
 Appendix A.
-) [52
+) [56
 
 
 
@@ -3051,12 +3037,12 @@ Appendix A.
 \openout2 = Appendix.aux
  (./Appendix.tex
 Appendix B.
-<figs/Apendix/D456_Pattern.png, id=1597, 1188.69093pt x 371.13657pt>
+<figs/Apendix/D456_Pattern.png, id=1640, 1188.69093pt x 371.13657pt>
 File: figs/Apendix/D456_Pattern.png Graphic file (type png)
 <use figs/Apendix/D456_Pattern.png>
 Package luatex.def Info: figs/Apendix/D456_Pattern.png  used on input line 11.
 (luatex.def)             Requested size: 435.32422pt x 135.91393pt.
-[53
+[57
 
 
 
@@ -3064,25 +3050,25 @@ Package luatex.def Info: figs/Apendix/D456_Pattern.png  used on input line 11.
 
 <./figs/Apendix/D456_Pattern.png>]
 Appendix C.
-<figs/Apendix/EGG_1PK.png, id=1603, 465.74pt x 366.36874pt>
+<figs/Apendix/EGG_1PK.png, id=1646, 465.74pt x 366.36874pt>
 File: figs/Apendix/EGG_1PK.png Graphic file (type png)
 <use figs/Apendix/EGG_1PK.png>
 Package luatex.def Info: figs/Apendix/EGG_1PK.png  used on input line 23.
 (luatex.def)             Requested size: 290.22107pt x 228.30347pt.
-<figs/Apendix/EGG_2PKS.png, id=1604, 419.5675pt x 327.72438pt>
+<figs/Apendix/EGG_2PKS.png, id=1647, 419.5675pt x 327.72438pt>
 File: figs/Apendix/EGG_2PKS.png Graphic file (type png)
 <use figs/Apendix/EGG_2PKS.png>
 Package luatex.def Info: figs/Apendix/EGG_2PKS.png  used on input line 30.
 (luatex.def)             Requested size: 290.22107pt x 226.69012pt.
-<figs/Apendix/PYRAMID_1.png, id=1605, 462.72874pt x 369.38pt>
+<figs/Apendix/PYRAMID_1.png, id=1648, 462.72874pt x 369.38pt>
 File: figs/Apendix/PYRAMID_1.png Graphic file (type png)
 <use figs/Apendix/PYRAMID_1.png>
 Package luatex.def Info: figs/Apendix/PYRAMID_1.png  used on input line 37.
 (luatex.def)             Requested size: 290.22107pt x 231.67355pt.
-[54
+[58
 
 
-<./figs/Apendix/EGG_1PK.PNG><./figs/Apendix/EGG_2PKS.PNG>] [55<./figs/Apendix/PY
+<./figs/Apendix/EGG_1PK.PNG><./figs/Apendix/EGG_2PKS.PNG>] [59<./figs/Apendix/PY
 RAMID_1.PNG>]
 Appendix D.
 (./tables/Scatter_Metric_Vs_Height_table.tex
@@ -3095,7 +3081,7 @@ Overfull \hbox (44.75302pt too wide) in paragraph at lines 11--43
  [][] 
  []
 
-) [56
+) [60
 
 
 ] (./tables/Scatter_Metric_Vs_Light_table.tex
@@ -3108,7 +3094,7 @@ Overfull \hbox (11.12315pt too wide) in paragraph at lines 11--25
  [][] 
  []
 
-) [57] (./tables/Scatter_Metric_Vs_Depth_Units_table.tex
+) [61] (./tables/Scatter_Metric_Vs_Depth_Units_table.tex
 Overfull \hbox (5.90315pt too wide) in paragraph at lines 11--25
  [][] 
  []
@@ -3123,14 +3109,14 @@ Overfull \hbox (153.84317pt too wide) in paragraph at lines 11--54
  [][] 
  []
 
-) [58] (./tables/Combination_Comparison_table.tex
+) [62] (./tables/Combination_Comparison_table.tex
 Overfull \hbox (35.2271pt too wide) in paragraph at lines 11--42
  [][] 
  []
 
-) [59] [60]
+) [63] [64]
 Appendix E.
-<figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Alph.png, id=1638, 512.048
+<figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Alph.png, id=1682, 512.048
 05pt x 199.14917pt>
 File: figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Alph.png Graphic file
  (type png)
@@ -3138,7 +3124,7 @@ File: figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Alph.png Graphic file
 Package luatex.def Info: figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Al
 ph.png  used on input line 78.
 (luatex.def)             Requested size: 483.69687pt x 188.12704pt.
-<figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Delt.png, id=1639, 512.048
+<figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Delt.png, id=1683, 512.048
 05pt x 199.14917pt>
 File: figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Delt.png Graphic file
  (type png)
@@ -3146,7 +3132,7 @@ File: figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Delt.png Graphic file
 Package luatex.def Info: figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_De
 lt.png  used on input line 85.
 (luatex.def)             Requested size: 483.69687pt x 188.12704pt.
-<figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Alph.png, id=1640, 512.
+<figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Alph.png, id=1684, 512.
 04805pt x 199.14917pt>
 File: figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Alph.png Graphic f
 ile (type png)
@@ -3154,12 +3140,12 @@ ile (type png)
 Package luatex.def Info: figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial
 _Alph.png  used on input line 92.
 (luatex.def)             Requested size: 483.69687pt x 188.12704pt.
-[61
+[65
 
 
 <./figs/Apendix/Filter_Analysis/Filter_Comparison_Temp_Alph.png><./figs/Apendix/
 Filter_Analysis/Filter_Comparison_Temp_Delt.png>]
-<figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Delt.png, id=1647, 512.
+<figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Delt.png, id=1691, 512.
 04805pt x 199.14917pt>
 File: figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Delt.png Graphic f
 ile (type png)
@@ -3167,7 +3153,7 @@ ile (type png)
 Package luatex.def Info: figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial
 _Delt.png  used on input line 99.
 (luatex.def)             Requested size: 483.69687pt x 188.12704pt.
-<figs/Apendix/Filter_Analysis/Filter_Comparison_Decimation.png, id=1648, 512.04
+<figs/Apendix/Filter_Analysis/Filter_Comparison_Decimation.png, id=1692, 512.04
 805pt x 199.14917pt>
 File: figs/Apendix/Filter_Analysis/Filter_Comparison_Decimation.png Graphic fil
 e (type png)
@@ -3175,9 +3161,9 @@ e (type png)
 Package luatex.def Info: figs/Apendix/Filter_Analysis/Filter_Comparison_Decimat
 ion.png  used on input line 106.
 (luatex.def)             Requested size: 483.69687pt x 188.12704pt.
- [62<./figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Alph.png><./figs/A
+ [66<./figs/Apendix/Filter_Analysis/Filter_Comparison_Spatial_Alph.png><./figs/A
 pendix/Filter_Analysis/Filter_Comparison_Spatial_Delt.png>]
-<figs/Apendix/Filter_Analysis/Filter_Comparison_Hole_Fill.png, id=1655, 512.048
+<figs/Apendix/Filter_Analysis/Filter_Comparison_Hole_Fill.png, id=1699, 512.048
 05pt x 199.14917pt>
 File: figs/Apendix/Filter_Analysis/Filter_Comparison_Hole_Fill.png Graphic file
  (type png)
@@ -3185,7 +3171,7 @@ File: figs/Apendix/Filter_Analysis/Filter_Comparison_Hole_Fill.png Graphic file
 Package luatex.def Info: figs/Apendix/Filter_Analysis/Filter_Comparison_Hole_Fi
 ll.png  used on input line 113.
 (luatex.def)             Requested size: 483.69687pt x 188.12704pt.
-<figs/Apendix/Combination_Analysis/Combination_Sweep.png, id=1656, 512.04805pt 
+<figs/Apendix/Combination_Analysis/Combination_Sweep.png, id=1700, 512.04805pt 
 x 426.7648pt>
 File: figs/Apendix/Combination_Analysis/Combination_Sweep.png Graphic file (typ
 e png)
@@ -3193,9 +3179,9 @@ e png)
 Package luatex.def Info: figs/Apendix/Combination_Analysis/Combination_Sweep.pn
 g  used on input line 122.
 (luatex.def)             Requested size: 483.69687pt x 403.14508pt.
- [63<./figs/Apendix/Filter_Analysis/Filter_Comparison_Decimation.png><./figs/Ape
+ [67<./figs/Apendix/Filter_Analysis/Filter_Comparison_Decimation.png><./figs/Ape
 ndix/Filter_Analysis/Filter_Comparison_Hole_Fill.png>]
-<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p1.png, id=1663, 184.62546pt
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p1.png, id=1707, 184.62546pt
  x 92.37082pt>
 File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p1.png Graphic file (ty
 pe png)
@@ -3203,7 +3189,7 @@ pe png)
 Package luatex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p1.p
 ng  used on input line 135.
 (luatex.def)             Requested size: 174.419pt x 87.27115pt.
-<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p2.png, id=1664, 153.6028pt 
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p2.png, id=1708, 153.6028pt 
 x 92.37082pt>
 File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p2.png Graphic file (ty
 pe png)
@@ -3211,7 +3197,7 @@ pe png)
 Package luatex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p2.p
 ng  used on input line 141.
 (luatex.def)             Requested size: 145.11053pt x 87.26833pt.
-<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p3.png, id=1665, 153.6028pt 
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p3.png, id=1709, 153.6028pt 
 x 92.37082pt>
 File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p3.png Graphic file (ty
 pe png)
@@ -3219,7 +3205,7 @@ pe png)
 Package luatex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p3.p
 ng  used on input line 147.
 (luatex.def)             Requested size: 145.11053pt x 87.26833pt.
-<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p4.png, id=1666, 184.62546pt
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p4.png, id=1710, 184.62546pt
  x 92.37082pt>
 File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p4.png Graphic file (ty
 pe png)
@@ -3227,7 +3213,7 @@ pe png)
 Package luatex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p4.p
 ng  used on input line 154.
 (luatex.def)             Requested size: 174.419pt x 87.27115pt.
-<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p5.png, id=1667, 153.6028pt 
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p5.png, id=1711, 153.6028pt 
 x 92.37082pt>
 File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p5.png Graphic file (ty
 pe png)
@@ -3235,7 +3221,7 @@ pe png)
 Package luatex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p5.p
 ng  used on input line 160.
 (luatex.def)             Requested size: 145.11053pt x 87.26833pt.
-<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p6.png, id=1668, 153.6028pt 
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p6.png, id=1712, 153.6028pt 
 x 92.37082pt>
 File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p6.png Graphic file (ty
 pe png)
@@ -3243,7 +3229,7 @@ pe png)
 Package luatex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p6.p
 ng  used on input line 166.
 (luatex.def)             Requested size: 145.11053pt x 87.26833pt.
-<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p7.png, id=1669, 184.62546pt
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p7.png, id=1713, 184.62546pt
  x 92.37082pt>
 File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p7.png Graphic file (ty
 pe png)
@@ -3251,7 +3237,7 @@ pe png)
 Package luatex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p7.p
 ng  used on input line 173.
 (luatex.def)             Requested size: 174.419pt x 87.27115pt.
-<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p8.png, id=1670, 153.6028pt 
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p8.png, id=1714, 153.6028pt 
 x 92.37082pt>
 File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p8.png Graphic file (ty
 pe png)
@@ -3259,7 +3245,7 @@ pe png)
 Package luatex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p8.p
 ng  used on input line 179.
 (luatex.def)             Requested size: 145.11053pt x 87.26833pt.
-<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p9.png, id=1671, 153.6028pt 
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p9.png, id=1715, 153.6028pt 
 x 92.37082pt>
 File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p9.png Graphic file (ty
 pe png)
@@ -3267,7 +3253,7 @@ pe png)
 Package luatex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p9.p
 ng  used on input line 185.
 (luatex.def)             Requested size: 145.11053pt x 87.26833pt.
-<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p10.png, id=1672, 184.62546p
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p10.png, id=1716, 184.62546p
 t x 118.04875pt>
 File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p10.png Graphic file (t
 ype png)
@@ -3275,7 +3261,7 @@ ype png)
 Package luatex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p10.
 png  used on input line 192.
 (luatex.def)             Requested size: 174.419pt x 111.53143pt.
-<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p11.png, id=1673, 153.6028pt
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p11.png, id=1717, 153.6028pt
  x 118.04875pt>
 File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p11.png Graphic file (t
 ype png)
@@ -3283,7 +3269,7 @@ ype png)
 Package luatex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p11.
 png  used on input line 198.
 (luatex.def)             Requested size: 145.11053pt x 111.52783pt.
-<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p12.png, id=1674, 153.6028pt
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p12.png, id=1718, 153.6028pt
  x 118.04875pt>
 File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p12.png Graphic file (t
 ype png)
@@ -3291,7 +3277,7 @@ ype png)
 Package luatex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p12.
 png  used on input line 204.
 (luatex.def)             Requested size: 145.11053pt x 111.52783pt.
-<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_1.png, id=1675, 310
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_1.png, id=1719, 310
 .11034pt x 40.89877pt>
 File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_1.png Graphic 
 file (type png)
@@ -3299,7 +3285,7 @@ file (type png)
 Package luatex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colo
 rbar_1.png  used on input line 209.
 (luatex.def)             Requested size: 310.10956pt x 40.89865pt.
-<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_2.png, id=1676, 315
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_2.png, id=1720, 315
 .57126pt x 40.89877pt>
 File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_2.png Graphic 
 file (type png)
@@ -3307,7 +3293,7 @@ file (type png)
 Package luatex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colo
 rbar_2.png  used on input line 211.
 (luatex.def)             Requested size: 315.57048pt x 40.89865pt.
-<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_3.png, id=1677, 314
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_3.png, id=1721, 314
 .40936pt x 40.89877pt>
 File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_3.png Graphic 
 file (type png)
@@ -3315,7 +3301,7 @@ file (type png)
 Package luatex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colo
 rbar_3.png  used on input line 213.
 (luatex.def)             Requested size: 314.40858pt x 40.89865pt.
-<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_4.png, id=1678, 310
+<figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_4.png, id=1722, 310
 .11034pt x 40.89877pt>
 File: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_4.png Graphic 
 file (type png)
@@ -3323,8 +3309,17 @@ file (type png)
 Package luatex.def Info: figs/Apendix/Parameter_Analysis/Parameter_Heatmap_colo
 rbar_4.png  used on input line 215.
 (luatex.def)             Requested size: 310.10956pt x 40.89865pt.
- [64<./figs/Apendix/Combination_Analysis/Combination_Sweep.png>]
-[65<./figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p1.png><./figs/Apendix/P
+ [68<./figs/Apendix/Combination_Analysis/Combination_Sweep.png>]
+<figs/Apendix/Combination_Analysis/Accuracy_Vs_Tilt.png, id=1728, 512.04805pt x
+ 369.83185pt>
+File: figs/Apendix/Combination_Analysis/Accuracy_Vs_Tilt.png Graphic file (type
+ png)
+<use figs/Apendix/Combination_Analysis/Accuracy_Vs_Tilt.png>
+Package luatex.def Info: figs/Apendix/Combination_Analysis/Accuracy_Vs_Tilt.png
+  used on input line 225.
+(luatex.def)             Requested size: 483.69687pt x 349.36316pt.
+
+[69<./figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p1.png><./figs/Apendix/P
 arameter_Analysis/Parameter_Heatmap_p2.png><./figs/Apendix/Parameter_Analysis/Pa
 rameter_Heatmap_p3.png><./figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p4.p
 ng><./figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p5.png><./figs/Apendix/P
@@ -3337,49 +3332,78 @@ arameter_Heatmap_p11.png><./figs/Apendix/Parameter_Analysis/Parameter_Heatmap_p1
 s/Apendix/Parameter_Analysis/Parameter_Heatmap_colorbar_2.png><./figs/Apendix/Pa
 rameter_Analysis/Parameter_Heatmap_colorbar_3.png><./figs/Apendix/Parameter_Anal
 ysis/Parameter_Heatmap_colorbar_4.png>]
+<figs/Apendix/Combination_Analysis/Completeness_Vs_Tilt.png, id=1750, 512.04805
+pt x 369.83185pt>
+File: figs/Apendix/Combination_Analysis/Completeness_Vs_Tilt.png Graphic file (
+type png)
+<use figs/Apendix/Combination_Analysis/Completeness_Vs_Tilt.png>
+Package luatex.def Info: figs/Apendix/Combination_Analysis/Completeness_Vs_Tilt
+.png  used on input line 232.
+(luatex.def)             Requested size: 483.69687pt x 349.36316pt.
+ [70<./figs/Apendix/Combination_Analysis/Accuracy_Vs_Tilt.png>]
+<figs/ch5/Fusion_Analysis/Single_Small_error_histogram.png, id=1756, 542.025pt 
+x 303.534pt>
+File: figs/ch5/Fusion_Analysis/Single_Small_error_histogram.png Graphic file (t
+ype png)
+<use figs/ch5/Fusion_Analysis/Single_Small_error_histogram.png>
+Package luatex.def Info: figs/ch5/Fusion_Analysis/Single_Small_error_histogram.
+png  used on input line 242.
+(luatex.def)             Requested size: 386.95897pt x 216.70558pt.
+<figs/ch5/Fusion_Analysis/Fused_Small_error_histogram.png, id=1757, 542.025pt x
+ 303.534pt>
+File: figs/ch5/Fusion_Analysis/Fused_Small_error_histogram.png Graphic file (ty
+pe png)
+<use figs/ch5/Fusion_Analysis/Fused_Small_error_histogram.png>
+Package luatex.def Info: figs/ch5/Fusion_Analysis/Fused_Small_error_histogram.p
+ng  used on input line 249.
+(luatex.def)             Requested size: 386.95897pt x 216.70558pt.
+ [71<./figs/Apendix/Combination_Analysis/Completeness_Vs_Tilt.png><./figs/ch5/Fu
+sion_Analysis/Single_Small_error_histogram.png>] [72<./figs/ch5/Fusion_Analysis/
+Fused_Small_error_histogram.png>]
 Appendix F.
-<figs/Apendix/Rugosity_Analysis/Big_Wave_Single_detrend_explained.png, id=1704,
+<figs/Apendix/Rugosity_Analysis/Big_Wave_Single_detrend_explained.png, id=1769,
  1452.627pt x 831.105pt>
 File: figs/Apendix/Rugosity_Analysis/Big_Wave_Single_detrend_explained.png Grap
 hic file (type png)
 <use figs/Apendix/Rugosity_Analysis/Big_Wave_Single_detrend_explained.png>
 Package luatex.def Info: figs/Apendix/Rugosity_Analysis/Big_Wave_Single_detrend
-_explained.png  used on input line 227.
-(luatex.def)             Requested size: 338.58632pt x 193.7118pt.
-<figs/Apendix/Rugosity_Analysis/Big_Wave_Fused_detrend_explained.png, id=1705, 
+_explained.png  used on input line 261.
+(luatex.def)             Requested size: 435.32422pt x 249.06711pt.
+<figs/Apendix/Rugosity_Analysis/Big_Wave_Fused_detrend_explained.png, id=1770, 
 1452.627pt x 831.105pt>
 File: figs/Apendix/Rugosity_Analysis/Big_Wave_Fused_detrend_explained.png Graph
 ic file (type png)
 <use figs/Apendix/Rugosity_Analysis/Big_Wave_Fused_detrend_explained.png>
 Package luatex.def Info: figs/Apendix/Rugosity_Analysis/Big_Wave_Fused_detrend_
-explained.png  used on input line 234.
-(luatex.def)             Requested size: 338.58632pt x 193.7118pt.
-<figs/Apendix/Rugosity_Analysis/Small_Wave_Single_detrend_explained.png, id=170
+explained.png  used on input line 268.
+(luatex.def)             Requested size: 483.69687pt x 276.7384pt.
+[73
+
+
+<./figs/Apendix/Rugosity_Analysis/Big_Wave_Single_detrend_explained.png>]
+<figs/Apendix/Rugosity_Analysis/Small_Wave_Single_detrend_explained.png, id=177
 6, 1452.627pt x 831.105pt>
 File: figs/Apendix/Rugosity_Analysis/Small_Wave_Single_detrend_explained.png Gr
 aphic file (type png)
 <use figs/Apendix/Rugosity_Analysis/Small_Wave_Single_detrend_explained.png>
 Package luatex.def Info: figs/Apendix/Rugosity_Analysis/Small_Wave_Single_detre
-nd_explained.png  used on input line 241.
-(luatex.def)             Requested size: 338.58632pt x 193.7118pt.
-[66
-
-
-<./figs/Apendix/Rugosity_Analysis/Big_Wave_Single_detrend_explained.png><./figs/
-Apendix/Rugosity_Analysis/Big_Wave_Fused_detrend_explained.png>]
-<figs/Apendix/Rugosity_Analysis/Small_Wave_Fused_detrend_explained.png, id=1714
+nd_explained.png  used on input line 275.
+(luatex.def)             Requested size: 483.69687pt x 276.7384pt.
+<figs/Apendix/Rugosity_Analysis/Small_Wave_Fused_detrend_explained.png, id=1777
 , 1452.627pt x 831.105pt>
 File: figs/Apendix/Rugosity_Analysis/Small_Wave_Fused_detrend_explained.png Gra
 phic file (type png)
 <use figs/Apendix/Rugosity_Analysis/Small_Wave_Fused_detrend_explained.png>
 Package luatex.def Info: figs/Apendix/Rugosity_Analysis/Small_Wave_Fused_detren
-d_explained.png  used on input line 248.
-(luatex.def)             Requested size: 338.58632pt x 193.7118pt.
-) [67<./figs/Apendix/Rugosity_Analysis/Small_Wave_Single_detrend_explained.png><
-./figs/Apendix/Rugosity_Analysis/Small_Wave_Fused_detrend_explained.png>]
+d_explained.png  used on input line 282.
+(luatex.def)             Requested size: 483.69687pt x 276.7384pt.
+
+[74<./figs/Apendix/Rugosity_Analysis/Big_Wave_Fused_detrend_explained.png><./fig
+s/Apendix/Rugosity_Analysis/Small_Wave_Single_detrend_explained.png>])
+[75<./figs/Apendix/Rugosity_Analysis/Small_Wave_Fused_detrend_explained.png>]
 \openout2 = B_ethics.aux
- (./B_
-ethics.tex) [68
+
+(./B_ethics.tex) [76
 
 
 
@@ -3387,7 +3411,7 @@ ethics.tex) [68
 
 ]
 \openout2 = C_topicdescription.aux
- (./C_topicdescription.tex) [69
+ (./C_topicdescription.tex) [77
 
 
 
@@ -3400,30 +3424,30 @@ ethics.tex) [68
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 11.
 
-) [70
+) [78
 
 
 
 
 
-] (./0_main.bbl
-Underfull \hbox (badness 2359) in paragraph at lines 130--135
-[]\TU/TeXGyreTermes(0)/m/n/10 An-ders Grunnet-Jepsen and Tong.  Depth Post-Proce
-ssing for In-tel® Real-Sense™™ D400 Depth Cam-
+] (./0_main.bbl [79
+
+
+
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 192--195
+\TU/TeXGyreTermes(0)/m/n/10 tps://www.in-tel.com/con-tent/www/us/en/content-deta
+ils/842031/depth-post-processing-for-intel-realsense-d400-
  []
 
-[71
-
-
-
-
-
-
-] [72] [73])
+[80])
 
 Package natbib Warning: There were undefined citations.
 
-[74] 
+[81] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./0_main.aux (./0_documentproperties.aux) (./0_titlepage.aux)
 (./i_declaration.aux) (./ii_abstract.aux) (./iii_acknowledgments.aux)
@@ -3444,19 +3468,19 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `0_main.out' has not changed.
-(rerunfilecheck)             Checksum: C7F08508CBA8E7AA5BBDEF0F935C1D09;21042.
+(rerunfilecheck)             Checksum: 4BDD1517F23CA116BE5BFCA0C0F45461;21538.
 )
 
 Here is how much of LuaTeX's memory you used:
- 48534 strings out of 475900
- 156375,1977958 words of node,token memory allocated
- 1718 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 163 attribute, 166 glue_sp
-ec, 82 attribute_list, 2 write, 31 pdf_action nodes
-   avail lists: 1:1,2:5740,3:632,4:96,5:910,6:138,7:14250,8:86,9:2027,10:22,11:7
-41
- 68935 multiletter control sequences out of 65536+600000
- 130 fonts using 33652167 bytes
+ 48645 strings out of 475900
+ 156370,1977958 words of node,token memory allocated
+ 1754 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 169 attribute, 166 glue_sp
+ec, 85 attribute_list, 2 write, 34 pdf_action nodes
+   avail lists: 1:1,2:5740,3:632,4:92,5:922,6:132,7:14250,8:86,9:2027,10:27,11:8
+15
+ 69022 multiletter control sequences out of 65536+600000
+ 130 fonts using 33651959 bytes
  108i,20n,128p,2473b,2768s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </app/texlive/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></app/tex
 live/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-regular.otf></app/t
@@ -3469,10 +3493,10 @@ alic.otf></app/texlive/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-i
 talic.otf></app/texlive/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-
 regular.otf></app/texlive/texmf-dist/fonts/opentype/public/tex-gyre/texgyreterme
 s-bold.otf>
-Output written on 0_main.pdf (86 pages, 17054778 bytes).
+Output written on 0_main.pdf (93 pages, 17979708 bytes).
 
-PDF statistics: 1834 PDF objects out of 2073 (max. 8388607)
- 1485 compressed objects within 15 object streams
- 389 named destinations out of 1000 (max. 1048576)
- 1000 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 1899 PDF objects out of 2073 (max. 8388607)
+ 1538 compressed objects within 16 object streams
+ 402 named destinations out of 1000 (max. 1048576)
+ 1016 words of extra memory for PDF output out of 10000 (max. 100000000)
 

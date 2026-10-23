@@ -4,8 +4,24 @@
 \chapter{Further work}
 \label{ch:furtherwork}
 %---------------------------------------------------------------------
-\section{Characterisation}
+\section{Light Characterisation}
+
+
+It was noted that the characterisation of the camera under different lighting conditions was not ideal. whilst a slight trend in the light intensity, there was not as rigourus of an evaluation regarding the spectral components of light. Indoor lighting produces a fundamentally different spectral profile compared to that of sunlight, thus these results do not fully characterise the results of the camera under conditions matching that in situ. Furthermore, it was noted that the foam board used for planar testing completely failed to be detected in sunlight conditions, resulting in the need to take scans of the floor. This means that outdoor results hold little similarity with those done indoor, as the surface used was different. It is recommended to perform a more in depth light characterisation using a rated light intensity meter, rather than a smart phone, and to perform two characterisations, one with the tectureless foam board, and one with a tecture rich surface. This allows for a full inspection of the cameras performance under both textureless and textured surfaces, and can bridge the problem seen with the foam board failing in strong lighting conditions, but indoor conditions not having the same floor.
+
+It was also noted that both height and angle planar and 3D characterisation are suseptable to influence from light variation, as the light intensity changes throughout the long characterisation process. To address this, it is worth performing additional characterisation under more uniform lighting conditions, or a more randomised order, to eliminate lighting trends. 
+
+\section{Fusion Characterisation}
+The results of the rugosity measurements from fused ans single scans are in conflict with the rest of the characterisation. Whilst the noise arteficially inflating results is a likely candidate, it is worth doing a more in depth characteristaion using additional referenc objects, such as flat surfaces, or surfaces with much lower amplitude features. This would isolate the noise profile of the camera, rather than revealing a systematic innacuracy.
+
+Additionally, it would be worth investigating a more in depth rugosity validation, using larger surfaces with more defined and verified roughness.
+
+
 
 \section{Hardware Choices}
+
+Whilst the D456 camera does provide good results, the primary use case for this specific camera is not ideal for this application. The camera is better optimised for longer range depth scans, and so the closer rang, high accuracy performance of the camera is likely not ideal. Additionally, the longer range limits the minimum operating distance to 600\,mm, with shorter range devices such as \todo{list them} providing shorter ranges of \todo{list them}. Thus further investigation into the optimal camera for this application is worth doing.
+
+Ther ewas additionally a potential investigation into  applying a custom projection onto the surface for more accurate reconstruction, however due to the short timeframe, this was not conducted. It is worth investigating the potential improvements that could be made, with supplementary texture, especially in the case wher ehigh accuracy reconstructions is required.
 
 %*********************************************************************
