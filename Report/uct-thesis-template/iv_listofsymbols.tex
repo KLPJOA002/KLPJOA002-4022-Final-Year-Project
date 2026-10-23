@@ -7,15 +7,138 @@
 \addcontentsline{toc}{chapter}{List of Symbols}
 %---------------------------------------------------------------------
 \noindent
-\begin{tabularx}{\textwidth}{@{}l X U@{}}
-\toprule
-\textbf{Symbol} & \textbf{Description} & \textbf{Unit} \\
-\midrule
-%$\bm{B}$         & Magnetic flux density         & T \\
-%$\bm{E}$         & Electric field                & V/m \\
-%$\bm{J}$         & Current density               & A/m$^2$ \\
-%$t$              & Time                          & s \\
-%$\varepsilon_0$  & Permittivity of free space ($8.85 \times 10^{-12}$) & C$^2$/N·m$^2$ \\
-%$\mu_0$          & Permeability of free space ($4\pi \times 10^{-7}$)  & N/A$^2$ \\
-\bottomrule
-\end{tabularx}
+% Requires \usepackage{xltabular} in the preamble (replaces tabularx so the table can break across pages)
+\begin{xltabular}{\textwidth}{@{}l X U@{}}
+	\toprule
+	\textbf{Symbol} & \textbf{Description} & \textbf{Unit} \\
+	\midrule
+	\endfirsthead
+	\toprule
+	\textbf{Symbol} & \textbf{Description} & \textbf{Unit} \\
+	\midrule
+	\endhead
+	\midrule
+	\multicolumn{3}{r}{\textit{Continued on next page}} \\
+	\endfoot
+	\bottomrule
+	\endlastfoot
+	
+	\multicolumn{3}{@{}l}{\textit{Camera model (Section 3.1.1)}} \\
+	$(u, v)$ & Pixel coordinates in the image & px \\
+	$\lambda$ & Projective scale factor (equal to the depth $Z$) & m \\
+	$\mathbf{X}_w = (X_w, Y_w, Z_w)^\top$ & Point in the world frame & m \\
+	$(X, Y, Z)^\top$ & Point in the camera frame & m \\
+	$Z$ & Depth of a point along the optical axis & m \\
+	$\mathbf{K}$ & Camera intrinsic matrix & -- \\
+	$f_x, f_y$ & Focal lengths along the image axes & px \\
+	$c_x, c_y$ & Principal point & px \\
+	$\mathbf{R}$ & Rotation matrix ($\mathbf{R}^\top\mathbf{R} = \mathbf{I}$, $\det\mathbf{R} = +1$) & -- \\
+	$\mathbf{t}$ & Translation vector & m \\
+	$\mathbf{I}$ & Identity matrix & -- \\
+	$(x_d, y_d)$ & Normalised image coordinates after lens distortion, $(X/Z,\, Y/Z)$ & -- \\
+	
+	\midrule
+	\multicolumn{3}{@{}l}{\textit{Stereo triangulation (Section 3.1.2)}} \\
+	$O_L, O_R$ & Camera centres of the left and right imagers & -- \\
+	$P$ & Scene point observed by both imagers & -- \\
+	$x_L, x_R$ & Horizontal image coordinates of $P$ in the left and right imagers & px \\
+	$f$ & Focal length of the rectified imagers & px \\
+	$B$ & Stereo baseline (95 mm for the D456) & mm \\
+	$d$ & Disparity, $x_L - x_R$ & px \\
+	$\sigma_d$ & Standard deviation of the disparity matching error & px \\
+	$\sigma_Z$ & Standard deviation of the depth error & mm \\
+	$Z_{\min}$ & Minimum measurable depth, $fB/126$ & mm \\
+	
+	\midrule
+	\multicolumn{3}{@{}l}{\textit{Registration (Section 3.2)}} \\
+	$\mathbf{p}_i, \mathbf{q}_i$ & Corresponding source and target points & m \\
+	$\bar{\mathbf{p}}, \bar{\mathbf{q}}$ & Centroids of the source and target points & m \\
+	$N$ & Number of point pairs (Section 3.2.1) or number of RANSAC trials (Section 3.2.3) & -- \\
+	$\mathbf{H}$ & Cross-covariance matrix of centred point pairs (Eq.~3.5) & m$^2$ \\
+	$\mathbf{U}, \boldsymbol{\Sigma}, \mathbf{V}$ & Factors of the singular value decomposition of $\mathbf{H}$ & -- \\
+	$\mathbf{H}$ & Homography relating tag corners to image positions (Section 3.2.2) & -- \\
+	$\mathbf{r}_1, \mathbf{r}_2, \mathbf{r}_3$ & Columns of the tag rotation matrix & -- \\
+	$w$ & Fraction of correct correspondences (inlier ratio) & -- \\
+	$p$ & Desired probability of drawing an all-inlier RANSAC sample & -- \\
+	$\mathbf{n}_i$ & Surface normal at the target point $\mathbf{q}_i$ & -- \\
+	$E(\mathbf{R}, \mathbf{t})$ & Point-to-plane ICP cost function & m$^2$ \\
+	
+	\midrule
+	\multicolumn{3}{@{}l}{\textit{Fusion (Section 3.3)}} \\
+	$z(x, y)$ & Height field of the fused surface & mm \\
+	$w_k$ & Weight of measurement $k$, $\propto 1/\sigma_k^2$ & -- \\
+	$\sigma_k^2$ & Variance of measurement $k$ & mm$^2$ \\
+	$h$ & Moving least squares (MLS) fitting radius & mm \\
+	
+	\midrule
+	\multicolumn{3}{@{}l}{\textit{Evaluation (Sections 3.4 and 5.2.1)}} \\
+	$\mathbf{s}_i$ & Reconstructed point & mm \\
+	$d_i$ & Signed distance from $\mathbf{s}_i$ to the closest point on the reference mesh & mm \\
+	$N$ & Number of reconstructed points (Section 3.4) & -- \\
+	$\mu$ & Bias (mean signed error) & mm \\
+	$\sigma$ & Standard deviation of the signed error & mm \\
+	RMSE & Root-mean-square error & mm \\
+	MAE & Mean absolute error & mm \\
+	$\tau$ & Distance threshold for precision, completeness and F-score & mm \\
+	$S$ & Set of scanned (reconstructed) points & -- \\
+	$R$ & Set of points sampled from the reference model & -- \\
+	$P(\tau)$ & Precision at threshold $\tau$ & \% \\
+	$C(\tau)$, $R(\tau)$ & Completeness at threshold $\tau$ & \% \\
+	$F(\tau)$ & F-score at threshold $\tau$ & \% \\
+	$\mathcal{S}$ & Reconstruction point set (Eq.~3.8) & -- \\
+	$\mathcal{M}$ & Reference point set (Eq.~3.8) & -- \\
+	$d(\mathbf{a}, \mathcal{B})$ & Distance from point $\mathbf{a}$ to the nearest point of set $\mathcal{B}$ & mm \\
+	$d_{\mathrm{CD}}$ & Chamfer distance & mm \\
+	$d_{\mathrm{H}}$ & Hausdorff distance & mm \\
+	
+	\midrule
+	\multicolumn{3}{@{}l}{\textit{Point cloud cropping (Section 6.1)}} \\
+	$\rho$ & Root-mean-square distance of reprojected points from the nearest integer pixel & px \\
+	$\mathbf{u}_i$ & Reprojected pixel position of point $i$ & px \\
+	$\mathbf{r}$ & Direction of a pixel ray & -- \\
+	$\mathbf{n}$ & Normal of a fitted plane & -- \\
+	$d$ & Offset of a fitted plane (Eq.~6.3) & m \\
+	$\mathbf{X}$ & Intersection of a pixel ray with a plane & m \\
+	$\mathbf{p}_1, \mathbf{p}_2, \mathbf{p}_3, \mathbf{p}_4$ & Detected and predicted tag corners (parallelogram completion) & px \\
+	
+	\midrule
+	\multicolumn{3}{@{}l}{\textit{Fusion pipeline (Section 6.2)}} \\
+	$w_i$ & Weight of measurement $i$ (Eq.~6.5) & -- \\
+	$c_s(i)$ & Registration confidence of the scan containing point $i$ & -- \\
+	$\hat{\mathbf{n}}_i$ & Unit surface normal at point $i$ & -- \\
+	$\hat{\mathbf{v}}_i$ & Unit vector from point $i$ to the camera & -- \\
+	$r_i$ & Range of point $i$ from the camera & m \\
+	$r_0$ & Reference range for range weighting & m \\
+	$\mathbf{q}_j$ & Map point paired with scan point $\mathbf{p}_i$ & m \\
+	$\mathbf{n}_j$ & Map normal at $\mathbf{q}_j$ & -- \\
+	
+	\midrule
+	\multicolumn{3}{@{}l}{\textit{Roughness estimation (Sections 3.5 and 6.3)}} \\
+	$p(x, y)$ & Polynomial trend surface removed by detrending & mm \\
+	$a_{ij}$ & Coefficients of the detrending polynomial & mm \\
+	$n$ & Degree of the detrending polynomial & -- \\
+	$z_k$ & Gridded residual height of cell $k$ relative to the mean & mm \\
+	$N$ & Number of valid grid cells (Section 6.3.4) & -- \\
+	$g$ & Grid spacing & mm \\
+	$N_q$ & Number of valid grid squares & -- \\
+	$A_{\mathrm{true}}$ & True surface area & mm$^2$ \\
+	$A_{\mathrm{proj}}$ & Projected surface area & mm$^2$ \\
+	$A_{\mathrm{triangles}}$ & Area of an individual surface triangle & mm$^2$ \\
+	$\sigma_n$ & Standard deviation of uncorrelated height noise & mm \\
+	$S_a$ & Arithmetic mean height & mm \\
+	$S_q$ & Root-mean-square height & mm \\
+	$S_{sk}$ & Skewness of the height distribution & -- \\
+	$S_{ku}$ & Kurtosis of the height distribution & -- \\
+	$S_p$ & Maximum peak height & mm \\
+	$S_v$ & Maximum valley depth & mm \\
+	$S_z$ & Maximum height, $S_p + S_v$ & mm \\
+	$S_{dq}$ & Root-mean-square gradient (slope) & -- \\
+	$S_{dr}$ & Developed interfacial area ratio & \% \\
+	$S_{al}$ & Autocorrelation length & mm \\
+	$S_{tr}$ & Texture aspect ratio & -- \\
+	$S_{td}$ & Texture direction & $^\circ$ \\
+	$q$ & Spatial wavenumber & rad/m \\
+	$C(q)$ & Power spectral density as a function of wavenumber & mm$^4$ \\
+	$H$ & Hurst exponent & -- \\
+	$D_f$ & Fractal dimension, $3 - H$ & -- \\
+\end{xltabular}

@@ -139,11 +139,10 @@ Two scans never sample exactly the same points. Point-to-point ICP penalises the
 \label{sec:theory_fusion}
 \comment{Putting Bits Together}
 %=====================================================================
-\todo{I am not liking this fusion section}
+%\todo{I am not liking this fusion section}
 %A single scan is noisy, has holes where relief hides the surface, and has errors that depend on the viewpoint. Combining registered scans addresses all three: views from different directions see regions occluded in others, and the mean of $n$ measurements with independent errors of standard deviation $\sigma$ has a standard deviation of $\sigma/\sqrt{n}$. Errors shared by all scans, such as a calibration or scale bias, are not reduced by averaging.
 
-Volumetric methods store a weighted running average of the signed distance to the surface in a voxel grid and extract the surface where it is zero \cite{curlessVolumetricMethodBuilding1996,newcombeKinectFusionRealtimeDense2011}. For a nearly flat bed, a 2.5D height field $z(x,y)$ on a grid aligned with the mean plane is a simpler equivalent in which each cell collects the heights from all scans (\autoref{sec:fuse}).
-\todo{It cannot represent overhangs such as burrow walls}
+Volumetric methods store a weighted running average of the signed distance to the surface in a voxel grid and extract the surface where it is zero \cite{curlessVolumetricMethodBuilding1996,newcombeKinectFusionRealtimeDense2011}. For a nearly flat bed, a 2.5D height field $z(x,y)$ on a grid aligned with the mean plane is a simpler equivalent in which each cell collects the heights from all scans (\autoref{sec:fuse}). One consideration with this medthod, is that it cannot represent overhangs and sharp features, suuch as burrow walls.
 
 %\paragraph{Weighting.} 
 First all scans points are weighted. When measurements have independent errors with different variances $\sigma_k^2$, the combination with the lowest variance is the weighted mean with weights $w_k\propto1/\sigma_k^2$. Depth error grows with range (\autoref{eq:depthnoise}) and with obliquity, therefore a surface seen at a grazing angle is foreshortened and its depth varies across each matching window, and the axial noise of depth sensors has been observed to rise sharply as the angle between the surface normal and the viewing direction approaches $90^\circ$ \cite{nguyenModelingKinectSensor2012}. Measurements are therefore down-weighted with both, in the spirit of the angle-based weights of \cite{curlessVolumetricMethodBuilding1996}.
@@ -159,40 +158,37 @@ Moving Least Squares (MLS) fits a low-order polynomial surface to the neighbours
 \label{sec:theory_evaluation}
 \comment{Are We Winning?}
 %=====================================================================
-\todo{Not liking the evaluation section}
-Each reconstruction is first registered to the reference model (\autoref{sec:eval_framework}). For each reconstructed point $\mathbf{s}_i$, $d_i$ is its signed distance to the closest point on the reference mesh (positive outside the object), which avoids any dependence on how densely the reference is sampled.
+Each reconstruction is first registered to the reference model (\autoref{sec:eval_framework}).
+For each reconstructed point $\mathbf{s}_i$ lying over the part, $d_i$ is its signed distance to the closest point on the reference surface, positive on the side of the outward surface normal. Points on the table or other surroundings are excluded from the accuracy statistics. Distances are computed to the reference triangles rather than to its vertices, which avoids any dependence on how densely the reference is sampled.
 
 %\paragraph{Accuracy.} 
 Over $N$ points the bias $\mu$, standard deviation $\sigma$ and root-mean-square error are
 \begin{equation}
-\mu=\frac{1}{N}\sum_i d_i,\qquad
-\sigma^2=\frac{1}{N}\sum_i(d_i-\mu)^2,\qquad
-\mathrm{RMSE}=\sqrt{\frac{1}{N}\sum_i d_i^2}=\sqrt{\mu^2+\sigma^2}.
-\label{eq:rmse}
+	\mu=\frac{1}{N}\sum_i d_i,\qquad
+	\sigma^2=\frac{1}{N}\sum_i(d_i-\mu)^2,\qquad
+	\mathrm{RMSE}=\sqrt{\frac{1}{N}\sum_i d_i^2}=\sqrt{\mu^2+\sigma^2}.
+	\label{eq:rmse}
 \end{equation}
-The bias measures systematic offset, $\sigma$ random spread, and the RMSE acts as a combination of both. The RMSE however is not the average distance, since squaring weights large errors more heavily, so the mean absolute error $\frac{1}{N}\sum_i\lvert d_i\rvert$ is less affected by outliers. Because registration chooses the pose that best fits the reference, part of any systematic error, such as a small scale error or tilt, is absorbed into the pose, so the metrics measure shape error after the best rigid fit rather than absolute accuracy.
+The bias measures systematic offset, $\sigma$ random spread, and the RMSE combines both. The RMSE is not the average distance, since squaring weights large errors more heavily. The mean absolute error $\frac{1}{N}\sum_i\lvert d_i\rvert$ is less affected by outliers, and percentiles of $\lvert d_i\rvert$ and a trimmed RMSE (worst 1\,\% and 5\,\% of points removed) are also reported. Because registration chooses the pose that best fits the reference, part of any systematic error, such as a small tilt, is absorbed into the pose, so the metrics measure shape error after the best rigid fit rather than absolute accuracy.
 
 %\paragraph{Completeness.} 
-Accuracy metrics are computed only over points that exist, so a reconstruction that covers only the easy parts of an object can still score well. Following \cite{knapitschTanksTemplesBenchmarking2017}, the precision $P(\tau)$ is the fraction of reconstructed points within a distance $\tau$ of the reference, and the completeness $R(\tau)$ is the fraction of the reference, sampled uniformly, within $\tau$ of the reconstruction. The F-score, $F=2PR/(P+R)$, is high only when both are high.
+Accuracy metrics are computed only over points that exist, so a reconstruction that covers only the easy parts of an object can still score well. Following \cite{knapitschTanksTemplesBenchmarking2017}, the precision $P(\tau)$ is the fraction of reconstructed points within a distance $\tau$ of the reference. For the completeness, the visible reference surface is sampled uniformly by area. A sample is \emph{covered} if a reconstructed point lies within a coverage radius $r_c = 10$\,mm of it, and the covered set is denoted $\mathcal{M}_c$. The completeness $R(\tau)$ is the fraction of $\mathcal{M}_c$ within $\tau$ of the reconstruction, so a reconstruction of half the object is judged on the half it saw, and the covered fraction $\lvert\mathcal{M}_c\rvert/\lvert\mathcal{M}\rvert$ is reported separately. The F-score, $F=2PR/(P+R)$, is high only when both are high. Thresholds of $\tau = 0.5, 1, 2$ and $5$\,mm are used.
 
 %\paragraph{Set distances.} 
-With $d(\mathbf{a},\mathcal{B})$ the distance from a point $\mathbf{a}$ to the nearest point of a set $\mathcal{B}$, the Chamfer distance averages nearest-neighbour distances in both directions between the reconstruction $\mathcal{S}$ and the reference $\mathcal{M}$, while the Hausdorff distance takes the worst case \cite{huttenlocherComparingImagesUsing1993}:
-
+With $d(\mathbf{a},\mathcal{B})$ the distance from a point $\mathbf{a}$ to the nearest point of a set $\mathcal{B}$, the Chamfer distance averages the mean nearest-neighbour distances in both directions between the reconstruction $\mathcal{S}$ and the covered reference samples $\mathcal{M}_c$, while the Hausdorff distance takes the worst case \cite{huttenlocherComparingImagesUsing1993}:
 \begin{equation}
-d_{\mathrm{CD}}=\frac{1}{\lvert\mathcal{S}\rvert}\sum_{\mathbf{s}\in\mathcal{S}}d(\mathbf{s},\mathcal{M})+\frac{1}{\lvert\mathcal{M}\rvert}\sum_{\mathbf{m}\in\mathcal{M}}d(\mathbf{m},\mathcal{S}),\qquad
-d_{\mathrm{H}}=\max\Bigl\{\max_{\mathbf{s}\in\mathcal{S}}d(\mathbf{s},\mathcal{M}),\;\max_{\mathbf{m}\in\mathcal{M}}d(\mathbf{m},\mathcal{S})\Bigr\}.
-\label{eq:chamfer}
+	d_{\mathrm{CD}}=\frac{1}{2}\left[\frac{1}{\lvert\mathcal{S}\rvert}\sum_{\mathbf{s}\in\mathcal{S}}d(\mathbf{s},\mathcal{M})+\frac{1}{\lvert\mathcal{M}_c\rvert}\sum_{\mathbf{m}\in\mathcal{M}_c}d(\mathbf{m},\mathcal{S})\right],\qquad
+	d_{\mathrm{H}}=\max\Bigl\{\max_{\mathbf{s}\in\mathcal{S}}d(\mathbf{s},\mathcal{M}),\;\max_{\mathbf{m}\in\mathcal{M}_c}d(\mathbf{m},\mathcal{S})\Bigr\}.
+	\label{eq:chamfer}
 \end{equation}
-
-\todo{Confirm the Chamfer convention used by evaluate\_scans (sum or mean of the two directions, squared or unsquared distances) and edit \autoref{eq:chamfer} to match.}
-The second Chamfer term penalises missing regions. The Hausdorff distance is set by the single worst point and is very sensitive to outliers, which is why percentiles of $\lvert d_i\rvert$ are also reported.
+Here $d(\mathbf{s},\mathcal{M})$ is the exact point-to-surface distance used above, and unsquared distances are used throughout. The second Chamfer term penalises missing regions within the covered area. Because $\mathcal{M}_c$ excludes reference surface farther than $r_c$ from the reconstruction, $d_{\mathrm{H}}$ is a covered-region Hausdorff distance: it does not capture large unscanned regions, which are reported through the covered fraction instead. The Hausdorff distance is set by the single worst point and is very sensitive to outliers, so a 95th-percentile version, $\max\{P_{95}(d(\mathbf{s},\mathcal{M})),\,P_{95}(d(\mathbf{m},\mathcal{S}))\}$, is also reported.
 
 %=====================================================================
 \section{Roughness Calculation}
 \label{sec:theory_roughness}
 \comment{Rough Times Ahead}
 %=====================================================================
-A measured surface combines form, waviness and roughness at progressively shorter wavelengths. ISO~25178-2 defines areal texture parameters on a scale-limited surface, obtained by removing the form and restricting the wavelength band with filters \cite{ISO2517822021, leachCharacterisationArealSurface2013}. Here the form is removed by subtracting a fitted low-order polynomial, and the band is set implicitly, at the short end by the grid spacing and MLS radius, and at the long end by the polynomial degree and patch size (\autoref{sec:rugosity}). A higher degree removes more long-wavelength relief, so the degree decides what counts as roughness. \cite{azharRGBDFrameworkCapturing2022} found a planar fit the most robust for sediment in the intertidal region.\todo{Fact check this}
+A measured surface combines form, waviness and roughness at progressively shorter wavelengths. ISO~25178-2 defines areal texture parameters on a scale-limited surface, obtained by removing the form and restricting the wavelength band with filters \cite{ISO2517822021, leachCharacterisationArealSurface2013}. Here the form is removed by subtracting a fitted low-order polynomial $p(x,y) = \sum_{i+j \le n} a_{ij}\, x_n^{\,i}\, y_n^{\,j}$, and the band is set implicitly, at the short end by the grid spacing and MLS radius, and at the long end by the polynomial degree and patch size (\autoref{sec:rugosity}). A higher degree removes more long-wavelength relief, so the degree decides what counts as roughness. \cite{azharRGBDFrameworkCapturing2022} found a planar fit the most robust for sediment in the intertidal region.
 
 The parameters, defined in Section~\autoref{sec:rugosity}, fall into three groups. Height parameters ($S_a$, $S_q$, $S_{sk}$, $S_{ku}$) describe the distribution of residual heights but not their arrangement, so two surfaces can share the same $S_q$ yet have very different feature sizes. Spatial parameters ($S_{al}$, $S_{tr}$) describe feature size and directionality. Hybrid parameters combine height and spacing through the slope: $S_{dq}$ is the root-mean-square gradient and $S_{dr}$ the developed interfacial area ratio, the percentage by which the true surface area exceeds the projected area. Rugosity, as used in benthic ecology, is the same quantity expressed as the ratio $A_{\mathrm{true}}/A_{\mathrm{proj}}=1+S_{dr}/100$. For gentle slopes the area element $\sqrt{1+\lvert\nabla z\rvert^2}\approx1+\tfrac{1}{2}\lvert\nabla z\rvert^2$, so $S_{dr}\approx50\,S_{dq}^2$\,\% and rugosity is essentially a measure of the mean squared slope.
 

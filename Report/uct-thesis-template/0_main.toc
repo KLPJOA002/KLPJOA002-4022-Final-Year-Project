@@ -6,7 +6,7 @@
 \contentsline {chapter}{List of Tables}{ix}{chapter*.4}%
 \contentsline {chapter}{List of Symbols}{x}{chapter*.5}%
 \contentsline {chapter}{List of Symbols}{x}{chapter*.5}%
-\contentsline {chapter}{List of Acronyms and Glossary}{xi}{chapter*.5}%
+\contentsline {chapter}{List of Acronyms and Glossary}{xiii}{table.0.1}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Background}{1}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Sand prawns and bioturbation}{1}{subsection.1.1.1}%
@@ -23,134 +23,132 @@
 \contentsline {section}{\numberline {2.2}Sediment microtopography as a proxy for benthic activity}{5}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Non-contact measurement of sediment surfaces}{6}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Characterisation of active stereo depth cameras}{6}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Registration and fusion of multi-view depth scans}{8}{section.2.5}%
+\contentsline {section}{\numberline {2.5}Registration and fusion of multi-view depth scans}{7}{section.2.5}%
 \contentsline {section}{\numberline {2.6}Summary and research gap}{8}{section.2.6}%
-\contentsline {chapter}{\numberline {3}Theoretical Background}{10}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Depth Capture}{10}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Camera Model}{10}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Stereo Triangulation}{11}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Passive Stereo, Structured Light and Active Stereo}{11}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Registration}{11}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Rigid Transformations and Closed-Form Alignment}{12}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Fiducial Markers}{12}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Feature-Based Coarse Alignment}{12}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Iterative Closest Point}{13}{subsection.3.2.4}%
-\contentsline {section}{\numberline {3.3}Fusion}{13}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Evaluation}{14}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Roughness Calculation}{14}{section.3.5}%
-\contentsline {paragraph}{Scale dependence.}{15}{paragraph*.13}%
-\contentsline {chapter}{\numberline {4}System Design}{16}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Requirements Definition}{16}{section.4.1}%
-\contentsline {section}{\numberline {4.2}System Overview}{16}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Hardware Rig}{17}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Frame}{17}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Camera, Tilt and Rotation Mechanism}{17}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}AprilTag Boundary Markers}{17}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}Software Architecture and Processing Pipeline}{18}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Capture Software}{18}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Cropping and Multi-Angle Fusion}{18}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Microtopography Processing}{18}{subsection.4.4.3}%
-\contentsline {section}{\numberline {4.5}Evaluation Framework and Ground Truth}{19}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Reference Surfaces}{19}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Alignment and Metrics}{19}{subsection.4.5.2}%
-\contentsline {section}{\numberline {4.6}Summary}{20}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Intel RealSense Characterisation}{21}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Plane Surface Characterisation}{21}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Capture procedure and metrics}{21}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Planar Characterisation Methodology}{22}{subsection.5.1.2}%
-\contentsline {subsubsection}{Working distance}{22}{subsubsection*.18}%
-\contentsline {subsubsection}{Camera tilt}{22}{subsubsection*.19}%
-\contentsline {subsubsection}{Ambient lighting}{22}{subsubsection*.20}%
-\contentsline {subsection}{\numberline {5.1.3}Planar testing Results}{23}{subsection.5.1.3}%
-\contentsline {subsubsection}{Working Distance}{23}{subsubsection*.21}%
-\contentsline {subsubsection}{Camera Tilt}{23}{subsubsection*.23}%
-\contentsline {subsubsection}{Ambient Lighting}{23}{subsubsection*.25}%
-\contentsline {subsection}{\numberline {5.1.4}Discusion}{23}{subsection.5.1.4}%
-\contentsline {subsubsection}{Working Distance}{23}{subsubsection*.28}%
-\contentsline {subsubsection}{Camera Tilt}{25}{subsubsection*.29}%
-\contentsline {subsubsection}{Ambient Lighting}{25}{subsubsection*.30}%
-\contentsline {section}{\numberline {5.2}3D Reference Characterisation}{26}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Reference objects and evaluation}{26}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Testing Procedure}{26}{subsection.5.2.2}%
-\contentsline {subsubsection}{Camera configuration}{26}{subsubsection*.31}%
-\contentsline {subsubsection}{Post-processing filters}{27}{subsubsection*.32}%
-\contentsline {subsubsection}{Tilt and rotation}{27}{subsubsection*.33}%
-\contentsline {subsection}{\numberline {5.2.3}3D Characterisation Results}{27}{subsection.5.2.3}%
-\contentsline {subsubsection}{Camera Configuration}{27}{subsubsection*.34}%
-\contentsline {subsubsection}{Filters}{27}{subsubsection*.38}%
-\contentsline {subsubsection}{Tilt and Rotation}{29}{subsubsection*.41}%
-\contentsline {subsection}{\numberline {5.2.4}Discussion}{29}{subsection.5.2.4}%
-\contentsline {subsubsection}{Camera Configuration}{29}{subsubsection*.45}%
-\contentsline {subsubsection}{Filters}{32}{subsubsection*.46}%
-\contentsline {subsubsection}{Tilt and rotation}{32}{subsubsection*.47}%
-\contentsline {chapter}{\numberline {6}Data Processing Pipeline}{34}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Point Cloud Cropping}{34}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Finding the tags in each scan}{35}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Learning the tag layout of a session}{35}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}Relating 3D points to image pixels}{36}{subsection.6.1.3}%
-\contentsline {subsection}{\numberline {6.1.4}Building the crop volume}{36}{subsection.6.1.4}%
-\contentsline {subsection}{\numberline {6.1.5}Review and manual fallback}{37}{subsection.6.1.5}%
-\contentsline {subsection}{\numberline {6.1.6}Outputs}{37}{subsection.6.1.6}%
-\contentsline {subsection}{\numberline {6.1.7}Limitations}{37}{subsection.6.1.7}%
-\contentsline {section}{\numberline {6.2}Multi-Scan Fusion}{37}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Preprocessing}{38}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Initial poses from the rig and IMU}{38}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Coarse alignment}{39}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}Fine registration}{40}{subsection.6.2.4}%
-\contentsline {subsection}{\numberline {6.2.5}Reconciling the overlapping scans}{40}{subsection.6.2.5}%
-\contentsline {paragraph}{Weighting each measurement.}{40}{paragraph*.48}%
-\contentsline {paragraph}{Grouping measurements into cells.}{41}{paragraph*.49}%
-\contentsline {paragraph}{Choosing one value per cell.}{41}{paragraph*.50}%
-\contentsline {paragraph}{Removing off-surface outliers.}{41}{paragraph*.51}%
-\contentsline {paragraph}{Smoothing.}{41}{paragraph*.52}%
-\contentsline {subsection}{\numberline {6.2.6}Limitations}{41}{subsection.6.2.6}%
-\contentsline {section}{\numberline {6.3}Surface Roughness Estimation}{42}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Levelling}{42}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Detrending}{42}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Gridding}{43}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}Height parameters}{43}{subsection.6.3.4}%
-\contentsline {subsection}{\numberline {6.3.5}Rugosity and slope}{43}{subsection.6.3.5}%
-\contentsline {subsection}{\numberline {6.3.6}Spatial and spectral parameters}{44}{subsection.6.3.6}%
-\contentsline {paragraph}{Autocorrelation.}{44}{paragraph*.53}%
-\contentsline {paragraph}{Power spectrum.}{44}{paragraph*.54}%
-\contentsline {subsection}{\numberline {6.3.7}Additional measures and uncertainty}{44}{subsection.6.3.7}%
-\contentsline {subsection}{\numberline {6.3.8}Validation}{45}{subsection.6.3.8}%
-\contentsline {subsection}{\numberline {6.3.9}Limitations}{45}{subsection.6.3.9}%
-\contentsline {section}{\numberline {6.4}Feature Detection}{45}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Experimental Validation}{46}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Known Relief and Controlled Targets}{46}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Process}{46}{subsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.1.2}Results}{46}{subsection.7.1.2}%
-\contentsline {section}{\numberline {7.2}Controlled Laboratory Sand}{47}{section.7.2}%
-\contentsline {subsection}{\numberline {7.2.1}Results}{49}{subsection.7.2.1}%
-\contentsline {chapter}{\numberline {8}Discussion}{50}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Optimal Configuration}{50}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Fusion and Roughness Estimation}{51}{section.8.2}%
-\contentsline {chapter}{\numberline {9}Conclusions}{52}{chapter.9}%
+\contentsline {chapter}{\numberline {3}Theoretical Background}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Depth Capture}{9}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Camera Model}{9}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Stereo Triangulation}{10}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Passive Stereo, Structured Light and Active Stereo}{10}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Registration}{10}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Rigid Transformations and Closed-Form Alignment}{11}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Fiducial Markers}{11}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Feature-Based Coarse Alignment}{11}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Iterative Closest Point}{12}{subsection.3.2.4}%
+\contentsline {section}{\numberline {3.3}Fusion}{12}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Evaluation}{13}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Roughness Calculation}{13}{section.3.5}%
+\contentsline {paragraph}{Scale dependence.}{14}{paragraph*.18}%
+\contentsline {chapter}{\numberline {4}System Design}{15}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Requirements Definition}{15}{section.4.1}%
+\contentsline {section}{\numberline {4.2}System Overview}{15}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Hardware Rig}{16}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Frame}{16}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Camera, Tilt and Rotation Mechanism}{16}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}AprilTag Boundary Markers}{16}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}Software Architecture and Processing Pipeline}{16}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Capture Software}{16}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Cropping and Multi-Angle Fusion}{17}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Microtopography Processing}{17}{subsection.4.4.3}%
+\contentsline {section}{\numberline {4.5}Evaluation Framework and Ground Truth}{18}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Reference Surfaces}{18}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Alignment and Metrics}{18}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}Summary}{18}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Intel RealSense Characterisation}{19}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Plane Surface Characterisation}{19}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Capture procedure and metrics}{19}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Planar Characterisation Methodology}{20}{subsection.5.1.2}%
+\contentsline {subsubsection}{Working distance}{20}{subsubsection*.22}%
+\contentsline {subsubsection}{Camera tilt}{20}{subsubsection*.23}%
+\contentsline {subsubsection}{Ambient lighting}{20}{subsubsection*.24}%
+\contentsline {subsection}{\numberline {5.1.3}Planar testing Results}{21}{subsection.5.1.3}%
+\contentsline {subsubsection}{Working Distance}{21}{subsubsection*.25}%
+\contentsline {subsubsection}{Camera Tilt}{21}{subsubsection*.27}%
+\contentsline {subsubsection}{Ambient Lighting}{21}{subsubsection*.29}%
+\contentsline {subsection}{\numberline {5.1.4}Discusion}{21}{subsection.5.1.4}%
+\contentsline {subsubsection}{Working Distance}{21}{subsubsection*.32}%
+\contentsline {subsubsection}{Camera Tilt}{23}{subsubsection*.33}%
+\contentsline {subsubsection}{Ambient Lighting}{23}{subsubsection*.34}%
+\contentsline {section}{\numberline {5.2}3D Reference Characterisation}{23}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Reference objects and evaluation}{24}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Testing Procedure}{24}{subsection.5.2.2}%
+\contentsline {subsubsection}{Camera configuration}{24}{subsubsection*.35}%
+\contentsline {subsubsection}{Post-processing filters}{24}{subsubsection*.36}%
+\contentsline {subsubsection}{Tilt and rotation}{25}{subsubsection*.38}%
+\contentsline {subsection}{\numberline {5.2.3}3D Characterisation Results}{25}{subsection.5.2.3}%
+\contentsline {subsubsection}{Camera Configuration}{25}{subsubsection*.39}%
+\contentsline {subsubsection}{Filters}{25}{subsubsection*.43}%
+\contentsline {subsubsection}{Tilt and Rotation}{27}{subsubsection*.46}%
+\contentsline {subsection}{\numberline {5.2.4}Discussion}{27}{subsection.5.2.4}%
+\contentsline {subsubsection}{Camera Configuration}{27}{subsubsection*.51}%
+\contentsline {subsubsection}{Filters}{31}{subsubsection*.52}%
+\contentsline {subsubsection}{Tilt and rotation}{31}{subsubsection*.53}%
+\contentsline {chapter}{\numberline {6}Data Processing Pipeline}{32}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Point Cloud Cropping}{32}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Finding the tags in each scan}{33}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Learning the tag layout of a session}{33}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Relating 3D points to image pixels}{33}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Building the crop volume}{34}{subsection.6.1.4}%
+\contentsline {subsection}{\numberline {6.1.5}Review and manual fallback}{35}{subsection.6.1.5}%
+\contentsline {subsection}{\numberline {6.1.6}Outputs}{35}{subsection.6.1.6}%
+\contentsline {subsection}{\numberline {6.1.7}Limitations}{35}{subsection.6.1.7}%
+\contentsline {section}{\numberline {6.2}Multi-Scan Fusion}{35}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Preprocessing}{36}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Initial poses from the rig and IMU}{36}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Coarse alignment}{37}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}Fine registration}{37}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.5}Reconciling the overlapping scans}{38}{subsection.6.2.5}%
+\contentsline {paragraph}{Weighting each measurement.}{38}{paragraph*.54}%
+\contentsline {paragraph}{Grouping measurements into cells.}{38}{paragraph*.55}%
+\contentsline {paragraph}{Choosing one value per cell.}{39}{paragraph*.56}%
+\contentsline {paragraph}{Removing off-surface outliers.}{39}{paragraph*.57}%
+\contentsline {paragraph}{Smoothing.}{39}{paragraph*.58}%
+\contentsline {subsection}{\numberline {6.2.6}Limitations}{39}{subsection.6.2.6}%
+\contentsline {section}{\numberline {6.3}Surface Roughness Estimation}{39}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Levelling}{40}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Detrending}{40}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Gridding}{40}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Height parameters}{41}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}Rugosity and slope}{41}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.6}Spatial and spectral parameters}{41}{subsection.6.3.6}%
+\contentsline {paragraph}{Autocorrelation.}{41}{paragraph*.59}%
+\contentsline {paragraph}{Power spectrum.}{42}{paragraph*.60}%
+\contentsline {subsection}{\numberline {6.3.7}Additional measures and uncertainty}{42}{subsection.6.3.7}%
+\contentsline {subsection}{\numberline {6.3.8}Validation}{42}{subsection.6.3.8}%
+\contentsline {subsection}{\numberline {6.3.9}Limitations}{43}{subsection.6.3.9}%
+\contentsline {chapter}{\numberline {7}Experimental Validation}{44}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Controlled Targets}{44}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Process}{44}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Results}{44}{subsection.7.1.2}%
+\contentsline {section}{\numberline {7.2}Controlled Laboratory Sand}{45}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Results}{47}{subsection.7.2.1}%
+\contentsline {chapter}{\numberline {8}Discussion}{48}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Camera Configuration}{48}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Working Distance, Viewing Angle and Lighting}{48}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Fusion and Roughness Estimation}{49}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Implications for the Overarching Project}{50}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Conclusions}{51}{chapter.9}%
 \contentsline {chapter}{\numberline {10}Further work}{54}{chapter.10}%
-\contentsline {section}{\numberline {10.1}Light Characterisation}{54}{section.10.1}%
-\contentsline {section}{\numberline {10.2}Fusion Characterisation}{54}{section.10.2}%
-\contentsline {section}{\numberline {10.3}Hardware Choices}{54}{section.10.3}%
-\contentsline {chapter}{\numberline {A}GitHub repository}{56}{chapter.A}%
-\contentsline {section}{\numberline {A.1}Title for appendix A.1}{56}{section.A.1}%
+\contentsline {chapter}{\numberline {A}GitHub repository}{55}{chapter.A}%
+\contentsline {section}{\numberline {A.1}Title for appendix A.1}{55}{section.A.1}%
 \renewcommand {\cftchappresnum }{Appendix }
-\contentsline {chapter}{\numberline {B}Theory}{57}{chapter.B}%
-\contentsline {chapter}{\numberline {C}Reference Objects}{58}{chapter.C}%
-\contentsline {chapter}{\numberline {D}Characterisation Results}{60}{chapter.D}%
-\contentsline {section}{\numberline {D.1}Planar Characterisation Results}{60}{section.D.1}%
-\contentsline {section}{\numberline {D.2}Camera Configuration Results}{62}{section.D.2}%
-\contentsline {section}{\numberline {D.3}Filter Configuration Results}{63}{section.D.3}%
-\contentsline {section}{\numberline {D.4}Fusion Combination Results}{64}{section.D.4}%
-\contentsline {chapter}{\numberline {E}Characterisation Plots}{65}{chapter.E}%
-\contentsline {section}{\numberline {E.1}Filter Heatmaps}{65}{section.E.1}%
-\contentsline {section}{\numberline {E.2}Combination Heatmaps}{68}{section.E.2}%
-\contentsline {section}{\numberline {E.3}Parameter Heatmap}{69}{section.E.3}%
-\contentsline {section}{\numberline {E.4}Accuracy Vs Tilt}{70}{section.E.4}%
-\contentsline {section}{\numberline {E.5}Single Vs Fused Error Histograms}{71}{section.E.5}%
-\contentsline {chapter}{\numberline {F}Validation Results}{73}{chapter.F}%
-\contentsline {section}{\numberline {F.1}Reference Shapes Rugosity}{73}{section.F.1}%
-\contentsline {chapter}{Appendix B: Ethics approval}{76}{appendix*.89}%
-\contentsline {chapter}{Appendix C: Topic description}{77}{appendix*.90}%
-\contentsline {chapter}{Appendix D: ECSA Graduate Attributes}{78}{appendix*.91}%
-\contentsline {section}{Project mapping to ECSA Graduate Attributes}{78}{section*.92}%
-\contentsline {chapter}{Bibliography}{81}{appendix*.93}%
+\contentsline {chapter}{\numberline {B}Theory}{56}{chapter.B}%
+\contentsline {chapter}{\numberline {C}Reference Objects}{57}{chapter.C}%
+\contentsline {chapter}{\numberline {D}Characterisation Results}{59}{chapter.D}%
+\contentsline {section}{\numberline {D.1}Planar Characterisation Results}{59}{section.D.1}%
+\contentsline {section}{\numberline {D.2}Camera Configuration Results}{61}{section.D.2}%
+\contentsline {section}{\numberline {D.3}Filter Configuration Results}{62}{section.D.3}%
+\contentsline {section}{\numberline {D.4}Fusion Combination Results}{63}{section.D.4}%
+\contentsline {chapter}{\numberline {E}Characterisation Plots}{64}{chapter.E}%
+\contentsline {section}{\numberline {E.1}Filter Heatmaps}{64}{section.E.1}%
+\contentsline {section}{\numberline {E.2}Combination Heatmaps}{67}{section.E.2}%
+\contentsline {section}{\numberline {E.3}Parameter Heatmap}{68}{section.E.3}%
+\contentsline {section}{\numberline {E.4}Accuracy Vs Tilt}{69}{section.E.4}%
+\contentsline {section}{\numberline {E.5}Single Vs Fused Error Histograms}{70}{section.E.5}%
+\contentsline {chapter}{\numberline {F}Validation Results}{72}{chapter.F}%
+\contentsline {section}{\numberline {F.1}Reference Shapes Rugosity}{72}{section.F.1}%
+\contentsline {chapter}{Appendix B: Ethics approval}{75}{appendix*.95}%
+\contentsline {chapter}{Appendix C: Topic description}{76}{appendix*.96}%
+\contentsline {chapter}{Appendix D: ECSA Graduate Attributes}{77}{appendix*.97}%
+\contentsline {section}{Project mapping to ECSA Graduate Attributes}{77}{section*.98}%
+\contentsline {chapter}{Bibliography}{80}{appendix*.99}%

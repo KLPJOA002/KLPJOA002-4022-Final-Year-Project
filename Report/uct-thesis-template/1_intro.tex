@@ -47,7 +47,7 @@ First, its configuration had not been systematically evaluated. This covers the 
 
 Second, each surface was scanned at least four times from different mount rotations, but each scan was analysed individually. A single scan is noisy and has viewpoint-dependent errors. It also contains holes wherever relief hides the surface from the camera. The repeated scans were not combined to reduce these effects.
 
-Third, the accuracy of the reconstructions, and of the roughness parameters computed from them, had not been quantified against a known ground truth. \todo{Confirm that no ground-truth validation was done before this project.}
+%Third, the accuracy of the reconstructions, and of the roughness parameters computed from them, had not been quantified against a known ground truth. \todo{Confirm that no ground-truth validation was done before this project.}
 
 This project therefore characterises the D456 for close-range scanning of sediment-like surfaces. It also develops a processing pipeline that fuses multi-view scans into a single reconstruction, from which roughness parameters are computed and validated.
 
@@ -65,7 +65,7 @@ The objectives of this project were to:
 	
 	\item Develop a roughness estimation pipeline that levels, detrends and grids the fused surface and computes standardised areal roughness parameters, including rugosity. Validate it against the reference objects and against laboratory sand.
 	
-	\item Investigate the automated detection and counting of discrete biogenic features, such as burrow openings and mounds, in the fused surfaces.
+	%\item Investigate the automated detection and counting of discrete biogenic features, such as burrow openings and mounds, in the fused surfaces.
 \end{itemize}
 
 %====================================================
@@ -84,7 +84,7 @@ The objectives of this project were to:
 \end{itemize}
 Testing used planar targets, three 3D-printed reference objects, and sand collected from the Langebaan Lagoon. The sand was scanned in the laboratory in dry, wet and waterlogged states. Field deployment on the intertidal flats was not possible within the time available.
 
-\paragraph{Limitations.} The characterisation and the chosen configuration target smooth, gently undulating relief of a few centimetres, representative of sand prawn mounds. They may not transfer to objects with sharp edges. The fused surface is represented as a single-valued height field, so overhangs such as burrow walls cannot be represented. It is also smoothed with a 10\,mm moving least squares radius by default, so relief at shorter wavelengths is attenuated. Each characterisation condition was recorded once, so the repeatability of the set-up was not quantified. Automated feature detection was not implemented within the project timeframe and is discussed as further work in \autoref{ch:furtherwork}. \todo{Update this sentence if feature detection is implemented before submission.}
+\paragraph{Limitations.} The characterisation and the chosen configuration target smooth, gently undulating relief of a few centimetres, representative of sand prawn mounds. They may not transfer to objects with sharp edges. The fused surface is represented as a single-valued height field, so overhangs such as burrow walls cannot be represented. It is also smoothed with a 10\,mm moving least squares radius by default, so relief at shorter wavelengths is attenuated. Each characterisation condition was recorded once, so the repeatability of the set-up was not quantified. One of the proposed processing steps was automated feature detection, however due to the limited time, this was removed from the scope and is discussed as further work in \autoref{ch:furtherwork}. 
 
 \paragraph{Assumptions.} The following assumptions were made:
 \begin{itemize}

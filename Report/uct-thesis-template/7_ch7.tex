@@ -8,7 +8,7 @@ In order to validate the processing pipeline as a whole, two methods are used. F
 
 Secondly, scans of the surface of sand, taken from the langebaan lagoon, was performed. This was taken for dry, wet and submerged sand, in both flat and shaped forms. This experimentation provides little analytical results, but helps to get a qualitative understanding of the performance in conditions closer to environmental.
 
-\section{Known Relief and Controlled Targets}
+\section{Controlled Targets}
 
 \subsection{Process}
 The rugosity estimation pipeline is applied to scans taken of reference objects shown in \autoref{Apendix:Reference_Objects}. These scans are re-used from the characterisation process \autoref{ch:experiments}. These scans had the filters identified in \autoref{ch:experiments} applied to them. Cropping and fusion was then applied. This reconstructed surface was then cropped down to just the reference object, and the evaluation was performed on it. The results of which are then compared to the results obtained via analytical evaluation of the reference object file .stl. This provides an analytical comparison between the results of scanning and processing, and the known relief.
@@ -93,6 +93,8 @@ Secondly, and most importantly, is that these results are innacuratly representi
 \end{figure}
 
 \section{Controlled Laboratory Sand}
+\comment{Brining the Beach to the Lab
+}
 Whilst this reference object comparison provides an analytical evaluation, it does not align with real world conditions. Due to time constraints, real world implementation was not able to be performed, however a more realistic scan was taken, using sand collected from the langebaan lagoon. 
 Approximately 13~kg of sand was collected dry, and was placed in a a 10~l plastic container. This was then flattened to produce a surface that should give rugosity metrics of 1. next, the sand was indented with the known reference shapes, and scans were taken. Next the sand was wetted with  2~kg of water. This approximates the wet intertidal sediment. The sand was then flattened again for scans, and then indented with the known reference shapes. 
 
@@ -100,7 +102,7 @@ Finally, for purely qualitative performance, slightly more water was added, enou
 
 \subsection{Results}
 
-These results show a much better trend in the performance of the system. As can be seen in the dry flat analysis, the fused scan results in a rugosity of \todo{Insert metric}, which is lower than that of the unfused scan which gives a rugosity of \todo{give metric}. This is primarily due to the fact that single scans have a higher depth noise, and on flat planar surfaces, this raises the rugosity beyond the actual natural sediment. This is what is expected, and provdes a better representation than the referenc object validation.
+These results show a much better trend in the performance of the system. As can be seen in the dry flat analysis, the fused scan results in a rugosity of 1.00340, which is lower than that of the unfused scan which gives a rugosity of 1.01933. This is primarily due to the fact that single scans have a higher depth noise, and on flat planar surfaces, this raises the rugosity beyond the actual natural sediment. This is what is expected, and provdes a better representation than the referenc object validation.
 
 Unfortunately these results dont have ground truth, since they were taken from sediment that was manually flattened and shaped. However te results do show that planar surfaces result in rugosirt that is far closer to 1 than shaped surfaces, which is expected since a flat surface would result in a rugosity of exactly 1.
 

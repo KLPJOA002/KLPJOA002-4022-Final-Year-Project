@@ -102,6 +102,7 @@
 \usepackage{array}                   % Custom column formatting
 \usepackage{booktabs}                % High-quality table lines
 \usepackage{tabularx}                % Tables with flexible width
+\usepackage{xltabular}
 \usepackage{multirow}                % Multirow table cells
 \usepackage{hhline}                  % Fine-tuned horizontal lines
 
@@ -338,7 +339,12 @@
 %---------------------------------------------------------------------
 % Chapter 1: Introduction
 %---------------------------------------------------------------------
-\newcommand{\comment}[1]{\vspace{-2em}\hspace{3em}{\small\textit{#1}}\par}
+\newcommand{\comment}[1]{
+	\vspace{-1em}
+	\hspace{3em}
+	{\small\raggedleft\textit{#1}\par}
+}
+
 \newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
 %   Marks the first page of the body, for the automatic page count.
 \label{body:start}

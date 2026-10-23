@@ -7,7 +7,7 @@
 
 The capture stage (\autoref{ch:design}) produces one session per experiment. A session contains multiple individual scans of the same patch of sediment, one per combination of mount rotation and tilt. Each scan stores the single best depth frame as a coloured point cloud (\texttt{.ply}), together with the AprilTag detections for the whole recording, the IMU sample taken with the best frame, the full recording and a text dump of the camera configuration.
 
-A single scan of the surface contains several factors that result in lower quality reconstructions. It contains the rig and regions outside of the frames bound due to the wide field of view of the camera. It is noisy, particularly where the surface is seen at a grazing angle. It also has holes wherever relief hides part of the surface from that viewpoint. The processing pipeline turns a session of multiple of such scans into a single, clean reconstruction of the region of interest and then into numbers that describe its roughness. There are four main stage in the data processing pipeline.
+A single scan of the surface contains several factors that result in lower quality reconstructions. It contains the rig and regions outside of the frames bound due to the wide field of view of the camera. It is noisy, particularly where the surface is seen at a grazing angle. It also has holes wherever relief hides part of the surface from that viewpoint. The processing pipeline turns a session of multiple of such scans into a single, clean reconstruction of the region of interest and then into numbers that describe its roughness. There are three main stages in the data processing pipeline.
 
 \begin{enumerate}
 	\item \textbf{Cropping} (\autoref{sec:crop}) cuts every scan down to the square of sediment bounded by the four corner AprilTags.
@@ -16,7 +16,7 @@ A single scan of the surface contains several factors that result in lower quali
 	
 	\item \textbf{Roughness estimation} (\autoref{sec:rugosity}) levels and detrends the fused surface and computes standardised surface-texture parameters, including rugosity.
 	
-	\item \textbf{Feature detection} (\autoref{sec:features}) locates and counts discrete features such as sandprawn burrow openings.
+	%\item \textbf{Feature detection} (\autoref{sec:features}) locates and counts discrete features such as sandprawn burrow openings.
 \end{enumerate}
 
 Each stage is a separate program that reads the previous stage's output files, so any stage can be rerun or inspected on its own. The language of each program was chosen for its workload. Cropping is mostly bookkeeping and image geometry, so it is written in Python with Open3D and NumPy. Fusion runs nearest-neighbour searches, feature matching and iterative registration on millions of points, so it is written in C++ with the Point Cloud Library. The roughness metrics are array operations on a regular grid and are written in Python with NumPy and SciPy. A small Python script (\texttt{bulk\_process.py}) chains cropping and fusion over many sessions without user interaction.
@@ -65,15 +65,8 @@ The point cloud of a scan comes from one particular frame of the recording. The 
 
 \subsection{Learning the tag layout of a session}
 
-Not every tag will be detected, or visible in each scan wi thin a session. Glare, shadow or a steep tilt often hide tags. Therefore, in order to maintain the ability to automatically crop each scan to the correct region, the program first learns the layout of the tags from the scans in the session where all four were detected. From those frames it records:
+Not every tag will be detected, or visible in each scan wi thin a session. Glare, shadow or a steep tilt often hide tags. Therefore, in order to maintain the ability to automatically crop each scan to the correct region, the program first learns the layout of the tags from the scans in the session where all four were detected. From those frames it records the order in which the four tag IDs appeartgoing around the square, which says which tags share a side and which are diagonal, the ratio of the square's side length to a tag's side length and the aspect ratio of the square, i.e.\ how each side compares to its neighbours.
 
-\begin{itemize}
-	\item The order in which the four tag IDs appear going around the square, which says which tags share a side and which are diagonal.
-	
-	\item The ratio of the square's side length to a tag's side length.
-	
-	\item The aspect ratio of the square, i.e.\ how each side compares to its neighbours.
-\end{itemize}
 
 The median of each quantity over all four-tag frames is used, which makes the layout robust to a few poor detections. With this layout, missing corners can be predicted from the tags that were seen. With three tags, the fourth is placed to complete a parallelogram, $\mathbf{p}_4 = \mathbf{p}_1 + \mathbf{p}_3 - \mathbf{p}_2$. With two tags on the same side, the square is completed by stepping perpendicular to that side by the learned aspect ratio. With two diagonal tags, the side vector is solved from the diagonal and the aspect ratio before stepping out in the same way.
 
@@ -235,7 +228,7 @@ The first factor, $c_{s(i)}$, is the registration confidence of the scan the poi
 
 \paragraph{Removing off-surface outliers.} Points that still lie off the surface are then removed. For each point a plane is fitted to its 31 nearest neighbours, and the point is discarded if its distance from that plane is more than three standard deviations above the average. This replaced the statistical outlier filter used earlier, which judges points by local density. That filter removed genuine but sparsely sampled parts of the surface and punched holes in the fused result, whereas the plane test only removes points that are actually off the surface.
 
-\paragraph{Smoothing.} Finally, the surface is smoothed with Moving Least Squares (MLS)~\cite{levin1998mls,alexa2003pointset}. Around each point, MLS fits a quadratic surface to the neighbours within 10~mm and moves the point onto it, which also yields a clean normal. Because the fitting radius is larger than the residual misregistration, this removes the last traces of offset sheets and sensor noise along the surface normal while keeping features larger than the radius. It is, however, a low-pass filter: relief with a wavelength comparable to or smaller than the 10~mm radius is attenuated. This must be kept in mind when interpreting the small-scale roughness parameters of Section~\ref{sec:rugosity}. \todo{State whether the results in Ch.~X were computed with or without MLS, and consider a short sensitivity check with \texttt{--no-mls}.}
+\paragraph{Smoothing.} Finally, the surface is smoothed with Moving Least Squares (MLS)~\cite{levin1998mls,alexa2003pointset}. Around each point, MLS fits a quadratic surface to the neighbours within 10~mm and moves the point onto it, which also yields a clean normal. Because the fitting radius is larger than the residual misregistration, this removes the last traces of offset sheets and sensor noise along the surface normal while keeping features larger than the radius. It is, however, a low-pass filter and so relief with a wavelength comparable to or smaller than the 10~mm radius is attenuated. This must be kept in mind when interpreting the small-scale roughness parameters of \autoref{sec:rugosity}.
 
 The result is a single point cloud per session, in the frame of the reference scan, with one point per occupied cell and a normal at every point. The program also reports the thickness of the overlapping surface, i.e.\ the spread of heights within a cell, before and after reconciliation.
 
@@ -245,10 +238,10 @@ Registration is sequential: each scan is aligned against the scans before it, an
 %---------------------------------------------------------------------
 \section{Surface Roughness Estimation}
 \label{sec:rugosity}
+\comment{It's Not Flat?}
 %---------------------------------------------------------------------
-\todo{review this!}
 
-The roughness program, \texttt{roughness\_scans.py}, takes a fused point cloud and describes the roughness of the surface it represents. It runs five steps: level the scan, crop it, remove large-scale trends, resample it onto a regular grid, and compute the metrics. Most of the metrics follow the areal surface-texture parameters of ISO 25178-2~\cite{iso25178-2}, so that results can be compared with other surface-metrology studies. Internally all units are in metres with reported units being millimetres.
+The roughness program, \texttt{roughness\_scans.py}, takes a fused point cloud and describes the roughness of the surface it represents. It runs five steps: level the scan, crop it, remove large-scale trends, resample it onto a regular grid, and compute the metrics. Most of the metrics follow the areal surface-texture parameters of ISO 25178-2~\cite{ISO2517822021}, so that results can be compared with other surface-metrology studies. Internally all units are in metres with reported units being millimetres.
 
 \subsection{Levelling}
 
@@ -268,7 +261,7 @@ Although the surface has been levelled, there are still some sediment features f
 
 of degree $n$ from 1 (planar) to 4 (quartic), and the residual $z - p(x, y)$ is kept as the roughness surface. The coordinates are scaled to the range $[-1, 1]$ before fitting so that the fit remains numerically stable at higher degrees, and the same sigma clipping as in levelling stops ripple crests, troughs or burrow mounds from dragging the trend.
 
-The choice of degree is a trade-off. A low degree may leave some non-texture form in the residual and overestimate roughness. A high degree may capture more complex forms but can also remove features of interest. A polynomial of degree $n$ can follow roughly $n/2$ wavelengths, so on a small patch it can remove relief that is part of the texture being measured. The program therefore computes the metrics for every degree requested, using the same levelling, crop and grid for each so that the results are directly comparable, and raises a warning if a higher-order fit removes much more height variance than the planar fit while the patch spans fewer than $n$ dominant wavelengths. \todo{State which detrend degree is used for the reported results and why.}
+The choice of degree is a trade-off. A low degree may leave some non-texture form in the residual and overestimate roughness. A high degree may capture more complex forms but can also remove features of interest. A polynomial of degree $n$ can follow roughly $n/2$ wavelengths, so on a small patch it can remove relief that is part of the texture being measured. The program therefore computes the metrics for every degree requested, using the same levelling, crop and grid for each so that the results are directly comparable, and raises a warning if a higher-order fit removes much more height variance than the planar fit while the patch spans fewer than $n$ dominant wavelengths. 
 
 \subsection{Gridding}
 
@@ -299,7 +292,7 @@ To compute the true area, each square of four neighbouring grid cells is split a
 \end{equation}
 where $N_q$ is the number of valid squares and $g$ the grid spacing. The ISO 25178 developed interfacial area ratio is the same quantity expressed as a percentage excess, $S_{dr} = (\text{rugosity} - 1)\times 100\%$. The root-mean-square slope of the surface, $S_{dq}$, is computed from the same squares.
 
-Rugosity, $S_{dr}$ and $S_{dq}$ all depend strongly on the grid spacing. Measurement noise adds small random slopes to every cell, and the finer the grid, the steeper those slopes become, so these parameters grow as the grid is refined even if the surface is unchanged. Results computed with different grid spacings are therefore not comparable, and all scans in this work are processed with the same spacing. \todo{state the value used.}
+Rugosity, $S_{dr}$ and $S_{dq}$ all depend strongly on the grid spacing. Measurement noise adds small random slopes to every cell, and the finer the grid, the steeper those slopes become, so these parameters grow as the grid is refined even if the surface is unchanged. Results computed with different grid spacings are therefore not comparable, and all scans in this work are processed with the same spacing of 2mm.
 
 \subsection{Spatial and spectral parameters}
 
@@ -307,7 +300,7 @@ The height parameters describe how tall features are, but not how large or how f
 
 \paragraph{Autocorrelation.} The autocorrelation function measures how similar the surface is to a copy of itself shifted horizontally. It equals 1 at zero shift and decays as the shift grows. The autocorrelation length $S_{al}$ is the shortest shift at which it falls below 0.2, and gives the typical horizontal size of the features. The texture aspect ratio $S_{tr}$ is the ratio of the shortest to the longest such distance over all directions: it is close to 1 for a surface that looks the same in every direction, such as a randomly burrowed bed, and close to 0 for a strongly directional one, such as a rippled bed. The autocorrelation is computed with the fast Fourier transform, counting only pairs of valid cells.
 
-\paragraph{Power spectrum.} The power spectral density (PSD) breaks the surface down into sinusoidal components and shows how much height variance each wavelength contributes. A Hann window is applied before the transform to reduce artefacts from the edges of the patch. The strongest peak of the PSD gives the dominant wavelength and direction of any regular pattern, such as ripples, and the texture direction $S_{td}$ is reported as the direction of the crests. \todo{Note: $S_{td}$ here is the crest direction, i.e.\ 90\degree{} from the peak of the angular spectrum; check this against the convention of any software you compare with.} Many natural surfaces are \emph{self-affine}: their PSD follows a power law $C(q) \propto q^{-2(1+H)}$ in wavenumber $q$ over a wide range of scales~\cite{persson2005roughness}. Fitting a straight line to the log-log PSD gives the Hurst exponent $H$, which describes how roughness changes with scale, and the fractal dimension $D_f = 3 - H$. The fit is restricted to wavelengths between four grid cells, below which gridding distorts the spectrum, and a quarter of the patch width, above which there are too few repetitions to estimate the power reliably.
+\paragraph{Power spectrum.} The power spectral density (PSD) breaks the surface down into sinusoidal components and shows how much height variance each wavelength contributes. A Hann window is applied before the transform to reduce artefacts from the edges of the patch. The strongest peak of the PSD gives the dominant wavelength and direction of any regular pattern, such as ripples, and the texture direction $S_{td}$ is reported as the direction of the crests. Many natural surfaces are \emph{self-affine}: their PSD follows a power law $C(q) \propto q^{-2(1+H)}$ in wavenumber $q$ over a wide range of scales~\cite{persson2005roughness}. Fitting a straight line to the log-log PSD gives the Hurst exponent $H$, which describes how roughness changes with scale, and the fractal dimension $D_f = 3 - H$. The fit is restricted to wavelengths between four grid cells, below which gridding distorts the spectrum, and a quarter of the patch width, above which there are too few repetitions to estimate the power reliably.
 
 \subsection{Additional measures and uncertainty}
 
@@ -327,19 +320,13 @@ All random choices use a fixed seed, so repeated runs give identical results, an
 
 \subsection{Validation}
 
-The program was checked in two ways. A test suite generates synthetic surfaces with known answers, such as sinusoids, for which $S_q$, $S_a$, the wavelength and even the exact rugosity follow in closed form, and random fractal surfaces with a prescribed Hurst exponent. Each metric is confirmed to recover the expected value, including when trends, noise, holes and a tilted camera are added. Secondly, a scan of a test object can be compared directly with its analytic definition: the reference surface is sampled, passed through exactly the same levelling, detrending and gridding, and the two sets of metrics are compared. This measures the error of the complete capture, fusion and roughness chain, and is used in Chapter~\ref{ch:Results} \todo{check label}.
+The program was checked in two ways. A test suite generates synthetic surfaces with known answers, such as sinusoids, for which $S_q$, $S_a$, the wavelength and even the exact rugosity follow in closed form, and random fractal surfaces with a prescribed Hurst exponent. Each metric is confirmed to recover the expected value, including when trends, noise, holes and a tilted camera are added. Secondly, a scan of a test object can be compared directly with its analytic definition: the reference surface is sampled, passed through exactly the same levelling, detrending and gridding, and the two sets of metrics are compared. This measures the error of the complete capture, fusion and roughness chain, and is used in \autoref{ch:Validation}.
 
 \subsection{Limitations}
 
 The parameters follow ISO 25178-2 definitions but are not fully ISO-conformant. The standard defines them on a surface that has been band-limited with Gaussian filters, whereas here the band is set implicitly by the grid cell, the MLS smoothing in fusion, the polynomial degree and the size of the patch. The values are therefore directly comparable between scans processed in this pipeline with the same settings, but should be compared with values from commercial surface-metrology software with care. The surface is also treated as a single-valued height map, so overhangs are lost.
 
 %---------------------------------------------------------------------
-\section{Feature Detection}
-\label{sec:features}
-%---------------------------------------------------------------------
 
-The roughness parameters describe the surface as a whole, but the biological question also requires counts of discrete features, in particular the burrow openings created by sandprawns. The final stage of the pipeline is intended to detect these automatically from the depth and colour images.
-
-\todo{Not yet implemented.}
 
 %*********************************************************************
