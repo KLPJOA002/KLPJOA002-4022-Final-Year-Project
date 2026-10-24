@@ -38,4 +38,10 @@
 % Write abstract here [350 words]
 %---------------------------------------------------------------------
 
-I did somehting, and these were the results that i got.
+Sediment microtopography, and rugosity in particular, has been proposed as a non-destructive proxy for the bioturbation activity of the sand prawn Callichirus kraussi on the intertidal flats of Langebaan Lagoon. An existing scanning system based on an Intel RealSense D456 active stereo camera has been implemented, however has never been characterised for these environmental conditions, and it analysed each of its repeated multi-view scans individually. This project characterised the D456 for close-range scanning of sediment-like surfaces and developed a processing pipeline that crops, registers and fuses multi-view scans before computing ISO 25178-2 areal roughness parameters.
+
+Planar tests showed that noise increased with working distance, tilt and ambient light. Plane-fit RMS rose from 1.22\,mm at 604\,mm to 4.58\,mm at 903\,mm. Scans of 3D-printed reference objects showed that viewing geometry matters more than software settings. Increasing resolution to 1280×720 reduced RMSE by 13.4\%, and the High Density preset gave the best F-score. Post-processing filters improved RMSE by at most 0.24\,mm.
+
+The pipeline uses AprilTags and IMU gravity readings for coarse alignment, refines the alignment with point-to-plane ICP, and reconciles the overlapping scans with a confidence-weighted trimmed mean. Fusion improved every metric at every height. On the large reference surface, it raised the F-score by 14.0 percentage points, reaching 90.9\% at 641\,mm. Twelve well-spread views matched the accuracy of a full 44-view sweep.
+
+On flat laboratory sand, fused scans measured a rugosity of 1.0034, against 1.0193 for single scans. On shaped sand, single scans added 2.1 to 2.6 percentage points of spurious excess area, an amount comparable to the signal itself. Rugosity is therefore only comparable between surveys that use a fixed capture and processing protocol, and this report recommends such a protocol.
