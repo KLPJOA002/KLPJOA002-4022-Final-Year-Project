@@ -110,7 +110,7 @@ Four AprilTags are mounted on brackets on the frame legs, and each bracket can s
 \section{Software Architecture and Processing Pipeline}
 
 \subsection{Capture Software}
-Capture is implemented in C++ utilising the RealSense SDK. For each rig pose, it applies a configurable chain of depth post-processing filters and records the stream to a \texttt{.db3} file, together with IMU data. It detects the four AprilTags in the colour image, and the best frame of each pose is exported as a point cloud in PLY format. Tag detection is stored along side captures for use of later processing through cropping and alignment.
+Capture is implemented in C++ utilising the RealSense software development kit (SDK). For each rig pose, it applies a configurable chain of depth post-processing filters and records the stream to a \texttt{.db3} file, together with IMU data. It detects the four AprilTags in the colour image, and the best frame of each pose is exported as a point cloud in PLY format. Tag detection is stored along side captures for use of later processing through cropping and alignment.
 
 \subsection{Cropping and Multi-Angle Fusion}
 Each scan is first cropped to the square defined by the four tags. The cropped scans, taken at different tilt and rotation settings, are then fused. Fusion needs a good initial pose before refinement, so the pipeline generates several coarse alignment hypotheses by independent methods:

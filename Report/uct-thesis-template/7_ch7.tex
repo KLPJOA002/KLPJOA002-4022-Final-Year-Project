@@ -4,23 +4,25 @@
 \chapter{Experimental Validation}
 \label{ch:Validation}
 %---------------------------------------------------------------------
-In order to validate the processing pipeline as a whole, two methods are used. Firstly the pipeline is applied to experimental data captured during the characterisation stage of the known relief objects. Whilst this does not acurately describe the sediment surface in situ, it allows for an analytical evaluation the pipeline, whilst providing some resemblance for the true conditions.
+The complete pipeline, from capture through cropping and fusion to roughness estimation, was validated in two ways. First, it was applied to scans of the 3D-printed reference objects recorded during characterisation. These objects do not resemble sediment in situ, but their geometry is known exactly, so the measured rugosity can be compared against a true value.
 
-Secondly, scans of the surface of sand, taken from the langebaan lagoon, was performed. This was taken for dry, wet and submerged sand, in both flat and shaped forms. This experimentation provides little analytical results, but helps to get a qualitative understanding of the performance in conditions closer to environmental.
+Second, sand taken from the Langebaan Lagoon was placed in a plastic tub and scanned in dry, wet and waterlogged states, both flattened and shaped. These surfaces have no exact ground truth, so the results are mainly qualitative, but they show how the pipeline behaves on the material and moisture conditions it is intended for.
 
 \section{Controlled Targets}
 
 \subsection{Process}
-The rugosity estimation pipeline is applied to scans taken of reference objects shown in \autoref{Apendix:Reference_Objects}. These scans are re-used from the characterisation process \autoref{ch:experiments}. These scans had the filters identified in \autoref{ch:experiments} applied to them. Cropping and fusion was then applied. This reconstructed surface was then cropped down to just the reference object, and the evaluation was performed on it. The results of which are then compared to the results obtained via analytical evaluation of the reference object file .stl. This provides an analytical comparison between the results of scanning and processing, and the known relief.
+The roughness pipeline was applied to the two smooth reference objects, the large and small egg boxes (\autoref{Apendix:Reference_Objects}), using scans recorded at a height of 701~mm during characterisation. The best-performing filters identified in \autoref{ch:experiments} were applied, and each session was cropped and fused. The fused surface was then cropped to the footprint of the reference object, and rugosity was computed for both the fused surface and a single untilted scan, using each of the four detrending degrees (planar, quadratic, cubic and quartic). The reference surface was sampled from its .stl model and passed through the same levelling, detrending and gridding, so that the measured and reference values are directly comparable.
 
 \subsection{Results}
+The rugosity of each reconstruction and of its reference is given in \autoref{tab:Big_Egg_Rugosity} and \autoref{tab:Small_Egg_Rugosity}, and plotted in \autoref{fig:Big-Egg-Rugosity} and \autoref{fig:Small-Egg-Rugosity}. Two results stand out: the effect of the detrending degree, and the apparent advantage of single scans over fused scans.
 
-Each smooth shape (big egg box and small egg box) were processed using the rugosity\_metrics processing pipeline compared against their respective reference .stl files. The evaluation was performed on both fused and single scan results, and each metric applied all four detrending methods (planar, quadratic, cubic and quartic). These rugosity metrics are shown in \autoref{tab:Big_Egg_Rugosity} and \autoref{tab:Small_Egg_Rugosity}, which are in turn plotted in \autoref{fig:Big-Egg-Rugosity} and \autoref{fig:Small-Egg-Rugosity}.
+Because the reference is detrended in the same way, its rugosity shows what each degree removes. For the large egg box it falls from 1.34 with planar and quadratic detrending to 1.27 with cubic and quartic detrending (\autoref{fig:Big-Egg-Rugosity}). Its relief spans about one wavelength across the patch, which a cubic or quartic surface can follow, so these fits remove part of the egg box shape itself (\autoref{Appendix:Validation_Results}). The relief of the small egg box spans about two wavelengths, which none of the polynomials followed, so its reference rugosity is 1.69 at every degree (\autoref{fig:Small-Egg-Rugosity}). Planar detrending is therefore used below.
 
-There are two main points to be discussed with these results. Firstly is the effects of the different detrending results. The results show that planar and quadratic detrending methods tend to produce results that better match the ground truth. Care must be taken here since this analysis applies the same detrend to the ground truth. Thus the planar detrending should be the best representation of the ground truth rugosity. The primary reason for planar and quadraticdetrending giving the best performance can be seen in \autoref{fig:Big-Egg-Rugosity}, where the lower wavelength shape closely alignes with the higher order detrending methods, and thus they tend to remove this information. These can be visually seen in \autoref{Appendix:Validation_Results} where the cubic and quartic detrending methods tend to remove actual shape of the big egg box surface, rather than underlying trends.
+With planar detrending, the single scan of the large egg box measured 1.31 and the fused scan 1.25, against a reference of 1.34. On the small egg box they measured 1.31 and 1.26, against 1.69. This appears to contradict \autoref{ch:experiments}, where fusion improved every accuracy metric, but the single scan is not more accurate. Instead, two separate errors partly cancel in it.
 
-Secondly, and most importantly, is that these results are innacuratly representing the truth. The plots show that single scans generally produce rugosity metrics that are more closely aligned with the reernce objects. This is contrary to what is expected, as the fused results generally provide a closer representation to the ground truth. The fundamental reason for this discrepency is actually a misleading result. The reconstrucitons for these reference objects are not completely accurate, and all feature some scale error, and underrepresetnt the amplitude of the reference waveforms. This means that the reconstructions will always report a lower rugosity compare to what the true waveforms have. This is where the inflated single scan performance arives. Since the single scans have a higher depth noise, this noise arteficially increases the roughness of the surface. This can be seen in \autoref{fig:smallwave701mmfusedside} and \autoref{fig:smallwave701mmsingleside}. This arteficial increase in the roughness, results in a higher rugosity, which results in an arteficially better result.
+The first error is shared by every reconstruction. The reconstructions carry some scale error and under-represent the amplitude of the reference waveforms, so they report a lower rugosity than the true surface. Since rugosity scales approximately with the squared slope, a 10\% loss of amplitude removes about 19\% of the excess area. The fused reconstruction recovers about three quarters of the reference excess area on the large egg box, but under 40\% on the small one, whose features approach the resolution of the camera and the 10~mm MLS radius.
 
+The second error affects single scans only. Their higher depth noise adds spurious slope to every grid cell, which artificially increases the measured roughness. This is visible on the flat floor around the small egg box, which undulates in the single scan (\autoref{fig:smallwave701mmsingleside}) but is flat in the fused scan (\autoref{fig:smallwave701mmfusedside}). The single scan lands closer to the reference only because its noise offsets part of the lost amplitude, and the fused value remains the more faithful measurement of the surface.
 
 \input{tables/Ch7/Shaped_Rugosity/Big_Egg_Rugosity_table}
 
@@ -31,31 +33,31 @@ Secondly, and most importantly, is that these results are innacuratly representi
 	\begin{subfigure}[t]{0.5072\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/ch7/Shaped/Big_Egg_Rugosity_p1}
-		\caption{cubic}
+		\caption{Cubic}
 		\label{fig:Big-Egg-Rugosity-1}
 	\end{subfigure}\hfill
 	\begin{subfigure}[t]{0.4528\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/ch7/Shaped/Big_Egg_Rugosity_p2}
-		\caption{planar}
+		\caption{Planar}
 		\label{fig:Big-Egg-Rugosity-2}
 	\end{subfigure}
 	\par\medskip
 	\begin{subfigure}[t]{0.5072\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/ch7/Shaped/Big_Egg_Rugosity_p3}
-		\caption{quadratic}
+		\caption{Quadratic}
 		\label{fig:Big-Egg-Rugosity-3}
 	\end{subfigure}\hfill
 	\begin{subfigure}[t]{0.4528\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/ch7/Shaped/Big_Egg_Rugosity_p4}
-		\caption{quartic}
+		\caption{Quartic}
 		\label{fig:Big-Egg-Rugosity-4}
 	\end{subfigure}
 	\par\medskip
 	\includegraphics{figs/ch7/Shaped/Big_Egg_Rugosity_legend}
-	\caption{Mean $\pm$ SD of n = 1 rows per bar.}
+	\caption{Plots Showing Rugosity of the Large Egg Box Reconstructions Against the Reference, for Each Detrending Degree. One Point Cloud Per Bar, Captured at 701~mm. Plot Data in \autoref{tab:Big_Egg_Rugosity}}
 	\label{fig:Big-Egg-Rugosity}
 \end{figure}
 
@@ -64,59 +66,115 @@ Secondly, and most importantly, is that these results are innacuratly representi
 	\begin{subfigure}[t]{0.5072\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/ch7/Shaped/Small_Egg_Rugosity_p1}
-		\caption{cubic}
+		\caption{Cubic}
 		\label{fig:Small-Egg-Rugosity-1}
 	\end{subfigure}\hfill
 	\begin{subfigure}[t]{0.4528\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/ch7/Shaped/Small_Egg_Rugosity_p2}
-		\caption{planar}
+		\caption{Planar}
 		\label{fig:Small-Egg-Rugosity-2}
 	\end{subfigure}
 	\par\medskip
 	\begin{subfigure}[t]{0.5072\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/ch7/Shaped/Small_Egg_Rugosity_p3}
-		\caption{quadratic}
+		\caption{Quadratic}
 		\label{fig:Small-Egg-Rugosity-3}
 	\end{subfigure}\hfill
 	\begin{subfigure}[t]{0.4528\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/ch7/Shaped/Small_Egg_Rugosity_p4}
-		\caption{quartic}
+		\caption{Quartic}
 		\label{fig:Small-Egg-Rugosity-4}
 	\end{subfigure}
 	\par\medskip
 	\includegraphics{figs/ch7/Shaped/Small_Egg_Rugosity_legend}
-	\caption{Mean $\pm$ SD of n = 1 rows per bar. Fixed: Grid nx = 45.}
+	\caption{Plots Showing Rugosity of the Small Egg Box Reconstructions Against the Reference, for Each Detrending Degree. One Point Cloud Per Bar, Captured at 701~mm, Grid Fixed at $n_x = 45$. Plot Data in \autoref{tab:Small_Egg_Rugosity}}
 	\label{fig:Small-Egg-Rugosity}
 \end{figure}
 
 \section{Controlled Laboratory Sand}
-\comment{Brining the Beach to the Lab
-}
-Whilst this reference object comparison provides an analytical evaluation, it does not align with real world conditions. Due to time constraints, real world implementation was not able to be performed, however a more realistic scan was taken, using sand collected from the langebaan lagoon. 
-Approximately 13~kg of sand was collected dry, and was placed in a a 10~l plastic container. This was then flattened to produce a surface that should give rugosity metrics of 1. next, the sand was indented with the known reference shapes, and scans were taken. Next the sand was wetted with  2~kg of water. This approximates the wet intertidal sediment. The sand was then flattened again for scans, and then indented with the known reference shapes. 
-
-Finally, for purely qualitative performance, slightly more water was added, enough to produce pools of water on the surface. The sand was then shaped by hand to have some approximate natural texture. This was then scanned. This mainly gives an estimation of the performance on more water logged regions of the sediment, and also gives an estimate on what rugosity measurements would look.
-
-\subsection{Results}
-
-These results show a much better trend in the performance of the system. As can be seen in the dry flat analysis, the fused scan results in a rugosity of 1.00340, which is lower than that of the unfused scan which gives a rugosity of 1.01933. This is primarily due to the fact that single scans have a higher depth noise, and on flat planar surfaces, this raises the rugosity beyond the actual natural sediment. This is what is expected, and provdes a better representation than the referenc object validation.
-
-Unfortunately these results dont have ground truth, since they were taken from sediment that was manually flattened and shaped. However te results do show that planar surfaces result in rugosirt that is far closer to 1 than shaped surfaces, which is expected since a flat surface would result in a rugosity of exactly 1.
-
-An interesesting results can be seen with the soaked scan. This scan is the most representative of what sediment in situ might represetnt, and the scans show that system is able to accurately represent sediment shape, even when partially submerged by water. Providing useful insigt to show the robusteness to saturated sediment.
-
-antoher intereting metric can be seen with the wet planar surface. In the midle of this surface is a large region of high noise. This is atributed to high specular reflections of the ir projector on the predominatly flat surface, with a water film. This shows that performance can degrade under such dconditions where the projector pattern can be reflected directly back into the ir sensors. Therefore this shows that care must be taken to prevent such specular reflections.
+\comment{Bringing the Beach to the Lab}
+The reference objects allow an analytical comparison, but they are not sediment. Field deployment was not possible within the time available, so about 13~kg of dry sand from the Langebaan Lagoon was placed in a 10~L plastic tub, flattened by hand so that its rugosity should be close to 1, and scanned. It was then indented with the reference objects and scanned again. Next, 2~kg of water (about 15\% of the dry mass) was added to approximate wet intertidal sediment, and the flattened and indented scans were repeated. Finally, more water was added until it pooled on the surface, and the sand was shaped by hand into an approximately natural texture and scanned once more. Each session was processed both as a fused reconstruction and as a single scan.
 
 \input{tables/Ch7/Sand_Rugosity/Sand_Rugosity_table}
+
+\subsection{Results}
+The rugosity of each surface is given in \autoref{tab:Sand_Rugosity} and \autoref{fig:Sand-Rugosity}, and the flat and soaked reconstructions are shown in \autoref{fig:Sand-Scans}. These surfaces have no exact ground truth, but they behave as expected. Flattened surfaces measured close to 1, indented surfaces well above it, and the hand-shaped soaked surface between the two. The spread across the four detrending degrees was at most 0.001.
+
+The flattened surfaces give the clearest result. With almost no relief whose amplitude could be lost, the noise effect dominates and the expected ordering appears. Dry flat sand measured 1.0034 fused, against 1.0193 as a single scan. Since a flattened surface cannot have a rugosity below 1, these values bound the contribution of noise, at under 0.34\% excess area for a fused scan against up to 1.9\% for a single scan. The single-scan noise is visible as a fine texture across the surface (\autoref{fig:Sand-DryFlat-Single}) that fusion largely removes (\autoref{fig:Sand-DryFlat-Fused}). Wet flat sand followed the same pattern, at 1.0093 fused and 1.0243 single.
+
+On the indented surfaces, single scans added 2.1 (dry) and 2.6 (wet) percentage points of excess area over the fused scans, slightly more than on flat sand, which is consistent with noise rising with obliquity (\autoref{ch:experiments}). Against the 5.8 to 5.9\% excess area of the fused scans, this is an error of a third to nearly half of the relief signal itself.
+
+On the wet flat surface, a large region of high noise appears in the centre of the scan (\autoref{fig:Sand-WetFlat-Single},\autoref{fig:Sand-WetFlat-Fused}). It is attributed to specular reflection of the infrared projector from the water film, which returns the pattern directly into the imagers where the bed faces the camera, directly beneath it. The rig tilts and rotates the camera about an almost fixed position, so this point is the same in every view and fusion is not expected to remove it. This is consistent with the fused wet flat surface measuring almost three times the excess area of the dry flat surface (0.93\% against 0.34\%). Multi-view capture alone therefore does not prevent this artefact, and such reflections must be avoided on wet, flat sediment.
+
+The soaked surface is the closest to waterlogged sediment in situ. Despite the pooled water, the fused reconstruction still follows the hand-shaped texture (\autoref{fig:Sand-Soaked-Fused}), so the system remains usable on saturated sediment. Here, however, the single and fused scans differed by only 0.26 percentage points, either because the single scan was less noisy on this surface or because its errors over the pooled water were common to every view and so survived fusion.
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{figs/ch7/Sand/Sand_Rugosity}
-	\caption{Mean $\pm$ SD of n = 4 rows per bar. Averaged over: Detrend (4), Primary (2), Flags (3), Str bounded (2), Detrend n coef (4), Detrend order (4) and 1 more.}
+	\caption{Plot Showing Rugosity of Fused and Single Scans of Laboratory Sand Under Dry, Wet and Soaked Conditions. Mean $\pm$ SD Over the Four Detrending Degrees (n = 4) Per Bar. Plot Data in \autoref{tab:Sand_Rugosity}}
 	\label{fig:Sand-Rugosity}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	%-----------------------------------------------------------------
+	%   PLACEHOLDERS: replace each \placeholderimg{...} line with the
+	%   commented \includegraphics line beneath it.
+	%   The height cap keeps the figure the size the layout was tested at.
+	%   Render all six from the same viewpoint, and give each column
+	%   (single and fused of the same surface) the same colour scale,
+	%   so that the noise is directly comparable between them.
+	%-----------------------------------------------------------------
+	\providecommand{\placeholderimg}[1]{%
+		\fbox{\parbox[c][4.0cm][c]{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\centering\small\textit{#1}}}}
+	\begin{subfigure}[t]{0.32\textwidth}
+		\centering
+		%\placeholderimg{Dry flat, single scan}
+		\includegraphics[width=\linewidth,height=4.0cm,keepaspectratio]{figs/ch7/Sand/Dry_Flat_Single}
+		\caption{Dry flat, single}
+		\label{fig:Sand-DryFlat-Single}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.32\textwidth}
+		\centering
+		%\placeholderimg{Wet flat, single scan}
+		\includegraphics[width=\linewidth,height=4.0cm,keepaspectratio]{figs/ch7/Sand/Wet_Flat_Single}
+		\caption{Wet flat, single}
+		\label{fig:Sand-WetFlat-Single}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.32\textwidth}
+		\centering
+		%\placeholderimg{Soaked, single scan}
+		\includegraphics[width=\linewidth,height=4.0cm,keepaspectratio]{figs/ch7/Sand/Soaked_Single}
+		\caption{Soaked, single}
+		\label{fig:Sand-Soaked-Single}
+	\end{subfigure}
+	\par\medskip
+	\begin{subfigure}[t]{0.32\textwidth}
+		\centering
+		%\placeholderimg{Dry flat, fused}
+		\includegraphics[width=\linewidth,height=4.0cm,keepaspectratio]{figs/ch7/Sand/Dry_Flat_Fused}
+		\caption{Dry flat, fused}
+		\label{fig:Sand-DryFlat-Fused}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.32\textwidth}
+		\centering
+		%\placeholderimg{Wet flat, fused}
+		\includegraphics[width=\linewidth,height=4.0cm,keepaspectratio]{figs/ch7/Sand/Wet_Flat_Fused}
+		\caption{Wet flat, fused}
+		\label{fig:Sand-WetFlat-Fused}
+	\end{subfigure}\hfill
+	\begin{subfigure}[t]{0.32\textwidth}
+		\centering
+		%\placeholderimg{Soaked, fused}
+		\includegraphics[width=\linewidth,height=4.0cm,keepaspectratio]{figs/ch7/Sand/Soaked_Fused}
+		\caption{Soaked, fused}
+		\label{fig:Sand-Soaked-Fused}
+	\end{subfigure}
+	\caption{Visual Representation of Single (Top) and Fused (Bottom) Reconstructions of Dry Flat, Wet Flat and Soaked Laboratory Sand. Reference Images In \autoref{Appendix:Sand_Validation_Images}}
+	\label{fig:Sand-Scans}
 \end{figure}
 
 

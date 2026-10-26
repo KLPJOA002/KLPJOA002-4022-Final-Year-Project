@@ -114,33 +114,34 @@
 \contentsline {subsection}{\numberline {7.1.2}Results}{41}{subsection.7.1.2}%
 \contentsline {section}{\numberline {7.2}Controlled Laboratory Sand}{42}{section.7.2}%
 \contentsline {subsection}{\numberline {7.2.1}Results}{44}{subsection.7.2.1}%
-\contentsline {chapter}{\numberline {8}Discussion}{45}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Camera Configuration}{45}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Working Distance, Viewing Angle and Lighting}{45}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Fusion and Roughness Estimation}{46}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Implications for the Overarching Project}{46}{section.8.4}%
-\contentsline {chapter}{\numberline {9}Conclusions}{47}{chapter.9}%
-\contentsline {chapter}{\numberline {10}Further work}{49}{chapter.10}%
-\contentsline {chapter}{\numberline {A}GitHub repository}{50}{chapter.A}%
-\contentsline {section}{\numberline {A.1}Title for appendix A.1}{50}{section.A.1}%
+\contentsline {chapter}{\numberline {8}Discussion}{46}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Camera Configuration}{46}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Working Distance, Viewing Angle and Lighting}{46}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Fusion and Roughness Estimation}{47}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Implications for the Overarching Project}{47}{section.8.4}%
+\contentsline {chapter}{\numberline {9}Conclusions}{48}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Further work}{50}{chapter.10}%
+\contentsline {chapter}{\numberline {A}GitHub repository}{51}{chapter.A}%
+\contentsline {section}{\numberline {A.1}Title for appendix A.1}{51}{section.A.1}%
 \renewcommand {\cftchappresnum }{Appendix }
-\contentsline {chapter}{\numberline {B}Theory}{51}{chapter.B}%
-\contentsline {chapter}{\numberline {C}Reference Objects}{52}{chapter.C}%
-\contentsline {chapter}{\numberline {D}Characterisation Results}{54}{chapter.D}%
-\contentsline {section}{\numberline {D.1}Planar Characterisation Results}{54}{section.D.1}%
-\contentsline {section}{\numberline {D.2}Camera Configuration Results}{56}{section.D.2}%
-\contentsline {section}{\numberline {D.3}Filter Configuration Results}{57}{section.D.3}%
-\contentsline {section}{\numberline {D.4}Fusion Combination Results}{58}{section.D.4}%
-\contentsline {chapter}{\numberline {E}Characterisation Plots}{59}{chapter.E}%
-\contentsline {section}{\numberline {E.1}Filter Heatmaps}{59}{section.E.1}%
-\contentsline {section}{\numberline {E.2}Combination Heatmaps}{62}{section.E.2}%
-\contentsline {section}{\numberline {E.3}Parameter Heatmap}{63}{section.E.3}%
-\contentsline {section}{\numberline {E.4}Accuracy Vs Tilt}{64}{section.E.4}%
-\contentsline {section}{\numberline {E.5}Single Vs Fused Error Histograms}{65}{section.E.5}%
-\contentsline {chapter}{\numberline {F}Validation Results}{67}{chapter.F}%
-\contentsline {section}{\numberline {F.1}Reference Shapes Rugosity}{67}{section.F.1}%
-\contentsline {chapter}{Appendix B: Ethics approval}{70}{appendix*.90}%
-\contentsline {chapter}{Appendix C: Topic description}{71}{appendix*.91}%
-\contentsline {chapter}{Appendix D: ECSA Graduate Attributes}{72}{appendix*.92}%
-\contentsline {section}{Project mapping to ECSA Graduate Attributes}{72}{section*.93}%
-\contentsline {chapter}{Bibliography}{75}{appendix*.94}%
+\contentsline {chapter}{\numberline {B}Theory}{52}{chapter.B}%
+\contentsline {chapter}{\numberline {C}Reference Objects}{53}{chapter.C}%
+\contentsline {chapter}{\numberline {D}Characterisation Results}{55}{chapter.D}%
+\contentsline {section}{\numberline {D.1}Planar Characterisation Results}{55}{section.D.1}%
+\contentsline {section}{\numberline {D.2}Camera Configuration Results}{57}{section.D.2}%
+\contentsline {section}{\numberline {D.3}Filter Configuration Results}{58}{section.D.3}%
+\contentsline {section}{\numberline {D.4}Fusion Combination Results}{59}{section.D.4}%
+\contentsline {chapter}{\numberline {E}Characterisation Plots}{60}{chapter.E}%
+\contentsline {section}{\numberline {E.1}Filter Heatmaps}{60}{section.E.1}%
+\contentsline {section}{\numberline {E.2}Combination Heatmaps}{63}{section.E.2}%
+\contentsline {section}{\numberline {E.3}Parameter Heatmap}{64}{section.E.3}%
+\contentsline {section}{\numberline {E.4}Accuracy Vs Tilt}{65}{section.E.4}%
+\contentsline {section}{\numberline {E.5}Single Vs Fused Error Histograms}{66}{section.E.5}%
+\contentsline {chapter}{\numberline {F}Validation Results}{68}{chapter.F}%
+\contentsline {section}{\numberline {F.1}Reference Shapes Rugosity}{68}{section.F.1}%
+\contentsline {section}{\numberline {F.2}Sand Reference Images}{70}{section.F.2}%
+\contentsline {chapter}{Appendix B: Ethics approval}{72}{appendix*.94}%
+\contentsline {chapter}{Appendix C: Topic description}{74}{appendix*.95}%
+\contentsline {chapter}{Appendix D: ECSA Graduate Attributes}{79}{appendix*.96}%
+\contentsline {section}{Project mapping to ECSA Graduate Attributes}{79}{section*.97}%
+\contentsline {chapter}{Bibliography}{86}{appendix*.98}%
