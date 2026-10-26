@@ -4,7 +4,9 @@
 \chapter{List of Symbols}
 %---------------------------------------------------------------------
 \label{ch:symbols}
-\addcontentsline{toc}{chapter}{List of Symbols}
+% NOTE: no \addcontentsline here. In \frontmatter the book class already
+% adds an unnumbered \chapter to the contents, so a second entry made
+% "List of Symbols" appear twice in the table of contents.
 %---------------------------------------------------------------------
 \noindent
 % Requires \usepackage{xltabular} in the preamble (replaces tabularx so the table can break across pages)
@@ -35,7 +37,6 @@
 	$\mathbf{R}$ & Rotation matrix ($\mathbf{R}^\top\mathbf{R} = \mathbf{I}$, $\det\mathbf{R} = +1$) & -- \\
 	$\mathbf{t}$ & Translation vector & m \\
 	$\mathbf{I}$ & Identity matrix & -- \\
-	$(x_d, y_d)$ & Normalised image coordinates after lens distortion, $(X/Z,\, Y/Z)$ & -- \\
 	
 	\midrule
 	\multicolumn{3}{@{}l}{\textit{Stereo triangulation (Section 3.1.2)}} \\
@@ -61,7 +62,7 @@
 	$w$ & Fraction of correct correspondences (inlier ratio) & -- \\
 	$p$ & Desired probability of drawing an all-inlier RANSAC sample & -- \\
 	$\mathbf{n}_i$ & Surface normal at the target point $\mathbf{q}_i$ & -- \\
-	$E(\mathbf{R}, \mathbf{t})$ & Point-to-plane ICP cost function & m$^2$ \\
+	$E(\mathbf{R}, \mathbf{t})$ & Point-to-plane ICP cost function (Eq.~3.6) & m$^2$ \\
 	
 	\midrule
 	\multicolumn{3}{@{}l}{\textit{Fusion (Section 3.3)}} \\
@@ -71,59 +72,65 @@
 	$h$ & Moving least squares (MLS) fitting radius & mm \\
 	
 	\midrule
-	\multicolumn{3}{@{}l}{\textit{Evaluation (Sections 3.4 and 5.2.1)}} \\
+	\multicolumn{3}{@{}l}{\textit{Evaluation (Sections 3.4 and 4.5.1)}} \\
 	$\mathbf{s}_i$ & Reconstructed point & mm \\
-	$d_i$ & Signed distance from $\mathbf{s}_i$ to the closest point on the reference mesh & mm \\
+	$d_i$ & Signed distance from $\mathbf{s}_i$ to the closest point on the reference surface & mm \\
 	$N$ & Number of reconstructed points (Section 3.4) & -- \\
 	$\mu$ & Bias (mean signed error) & mm \\
 	$\sigma$ & Standard deviation of the signed error & mm \\
 	RMSE & Root-mean-square error & mm \\
-	MAE & Mean absolute error & mm \\
 	$\tau$ & Distance threshold for precision, completeness and F-score & mm \\
 	$S$ & Set of scanned (reconstructed) points & -- \\
 	$R$ & Set of points sampled from the reference model & -- \\
-	$P(\tau)$ & Precision at threshold $\tau$ & \% \\
-	$C(\tau)$, $R(\tau)$ & Completeness at threshold $\tau$ & \% \\
-	$F(\tau)$ & F-score at threshold $\tau$ & \% \\
-	$\mathcal{S}$ & Reconstruction point set (Eq.~3.8) & -- \\
-	$\mathcal{M}$ & Reference point set (Eq.~3.8) & -- \\
-	$d(\mathbf{a}, \mathcal{B})$ & Distance from point $\mathbf{a}$ to the nearest point of set $\mathcal{B}$ & mm \\
-	$d_{\mathrm{CD}}$ & Chamfer distance & mm \\
-	$d_{\mathrm{H}}$ & Hausdorff distance & mm \\
+	$s, r$ & Individual points of $S$ and $R$ & mm \\
+	$|S|, |R|$ & Number of points in $S$ and $R$ & -- \\
+	$\mathbb{1}[\cdot]$ & Indicator function (1 if the condition holds, 0 otherwise) & -- \\
+	$P(\tau)$ & Precision at threshold $\tau$ (Eq.~4.1) & \% \\
+	$C(\tau)$ & Completeness at threshold $\tau$ (Eq.~4.2) & \% \\
+	$F(\tau)$ & F-score at threshold $\tau$ (Eq.~4.3) & \% \\
 	
 	\midrule
-	\multicolumn{3}{@{}l}{\textit{Point cloud cropping (Section 6.1)}} \\
-	$\rho$ & Root-mean-square distance of reprojected points from the nearest integer pixel & px \\
+	\multicolumn{3}{@{}l}{\textit{Point cloud cropping (Section 5.1)}} \\
+	$\mathbf{p}_1, \mathbf{p}_2, \mathbf{p}_3, \mathbf{p}_4$ & Detected and predicted tag positions (parallelogram completion) & px \\
+	$(x_d, y_d)$ & Normalised image coordinates after lens distortion, $(X/Z,\, Y/Z)$ (Eq.~5.1) & -- \\
+	$\rho$ & Root-mean-square distance of reprojected points from the nearest integer pixel (Eq.~5.2) & px \\
 	$\mathbf{u}_i$ & Reprojected pixel position of point $i$ & px \\
+	$N$ & Number of reprojected points (Eq.~5.2) & -- \\
 	$\mathbf{r}$ & Direction of a pixel ray & -- \\
 	$\mathbf{n}$ & Normal of a fitted plane & -- \\
-	$d$ & Offset of a fitted plane (Eq.~6.3) & m \\
+	$d$ & Offset of a fitted plane (Eq.~5.3) & m \\
 	$\mathbf{X}$ & Intersection of a pixel ray with a plane & m \\
-	$\mathbf{p}_1, \mathbf{p}_2, \mathbf{p}_3, \mathbf{p}_4$ & Detected and predicted tag corners (parallelogram completion) & px \\
 	
 	\midrule
-	\multicolumn{3}{@{}l}{\textit{Fusion pipeline (Section 6.2)}} \\
-	$w_i$ & Weight of measurement $i$ (Eq.~6.5) & -- \\
-	$c_s(i)$ & Registration confidence of the scan containing point $i$ & -- \\
+	\multicolumn{3}{@{}l}{\textit{Multi-scan fusion (Section 5.2)}} \\
+	$n$ & Number of independent measurements averaged & -- \\
+	$\sigma$ & Standard deviation of a single measurement & mm \\
+	$\mathbf{p}_i$ & Scan point & m \\
+	$\mathbf{q}_j$ & Map point paired with scan point $\mathbf{p}_i$ & m \\
+	$\mathbf{n}_j$ & Map normal at $\mathbf{q}_j$ & -- \\
+	$E(\mathbf{R}, \mathbf{t})$ & Point-to-plane ICP cost over scan--map pairs (Eq.~5.4) & m$^2$ \\
+	$w_i$ & Weight of measurement $i$ (Eq.~5.5) & -- \\
+	$c_{s(i)}$ & Registration confidence of the scan containing point $i$ & -- \\
 	$\hat{\mathbf{n}}_i$ & Unit surface normal at point $i$ & -- \\
 	$\hat{\mathbf{v}}_i$ & Unit vector from point $i$ to the camera & -- \\
 	$r_i$ & Range of point $i$ from the camera & m \\
 	$r_0$ & Reference range for range weighting & m \\
-	$\mathbf{q}_j$ & Map point paired with scan point $\mathbf{p}_i$ & m \\
-	$\mathbf{n}_j$ & Map normal at $\mathbf{q}_j$ & -- \\
 	
 	\midrule
-	\multicolumn{3}{@{}l}{\textit{Roughness estimation (Sections 3.5 and 6.3)}} \\
-	$p(x, y)$ & Polynomial trend surface removed by detrending & mm \\
+	\multicolumn{3}{@{}l}{\textit{Roughness estimation (Sections 3.5 and 5.3)}} \\
+	$p(x, y)$ & Polynomial trend surface removed by detrending (Eq.~5.6) & mm \\
 	$a_{ij}$ & Coefficients of the detrending polynomial & mm \\
 	$n$ & Degree of the detrending polynomial & -- \\
+	$c$ & Number of points averaged in a grid cell (Section 5.3.3) & -- \\
 	$z_k$ & Gridded residual height of cell $k$ relative to the mean & mm \\
-	$N$ & Number of valid grid cells (Section 6.3.4) & -- \\
+	$N$ & Number of valid grid cells (Section 5.3.4) & -- \\
 	$g$ & Grid spacing & mm \\
+	$n_x$ & Number of grid cells along the $x$ axis & -- \\
 	$N_q$ & Number of valid grid squares & -- \\
 	$A_{\mathrm{true}}$ & True surface area & mm$^2$ \\
 	$A_{\mathrm{proj}}$ & Projected surface area & mm$^2$ \\
 	$A_{\mathrm{triangles}}$ & Area of an individual surface triangle & mm$^2$ \\
+	$\nabla z$ & Gradient of the height field & -- \\
 	$\sigma_n$ & Standard deviation of uncorrelated height noise & mm \\
 	$S_a$ & Arithmetic mean height & mm \\
 	$S_q$ & Root-mean-square height & mm \\
@@ -141,4 +148,11 @@
 	$C(q)$ & Power spectral density as a function of wavenumber & mm$^4$ \\
 	$H$ & Hurst exponent & -- \\
 	$D_f$ & Fractal dimension, $3 - H$ & -- \\
+	
+	\midrule
+	\multicolumn{3}{@{}l}{\textit{Camera characterisation (Chapter 6)}} \\
+	$\alpha$ & Smoothing alpha of the spatial and temporal filters & -- \\
+	$\delta$ & Smoothing delta (edge-preserving step threshold) of the spatial and temporal filters & -- \\
+	$n$ & Number of frames or scans summarised per data point & -- \\
+	$R^2$ & Coefficient of determination of a fitted trend & -- \\
 \end{xltabular}

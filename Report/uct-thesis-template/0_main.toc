@@ -5,7 +5,6 @@
 \contentsline {chapter}{List of Figures}{x}{chapter*.4}%
 \contentsline {chapter}{List of Tables}{xi}{chapter*.4}%
 \contentsline {chapter}{List of Symbols}{xii}{chapter*.5}%
-\contentsline {chapter}{List of Symbols}{xii}{chapter*.5}%
 \contentsline {chapter}{List of Acronyms and Glossary}{xv}{table.0.1}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Background}{1}{section.1.1}%

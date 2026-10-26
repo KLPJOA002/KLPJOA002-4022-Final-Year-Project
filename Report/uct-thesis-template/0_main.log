@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.8.27)  26 OCT 2026 23:08
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.8.27)  26 OCT 2026 23:29
  restricted system commands enabled.
 **0_main.tex
 (./0_main.tex
@@ -2242,7 +2242,13 @@ Package luatex.def Info: figs/signature.jpg  used on input line 68.
 \tf@toc=\write8
 
 \openout8 = 0_main.toc
- [6] [7] (./0_main.lof [8] [9])
+ [6] [7] (./0_main.lof
+
+Package natbib Warning: Author undefined for citation`azharRGBDFrameworkCapturi
+ng2022' 
+(natbib)                on page viii on input line 10.
+
+[8] [9])
 \tf@lof=\write9
 
 \openout9 = 0_main.lof
@@ -2258,7 +2264,13 @@ st Scan Angle. Per-Trial Me-dian with IQR Over n = 527--574
 \openout10 = 0_main.lot
  [11]
 \openout2 = iv_listofsymbols.aux
- (./iv_listofsymbols.tex [12
+ (./iv_listofsymbols.tex
+Underfull \hbox (badness 5203) in paragraph at lines 158--158
+[]|\TU/TeXGyreTermes(0)/m/n/10.95 Nor-m-al-ised im-age co-ordin-ates after lens dis-tor-tion, $\TU/TeXGyreTermesMath(1)/b/n/10.95 (
+𝑋/𝑍,  𝑌/𝑍)$
+ []
+
+[12
 
 
 
@@ -2275,6 +2287,25 @@ No file 0_main.gls.
  (./1_intro.tex
 Chapter 1.
 
+Package natbib Warning: Author undefined for citation`inbook' 
+(natbib)                on page 1 on input line 28.
+
+
+Package natbib Warning: Author undefined for citation`venterWaterFiltrationBurr
+owing2020' 
+(natbib)                on page 1 on input line 30.
+
+
+Package natbib Warning: Author undefined for citation`schenoneSedimentMicrotopo
+graphyPredicts2024' 
+(natbib)                on page 1 on input line 36.
+
+
+Package natbib Warning: Author undefined for citation`azharRGBDFrameworkCapturi
+ng2022' 
+(natbib)                on page 1 on input line 38.
+
+
 warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
 [1
 
@@ -2285,14 +2316,23 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
 
 
 ]
+
+Package natbib Warning: Author undefined for citation`azharRGBDFrameworkCapturi
+ng2022' 
+(natbib)                on page 2 on input line 44.
+
 LaTeX Font Info:    Font shape `TU/TeXGyreTermes(0)/m/sl' in size <10.95> not a
 vailable
 (Font)              Font shape `TU/TeXGyreTermes(0)/m/it' tried instead on inpu
 t line 81.
- [2]) [3]
+[2]) [3]
 \openout2 = 2_review.aux
  (./2_review.tex
 Chapter 2.
+
+Package natbib Warning: Author undefined for citation`inbook' 
+(natbib)                on page 4 on input line 148.
+
 <figs/ch2/sandprawn_mounds.jpg, id=1040, 2007.5pt x 1130.2225pt>
 File: figs/ch2/sandprawn_mounds.jpg Graphic file (type jpg)
 <use figs/ch2/sandprawn_mounds.jpg>
@@ -2319,8 +2359,29 @@ File: figs/ch2/friedman_rugosity.png Graphic file (type png)
 Package luatex.def Info: figs/ch2/friedman_rugosity.png  used on input line 192
 .
 (luatex.def)             Requested size: 232.17242pt x 104.35078pt.
- [5<./figs/ch2/Schenone_custom_incubation_tank.png><./figs/ch2/friedman_rugosity
-.png>]
+
+
+Package natbib Warning: Author undefined for citation`friedmanMultiScaleMeasure
+sRugosity2012' 
+(natbib)                on page 5 on input line 200.
+
+
+Package natbib Warning: Author undefined for citation`azharRGBDFrameworkCapturi
+ng2022' 
+(natbib)                on page 5 on input line 200.
+
+[5<./figs/ch2/Schenone_custom_incubation_tank.png><./figs/ch2/friedman_rugosity.
+png>]
+
+Package natbib Warning: Author undefined for citation`azharRGBDFrameworkCapturi
+ng2022' 
+(natbib)                on page 6 on input line 228.
+
+
+Package natbib Warning: Author undefined for citation`azharRGBDFrameworkCapturi
+ng2022' 
+(natbib)                on page 6 on input line 228.
+
 <figs/ch2/azhar_field_setup.jpg, id=1119, 256.74551pt x 95.31436pt>
 File: figs/ch2/azhar_field_setup.jpg Graphic file (type jpg)
 <use figs/ch2/azhar_field_setup.jpg>
@@ -2333,15 +2394,76 @@ File: figs/ch2/azhar_depth_surface.png Graphic file (type png)
 Package luatex.def Info: figs/ch2/azhar_depth_surface.png  used on input line 2
 40.
 (luatex.def)             Requested size: 145.11053pt x 125.06136pt.
- [6<./figs/ch2/azhar_field_setup.jpg><./figs/ch2/azhar_depth_surface.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 275--275
-[]|\TU/TeXGyreTermes(0)/m/n/10 Halmetschlager-Funek
- []
+
+Package natbib Warning: Author undefined for citation`azharRGBDFrameworkCapturi
+ng2022' 
+(natbib)                on page 6 on input line 244.
+
+
+Package natbib Warning: Author undefined for citation`azharRGBDFrameworkCapturi
+ng2022' 
+(natbib)                on page 6 on input line 244.
+
+
+Package natbib Warning: Author undefined for citation`vitComparingRGBDSensors20
+18' 
+(natbib)                on page 6 on input line 248.
+
+
+Package natbib Warning: Author undefined for citation`serviMetrologicalCharacte
+rizationComparison2021' 
+(natbib)                on page 6 on input line 256.
+
+
+Package natbib Warning: Author undefined for citation`rustlerEmpiricalCompariso
+nFour2025' 
+(natbib)                on page 6 on input line 256.
+
+
+Package natbib Warning: Author undefined for citation`nguyenModelingKinectSenso
+r2012' 
+(natbib)                on page 6 on input line 256.
+
+[6<./figs/ch2/azhar_field_setup.jpg><./figs/ch2/azhar_depth_surface.png>]
+
+Package natbib Warning: Author undefined for citation`halmetschlager-funekEmpir
+icalEvaluationTen2019' 
+(natbib)                on page 7 on input line 275.
+
+
+Package natbib Warning: Author undefined for citation`carfagniMetrologicalCriti
+calCharacterization2019' 
+(natbib)                on page 7 on input line 275.
+
+
+Package natbib Warning: Author undefined for citation`serviMetrologicalCharacte
+rizationComparison2021' 
+(natbib)                on page 7 on input line 275.
+
+
+Package natbib Warning: Author undefined for citation`rustlerEmpiricalCompariso
+nFour2025' 
+(natbib)                on page 7 on input line 275.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 275--275
 []|\TU/TeXGyreTermes(0)/m/n/10 D435, D455, OAK-D Pro
  []
+
+
+Package natbib Warning: Author undefined for citation`vitComparingRGBDSensors20
+18' 
+(natbib)                on page 7 on input line 275.
+
+
+Package natbib Warning: Author undefined for citation`azharRGBDFrameworkCapturi
+ng2022' 
+(natbib)                on page 7 on input line 275.
+
+
+Package natbib Warning: Author undefined for citation`noletMeasuringModelingEff
+ect2014' 
+(natbib)                on page 7 on input line 278.
 
 <figs/ch2/Effect_of_Moisture_on_Sediment.png, id=1174, 236.8047pt x 134.1813pt>
 
@@ -2356,6 +2478,11 @@ File: figs/ch2/kinectfusion_single_vs_fused.png Graphic file (type png)
 Package luatex.def Info: figs/ch2/kinectfusion_single_vs_fused.png  used on inp
 ut line 295.
 (luatex.def)             Requested size: 338.58632pt x 63.1742pt.
+
+Package natbib Warning: Author undefined for citation`azharRGBDFrameworkCapturi
+ng2022' 
+(natbib)                on page 7 on input line 300.
+
 [7<./figs/ch2/Effect_of_Moisture_on_Sediment.png><./figs/ch2/kinectfusion_single
 _vs_fused.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 322--322
@@ -2381,6 +2508,11 @@ Chapter 3.
 \openout2 = 4_ch4.aux
  (./4_ch4.tex
 Chapter 4.
+
+Package natbib Warning: Author undefined for citation`azharRGBDFrameworkCapturi
+ng2022' 
+(natbib)                on page 14 on input line 11.
+
 [14
 
 
@@ -2397,7 +2529,19 @@ Chapter 5.
 
 
 
-] [19] [20] [21] [22] [23] [24] [25] [26] [27]) [28]
+] [19] [20] [21] [22]
+
+Package natbib Warning: Author undefined for citation`umeyamaLeastsquaresEstima
+tionTransformation1991' 
+(natbib)                on page 23 on input line 182.
+
+[23]
+
+Package natbib Warning: Author undefined for citation`lowLinearLeastSquaresOpti
+mizationa' 
+(natbib)                on page 24 on input line 204.
+
+[24] [25] [26] [27]) [28]
 \openout2 = 5_ch5.aux
  (./5_ch5.tex
 Chapter 6.
@@ -3003,16 +3147,37 @@ nd/Soaked_Fused.png>]
 
 (./7_discussion.tex
 Chapter 8.
+
+Package natbib Warning: Author undefined for citation`keselmanIntelRRealSenseTM
+Stereoscopic2017' 
+(natbib)                on page 46 on input line 114.
+
 [46
 
 
 
 
 
-]) [47]
+]
+
+Package natbib Warning: Author undefined for citation`azharRGBDFrameworkCapturi
+ng2022' 
+(natbib)                on page 47 on input line 130.
+
+
+Package natbib Warning: Author undefined for citation`jacobsQuantitativeCharact
+erizationSurface2017' 
+(natbib)                on page 47 on input line 130.
+
+) [47]
 \openout2 = 8_conclusions.aux
  (./8_conclusions.tex
 Chapter 9.
+
+Package natbib Warning: Author undefined for citation`azharRGBDFrameworkCapturi
+ng2022' 
+(natbib)                on page 48 on input line 35.
+
 [48
 
 
@@ -3023,6 +3188,11 @@ Chapter 9.
 \openout2 = 9_furtherwork.aux
  (./9_furtherwork.tex
 Chapter 10.
+
+Package natbib Warning: Author undefined for citation`serviMetrologicalCharacte
+rizationComparison2021' 
+(natbib)                on page 50 on input line 45.
+
 ) [50
 
 
@@ -3568,21 +3738,26 @@ re-lief (Sec-
 
 
 
-] [82] [83]) [84] (./0_main.bbl
-Underfull \hbox (badness 2359) in paragraph at lines 134--139
-[]\TU/TeXGyreTermes(0)/m/n/10 An-ders Grunnet-Jepsen and Tong.  Depth Post-Proce
-ssing for In-tel® Real-Sense™™ D400 Depth Cam-
+] [82] [83]) [84] (./0_main.bbl [85
+
+
+
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 242--245
+[]\TU/TeXGyreTermes(0)/m/n/10 A. Grunnet-Jepsen and Tong, ``Depth Post-Processin
+g for In-tel® Real-Sense™™
  []
 
-[85
 
+Underfull \hbox (badness 10000) in paragraph at lines 242--245
+\TU/TeXGyreTermes(0)/m/n/10 D400 Depth Cam-eras,'' []$https://www.intel.com/cont
+ent/www/us/en/content-[]details/842031/
+ []
 
-
-
-
-
-] [86] [87]) [88]
-
+[86] [87]) [88] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./0_main.aux (./0_documentproperties.aux) (./0_titlepage.aux)
 (./i_declaration.aux) (./ii_abstract.aux) (./iii_acknowledgments.aux)
@@ -3599,20 +3774,26 @@ L3 programming layer <2026-03-20>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `0_main.out' has not changed.
-(rerunfilecheck)             Checksum: 1CBAC4430BC43D97B3580F12CD5D4292;21767.
+
+Package rerunfilecheck Warning: File `0_main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `0_main.out':
+(rerunfilecheck)             Before: 1CBAC4430BC43D97B3580F12CD5D4292;21767
+(rerunfilecheck)             After:  AE81E8B479F0437EC9EA0D6631F54DD7;21640.
 )
 
 Here is how much of LuaTeX's memory you used:
- 49300 strings out of 475900
- 305445,1977958 words of node,token memory allocated
- 1922 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 193 attribute, 166 glue_sp
-ec, 97 attribute_list, 2 write, 50 pdf_action nodes
-   avail lists: 1:6,2:11382,3:1245,4:132,5:1284,6:587,7:19755,8:49,9:5919,10:24,
-11:1348
- 69517 multiletter control sequences out of 65536+600000
- 130 fonts using 33653231 bytes
+ 49302 strings out of 475900
+ 305444,1977958 words of node,token memory allocated
+ 1958 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 199 attribute, 166 glue_sp
+ec, 100 attribute_list, 2 write, 53 pdf_action nodes
+   avail lists: 1:5,2:12342,3:1378,4:132,5:1311,6:638,7:22455,8:128,9:6452,10:24
+,11:1348
+ 69519 multiletter control sequences out of 65536+600000
+ 130 fonts using 33652919 bytes
  108i,20n,128p,2473b,2768s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </app/texlive/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></app/tex
 live/texmf-dist/fonts/opentype/public/tex-gyre-math/texgyretermes-math.otf></app
@@ -3625,10 +3806,10 @@ alic.otf></app/texlive/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-i
 talic.otf></app/texlive/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-
 regular.otf></app/texlive/texmf-dist/fonts/opentype/public/tex-gyre/texgyreterme
 s-bold.otf>
-Output written on 0_main.pdf (104 pages, 35656989 bytes).
+Output written on 0_main.pdf (104 pages, 35658457 bytes).
 
-PDF statistics: 2267 PDF objects out of 2487 (max. 8388607)
- 1793 compressed objects within 18 object streams
+PDF statistics: 2320 PDF objects out of 2487 (max. 8388607)
+ 1845 compressed objects within 19 object streams
  420 named destinations out of 1000 (max. 1048576)
  1016 words of extra memory for PDF output out of 10000 (max. 100000000)
 
