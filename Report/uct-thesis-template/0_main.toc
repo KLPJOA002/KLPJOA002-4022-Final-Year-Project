@@ -2,10 +2,10 @@
 \contentsline {chapter}{Declaration}{i}{chapter*.2}%
 \contentsline {chapter}{Abstract}{ii}{chapter*.3}%
 \contentsline {chapter}{Acknowledgements}{iii}{chapter*.4}%
-\contentsline {chapter}{List of Figures}{x}{chapter*.4}%
-\contentsline {chapter}{List of Tables}{xi}{chapter*.4}%
-\contentsline {chapter}{List of Symbols}{xii}{chapter*.5}%
-\contentsline {chapter}{List of Acronyms and Glossary}{xv}{table.0.1}%
+\contentsline {chapter}{List of Figures}{ix}{chapter*.4}%
+\contentsline {chapter}{List of Tables}{x}{chapter*.4}%
+\contentsline {chapter}{List of Symbols}{xi}{chapter*.5}%
+\contentsline {chapter}{List of Acronyms and Glossary}{xiv}{chapter*.7}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Background}{1}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Sand prawns and bioturbation}{1}{subsection.1.1.1}%
@@ -13,9 +13,9 @@
 \contentsline {section}{\numberline {1.2}Problem statement}{2}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Project objectives}{2}{section.1.3}%
 \contentsline {section}{\numberline {1.4}Scope, limitations and assumptions}{2}{section.1.4}%
-\contentsline {paragraph}{Scope.}{2}{paragraph*.6}%
-\contentsline {paragraph}{Limitations.}{3}{paragraph*.7}%
-\contentsline {paragraph}{Assumptions.}{3}{paragraph*.8}%
+\contentsline {paragraph}{Scope.}{2}{paragraph*.8}%
+\contentsline {paragraph}{Limitations.}{3}{paragraph*.9}%
+\contentsline {paragraph}{Assumptions.}{3}{paragraph*.10}%
 \contentsline {section}{\numberline {1.5}Plan of development}{3}{section.1.5}%
 \contentsline {chapter}{\numberline {2}Literature review}{4}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Sand prawn bioturbation and its ecological significance}{4}{section.2.1}%
@@ -37,7 +37,7 @@
 \contentsline {section}{\numberline {3.3}Fusion}{12}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Evaluation}{13}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Roughness Calculation}{13}{section.3.5}%
-\contentsline {paragraph}{Scale dependence.}{13}{paragraph*.18}%
+\contentsline {paragraph}{Scale dependence.}{13}{paragraph*.20}%
 \contentsline {chapter}{\numberline {4}System Design}{14}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Requirements Definition}{14}{section.4.1}%
 \contentsline {section}{\numberline {4.2}System Overview}{14}{section.4.2}%
@@ -66,11 +66,11 @@
 \contentsline {subsection}{\numberline {5.2.3}Coarse alignment}{23}{subsection.5.2.3}%
 \contentsline {subsection}{\numberline {5.2.4}Fine registration}{23}{subsection.5.2.4}%
 \contentsline {subsection}{\numberline {5.2.5}Reconciling the overlapping scans}{24}{subsection.5.2.5}%
-\contentsline {paragraph}{Weighting each measurement.}{24}{paragraph*.22}%
-\contentsline {paragraph}{Grouping measurements into cells.}{24}{paragraph*.23}%
-\contentsline {paragraph}{Choosing one value per cell.}{24}{paragraph*.24}%
-\contentsline {paragraph}{Removing off-surface outliers.}{25}{paragraph*.25}%
-\contentsline {paragraph}{Smoothing.}{25}{paragraph*.26}%
+\contentsline {paragraph}{Weighting each measurement.}{24}{paragraph*.24}%
+\contentsline {paragraph}{Grouping measurements into cells.}{24}{paragraph*.25}%
+\contentsline {paragraph}{Choosing one value per cell.}{24}{paragraph*.26}%
+\contentsline {paragraph}{Removing off-surface outliers.}{25}{paragraph*.27}%
+\contentsline {paragraph}{Smoothing.}{25}{paragraph*.28}%
 \contentsline {subsection}{\numberline {5.2.6}Limitations}{25}{subsection.5.2.6}%
 \contentsline {section}{\numberline {5.3}Surface Roughness Estimation}{25}{section.5.3}%
 \contentsline {subsection}{\numberline {5.3.1}Levelling}{25}{subsection.5.3.1}%
@@ -79,8 +79,8 @@
 \contentsline {subsection}{\numberline {5.3.4}Height parameters}{27}{subsection.5.3.4}%
 \contentsline {subsection}{\numberline {5.3.5}Rugosity and slope}{27}{subsection.5.3.5}%
 \contentsline {subsection}{\numberline {5.3.6}Spatial and spectral parameters}{27}{subsection.5.3.6}%
-\contentsline {paragraph}{Autocorrelation.}{27}{paragraph*.27}%
-\contentsline {paragraph}{Power spectrum.}{28}{paragraph*.28}%
+\contentsline {paragraph}{Autocorrelation.}{27}{paragraph*.29}%
+\contentsline {paragraph}{Power spectrum.}{28}{paragraph*.30}%
 \contentsline {subsection}{\numberline {5.3.7}Additional measures and uncertainty}{28}{subsection.5.3.7}%
 \contentsline {subsection}{\numberline {5.3.8}Validation}{28}{subsection.5.3.8}%
 \contentsline {subsection}{\numberline {5.3.9}Limitations}{28}{subsection.5.3.9}%
@@ -88,25 +88,25 @@
 \contentsline {section}{\numberline {6.1}Plane Surface Characterisation}{29}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}Capture procedure and metrics}{29}{subsection.6.1.1}%
 \contentsline {subsection}{\numberline {6.1.2}Planar Characterisation Methodology}{30}{subsection.6.1.2}%
-\contentsline {subsubsection}{Working distance}{30}{subsubsection*.29}%
-\contentsline {subsubsection}{Camera tilt}{30}{subsubsection*.30}%
-\contentsline {subsubsection}{Ambient lighting}{30}{subsubsection*.31}%
+\contentsline {subsubsection}{Working distance}{30}{subsubsection*.31}%
+\contentsline {subsubsection}{Camera tilt}{30}{subsubsection*.32}%
+\contentsline {subsubsection}{Ambient lighting}{30}{subsubsection*.33}%
 \contentsline {subsection}{\numberline {6.1.3}Planar testing Results}{30}{subsection.6.1.3}%
 \contentsline {subsection}{\numberline {6.1.4}Discusion}{32}{subsection.6.1.4}%
-\contentsline {subsubsection}{Working Distance}{32}{subsubsection*.36}%
-\contentsline {subsubsection}{Camera Tilt}{33}{subsubsection*.37}%
-\contentsline {subsubsection}{Ambient Lighting}{33}{subsubsection*.38}%
+\contentsline {subsubsection}{Working Distance}{32}{subsubsection*.38}%
+\contentsline {subsubsection}{Camera Tilt}{33}{subsubsection*.39}%
+\contentsline {subsubsection}{Ambient Lighting}{33}{subsubsection*.40}%
 \contentsline {section}{\numberline {6.2}3D Reference Characterisation}{33}{section.6.2}%
 \contentsline {subsection}{\numberline {6.2.1}Testing Procedure}{33}{subsection.6.2.1}%
-\contentsline {subsubsection}{Camera configuration}{33}{subsubsection*.39}%
-\contentsline {subsubsection}{Post-processing filters}{34}{subsubsection*.40}%
-\contentsline {subsubsection}{Tilt and rotation}{34}{subsubsection*.42}%
+\contentsline {subsubsection}{Camera configuration}{33}{subsubsection*.41}%
+\contentsline {subsubsection}{Post-processing filters}{34}{subsubsection*.42}%
+\contentsline {subsubsection}{Tilt and rotation}{34}{subsubsection*.44}%
 \contentsline {subsection}{\numberline {6.2.2}3D Characterisation Results}{34}{subsection.6.2.2}%
 \contentsline {subsection}{\numberline {6.2.3}3D Characterisation Results}{34}{subsection.6.2.3}%
 \contentsline {subsection}{\numberline {6.2.4}Discussion}{35}{subsection.6.2.4}%
-\contentsline {subsubsection}{Camera Configuration}{35}{subsubsection*.53}%
-\contentsline {subsubsection}{Filters}{38}{subsubsection*.54}%
-\contentsline {subsubsection}{Tilt and Rotation}{38}{subsubsection*.55}%
+\contentsline {subsubsection}{Camera Configuration}{35}{subsubsection*.55}%
+\contentsline {subsubsection}{Filters}{38}{subsubsection*.56}%
+\contentsline {subsubsection}{Tilt and Rotation}{38}{subsubsection*.57}%
 \contentsline {chapter}{\numberline {7}Experimental Validation}{41}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Controlled Targets}{41}{section.7.1}%
 \contentsline {subsection}{\numberline {7.1.1}Process}{41}{subsection.7.1.1}%
@@ -142,8 +142,8 @@
 \contentsline {chapter}{\numberline {G}AI Usage Examples}{72}{chapter.G}%
 \contentsline {section}{\numberline {G.1}Appendix Image Captions}{72}{section.G.1}%
 \contentsline {section}{\numberline {G.2}Chapter Re-write}{72}{section.G.2}%
-\contentsline {chapter}{Appendix B: Ethics approval}{74}{appendix*.94}%
-\contentsline {chapter}{Appendix C: Topic description}{76}{appendix*.95}%
-\contentsline {chapter}{Appendix D: ECSA Graduate Attributes}{81}{appendix*.96}%
-\contentsline {section}{Project mapping to ECSA Graduate Attributes}{81}{section*.97}%
-\contentsline {chapter}{Bibliography}{88}{appendix*.98}%
+\contentsline {chapter}{Appendix B: Ethics approval}{74}{appendix*.96}%
+\contentsline {chapter}{Appendix C: Topic description}{76}{appendix*.97}%
+\contentsline {chapter}{Appendix D: ECSA Graduate Attributes}{81}{appendix*.98}%
+\contentsline {section}{Project mapping to ECSA Graduate Attributes}{81}{section*.99}%
+\contentsline {chapter}{Bibliography}{88}{appendix*.100}%

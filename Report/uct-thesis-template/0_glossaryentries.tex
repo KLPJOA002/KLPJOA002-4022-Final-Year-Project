@@ -7,43 +7,264 @@
 %   v_glossary.tex only PRINTS the list. It does not define anything.
 %
 %   USE
-%     \gls{ecsa}    first use  -> Engineering Council of South Africa (ECSA)
-%                   after that -> ECSA
-%     \glspl{ga}    plural
-%     \Gls{ga}      capitalised at the start of a sentence
+%     \gls{imu}     first use  -> inertial measurement unit (IMU)
+%                   after that -> IMU
+%     \glspl{roi}   plural
+%     \Gls{icp}     capitalised at the start of a sentence
+%     \gls{rugosity} for a glossary term prints the term itself
 %
 %   An entry that is never cited with \gls does not appear in the list. That
 %   is deliberate: the list shows what the reader actually met.
+%
+%   When you switch a word in the text over to \gls, delete any hand-written
+%   expansion next to it, e.g.
+%       Red-Green-Blue-Depth (RGB-D)   ->   \gls{rgbd}
+%   otherwise the full form is printed twice.
 %=====================================================================
 
 %---------------------------------------------------------------------
-%   ACRONYMS
+%   ACRONYMS: PROJECT ADMINISTRATION
 %---------------------------------------------------------------------
 %   Needed by Appendix D (the ECSA Graduate Attributes table). Leave these.
 \newacronym{ecsa}{ECSA}{Engineering Council of South Africa}
 \newacronym{ga}{GAs}{Graduate Attributes}
 
-%   Generally useful. Keep or delete.
 \newacronym{uct}{UCT}{University of Cape Town}
 \newacronym{fyp}{FYP}{Final Year Project}
 
-%   Cited by the example chapters. Replace with your own.
-\newacronym{gps}{GPS}{Global Positioning System}
-\newacronym{miz}{MIZ}{Marginal Ice Zone}
-\newacronym{so}{SO}{Southern Ocean}
-
-%   Add your own below. One line each. They only appear in the printed list
-%   if they are actually cited with \gls somewhere.
-% \newacronym{adc}{ADC}{analogue-to-digital converter}
-% \newacronym{imu}{IMU}{inertial measurement unit}
+%---------------------------------------------------------------------
+%   ACRONYMS: SENSING AND HARDWARE
+%---------------------------------------------------------------------
+\newacronym{rgb}{RGB}{red, green, blue}
+\newacronym{rgbd}{RGB-D}{red, green, blue and depth}
+\newacronym{ir}{IR}{infrared}
+\newacronym{imu}{IMU}{inertial measurement unit}
+\newacronym{fov}{FOV}{field of view}
+\newacronym{roi}{ROI}{region of interest}
+\newacronym{sdk}{SDK}{software development kit}
+\newacronym{gpu}{GPU}{graphics processing unit}
+\newacronym{tof}{ToF}{time of flight}
+\newacronym{lidar}{LiDAR}{light detection and ranging}
+\newacronym{tls}{TLS}{terrestrial laser scanning}
+\newacronym{sfm}{SfM}{structure-from-motion}
 
 %---------------------------------------------------------------------
-%   GLOSSARY TERMS (a definition, not an abbreviation)
+%   ACRONYMS: FILES, SOFTWARE AND STANDARDS
 %---------------------------------------------------------------------
-% \newglossaryentry{marginalicezone}{
-%     name        = {marginal ice zone},
-%     description = {The transitional region between the open ocean and
-%                    consolidated pack ice, where surface waves and sea ice
-%                    interact.}
-% }
+\newacronym{cad}{CAD}{computer-aided design}
+\newacronym{ply}{PLY}{Polygon File Format}
+\newacronym{stl}{STL}{stereolithography (triangle mesh file format)}
+\newacronym{csv}{CSV}{comma-separated values}
+\newacronym{pcl}{PCL}{Point Cloud Library}
+\newacronym{iso}{ISO}{International Organization for Standardization}
+
+%---------------------------------------------------------------------
+%   ACRONYMS: ALGORITHMS
+%---------------------------------------------------------------------
+\newacronym{icp}{ICP}{iterative closest point}
+\newacronym{fpfh}{FPFH}{fast point feature histograms}
+\newacronym{ransac}{RANSAC}{random sample consensus}
+\newacronym{mls}{MLS}{moving least squares}
+\newacronym{svd}{SVD}{singular value decomposition}
+\newacronym{pca}{PCA}{principal component analysis}
+\newacronym{fft}{FFT}{fast Fourier transform}
+
+%---------------------------------------------------------------------
+%   ACRONYMS: STATISTICS AND METRICS
+%---------------------------------------------------------------------
+\newacronym{rms}{RMS}{root mean square}
+\newacronym{rmse}{RMSE}{root-mean-square error}
+\newacronym{mad}{MAD}{median absolute deviation}
+\newacronym{iqr}{IQR}{interquartile range}
+\newacronym{psd}{PSD}{power spectral density}
+\newacronym{tri}{TRI}{Terrain Ruggedness Index}
+\newacronym{vrm}{VRM}{Vector Ruggedness Measure}
+
+%---------------------------------------------------------------------
+%   GLOSSARY TERMS: ECOLOGY
+%---------------------------------------------------------------------
+\newglossaryentry{bioturbation}{
+	name        = {bioturbation},
+	description = {The reworking of sediment particles and the ventilation
+		of burrows by animals}
+}
+\newglossaryentry{benthic}{
+	name        = {benthic},
+	description = {Relating to the bottom of a body of water, and to the
+		organisms that live on or in the sediment there}
+}
+\newglossaryentry{intertidal}{
+	name        = {intertidal},
+	description = {The zone of shore that is exposed at low tide and
+		submerged at high tide}
+}
+\newglossaryentry{subtidal}{
+	name        = {subtidal},
+	description = {The zone below the low-tide line, which remains
+		submerged}
+}
+\newglossaryentry{ecosystemengineer}{
+	name        = {ecosystem engineer},
+	description = {An organism that creates or significantly modifies its
+		habitat, changing conditions for other species}
+}
+\newglossaryentry{eutrophication}{
+	name        = {eutrophication},
+	description = {Excessive growth of algae and plants caused by high
+		nutrient levels in the water}
+}
+\newglossaryentry{microtopography}{
+	name        = {microtopography},
+	description = {The relief of a surface at millimetre to centimetre
+		scales}
+}
+
+%---------------------------------------------------------------------
+%   GLOSSARY TERMS: DEPTH SENSING
+%---------------------------------------------------------------------
+\newglossaryentry{activestereo}{
+	name        = {active stereo},
+	description = {Stereo depth sensing in which a projected pattern adds
+		texture to the scene, while depth is still computed by
+		matching between two cameras}
+}
+\newglossaryentry{passivestereo}{
+	name        = {passive stereo},
+	description = {Stereo depth sensing that relies only on the natural
+		texture of the scene}
+}
+\newglossaryentry{structuredlight}{
+	name        = {structured light},
+	description = {Depth sensing that triangulates between a projector of a
+		known pattern and a single camera}
+}
+\newglossaryentry{baseline}{
+	name        = {baseline},
+	description = {The distance between the optical centres of the two
+		cameras of a stereo pair}
+}
+\newglossaryentry{disparity}{
+	name        = {disparity},
+	description = {The horizontal offset, in pixels, between the positions
+		of the same scene point in the left and right images}
+}
+\newglossaryentry{depthunit}{
+	name        = {depth unit},
+	description = {The physical size of one step of the camera's 16-bit
+		depth value, which sets the depth quantisation}
+}
+\newglossaryentry{visualpreset}{
+	name        = {visual preset},
+	description = {A predefined set of RealSense stereo-matching parameters,
+		such as High Density or High Accuracy}
+}
+\newglossaryentry{ip65}{
+	name        = {IP65},
+	description = {Ingress protection rating denoting a dust-tight enclosure
+		that is protected against water jets}
+}
+
+%---------------------------------------------------------------------
+%   GLOSSARY TERMS: PROCESSING
+%---------------------------------------------------------------------
+\newglossaryentry{pointcloud}{
+	name        = {point cloud},
+	description = {A set of 3D points sampled from a surface}
+}
+\newglossaryentry{apriltag}{
+	name        = {AprilTag},
+	description = {A square black-and-white fiducial marker that encodes an
+		identifier and whose corners can be located precisely in
+		an image}
+}
+\newglossaryentry{registration}{
+	name        = {registration},
+	description = {Finding the rigid transformation that places one scan in
+		the coordinate frame of another}
+}
+\newglossaryentry{fusion}{
+	name        = {fusion},
+	description = {Merging several registered scans into a single surface}
+}
+\newglossaryentry{voxel}{
+	name        = {voxel},
+	description = {A cubic cell of a regular 3D grid}
+}
+\newglossaryentry{heightfield}{
+	name        = {height field},
+	description = {A surface stored as a single height $z(x,y)$ for each
+		horizontal position, which cannot represent overhangs}
+}
+\newglossaryentry{detrending}{
+	name        = {detrending},
+	description = {Removing large-scale form, such as tilt or curvature, from
+		a surface by subtracting a fitted polynomial, leaving the
+		texture to be measured}
+}
+\newglossaryentry{decimation}{
+	name        = {decimation filter},
+	description = {A RealSense post-processing filter that reduces the
+		resolution of the depth image}
+}
+\newglossaryentry{spatialfilter}{
+	name        = {spatial filter},
+	description = {A RealSense post-processing filter that performs
+		edge-preserving smoothing within a depth frame}
+}
+\newglossaryentry{temporalfilter}{
+	name        = {temporal filter},
+	description = {A RealSense post-processing filter that averages depth
+		across consecutive frames}
+}
+\newglossaryentry{holefilling}{
+	name        = {hole-filling filter},
+	description = {A RealSense post-processing filter that fills invalid
+		depth pixels from their neighbours}
+}
+
+%---------------------------------------------------------------------
+%   GLOSSARY TERMS: EVALUATION AND ROUGHNESS
+%---------------------------------------------------------------------
+\newglossaryentry{signedbias}{
+	name        = {signed bias},
+	description = {The mean signed distance of reconstructed points from the
+		reference surface, measuring systematic offset}
+}
+\newglossaryentry{precision}{
+	name        = {precision},
+	description = {The fraction of reconstructed points lying within a
+		distance threshold of the reference surface}
+}
+\newglossaryentry{completeness}{
+	name        = {completeness},
+	description = {The fraction of points sampled from the reference surface
+		that lie within a distance threshold of the
+		reconstruction}
+}
+\newglossaryentry{fscore}{
+	name        = {F-score},
+	description = {The harmonic mean of precision and completeness at a given
+		distance threshold}
+}
+\newglossaryentry{rugosity}{
+	name        = {rugosity},
+	description = {The ratio of the true area of a surface to its projected
+		area. A flat surface has a rugosity of 1}
+}
+\newglossaryentry{sdr}{
+	name        = {developed interfacial area ratio},
+	description = {The ISO 25178-2 parameter $S_{dr}$: the percentage by
+		which the true surface area exceeds the projected area}
+}
+\newglossaryentry{selfaffine}{
+	name        = {self-affine},
+	description = {Describing a surface whose roughness follows a power law
+		across scales, so its power spectrum is a straight line on
+		log-log axes}
+}
+\newglossaryentry{hurst}{
+	name        = {Hurst exponent},
+	description = {The exponent $H$ describing how the roughness of a
+		self-affine surface changes with scale}
+}
 %=====================================================================
