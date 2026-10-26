@@ -1,7 +1,7 @@
 {
   "tool": "rsplot",
   "version": "0.1.0",
-  "saved_at": "2026-10-23T22:56:44",
+  "saved_at": "2026-10-26T15:31:28",
   "dataset": {
     "path": "/home/joab/Documents/4022/Data/3D_Results/Combinations V2/results.csv",
     "family": "fusion",
@@ -21,10 +21,11 @@
   "footnote": "",
   "warnings": [],
   "columns_used": [
-    "acc_rmse_mm",
+    "fscore@2mm",
     "kind",
     "rot_family",
-    "tilt_family"
+    "tilt_family",
+    "wave"
   ],
   "spec": {
     "plot_type": "heatmap",
@@ -36,11 +37,11 @@
     "mapping": {
       "x": "tilt_family",
       "y": [
-        "acc_rmse_mm"
+        "fscore@2mm"
       ],
       "y_mode": "side_by_side",
       "hue": "wave",
-      "facet": null,
+      "facet": "wave",
       "facet_cols": 0,
       "style": null,
       "row": "rot_family",

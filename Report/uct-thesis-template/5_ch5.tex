@@ -112,7 +112,7 @@ Illuminance was read with a smartphone running the Physics Toolbox Suite applica
 
 %Results for planar angle characterisation are shown in \autoref{tab:Scatter_Metric_Vs_Light}. These are then plotted in \autoref{fig:Scatter-Metric-Vs-Light}. 
 
-Results for planar height, angle and lighting characterisation can be found in \autoref{fig:Scatter-Metric-Vs-Height}, \autoref{fig:Scatter-Metric-Vs-Angle} and \autoref{fig:Scatter-Metric-Vs-Light} respectfully. For light characterisation environmental conditions with corresponding illumination values are shown in \autoref{tab:Lighting_Descriptors}
+Results for planar height, angle and lighting characterisation can be found in \autoref{fig:Scatter-Metric-Vs-Height}, \autoref{fig:Scatter-Metric-Vs-Angle} and \autoref{fig:Scatter-Metric-Vs-Light} respectively. For light characterisation environmental conditions with corresponding illumination values are shown in \autoref{tab:Lighting_Descriptors}
 %Table~\ref{tab:distance} gives the results. Plane-fit RMS increased from 1.22\,mm at 604\,mm to 4.58\,mm at 903\,mm, a 3.7-fold increase for a 1.5-fold increase in distance. Relative to distance it rose from 0.20\% to 0.50\%. The fill rate fell from 99.6\% to 96.5\%. The median depth error was positive in every trial, between 4.7\,mm and 8.0\,mm, which corresponds to 0.74\% to 0.97\% of the distance with no clear trend.
 
 
@@ -143,7 +143,7 @@ Results for planar height, angle and lighting characterisation can be found in \
 		\caption{Valid pixels}
 		\label{fig:Scatter-Metric-Vs-Height-4}
 	\end{subfigure}
-	\caption{Plots Showing Planar Performance Against Height. Per-trial Median with IQR Over n = 385--552 Frames. Plot Data in \autoref{tab:Scatter_Metric_Vs_Height}}
+	\caption{Plots Showing Planar Reconstruction Quality Against Height. Per-trial Median with IQR Over n = 385--552 Frames. Plot Data in \autoref{tab:Scatter_Metric_Vs_Height}}
 	\label{fig:Scatter-Metric-Vs-Height}
 \end{figure}
 
@@ -184,7 +184,7 @@ Results for planar height, angle and lighting characterisation can be found in \
 	\end{subfigure}
 	\par\medskip
 	\includegraphics{figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_legend}
-	\caption{Plots Showing Planar Performance Against Scan Angle. Per-trial Median with IQR Over n = 527--574 Frames. Plot Data in \autoref{tab:Scatter_Metric_Vs_Angle}}
+	\caption{Plots Showing Planar Reconstruction Quality Against Scan Angle. Per-trial Median with IQR Over n = 527--574 Frames. Plot Data in \autoref{tab:Scatter_Metric_Vs_Angle}}
 	\label{fig:Scatter-Metric-Vs-Angle}
 \end{figure}
 %---------------------------------------------------------------------
@@ -198,7 +198,7 @@ Results for planar height, angle and lighting characterisation can be found in \
 
 \begin{table}[ht]
 	\centering
-	\caption{Planar characterisation under different lighting conditions at a height of approximately 0.9\,m. Lux values are indicative (smartphone sensor).}
+	\caption{Planar characterisation under different lighting conditions at a height of 902\,mm. Lux values are indicative (smartphone sensor).}
 	\label{tab:Lighting_Descriptors}
 	\begin{tabular}{llc}
 		\hline
@@ -213,10 +213,11 @@ Results for planar height, angle and lighting characterisation can be found in \
 		\hline
 		Outdoor foam board & Shade & 388 \\
 		& Direct sun, under shade & 2\,650 \\
-		\hline
-		Outdoor, no board & Shade & 213 \\
-		& Direct sun & 9\,800 \\
-		& Direct sun, under shade & 10\,000 \\
+		& Direct sun &24\,400 \\
+%		\hline
+%		Outdoor, no board & Shade & 213 \\
+%		& Direct sun & 9\,800 \\
+%		& Direct sun, under shade & 10\,000 \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -248,7 +249,7 @@ Results for planar height, angle and lighting characterisation can be found in \
 		\caption{Valid pixels}
 		\label{fig:Scatter-Metric-Vs-Light-4}
 	\end{subfigure}
-	\caption{Plots Showing Planar Performance Against Light Intensity, for Indoor Conditions with Foam Board. Per-trial Median with IQR Over n = 592--599 Frames. Plot Data in \autoref{tab:Scatter_Metric_Vs_Light}}
+	\caption{Plots Showing Planar Reconstruction Quality Against Light Intensity, for Indoor Conditions with Foam Board. Per-trial Median with IQR Over n = 592--599 Frames. Plot Data in \autoref{tab:Scatter_Metric_Vs_Light}}
 	\label{fig:Scatter-Metric-Vs-Light}
 \end{figure}
 
@@ -276,7 +277,7 @@ Stereo theory predicts that depth noise grows with the square of the range, yet 
 
 \subsubsection{Camera Tilt}
 
-Depth noise is expected to rise with obliquity, as the surface is foreshortened and its depth varies across each matching window. A similar relationship is visible in the plane-fit RMS and valid pixels (\autoref{fig:Scatter-Metric-Vs-Angle-3} and \autoref{fig:Scatter-Metric-Vs-Angle-4}), which both degrade as the tilt increases, with the steepest change beyond about 15\degree. Quadratic trends were fitted to avoid overfitting with higher-order polynomials, and they describe both metrics well (R\textsuperscript{2} $\geq$ 0.95). The median depth error and depth RMSE (\autoref{fig:Scatter-Metric-Vs-Angle-1} and \autoref{fig:Scatter-Metric-Vs-Angle-2}) show only weak trends, and neighbouring angles differ by up to 6\,mm, which points to the repeatability of re-positioning the board and measuring its height as the dominant uncertainty in these metrics. Because the camera pivots at a fixed mount height, tilting it also increases the axial distance to the board, so these results combine the effects of angle and range and do not isolate angle alone. This is accepted here, since the mount height is also fixed when scanning sediment, so the results reflect the camera's performance in its intended use.
+Depth noise is expected to rise with tilt angle, as the surface is foreshortened and its depth varies across each matching window. A similar relationship is visible in the plane-fit RMS and valid pixels (\autoref{fig:Scatter-Metric-Vs-Angle-3} and \autoref{fig:Scatter-Metric-Vs-Angle-4}), which both degrade as the tilt increases, with the steepest change beyond about 15\degree. Although the trend should follow a sinusoidal shape, a quadratic trend wa fitted to avoid overfitting with higher-order polynomials. Despite this mismatch, the trends describe both metrics well (R\textsuperscript{2} $\geq$ 0.95). The median depth error and depth RMSE (\autoref{fig:Scatter-Metric-Vs-Angle-1} and \autoref{fig:Scatter-Metric-Vs-Angle-2}) show only weak trends, and neighbouring angles differ by up to 6\,mm, which points to the repeatability of re-positioning the board and measuring its height as the dominant uncertainty in these metrics. Because the camera pivots at a fixed mount height, tilting it also increases the axial distance to the board, so these results combine the effects of angle and range, which does not isolate angle alone. This is accepted here, since the mount height is also fixed when scanning sediment, so the results reflect in situ conditions.
 
 %Because the camera pivots, tilting it also increases the axial distance to the board. When the power law from the distance sweep is applied to the measured axial distance of each trial, the predicted plane-fit RMS matches the observed value to within about 7\% (for example 2.42\,mm predicted against 2.30\,mm observed at $-27.3$\degree, and 2.04\,mm against 2.12\,mm at $+25.3$\degree). The increase in noise with tilt over $\pm25$\degree\ can therefore be explained almost entirely by the longer range, and tilt itself does not appear to degrade the depth significantly. This is the result needed to justify multi-view scanning, since oblique views add information about occluded relief at little cost in noise. The scatter in depth error between neighbouring angles, which is larger than any trend, points to the repeatability of the experimental set-up (re-positioning the board and measuring its height) as the dominant source of uncertainty in this metric, and the depth-error values should be read with that in mind. A flat board cannot reveal the effects of foreshortening and self-occlusion on relief, which are examined with the 3D reference objects.
 
@@ -350,9 +351,23 @@ Finally, a full scan of each object was recorded at rotations of $-45$\degree, 0
 
 \subsection{3D Characterisation Results}
 
-\subsubsection{Camera Configuration}
+%\subsubsection{Camera Configuration}
+%
+%These are then plotted in \autoref{fig:Scatter-Metric-Vs-Res}, \autoref{fig:Scatter-Metric-Vs-Depth-Units} and \autoref{fig:Scatter-Metric-Vs-Preset} respectfully.
+%
+%A full heatmap describing the performance of all parameter combinations can be found in \autoref{Appendix:Parameter_Heatmap}.
+%
+%Again, a full comparison of all metrics agsainst all variables is infeasible for the scope of this project. The results shown in \autoref{tab:Combination_Comparison} are plotted in \autoref{fig:Combination-Comparison}, and describe the comparison between a fusion of every tilt and rotation, compared to a single scan. This combination was chosen as it represents the best overall performance of the system as a whole.
+%
+%A More in depth comparison of the different combinations can be seen in \autoref{Appendix:Combination}.
+\subsection{3D Characterisation Results}
 
-Results for 3D parameter characterisation are shown in \autoref{tab:Scatter_Metric_Vs_Res}, \autoref{tab:Scatter_Metric_Vs_Depth_Units} and \autoref{tab:Scatter_Metric_Vs_Preset}. These are then plotted in \autoref{fig:Scatter-Metric-Vs-Res}, \autoref{fig:Scatter-Metric-Vs-Depth-Units} and \autoref{fig:Scatter-Metric-Vs-Preset} respectfully.
+The camera configuration sweep covered three resolutions, three depth units and five presets on the large egg box and the pyramid. \autoref{fig:Scatter-Metric-Vs-Res}, \autoref{fig:Scatter-Metric-Vs-Depth-Units} and \autoref{fig:Scatter-Metric-Vs-Preset} each vary one of these settings, with every point being the median over all combinations of the other two (n = 15 scans). This isolates the effect of each setting while still reflecting its interaction with the others, \autoref{Appendix:Parameter_Heatmap} gives every combination individually.
+
+The filter sweep evaluated 257 filter configurations on five static scans of each egg box at each of six heights. Plotting every parameter against every other is impractical, so \autoref{fig:Filter-Comparison} compares three configurations at each height: the unfiltered baseline, the single configuration that performed best across both objects and all heights (best overall), and the configuration that performed best for that particular object and height. The best overall configuration is the one recommended for use, and the per-case optimum shows the most any filter setting could achieve. The settings of both are listed in \autoref{tab:filter_settings}, and the gap between these three series and the baseline therefore bounds the benefit of filtering. The effect of each individual filter parameter and combinations of is shown in \autoref{Appendix:Filter}.
+
+For the tilt and rotation sweep, the 44 views of each object at each height were fused in many subsets. \autoref{fig:Combination-Comparison} shows the two extremes: a single untilted scan and the fusion of all 44 views. \autoref{fig:Combination-Accuracy} then shows how accuracy varies between these extremes, giving the F-score for each combination of rotation set (rows) and tilt set (columns), taken as the median over both objects and all six heights. The corresponding completeness, bias and F-score heatmaps for each object are given in \autoref{Appendix:Combination}. Finally, \autoref{fig:Single_Scan_Evaluation} and \autoref{fig:Fused_Scan_Evaluation} show the reconstructed mesh and the signed error map of the small egg box at 701\,mm for a single scan and for the full fusion.
+
 
 
 \begin{figure}[htbp]
@@ -366,7 +381,7 @@ Results for 3D parameter characterisation are shown in \autoref{tab:Scatter_Metr
 	\begin{subfigure}[t]{0.4756\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_p2}
-		\caption{Completeness at 2 mm}
+		\caption{Signed Bias}
 		\label{fig:Scatter-Metric-Vs-Res-2}
 	\end{subfigure}
 	\par\medskip
@@ -384,7 +399,7 @@ Results for 3D parameter characterisation are shown in \autoref{tab:Scatter_Metr
 	\end{subfigure}
 	\par\medskip
 	\includegraphics{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Res_legend}
-	\caption{Plots Showing 3D Performance Against Camera Resolution. Median with IQR of n = 15 scans per point, Taken Over Three Depth Units, and Five Presets.}
+	\caption{Plots Showing 3D Reconstruction Quality Against Camera Resolution. Median with IQR of n = 15 scans per point, Taken Over Three Depth Units, and Five Presets. Plot Data in \autoref{tab:Scatter_Metric_Vs_Res}}
 	\label{fig:Scatter-Metric-Vs-Res}
 \end{figure}
 
@@ -399,7 +414,7 @@ Results for 3D parameter characterisation are shown in \autoref{tab:Scatter_Metr
 	\begin{subfigure}[t]{0.4756\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_p2}
-		\caption{Completeness at 2 mm}
+		\caption{Signed Bias}
 		\label{fig:Scatter-Metric-Vs-Depth-Units-2}
 	\end{subfigure}
 	\par\medskip
@@ -417,7 +432,7 @@ Results for 3D parameter characterisation are shown in \autoref{tab:Scatter_Metr
 	\end{subfigure}
 	\par\medskip
 	\includegraphics{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Depth_Units_legend}
-	\caption{Plots Showing 3D Performance Against Depth Units. Median with IQR of n = 15 scans per point, Taken Over Three Resolutions, and Five Presets.}
+	\caption{Plots Showing 3D Reconstruction Quality Against Depth Units. Median with IQR of n = 15 scans per point, Taken Over Three Resolutions, and Five Presets. Plot Data in \autoref{tab:Scatter_Metric_Vs_Depth_Units}}
 	\label{fig:Scatter-Metric-Vs-Depth-Units}
 \end{figure}
 
@@ -432,7 +447,7 @@ Results for 3D parameter characterisation are shown in \autoref{tab:Scatter_Metr
 	\begin{subfigure}[t]{0.4756\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_p2}
-		\caption{Completeness at 2 mm}
+		\caption{Signed Bias}
 		\label{fig:Scatter-Metric-Vs-Preset-2}
 	\end{subfigure}
 	\par\medskip
@@ -450,13 +465,13 @@ Results for 3D parameter characterisation are shown in \autoref{tab:Scatter_Metr
 	\end{subfigure}
 	\par\medskip
 	\includegraphics{figs/ch5/Parameter_Analysis/Scatter_Metric_Vs_Preset_legend}
-	\caption{Plots Showing 3D Performance Against Camera Preset. Median with IQR of n = 15 scans per point, Taken Over Three Depth Units, and Three Resolutions.}
+	\caption{Plots Showing 3D Reconstruction Quality Against Camera Preset. Median with IQR of n = 15 scans per point, Taken Over Three Depth Units, and Three Resolutions. Plot Data in \autoref{tab:Scatter_Metric_Vs_Preset}}
 	\label{fig:Scatter-Metric-Vs-Preset}
 \end{figure}
 
-A full heatmap describing the performance of all parameter combinations can be found in \autoref{Appendix:Parameter_Heatmap}.
 
-\subsubsection{Filters}
+
+%\subsubsection{Filters}
 
 A full comparison of all filter parameters is infeasible for the scope of this report. Thus only a comparison between a baseline evaluation, with no filters applied, and the best performing filters is shown in \autoref{fig:Filter-Comparison}, with the data shown in \autoref{tab:Filter_Comparison}. The filter settings can be found in \autoref{tab:filter_settings}
 
@@ -536,17 +551,22 @@ A full comparison of all filter parameters is infeasible for the scope of this r
 	\end{subfigure}
 	\par\medskip
 	\includegraphics{figs/ch5/Filter_Analysis/Filter_Comparison_legend}
-	\caption{Plots Showing 3D Performance Comparison Between No Filter and Best Performing Filter, Best Fit (R\textsuperscript{2} 0.00 to 1.00). Median with IQR of n = 4--5 Scans Per Point.}
+	\caption{Plots Showing 3D Reconstruction Quality Comparison Between No Filter and Best Performing Filter, Best Fit (R\textsuperscript{2} 0.00 to 1.00). Median with IQR of n = 4--5 Scans Per Point. Plot Data in \autoref{tab:Filter_Comparison}}
 	\label{fig:Filter-Comparison}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=\textwidth]{figs/ch5/Combination_Analysis/Temporal_Filter_Accuracy}
+	\caption{Heatmap Showing 3D Reconstruction Quality F-Score Across Different Temporal Alpha Values. Values Taken As Median Across Different Filter Combinations}
+	\label{fig:Temporal-Filter-Accuracy}
 \end{figure}
 
 
 
-\subsubsection{Tilt and Rotation}
+%\subsubsection{Tilt and Rotation}
 
-Again, a full comparison of all metrics agsainst all variables is infeasible for the scope of this project. The results shown in \autoref{tab:Combination_Comparison} are plotted in \autoref{fig:Combination-Comparison}, and describe the comparison between a fusion of every tilt and rotation, compared to a single scan. This combination was chosen as it represents the best overall performance of the system as a whole.
 
-A More in depth comparison of the different combinations can be seen in \autoref{Appendix:Combination}.
 
 \begin{figure}[htbp]
 	\centering
@@ -603,14 +623,14 @@ A More in depth comparison of the different combinations can be seen in \autoref
 	\end{subfigure}
 	\par\medskip
 	\includegraphics{figs/ch5/Combination_Analysis/Combination_Comparison_legend}
-	\caption{Plots Showing 3D Performance Between No Fusion and All View-Point Fusion. Median with IQR of n = 1 Point Clouds Per Point.}
+	\caption{Plots Showing 3D Reconstruction Quality Between No Fusion and All View-Point Fusion. Median with IQR of n = 1 Point Clouds Per Point. Plot Data in \autoref{tab:Combination_Comparison}}
 	\label{fig:Combination-Comparison}
 \end{figure}
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=\textwidth]{figs/ch5/Combination_Analysis/Combination_Accuracy}
-	\caption{Grey cells: no data for that combination. Median with IQR of n = 12 point clouds per cell. Fixed: Kind = fused; Fusion cell = 0.0005; Scan voxel = 0.0005; Status = ok. Median taken over: Object (2), Height (6).}
+	\caption{Heatmap Showing 3D Reconstruction Quality F-Score Across Different Tilt and Rotation Combinations. Fusion Cell = 0.0005, Scan Voxel = 0.0005. Values taken as Median}
 	\label{fig:Combination-Accuracy}
 \end{figure}
 
@@ -673,24 +693,41 @@ A More in depth comparison of the different combinations can be seen in \autoref
 %it can be seen in \autoref{fig:Combination-Comparison} that multi-view fusion generally always improves the accuracy of the scans taken. This fusion of all different viewpoints
 %increase the f-score of the resulting fusion by an average of 14.0\% for the big egg box surface and by 5.77\% on the small egg box surface. This shows that fusion is a viable way to add extra accuracy to a scan without requiring differing hardware. Looking at \autoref{fig:fusedsmallerrormap} and \autoref{fig:singlesmallerrormap} , it can be seen that whilst the fusion process does not significanly reduce the absolute errors at any point, remaining above 4\,mm in either direction, it does smooth the noise significantly, and gives a much more uniform distribution. This smoothing is specifically a very important metric. Even if the absolute accuracy is only slightly improved, the roughness metrics of the single scan should be drastically larger than that of the fused scan, showing that a single scan may skew results. This can also be seen by looking at the floor surface surrounding the object. The single scan features large undulations and variability across the flat surface, whilst the fused scan has a much more consistently flat surface
 
+%\subsection{Discussion}
+%
+%\subsubsection{Camera Configuration}
+%Of the stream settings, resolution had the clearest effect (\autoref{fig:Scatter-Metric-Vs-Res}). For the large egg box, moving from the default 848\,$\times$\,480 to the maximum 1280\,$\times$\,720 reduced the RMSE by 0.32\,mm (13.4\%) and increased completeness by 9.6 percentage points, as expected since the focal length in pixels, and therefore depth precision, scales with resolution. The pyramid scored better than the large egg box at every resolution. This was not expected, as sharp edges are usually smoothed more than gentle curves, but the egg box has a higher density of features within its footprint, and so more of its surface lies near curvature that the camera cannot fully resolve.
+%
+%The depth unit had only a small effect (\autoref{fig:Scatter-Metric-Vs-Depth-Units}), with performance improving slightly at finer units. The difference was smaller than expected, even on the pyramid, whose inclined facets were expected to benefit most from finer quantisation. This indicates that sensor noise, rather than quantisation, limits accuracy. The 0.1\,mm unit gave the best results and costs nothing within the working range, although coarser units perform almost as well.
+%
+%The High Density preset performed best on both objects (\autoref{fig:Scatter-Metric-Vs-Preset}). This is consistent with its aim of maximising the number of valid depth pixels, which leaves fewer holes in the scan and improves completeness. The High Accuracy preset gave a low RMSE but poor completeness, so it may perform better once multi-view fusion fills its holes, which should be investigated further \autoref{ch:furtherwork}.
+%
+%\subsubsection{Filters}
+%
+%The post-processing filters gave only a small benefit (\autoref{fig:Filter-Comparison}), with the best settings listed in \autoref{tab:filter_settings}. \autoref{fig:Temporal-Filter-Accuracy} shows a general trend that stronger temporal smoothing, provides better reconstruction. It is also noted that spatial filtering had a negative effect on reconstruction. However, both of these effects are small compared with those of height: the variation in accuracy across filter settings at one height is smaller than the variation between heights. Aggressive temporal filtering was expected to produce larger improvements because each scan is static and temporal noise should average out, however this was not the case. A likely explanation is that the evaluation uses a single best frame on a small object, where the remaining error is dominated by spatially correlated error that averaging over time cannot remove. Decimation caused only a small loss in accuracy, so it could be used to reduce processing time after capture. It is still not recommended, as the loss of detail is likely to be larger on large-area scans with finer relief.
+%
+%\subsubsection{Tilt and rotation}
+%
+%Multi-view fusion improved every metric at every height (\autoref{fig:Combination-Comparison}). Fusing all viewpoints raised the F-score by an average of 14.0 percentage points for the large egg box and 5.8 points for the small egg box, which shows that fusion improves accuracy without any change to the hardware. The error maps (\autoref{fig:singlesmallerrormap} and \autoref{fig:fusedsmallerrormap}) show that fusion does not remove the largest errors, which remain at around $\pm$4\,mm in both cases, but it smooths the noise considerably and gives a much more uniform error distribution. This matters more for this project than the absolute accuracy. Random noise adds directly to the measured slope, so a single scan will report a rougher surface than a fused one, even where their accuracy is similar. The same effect is visible on the flat floor around the object (\autoref{fig:smallwave701mmsingleside} and \autoref{fig:smallwave701mmfusedside}), which shows large undulations in the single scan but is consistently flat in the fused scan.
+
 \subsection{Discussion}
 
 \subsubsection{Camera Configuration}
-Of the stream settings, resolution had the clearest effect (\autoref{fig:Scatter-Metric-Vs-Res}). For the large egg box, moving from the default 848\,$\times$\,480 to the maximum 1280\,$\times$\,720 reduced the RMSE by 0.32\,mm (13.4\%) and increased completeness by 9.6 percentage points, as expected since the focal length in pixels, and therefore depth precision, scales with resolution. The pyramid scored better than the large egg box at every resolution. This was not expected, as sharp edges are usually smoothed more than gentle curves, but the egg box has a higher density of features within its footprint, and so more of its surface lies near curvature that the camera cannot fully resolve.
+Resolution had the clearest effect of the stream settings (\autoref{fig:Scatter-Metric-Vs-Res}). For the large egg box, increasing it from the default 848\,$\times$\,480 to 1280\,$\times$\,720 reduced the RMSE by 0.32\,mm (13.4\%) and raised completeness by 9.6 percentage points. This is expected, since depth precision scales with the focal length in pixels. Unexpectedly, the pyramid outperformed the large egg box at every resolution. Sharp edges are usually smoothed more than gentle curves, but the egg box packs more features into its footprint, so more of its surface lies near curvature the camera cannot resolve.
 
-The depth unit had only a small effect (\autoref{fig:Scatter-Metric-Vs-Depth-Units}), with performance improving slightly at finer units. The difference was smaller than expected, even on the pyramid, whose inclined facets were expected to benefit most from finer quantisation. This indicates that sensor noise, rather than quantisation, limits accuracy. The 0.1\,mm unit gave the best results and costs nothing within the working range, although coarser units perform almost as well.
+The depth unit had only a small effect (\autoref{fig:Scatter-Metric-Vs-Depth-Units}), even on the inclined facets of the pyramid, which were expected to benefit most from finer quantisation. Accuracy is therefore limited by sensor noise rather than quantisation. The 0.1\,mm unit performed best and costs nothing within the working range, although coarser units perform almost as well.
 
-The High Density preset performed best on both objects (\autoref{fig:Scatter-Metric-Vs-Preset}). This is consistent with its aim of maximising the number of valid depth pixels, which leaves fewer holes in the scan and improves completeness. The High Accuracy preset gave a low RMSE but poor completeness, so it may perform better once multi-view fusion fills its holes, which should be investigated further.
+The High Density preset performed best on both objects (\autoref{fig:Scatter-Metric-Vs-Preset}), consistent with its aim of maximising valid pixels and so reducing holes. High Accuracy gave a low RMSE but poor completeness, and may perform better once fusion fills its holes (\autoref{ch:furtherwork}).
+
 \subsubsection{Filters}
 
-The post-processing filters gave only a small benefit (\autoref{fig:Filter-Comparison}), with the best settings listed in \autoref{tab:filter_settings}. The detailed heatmaps in \autoref{Appendix:Filter} show a general trend that stronger temporal smoothing, little or no spatial filtering and minimal decimation give the best results. However, these effects are small compared with those of height: the variation in accuracy across filter settings at one height is smaller than the variation between heights. A larger benefit from aggressive temporal filtering was expected, since each scan is static and temporal noise should average out. A likely explanation is that the evaluation uses a single best frame on a small object, where the remaining error is dominated by spatially correlated error that averaging over time cannot remove.
+The post-processing filters gave only a small benefit (\autoref{fig:Filter-Comparison}; settings in \autoref{tab:filter_settings}). Stronger temporal smoothing generally improved reconstruction (\autoref{fig:Temporal-Filter-Accuracy}), while spatial filtering degraded it. Both effects are smaller than the effect of height: accuracy varies less across filter settings at one height than between heights. Since each scan is static, temporal averaging was expected to help more. A likely explanation is that the remaining error on a small object is dominated by spatially correlated error, which averaging over time cannot remove. Decimation cost little accuracy and could reduce processing time after capture. It is not recommended, however, because the loss of detail is likely to be larger on large-area scans with finer relief.
 
-Decimation caused only a small loss in accuracy, so it could be used to reduce processing time after capture. It is still not recommended, as the loss of detail is likely to be larger on large-area scans with finer relief.
+\subsubsection{Tilt and Rotation}
 
-\subsubsection{Tilt and rotation}
+Multi-view fusion improved every metric at every height (\autoref{fig:Combination-Comparison}). Fusing all viewpoints raised the F-score by an average of 14.0 percentage points for the large egg box and 5.8 points for the small egg box, with no change to the hardware. The error maps (\autoref{fig:singlesmallerrormap} and \autoref{fig:fusedsmallerrormap}) show that the largest errors, around $\pm$4\,mm, remain after fusion. The noise, however, is substantially smoothed and the error is more uniformly distributed \autoref{fig:fusedsmallerrorhistogram}. For this project that matters more than absolute accuracy, because random noise adds directly to the measured slope, and so a single scan will report a rougher surface than a fused surface. This is visible on the flat floor around the object, which undulates in the single scan but is flat in the fused scan (\autoref{fig:smallwave701mmsingleside} and \autoref{fig:smallwave701mmfusedside}).
 
-Multi-view fusion improved every metric at every height (\autoref{fig:Combination-Comparison}). Fusing all viewpoints raised the F-score by an average of 14.0 percentage points for the large egg box and 5.8 points for the small egg box, which shows that fusion improves accuracy without any change to the hardware. The error maps (\autoref{fig:singlesmallerrormap} and \autoref{fig:fusedsmallerrormap}) show that fusion does not remove the largest errors, which remain at around $\pm$4\,mm in both cases, but it smooths the noise considerably and gives a much more uniform error distribution. This matters more for this project than the absolute accuracy. Random noise adds directly to the measured slope, so a single scan will report a rougher surface than a fused one, even where their accuracy is similar. The same effect is visible on the flat floor around the object (\autoref{fig:smallwave701mmsingleside} and \autoref{fig:smallwave701mmfusedside}), which shows large undulations in the single scan but is consistently flat in the fused scan.
-
+\autoref{fig:Combination-Accuracy} shows that the benefit comes mainly from the range of tilts rather than the number of views. Fusing tilts of only 0 and $\pm$25\degree\ matched the full 44-view sweep, with an F-score of 0.73 against 0.73 on the large egg box and 0.50 against 0.48 on the small one. In contrast, the same number of views at 0 and $\pm$5\degree\ reached only 0.65 and 0.44. Widely spread viewpoints therefore capture most of the benefit of fusion with lower capture time.
 
 
 
