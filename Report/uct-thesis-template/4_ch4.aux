@@ -2,38 +2,37 @@
 \providecommand\zref@newlabel[2]{}
 \providecommand\hyper@newdestlabel[2]{}
 \citation{azharRGBDFrameworkCapturing2022}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}System Design}{15}{chapter.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}System Design}{14}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:design}{{4}{15}{System Design}{chapter.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Requirements Definition}{15}{section.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}System Overview}{15}{section.4.2}\protected@file@percent }
-\newlabel{sec:overview}{{4.2}{15}{System Overview}{section.4.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces System overview. \textcolor {red}{[TODO: Replace with a fuller diagram showing the data formats (.bag, .ply) passed between stages.]}}}{15}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:overview}{{4.1}{15}{System overview. \todo {Replace with a fuller diagram showing the data formats (.bag, .ply) passed between stages.}}{figure.caption.19}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Hardware summary.}}{16}{table.caption.20}\protected@file@percent }
-\newlabel{tab:hardware}{{4.1}{16}{Hardware summary}{table.caption.20}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Hardware Rig}{16}{section.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Frame}{16}{subsection.4.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Camera, Tilt and Rotation Mechanism}{16}{subsection.4.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}AprilTag Boundary Markers}{16}{subsection.4.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Software Architecture and Processing Pipeline}{16}{section.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Capture Software}{16}{subsection.4.4.1}\protected@file@percent }
-\citation{rusu2009fpfh,fischler1981ransac}
-\citation{besl1992icp}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces System overview. \textcolor {red}{[TODO: Replace with a fuller diagram showing the data formats (.bag, .ply) passed between stages.]}}}{17}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:Multi-Angle-fusion}{{4.2}{17}{System overview. \todo {Replace with a fuller diagram showing the data formats (.bag, .ply) passed between stages.}}{figure.caption.21}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Cropping and Multi-Angle Fusion}{17}{subsection.4.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Microtopography Processing}{17}{subsection.4.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Evaluation Framework and Ground Truth}{18}{section.4.5}\protected@file@percent }
-\newlabel{sec:eval_framework}{{4.5}{18}{Evaluation Framework and Ground Truth}{section.4.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Reference Surfaces}{18}{subsection.4.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Alignment and Metrics}{18}{subsection.4.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.6}Summary}{18}{section.4.6}\protected@file@percent }
-\newlabel{sec:design_summary}{{4.6}{18}{Summary}{section.4.6}{}}
+\newlabel{ch:design}{{4}{14}{System Design}{chapter.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Requirements Definition}{14}{section.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}System Overview}{14}{section.4.2}\protected@file@percent }
+\newlabel{sec:overview}{{4.2}{14}{System Overview}{section.4.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces System overview.}}{14}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:overview}{{4.1}{14}{System overview}{figure.caption.19}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Hardware summary.}}{15}{table.caption.20}\protected@file@percent }
+\newlabel{tab:hardware}{{4.1}{15}{Hardware summary}{table.caption.20}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Hardware Rig}{15}{section.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Frame}{15}{subsection.4.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Camera, Tilt and Rotation Mechanism}{15}{subsection.4.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}AprilTag Boundary Markers}{15}{subsection.4.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Software Architecture and Processing Pipeline}{15}{section.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.1}Capture Software}{15}{subsection.4.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces System overview: cropped scans yield four coarse-pose hypotheses (rig kinematics, IMU-measured tilt, FPFH+RANSAC, AprilTags), which are scored, refined with point-to-plane ICP, and fused.}}{16}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:Multi-Angle-fusion}{{4.2}{16}{System overview: cropped scans yield four coarse-pose hypotheses (rig kinematics, IMU-measured tilt, FPFH+RANSAC, AprilTags), which are scored, refined with point-to-plane ICP, and fused}{figure.caption.21}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.2}Cropping and Multi-Angle Fusion}{16}{subsection.4.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Microtopography Processing}{16}{subsection.4.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Evaluation Framework and Ground Truth}{16}{section.4.5}\protected@file@percent }
+\newlabel{sec:eval_framework}{{4.5}{16}{Evaluation Framework and Ground Truth}{section.4.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Reference objects and evaluation}{17}{subsection.4.5.1}\protected@file@percent }
+\newlabel{subsec:Reference_Objects}{{4.5.1}{17}{Reference objects and evaluation}{subsection.4.5.1}{}}
+\newlabel{eq:precision}{{4.1}{17}{Reference objects and evaluation}{equation.4.1}{}}
+\newlabel{eq:completeness}{{4.2}{17}{Reference objects and evaluation}{equation.4.2}{}}
+\newlabel{eq:fscore}{{4.3}{17}{Reference objects and evaluation}{equation.4.3}{}}
 \@setckpt{4_ch4}{
-\setcounter{page}{19}
-\setcounter{equation}{0}
+\setcounter{page}{18}
+\setcounter{equation}{3}
 \setcounter{enumi}{4}
 \setcounter{enumii}{4}
 \setcounter{enumiii}{0}
@@ -42,8 +41,8 @@
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
 \setcounter{chapter}{4}
-\setcounter{section}{6}
-\setcounter{subsection}{0}
+\setcounter{section}{5}
+\setcounter{subsection}{1}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
@@ -71,7 +70,7 @@
 \setcounter{section@level}{0}
 \setcounter{Item}{17}
 \setcounter{Hfootnote}{0}
-\setcounter{bookmark@seq@number}{51}
+\setcounter{bookmark@seq@number}{49}
 \setcounter{vrcnt}{0}
 \setcounter{NAT@ctr}{0}
 \setcounter{FancyVerbLine}{0}

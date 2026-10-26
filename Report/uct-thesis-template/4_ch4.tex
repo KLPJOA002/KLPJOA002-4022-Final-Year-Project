@@ -8,7 +8,7 @@
 This chapter defines the general requirements of the system as a whole and describes the hardware rig used to capture scans, and the software pipeline built to capture, and process the data to provide useful metrics about the sediment surface. The theory in \autoref{ch:theory} is applied here, and the sensor characterisation in \autoref{ch:experiments} uses the system as specified below.
 
 \section{Requirements Definition}
-The aim of the overarching project is to quantify sandprawn bioturbation on intertidal sediment, within the Langebaan Lagoon, by measuring surface microtopography and extracting roughness metrics and visible biogenic features (mounds and burrow openings). The initial stages of the project were adapted from the framework of \citet{azharRGBDFrameworkCapturing2022}, primarily modified to use the Intel RealSense D456.
+The aim of the overarching project is to quantify sandprawn bioturbation on intertidal sediment, within the Langebaan Lagoon, by measuring surface microtopography and extracting roughness metrics. The initial stages of the project were adapted from the framework of \citet{azharRGBDFrameworkCapturing2022}, primarily modified to use the Intel RealSense D456.
 
 This project aims to provide an investigation into the performance of the RealSense D456 camera currently used. The central aim is to characterise the depth camera in order to determine the optimal hardware and software configuration, and then to use scans taken under those configurations to build a high-quality reconstruction of the sediment on which the analysis is performed. The key output is an analysis of depth noise and reconstruction accuracy under different conditions.
 
@@ -59,15 +59,15 @@ For the purpose of characterisation, a fourth evaluation stage is used to gauge 
 	\centering
 	\begin{tikzpicture}[node distance=7mm, every node/.style={font=\small},
 		box/.style={draw, rounded corners=2pt, minimum width=2.7cm, minimum height=1.1cm, align=center}]
-		\node[box] (cap) {Capture\\(rig + D456)};
-		\node[box, right=of cap] (fuse) {Crop \&\\fusion};
-		\node[box, right=of fuse] (proc) {Detrend,\\metrics};
+		\node[box] (cap) {\textbf{Capture}\\Recorded Raw Stream: .db3\\Selected Best Frame: .ply\\Tag Detections: .csv};
+		\node[box, right=of cap] (fuse) {\textbf{Crop \& fusion}\\Single Fused Point Cloud: .ply};
+		\node[box, right=of fuse] (proc) {\textbf{Detrend \& metrics}\\Roughness Metrics: .csv};
 		%\node[box, right=of proc] (eval) {Evaluation\\(ground truth)};
 		\draw[-{Latex}] (cap) -- (fuse);
 		\draw[-{Latex}] (fuse) -- (proc);
 		%\draw[-{Latex}] (proc) -- (eval);
 	\end{tikzpicture}
-	\caption{System overview. \todo{Replace with a fuller diagram showing the data formats (.bag, .ply) passed between stages.}}
+	\caption{System overview.}
 	\label{fig:overview}
 \end{figure}
 
@@ -113,48 +113,91 @@ Four AprilTags are mounted on brackets on the frame legs, and each bracket can s
 Capture is implemented in C++ utilising the RealSense SDK. For each rig pose, it applies a configurable chain of depth post-processing filters and records the stream to a \texttt{.db3} file, together with IMU data. It detects the four AprilTags in the colour image, and the best frame of each pose is exported as a point cloud in PLY format. Tag detection is stored along side captures for use of later processing through cropping and alignment.
 
 \subsection{Cropping and Multi-Angle Fusion}
-Each scan is first cropped to the square defined by the four tags. The cropped scans, taken at different tilt and rotation settings, are then fused (\autoref{fig:fusion}). Fusion needs a good initial pose before refinement, so the pipeline generates several \textit{coarse} alignment hypotheses by independent methods:
+Each scan is first cropped to the square defined by the four tags. The cropped scans, taken at different tilt and rotation settings, are then fused. Fusion needs a good initial pose before refinement, so the pipeline generates several coarse alignment hypotheses by independent methods:
 \begin{enumerate}[noitemsep]
-	\item from the detected tag locations;
-	\item from the known rotation and servo tilt angle set on the rig;
-	\item from the camera IMU orientation;
-	\item from RANSAC matching of FPFH features~\cite{rusu2009fpfh,fischler1981ransac}.
+	\item From the detected tag locations;
+	\item From the known rotation and servo tilt angle set on the rig;
+	\item From the camera IMU orientation;
+	\item From RANSAC matching of FPFH features.
 \end{enumerate}
-Each hypothesis is scored with a common alignment-quality measure, and the highest-scoring one is selected. It is then refined with ICP~\cite{besl1992icp} and the merged surface passes to the microtopography stage. Using four independent seeds makes the fusion robust to the failure mode of any single method (for example, feature matching on a nearly planar surface, or IMU drift).
+Each hypothesis is scored with a common alignment-quality measure, and the highest-scoring one is selected. It is then refined with ICP and the merged surface passes to the microtopography stage. Using four independent seeds makes the fusion robust to the failure mode of any single method (for example, feature matching on a nearly planar surface, or IMU drift).
+
+%\begin{figure}[!t]
+%	\centering
+%	\begin{tikzpicture}[node distance=7mm, every node/.style={font=\small},
+%		box/.style={draw, rounded corners=2pt, minimum width=2.7cm, minimum height=1.1cm, align=center}]
+%		\node[box] (crop) {Crop};
+%		
+%		\node[box, above right=of crop] (IMU) {IMU};
+%		
+%		\node[box, above=of IMU] (Feature) {Feature};
+%		
+%		\node[box, below right=of crop] (TAG) {Tags};
+%		
+%		\node[box, below=of TAG] (Known) {Known};
+%		
+%		\node[box, below right=of IMU] (Score) {Score};
+%		
+%		\node[box, right=of Score] (ICP) {Refine};
+%		
+%		\node[box, right=of ICP] (Fuse) {Fuse};
+%		%\node[box, right=of proc] (eval) {Evaluation\\(ground truth)};
+%		\draw[-{Latex}] (crop) -- (Feature);
+%		\draw[-{Latex}] (crop) -- (IMU);
+%		\draw[-{Latex}] (crop) -- (TAG);
+%		\draw[-{Latex}] (crop) -- (Known);
+%		\draw[-{Latex}] (Feature) -- (Score);
+%		\draw[-{Latex}] (IMU) -- (Score);
+%		\draw[-{Latex}] (TAG) -- (Score);
+%		\draw[-{Latex}] (Known) -- (Score);
+%		\draw[-{Latex}] (Score) -- (ICP);
+%		\draw[-{Latex}] (ICP) -- (Fuse);
+%		%\draw[-{Latex}] (proc) -- (eval);
+%	\end{tikzpicture}
+%	\caption{System overview. \todo{Replace with a fuller diagram showing the data formats (.bag, .ply) passed between stages.}}
+%	\label{fig:Multi-Angle-fusion}
+%\end{figure}
+
+% Preamble: \usetikzlibrary{positioning,fit,arrows.meta,backgrounds}
 
 \begin{figure}[!t]
 	\centering
-	\begin{tikzpicture}[node distance=7mm, every node/.style={font=\small},
-		box/.style={draw, rounded corners=2pt, minimum width=2.7cm, minimum height=1.1cm, align=center}]
-		\node[box] (crop) {Crop};
+	\begin{tikzpicture}[
+		font=\footnotesize,
+		>={Latex[length=1.6mm]},
+		node distance=4mm and 5mm,
+		box/.style={draw, rounded corners=1.5pt, minimum width=1.35cm,
+			minimum height=5.5mm, inner sep=2pt, align=center, fill=gray!8},
+		hyp/.style={box, minimum width=1.5cm, fill=blue!6},
+		group/.style={draw=gray, dashed, rounded corners=3pt, inner sep=3pt},
+		]
+		% Hypothesis column
+		\node[hyp] (seed) {Rig seed};
+		\node[hyp, below=1.5mm of seed] (imu)  {IMU tilt};
+		\node[hyp, below=1.5mm of imu]  (feat) {FPFH};
+		\node[hyp, below=1.5mm of feat] (tags) {Tags};
 		
-		\node[box, above right=of crop] (IMU) {IMU};
+		% Main chain, vertically centred on the hypothesis column
+		\coordinate (mid) at ($(imu.south)!0.5!(feat.north)$);
+		\node[box, left=of mid -| seed.west] (crop) {Crop};
+		\node[box, right=of mid -| seed.east] (score) {Score};
+		\node[box, right=of score] (icp) {Refine};
+		\node[box, right=of icp] (fuse) {Fuse};
 		
-		\node[box, above=of IMU] (Feature) {Feature};
+		\begin{scope}[on background layer]
+			\node[group, fit=(seed)(imu)(feat)(tags),
+			label={[font=\scriptsize, gray!70!black]above:Coarse alignment}] (grp) {};
+		\end{scope}
 		
-		\node[box, below right=of crop] (TAG) {Tags};
-		
-		\node[box, below=of TAG] (Known) {Known};
-		
-		\node[box, below right=of IMU] (Score) {Score};
-		
-		\node[box, right=of Score] (ICP) {Refine};
-		
-		\node[box, right=of ICP] (Fuse) {Fuse};
-		%\node[box, right=of proc] (eval) {Evaluation\\(ground truth)};
-		\draw[-{Latex}] (crop) -- (Feature);
-		\draw[-{Latex}] (crop) -- (IMU);
-		\draw[-{Latex}] (crop) -- (TAG);
-		\draw[-{Latex}] (crop) -- (Known);
-		\draw[-{Latex}] (Feature) -- (Score);
-		\draw[-{Latex}] (IMU) -- (Score);
-		\draw[-{Latex}] (TAG) -- (Score);
-		\draw[-{Latex}] (Known) -- (Score);
-		\draw[-{Latex}] (Score) -- (ICP);
-		\draw[-{Latex}] (ICP) -- (Fuse);
-		%\draw[-{Latex}] (proc) -- (eval);
+		% Edges
+		\draw[->] (crop) -- (grp.west |- crop);
+		\draw[->] (grp.east |- score) -- (score);
+		\draw[->] (score) -- (icp);
+		\draw[->] (icp) -- (fuse);
 	\end{tikzpicture}
-	\caption{System overview. \todo{Replace with a fuller diagram showing the data formats (.bag, .ply) passed between stages.}}
+	\caption{System overview: cropped scans yield four coarse-pose hypotheses
+		(rig kinematics, IMU-measured tilt, FPFH+RANSAC, AprilTags), which are
+		scored, refined with point-to-plane ICP, and fused.}
 	\label{fig:Multi-Angle-fusion}
 \end{figure}
 
@@ -167,21 +210,37 @@ The fused surface is detrended with a robust polynomial fit, which removes the l
 
 For characterisation and validation, a separate Python tool, \texttt{evaluate\_scans}, measures the geometric error of any scan, whether a single capture or the fused output, against a known reference. It reuses the structure of the fusion pipeline's alignment stage, but aligns each scan to the reference. The tool then evaluates scan accuracy and coverage against the reference object.
 
-\subsection{Reference Surfaces}
-%A reference is either a triangle mesh or an exact analytic surface (height field $z=f(x,y)$, parametric, or implicit), defined in a text file with explicit units. Analytic references are parsed safely into symbolic expressions, which are differentiated exactly, so point-to-surface distances are computed against the true mathematical surface, not a tessellation. The validation targets are the small egg-carton surface, the large egg-carton surface and the large pyramid. \todo{State the equations and dimensions of each target (e.g.\ $z = c - A\sin(2\pi x/L)\cos(2\pi y/L)$ for the egg carton), the material, and how they were manufactured.} The same definitions can be exported as meshes for fabrication, so the printed target and the scoring reference are the same surface.
+%\subsection{Reference Surfaces}
+%%A reference is either a triangle mesh or an exact analytic surface (height field $z=f(x,y)$, parametric, or implicit), defined in a text file with explicit units. Analytic references are parsed safely into symbolic expressions, which are differentiated exactly, so point-to-surface distances are computed against the true mathematical surface, not a tessellation. The validation targets are the small egg-carton surface, the large egg-carton surface and the large pyramid. \todo{State the equations and dimensions of each target (e.g.\ $z = c - A\sin(2\pi x/L)\cos(2\pi y/L)$ for the egg carton), the material, and how they were manufactured.} The same definitions can be exported as meshes for fabrication, so the printed target and the scoring reference are the same surface.
+%
+%The reference objects used for validation include a 3D printed egg carton surface $z = sin(x) + sin(y)$, at large and small scale, and a square based pyramid. These reference objects provide a balance of condition matching of the actual sediment surface, using the soft sinusoidal surface, and general performance to less natural sharp shapes. For the purpose of validation, the 3D model files (.stl) are used for evaluation as the 3D mesh surface allows for point to surface distance calculation across the entire 3D object.
+%
+%\subsection{Alignment and Metrics}
+%Alignment uses several seeded feature-matching starts, systematic perturbations of the best pose (quarter turns, a flip, and slides of a quarter and half of the part), and point-to-plane ICP, followed by a final refinement against the exact surface. Candidate poses are ranked by a truncated least-squares cost computed in both directions (scan to reference and reference to scan), which prevents a pose that matches fewer points from winning by default. This matters on periodic targets such as the egg carton, where several look-alike poses exist. The tool flags a result as ambiguous when the two best poses are too close to call, and reports degrees of freedom the surface cannot constrain.
+%
+%For each aligned scan the tool reports accuracy (RMSE, MAE, bias, standard deviation, trimmed statistics, percentiles), the vertical error for height-field references, and coverage of the reference. It also reports completeness, precision and F-score at several distance thresholds, Chamfer and Hausdorff distances, outlier fraction and point density. Every run appends a row to a shared table with the exact parameters, reference hash and random seed, so experiments are reproducible and comparable across configurations.
 
-The reference objects used for validation include a 3D printed egg carton surface $z = sin(x) + sin(y)$, at large and small scale, and a square based pyramid. These reference objects provide a balance of condition matching of the actual sediment surface, using the soft sinusoidal surface, and general performance to less natural sharp shapes. For the purpose of validation, the 3D model files (.stl) are used for evaluation as the 3D mesh surface allows for point to surface distance calculation across the entire 3D object.
+\subsection{Reference objects and evaluation}
+\label{subsec:Reference_Objects}
 
-\subsection{Alignment and Metrics}
-Alignment uses several seeded feature-matching starts, systematic perturbations of the best pose (quarter turns, a flip, and slides of a quarter and half of the part), and point-to-plane ICP, followed by a final refinement against the exact surface. Candidate poses are ranked by a truncated least-squares cost computed in both directions (scan to reference and reference to scan), which prevents a pose that matches fewer points from winning by default. This matters on periodic targets such as the egg carton, where several look-alike poses exist. The tool flags a result as ambiguous when the two best poses are too close to call, and reports degrees of freedom the surface cannot constrain.
+Three 3D-printed reference objects were used (\autoref{Apendix:Reference_Objects}). Each has a 100\,$\times$\,100\,mm footprint. Two are sinusoidal ``egg box'' surfaces of the form $z = \sin(x) + \sin(y)$ at a large scale (feature spacing 50\,mm, amplitude 20\,mm) and a small scale (25\,mm, amplitude 15\,mm), and the third is a square-based pyramid of 50\,mm height. The smooth sinusoidal surfaces are somewhat analogous to the smooth mounds produced by sand prawns, although the amplitudes of these objects far exceed those found in literature. These are predominately used as previous work on this system used them, and so reference with respect to those reconstructions is desired. The pyramid has sharp edges and planar facets, which show whether the filters preserve geometric edges or smooth them.
 
-For each aligned scan the tool reports accuracy (RMSE, MAE, bias, standard deviation, trimmed statistics, percentiles), the vertical error for height-field references, and coverage of the reference. It also reports completeness, precision and F-score at several distance thresholds, Chamfer and Hausdorff distances, outlier fraction and point density. Every run appends a row to a shared table with the exact parameters, reference hash and random seed, so experiments are reproducible and comparable across configurations.
+Scans were evaluated with the evaluate\_scans tool described in \autoref{sec:eval_framework}. The tool rigidly aligns each scan to the reference .stl model, using feature-matching starts followed by point-to-plane ICP, and then computes point-to-surface distances. Scale is not estimated, so any scale error in the camera data appears as geometric error. The metrics used are Accuracy RMSE, signed bias, completeness at 2mm and computed F-score at 2mm. F-score is a combined metric which aims to represent both precision and completeness in a single metric.
+
+\begin{align}
+	P(\tau) &= \frac{1}{|S|} \sum_{s \in S}
+	\mathbb{1}\!\left[\, \min_{r \in R} \lVert s - r \rVert < \tau \,\right] \label{eq:precision} \\
+	C(\tau) &= \frac{1}{|R|} \sum_{r \in R}
+	\mathbb{1}\!\left[\, \min_{s \in S} \lVert r - s \rVert < \tau \,\right] \label{eq:completeness} \\
+	F(\tau) &= \frac{2\, P(\tau)\, C(\tau)}{P(\tau) + C(\tau)} \label{eq:fscore}
+\end{align}
+Let $S$ denote the set of scanned points and $R$ the set of points sampled from the reference model. For a distance threshold $\tau$, precision \autoref{eq:precision}) is the fraction of scanned points lying within $\tau$ of the reference surface, and completeness (\autoref{eq:completeness}) is the fraction of reference points lying within $\tau$ of the scan. The F-score (\autoref{eq:fscore}) is their harmonic mean, and therefore penalises both spurious points and missing coverage. It is calculated at $\tau = 0.5$, $1$, $2$ and $5$~mm, however for the purposes of this report, all results consider the threshold of $\tau = 2$~mm as this gives a balance of high accuracy representation, whilst still including relatively large bias/point spread.
 
 %=====================================================================
-\section{Summary}
-\label{sec:design_summary}
+%\section{Summary}
+%\label{sec:design_summary}
 
-The rig provides repeatable, multi-angle capture of a user-defined surface region. The software fuses those scans, extracts microtopography, and is checked against analytic ground truth. \autoref{ch:experiments} uses this system to characterise the D456's depth noise.
+%The rig provides repeatable, multi-angle capture of a user-defined surface region. The software fuses those scans, extracts microtopography, and is checked against analytic ground truth. \autoref{ch:experiments} uses this system to characterise the D456's depth noise.
 %*********************************************************************
 % End of Design
 %*********************************************************************

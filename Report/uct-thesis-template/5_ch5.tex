@@ -44,9 +44,10 @@
 
 %\section{Considerations???}
 
-The aim of the overarching project is to produce high-accuracy reconstructions of intertidal sediment from which surface roughness metrics can be extracted. The accuracy of those metrics is limited by the depth data they are computed from, so the Intel RealSense D456 was characterised before the capture and processing pipeline was finalised. The characterisation answers four practical questions about how the camera and rig should be operated in situ: at what working distance, at what viewing angle, under what ambient lighting, and with which depth-stream and filter settings the camera produces the most accurate surface.
+The accuracy of extracted depth metrics is limited by the depth data they are computed from, so the Intel RealSense D456 was characterised before the capture and processing pipeline was finalised. The characterisation answers four practical questions about how the camera and rig should be operated in situ.
+%: at what working distance, at what viewing angle, under what ambient lighting, and with which depth-stream and filter settings the camera produces the most accurate surface.
 
-The characterisation was performed in two stages. In the first stage the camera was tested against flat planar targets. A plane has an exact, easily measured ground truth, which allows the effect of working distance, tilt angle and ambient light to be isolated from the effect of surface shape. These tests give a baseline for sensor noise and provide the operating envelope used in the second stage. In the second stage the camera was tested against 3D-printed reference objects with known geometry (see \hyperref[Apendix:Reference_Objects]{Appendix \ref*{Apendix:Reference_Objects}}.) These tests identify the camera configuration, post-processing filter settings and combination of viewing directions that give the best reconstruction, using surface relief that is representative of the sediment of interest. Each characterisation below is presented with its method, results and a short discussion.
+The characterisation was performed in two stages. In the first stage the camera was tested against flat planar targets. A plane has an exact, easily measured ground truth, which allows the effect of working distance, tilt angle and ambient light to be isolated from the effect of surface shape. These tests give a baseline for sensor noise and provide the operating envelope used in the second stage. In the second stage the camera was tested against 3D-printed reference objects with known geometry (\autoref{subsec:Reference_Objects} \hyperref[Apendix:Reference_Objects]) These tests identify the camera configuration, post-processing filter settings and combination of viewing directions that give the best reconstruction, using surface relief that is representative of the sediment of interest. Each characterisation below is presented with its method, results and a short discussion.
 
 %=====================================================================
 \section{Plane Surface Characterisation}
@@ -55,7 +56,7 @@ The characterisation was performed in two stages. In the first stage the camera 
 %=====================================================================
 \subsection{Capture procedure and metrics}
 
-All planar characterisation used custom C++ software built on the Intel RealSense SDK, following the plane-fit metrics of Intel's Depth Quality Tool. Details of each trial, such as distance, tilt angle and a lux reading, are entered into the tool and the scan is started. A region of interest (ROI) is then applied whose pixel size is adjusted with distance so that it always covers a fixed 50\,$\times$\,50\,cm area of the target. A plane is fitted to the ROI points of every frame and compared with the ground-truth plane. Several metrics are reported by the tool, however there are four main metrics that will be discussed here to represent the general performance, each averaged over the valid frames of a trial.
+All planar characterisation used custom C++ software built on the Intel RealSense SDK, following the plane-fit metrics of Intel's Depth Quality Tool. Details of each trial, such as distance, tilt angle and a lux reading, are entered into the tool and the scan is started. A region of interest (ROI) is then applied whose pixel size is adjusted dynamically with distance so that it always covers a fixed 50\,$\times$\,50\,cm area of the target. A plane is fitted to the ROI points of every frame and compared with the ground-truth plane. Several metrics are reported by the tool, however there are four main metrics that will be discussed here to represent the general performance, each averaged over the valid frames of a trial.
 
 \begin{itemize}
 	\item \textbf{Median depth error} (mm): the median signed difference between the measured and ground-truth depth, which measures systematic bias.
@@ -68,7 +69,8 @@ All planar characterisation used custom C++ software built on the Intel RealSens
 	%\item \textbf{Plane-fit angle} (\degree): the tilt of the fitted plane, used to confirm the actual camera orientation.
 \end{itemize}
 
-The distinction between precision and bias matters for this project. A smooth, systematic bias is removed when the fused surface is detrended to extract microtopography, whereas random noise adds directly to the measured roughness. Plane-fit RMS and fill rate are therefore treated as the primary metric, with depth error and depth RMSE treated as secondary indicators. Each condition was recorded as a single trial. The frames within a trial capture temporal variation but not the repeatability of re-setting the experiment, which is discussed in \autoref{sec5.3:chapsummary}.
+The distinction between precision and bias matters for this project. A smooth, systematic bias is removed when the fused surface is detrended to extract microtopography, whereas random noise adds directly to the measured roughness. Plane-fit RMS and fill rate are therefore treated as the primary metric, with depth error and depth RMSE treated as secondary indicators. Each condition was recorded as a single trial. The frames within a trial capture temporal variation but not the repeatability of re-setting the experiment.
+%, which is discussed in \autoref{sec5.3:chapsummary}.
 
 %---------------------------------------------------------------------
 \subsection{Planar Characterisation Methodology}
@@ -76,7 +78,7 @@ The distinction between precision and bias matters for this project. A smooth, s
 \subsubsection{Working distance}
 %\label{sec5.2:distance}
 
-The camera was mounted on a tripod and pointed at a white, featureless wall, as recommended by Intel for depth-quality testing. This forces the camera to depend on its own projected infrared pattern. The tripod was used instead of the experimental rig because the rig's mounting brackets could not hold the camera sufficiently parallel to the floor: the camera angle varied with every scan and consistently exceeded 1.5\degree, which would have contaminated a distance sweep. The camera was positioned at eight distances between 604\,mm and 903\,mm, and the angle between the camera and the wall was minimised by hand at each position. The fitted-plane angle confirmed that the residual pitch and roll stayed below 0.5\degree in all trials. The ground-truth distance was measured between the wall and the cameras glass front using a tape measure.
+The camera was mounted on a tripod and pointed at a white, featureless wall, as recommended by Intel for depth-quality testing. This forces the camera to depend on its own projected infrared pattern. The tripod was used instead of the experimental rig because the rig's mounting brackets could not hold the camera sufficiently parallel to the floor. The camera angle varied with every scan and consistently exceeded 1.5\degree, which would have contaminated a distance sweep. The camera was positioned at eight distances between 604\,mm and 903\,mm, and the angle between the camera and the wall was minimised by hand at each position. The fitted-plane angle confirmed that the residual pitch and roll stayed below 0.5\degree in all trials. The ground-truth distance was measured between the wall and the cameras glass front using a tape measure.
 
 %\todo{Maybe talk more about methodology?}
 
@@ -92,19 +94,25 @@ The camera was mounted on the experimental rig so that its angle could be set wi
 \subsubsection{Ambient lighting}
 %\label{sec:lighting}
 
-The same foam board was scanned at a camera height of approximately 900\,mm under a range of lighting conditions, with the camera exposure left on automatic. Indoor conditions ranged from a dark room in the evening (blinds closed, lights off) to an afternoon room with the blinds open and the lights on. Outdoor trials were performed around midday in shade, in shade within direct sunlight, and in direct sunlight.
+The same foam board was scanned at a camera height of 902\,mm under a range of lighting conditions, with the camera exposure left on automatic. Indoor conditions ranged from a dark room in the evening (blinds closed, lights off) to an afternoon room with the blinds open and the lights on. Outdoor trials were performed around midday, in direct sun, shaded sun and completely shaded.
 The outdoor trials were taken twice per condition, one with the foam board, and one without the foam board. This was done as the effects of the high ambient light resulted in exposure settings that were unable to detect the cameras built in projected pattern, and thus the featureless white surface lost detection. The brick flooring was able to be detected in this condition, thus the results for the outdoor trials provide relational performance compare to the rest of the trials.
 %To separate the effect of illumination from the effect of the white target, the outdoor trials were repeated on the ground surface without the board\todo{state what this surface was. 
-Illuminance was read with a smartphone running the Physics Toolbox Suite application, which uses the front camera as a lux meter. Such readings are uncalibrated and are used here to indicate the order of magnitude and ranking of conditions, not precise values. The lux was recorded as 0 in the darkest condition and 24\,400 in full sun.
+Illuminance was read with a smartphone running the Physics Toolbox Suite application \cite{PhysicsToolboxSensor}, which uses the front camera as a lux meter. Such readings are uncalibrated and are used here to indicate the order of magnitude and ranking of conditions, not precise values. The lux was recorded as 0 in the darkest condition and 24\,400 in full sun.
 
 %\todo{Maybe talk more about methodology?}
 
 %=====================================================================
 \subsection{Planar testing Results}
 
-\subsubsection{Working Distance}
+%\subsubsection{Working Distance}
 
-Results for planar distance characterisation are shown in \autoref{tab:Scatter_Metric_Vs_Height}. These are then plotted in \autoref{fig:Scatter-Metric-Vs-Height}.
+%Results for planar distance characterisation are shown in \autoref{tab:Scatter_Metric_Vs_Height}. These are then plotted in \autoref{fig:Scatter-Metric-Vs-Height}.
+
+%Results for planar angle characterisation are shown in \autoref{tab:Scatter_Metric_Vs_Angle}. These are then plotted in \autoref{fig:Scatter-Metric-Vs-Angle}.
+
+%Results for planar angle characterisation are shown in \autoref{tab:Scatter_Metric_Vs_Light}. These are then plotted in \autoref{fig:Scatter-Metric-Vs-Light}. 
+
+Results for planar height, angle and lighting characterisation can be found in \autoref{fig:Scatter-Metric-Vs-Height}, \autoref{fig:Scatter-Metric-Vs-Angle} and \autoref{fig:Scatter-Metric-Vs-Light} respectfully. For light characterisation environmental conditions with corresponding illumination values are shown in \autoref{tab:Lighting_Descriptors}
 %Table~\ref{tab:distance} gives the results. Plane-fit RMS increased from 1.22\,mm at 604\,mm to 4.58\,mm at 903\,mm, a 3.7-fold increase for a 1.5-fold increase in distance. Relative to distance it rose from 0.20\% to 0.50\%. The fill rate fell from 99.6\% to 96.5\%. The median depth error was positive in every trial, between 4.7\,mm and 8.0\,mm, which corresponds to 0.74\% to 0.97\% of the distance with no clear trend.
 
 
@@ -135,17 +143,17 @@ Results for planar distance characterisation are shown in \autoref{tab:Scatter_M
 		\caption{Valid pixels}
 		\label{fig:Scatter-Metric-Vs-Height-4}
 	\end{subfigure}
-	\caption{Plots Showing Planar Performance Against Height. Per-trial Median with IQR Over n = 385--552 Frames.}
+	\caption{Plots Showing Planar Performance Against Height. Per-trial Median with IQR Over n = 385--552 Frames. Plot Data in \autoref{tab:Scatter_Metric_Vs_Height}}
 	\label{fig:Scatter-Metric-Vs-Height}
 \end{figure}
 
 
 %---------------------------------------------------------------------
 
-\subsubsection{Camera Tilt}
+%\subsubsection{Camera Tilt}
 %\todo{Figure: plane-fit RMS versus tilt angle for pitch and roll, with the range-predicted curve overlaid} Plane-fit RMS was lowest near 0\degree\ (about 1.6\,mm) and rose to 2.30\,mm at $-27$\degree\ pitch and 2.12\,mm at $+25$\degree\ roll. The fill rate stayed between 98.4\% and 99.5\%. The median depth error varied between 5\,mm and 11\,mm without a clear dependence on angle. Trials at almost the same angle differed by up to 6\,mm (5.0\,mm at $-26.8$\degree\ against 10.7\,mm at $-27.3$\degree\ pitch).
 
-Results for planar angle characterisation are shown in \autoref{tab:Scatter_Metric_Vs_Angle}. These are then plotted in \autoref{fig:Scatter-Metric-Vs-Angle}.
+
 
 \begin{figure}[htbp]
 	\centering
@@ -176,16 +184,16 @@ Results for planar angle characterisation are shown in \autoref{tab:Scatter_Metr
 	\end{subfigure}
 	\par\medskip
 	\includegraphics{figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_legend}
-	\caption{Plots Showing Planar Performance Against Scan Angle. Per-trial Median with IQR Over n = 527--574 Frames.}
+	\caption{Plots Showing Planar Performance Against Scan Angle. Per-trial Median with IQR Over n = 527--574 Frames. Plot Data in \autoref{tab:Scatter_Metric_Vs_Angle}}
 	\label{fig:Scatter-Metric-Vs-Angle}
 \end{figure}
 %---------------------------------------------------------------------
 
-\subsubsection{Ambient Lighting}
+%\subsubsection{Ambient Lighting}
 
 %The results are listed in \autoref{tab:Scatter_Metric_Vs_Light}.
 
-Results for planar angle characterisation are shown in \autoref{tab:Scatter_Metric_Vs_Light}. These are then plotted in \autoref{fig:Scatter-Metric-Vs-Light}. Lighting conditions with corresponding illumination values are shown in \autoref{tab:Lighting_Descriptors}
+
 %Indoors, plane-fit RMS increased with illumination from 1.80\,mm in darkness to 4.44\,mm at 151\,lux, and the fill rate fell from 99.9\% to 96.3\%. Adding artificial light increased the noise within both the evening session (1.80 to 2.84\,mm) and the afternoon session (2.73 to 3.44\,mm). Outdoors, the foam board in shade (388\,lux) returned only 86.5\% valid pixels and a plane-fit RMS of 6.00\,mm. In direct sunlight (2\,650 and 24\,400\,lux) no valid plane could be recovered, with fill rates of 3.7\% and 5.4\%. The ground surface without the board returned a 100\% fill rate in all three outdoor conditions, including direct sun at around 10\,000\,lux, with a plane-fit RMS of 1.1 to 1.2\,mm.
 
 \begin{table}[ht]
@@ -240,7 +248,7 @@ Results for planar angle characterisation are shown in \autoref{tab:Scatter_Metr
 		\caption{Valid pixels}
 		\label{fig:Scatter-Metric-Vs-Light-4}
 	\end{subfigure}
-	\caption{Plots Showing Planar Performance Against Light Intensity, for Indoor Conditions with Foam Board. Per-trial Median with IQR Over n = 592--599 Frames.}
+	\caption{Plots Showing Planar Performance Against Light Intensity, for Indoor Conditions with Foam Board. Per-trial Median with IQR Over n = 592--599 Frames. Plot Data in \autoref{tab:Scatter_Metric_Vs_Light}}
 	\label{fig:Scatter-Metric-Vs-Light}
 \end{figure}
 
@@ -285,20 +293,20 @@ The planar tests establish the sensor's noise behaviour but not how accurately i
 
 
 
-\subsection{Reference objects and evaluation}
-
-Three 3D-printed reference objects were used (\autoref{Apendix:Reference_Objects}). Each has a 100\,$\times$\,100\,mm footprint. Two are sinusoidal ``egg carton'' surfaces of the form $z = \sin(x) + \sin(y)$ at a large scale (feature spacing 50\,mm, amplitude 20\,mm) and a small scale (25\,mm, amplitude 15\,mm), and the third is a square-based pyramid of 50\,mm height. The smooth sinusoidal surfaces are analogous to the smooth mounds produced by sand prawns, whose heights of 3 to 5\,cm were reported in the literature review, and the small carton tests the lateral resolution of the camera. The pyramid has sharp edges and planar facets, which show whether the filters preserve geometric edges or smooth them.
-
-Scans were evaluated with the \texttt{evaluate\_scans} tool described in \autoref{sec:eval_framework}. The tool rigidly aligns each scan to the reference .stl model, using feature-matching starts followed by point-to-plane ICP, and then computes point-to-surface distances. Scale is not estimated, so any scale error in the camera data appears as geometric error. The metrics used are Accuracy RMSE, signed bias, completeness at 2mm and computed F-score at 2mm. F-score is a combined metric which aims to represent both precision and completeness.
-
-\begin{align}
-	P(\tau) &= \frac{1}{|S|} \sum_{s \in S}
-	\mathbb{1}\!\left[\, \min_{r \in R} \lVert s - r \rVert < \tau \,\right] \label{eq:precision} \\
-	C(\tau) &= \frac{1}{|R|} \sum_{r \in R}
-	\mathbb{1}\!\left[\, \min_{s \in S} \lVert r - s \rVert < \tau \,\right] \label{eq:completeness} \\
-	F(\tau) &= \frac{2\, P(\tau)\, C(\tau)}{P(\tau) + C(\tau)} \label{eq:fscore}
-\end{align}
-Let $S$ denote the set of scanned points and $R$ the set of points sampled from the reference model. For a distance threshold $\tau$, precision \autoref{eq:precision}) is the fraction of scanned points lying within $\tau$ of the reference surface, and completeness (\autoref{eq:completeness}) is the fraction of reference points lying within $\tau$ of the scan. The F-score (\autoref{eq:fscore}) is their harmonic mean, and therefore penalises both spurious points and missing coverage. It is calculated at $\tau = 0.5$, $1$, $2$ and $5$~mm, however for the purposes of this report, all results consider the threshold of $\tau = 2$~mm as this gives a balance of high accuracy representation, whilst still including relatively large bias/point spread.
+%\subsection{Reference objects and evaluation}
+%
+%Three 3D-printed reference objects were used (\autoref{Apendix:Reference_Objects}). Each has a 100\,$\times$\,100\,mm footprint. Two are sinusoidal ``egg carton'' surfaces of the form $z = \sin(x) + \sin(y)$ at a large scale (feature spacing 50\,mm, amplitude 20\,mm) and a small scale (25\,mm, amplitude 15\,mm), and the third is a square-based pyramid of 50\,mm height. The smooth sinusoidal surfaces are analogous to the smooth mounds produced by sand prawns, whose heights of 3 to 5\,cm were reported in the literature review, and the small carton tests the lateral resolution of the camera. The pyramid has sharp edges and planar facets, which show whether the filters preserve geometric edges or smooth them.
+%
+%Scans were evaluated with the \texttt{evaluate\_scans} tool described in \autoref{sec:eval_framework}. The tool rigidly aligns each scan to the reference .stl model, using feature-matching starts followed by point-to-plane ICP, and then computes point-to-surface distances. Scale is not estimated, so any scale error in the camera data appears as geometric error. The metrics used are Accuracy RMSE, signed bias, completeness at 2mm and computed F-score at 2mm. F-score is a combined metric which aims to represent both precision and completeness.
+%
+%\begin{align}
+%	P(\tau) &= \frac{1}{|S|} \sum_{s \in S}
+%	\mathbb{1}\!\left[\, \min_{r \in R} \lVert s - r \rVert < \tau \,\right] \label{eq:precision} \\
+%	C(\tau) &= \frac{1}{|R|} \sum_{r \in R}
+%	\mathbb{1}\!\left[\, \min_{s \in S} \lVert r - s \rVert < \tau \,\right] \label{eq:completeness} \\
+%	F(\tau) &= \frac{2\, P(\tau)\, C(\tau)}{P(\tau) + C(\tau)} \label{eq:fscore}
+%\end{align}
+%Let $S$ denote the set of scanned points and $R$ the set of points sampled from the reference model. For a distance threshold $\tau$, precision \autoref{eq:precision}) is the fraction of scanned points lying within $\tau$ of the reference surface, and completeness (\autoref{eq:completeness}) is the fraction of reference points lying within $\tau$ of the scan. The F-score (\autoref{eq:fscore}) is their harmonic mean, and therefore penalises both spurious points and missing coverage. It is calculated at $\tau = 0.5$, $1$, $2$ and $5$~mm, however for the purposes of this report, all results consider the threshold of $\tau = 2$~mm as this gives a balance of high accuracy representation, whilst still including relatively large bias/point spread.
 
 \subsection{Testing Procedure}
 
