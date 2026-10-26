@@ -5,35 +5,36 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Non-contact methods for measuring sediment surfaces.}}{6}{table.caption.11}%
-\contentsline {table}{\numberline {2.2}{\ignorespaces Published depth-camera characterisations relevant to this project. SL: structured light; AS: active stereo; PS: passive stereo; ToF: time of flight.}}{7}{table.caption.13}%
-\contentsline {table}{\numberline {2.3}{\ignorespaces Research gaps and the objectives that address them.}}{8}{table.caption.16}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Non-contact Methods for Measuring Sediment Surfaces.}}{6}{table.caption.11}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Published Depth-camera Characterisations Relevant to this Project. SL: Structured Light; AS: Active Stereo; PS: Passive Stereo; ToF: Time of Flight.}}{7}{table.caption.13}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Research Gaps and the Objectives that Address them.}}{8}{table.caption.16}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Hardware summary.}}{15}{table.caption.20}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Hardware Summary.}}{15}{table.caption.20}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Planar characterisation under different lighting conditions at a height of 902\,mm. Lux values are indicative (smartphone sensor).}}{32}{table.caption.34}%
+\contentsline {table}{\numberline {6.1}{\ignorespaces Planar Characterisation Under Different Lighting Conditions at a Height of 902\,mm. Lux Values are Indicative (Smartphone Sensor).}}{32}{table.caption.34}%
 \contentsline {table}{\numberline {6.2}{\ignorespaces Filter parameter ranges tested (one factor at a time).}}{34}{table.caption.41}%
-\contentsline {table}{\numberline {6.3}{\ignorespaces Post-processing filter settings of the best-performing configuration for all objects combined and for each object.}}{35}{table.caption.46}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Post-processing Filter Settings of the Best-performing Configuration for All objects Combined and for Each Object.}}{35}{table.caption.46}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {7.1}{\ignorespaces Each value is over n = 1 rows.}}{42}{table.caption.56}%
-\contentsline {table}{\numberline {7.2}{\ignorespaces Each value is over n = 1 rows. Fixed: Grid nx = 45.}}{42}{table.caption.57}%
-\contentsline {table}{\numberline {7.3}{\ignorespaces Each value is over n = 4 rows. Averaged over: Detrend (4), Primary (2), Flags (3), Str bounded (2), Detrend n coef (4), Detrend order (4) and 1 more.}}{44}{table.caption.60}%
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {table}{\numberline {7.1}{\ignorespaces Fused and Single Scan Rugosity Measurements for Big Egg Box Surface.}}{42}{table.caption.56}%
+\contentsline {table}{\numberline {7.2}{\ignorespaces Fused and Single Scan Rugosity Measurements for Small Egg Box Surface.}}{42}{table.caption.57}%
+\contentsline {table}{\numberline {7.3}{\ignorespaces Fused and Single Scan Rugosity Measurements for Sand Sediment.}}{44}{table.caption.60}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {D.1}{\ignorespaces Results for Planar Characterisation Against Distance. Per-Trial Values Over n = 385-552 Frames.}}{55}{table.caption.67}%
-\contentsline {table}{\numberline {D.2}{\ignorespaces Results for Planar Characterisation Against Scan Angle. Per-trial values over n=527-574 frames.}}{56}{table.caption.68}%
-\contentsline {table}{\numberline {D.3}{\ignorespaces Results for Planar Characterisation Against Light Intensity. Per-trial values over n = 592-599 Frames.}}{56}{table.caption.69}%
-\contentsline {table}{\numberline {D.4}{\ignorespaces Each value is over n = 15 scans. Fixed: Laser power = 150; Emitter = Laser; Fps = 30; Status = ok. Median taken over: Depth unit (3), Preset (5), Preset actual (5).}}{57}{table.caption.70}%
-\contentsline {table}{\numberline {D.5}{\ignorespaces Each value is over n = 15 scans. Fixed: Laser power = 150; Emitter = Laser; Fps = 30; Status = ok. Median taken over: Resolution (3), Preset (5), Preset actual (5).}}{57}{table.caption.71}%
-\contentsline {table}{\numberline {D.6}{\ignorespaces Each value is over n = 8--10 scans. Fixed: Laser power = 150; Emitter = Laser; Fps = 30; Status = ok. Median taken over: Resolution (3), Depth unit (3), Preset (5).}}{57}{table.caption.72}%
-\contentsline {table}{\numberline {D.7}{\ignorespaces Each value is over n = 4--5 scans. Fixed: Tilt = 0; Spatial filter on = Off; HDR merge on = Off; Status = ok. Median taken over: Rotation (4).}}{58}{table.caption.73}%
-\contentsline {table}{\numberline {D.8}{\ignorespaces Each value is over n = 1 point clouds. Fixed: Status = ok.}}{59}{table.caption.74}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {D.1}{\ignorespaces Planar Reconstruction Quality Against Height. Per-Trial Median with IQR Over n = 385--552 Frames. Plotted in \autoref {fig:Scatter-Metric-Vs-Height}.}}{55}{table.caption.67}%
+\contentsline {table}{\numberline {D.2}{\ignorespaces Planar Reconstruction Quality Against Scan Angle. Per-Trial Median with IQR Over n = 527--574 Frames. Plotted in \autoref {fig:Scatter-Metric-Vs-Angle}.}}{56}{table.caption.68}%
+\contentsline {table}{\numberline {D.3}{\ignorespaces Planar Reconstruction Quality Against Light Intensity, for Indoor Conditions With Foam Board. Per-Trial Median with IQR Over n = 592--599 Frames. Plotted in \autoref {fig:Scatter-Metric-Vs-Light}.}}{56}{table.caption.69}%
+\contentsline {table}{\numberline {D.4}{\ignorespaces 3D Reconstruction Quality Against Camera Resolution. Median with IQR of n = 15 Scans Per Value, Taken Over Three Depth Units and Five Presets. Plotted in \autoref {fig:Scatter-Metric-Vs-Res}.}}{57}{table.caption.70}%
+\contentsline {table}{\numberline {D.5}{\ignorespaces 3D Reconstruction Quality Against Depth Units. Median with IQR of n = 15 Scans Per Value, Taken Over Three Resolutions and Five Presets. Plotted in \autoref {fig:Scatter-Metric-Vs-Depth-Units}.}}{57}{table.caption.71}%
+\contentsline {table}{\numberline {D.6}{\ignorespaces 3D Reconstruction Quality Against Camera Preset. Median with IQR of n = 8--10 Scans Per Value, Taken Over Three Resolutions and Three Depth Units. Plotted in \autoref {fig:Scatter-Metric-Vs-Preset}.}}{57}{table.caption.72}%
+\contentsline {table}{\numberline {D.7}{\ignorespaces 3D Reconstruction Quality With No Filter, the Best Overall Filter and the Best Filter for Each Object and Height. Median with IQR of n = 4--5 Scans Per Value, Taken Over Four Rotations at Zero Tilt. Plotted in \autoref {fig:Filter-Comparison}.}}{58}{table.caption.73}%
+\contentsline {table}{\numberline {D.8}{\ignorespaces 3D Reconstruction Quality of a Single Untilted Scan and the Fusion of All 44 Views, for Each Object and Height. One Point Cloud Per Value. Plotted in \autoref {fig:Combination-Comparison}.}}{59}{table.caption.74}%
+\addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

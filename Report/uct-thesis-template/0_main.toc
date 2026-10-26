@@ -2,11 +2,11 @@
 \contentsline {chapter}{Declaration}{i}{chapter*.2}%
 \contentsline {chapter}{Abstract}{ii}{chapter*.3}%
 \contentsline {chapter}{Acknowledgements}{iii}{chapter*.4}%
-\contentsline {chapter}{List of Figures}{viii}{chapter*.4}%
-\contentsline {chapter}{List of Tables}{ix}{chapter*.4}%
-\contentsline {chapter}{List of Symbols}{x}{chapter*.5}%
-\contentsline {chapter}{List of Symbols}{x}{chapter*.5}%
-\contentsline {chapter}{List of Acronyms and Glossary}{xiii}{table.0.1}%
+\contentsline {chapter}{List of Figures}{x}{chapter*.4}%
+\contentsline {chapter}{List of Tables}{xi}{chapter*.4}%
+\contentsline {chapter}{List of Symbols}{xii}{chapter*.5}%
+\contentsline {chapter}{List of Symbols}{xii}{chapter*.5}%
+\contentsline {chapter}{List of Acronyms and Glossary}{xv}{table.0.1}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Background}{1}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Sand prawns and bioturbation}{1}{subsection.1.1.1}%
@@ -140,8 +140,11 @@
 \contentsline {chapter}{\numberline {F}Validation Results}{68}{chapter.F}%
 \contentsline {section}{\numberline {F.1}Reference Shapes Rugosity}{68}{section.F.1}%
 \contentsline {section}{\numberline {F.2}Sand Reference Images}{70}{section.F.2}%
-\contentsline {chapter}{Appendix B: Ethics approval}{72}{appendix*.94}%
-\contentsline {chapter}{Appendix C: Topic description}{74}{appendix*.95}%
-\contentsline {chapter}{Appendix D: ECSA Graduate Attributes}{79}{appendix*.96}%
-\contentsline {section}{Project mapping to ECSA Graduate Attributes}{79}{section*.97}%
-\contentsline {chapter}{Bibliography}{86}{appendix*.98}%
+\contentsline {chapter}{\numberline {G}AI Usage Examples}{72}{chapter.G}%
+\contentsline {section}{\numberline {G.1}Appendix Image Captions}{72}{section.G.1}%
+\contentsline {section}{\numberline {G.2}Chapter Re-write}{72}{section.G.2}%
+\contentsline {chapter}{Appendix B: Ethics approval}{74}{appendix*.94}%
+\contentsline {chapter}{Appendix C: Topic description}{76}{appendix*.95}%
+\contentsline {chapter}{Appendix D: ECSA Graduate Attributes}{81}{appendix*.96}%
+\contentsline {section}{Project mapping to ECSA Graduate Attributes}{81}{section*.97}%
+\contentsline {chapter}{Bibliography}{88}{appendix*.98}%
