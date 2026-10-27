@@ -24,78 +24,99 @@ The table below provides a structured reflection on where each of the required \
 		
 		%---------------------------------------------------------------------
 		GA1 & \textit{Problem solving} &
-		The problem I inherited was under-specified. An existing D456 rig had never been characterised for sediment, and its repeated multi-view scans were analysed individually (Section~1.2). I broke this down into four objectives, each tied to a gap identified in the literature (Section~1.3, Table~2.3).
+		%The system that I had inherited, whilst functional, was not fully characterised or optimised for capturing roughness metrics from sediment. In order to solve this, I broke the problem down into four primary objectives, each tied to a gap that was identified in the literature (\autoref{sec:review.gap}).
 		
-		Several sub-problems had no off-the-shelf solution and had to be analysed from fundamentals. Nearly flat sediment is a degenerate case for ICP (Section~3.2.4), so I designed a multi-hypothesis coarse alignment that combines rig kinematics, IMU gravity, FPFH+RANSAC and AprilTag corners. Its gravity-constrained tag solution reduced pose disagreement from 1--2.5$^\circ$ to 0.2--0.6$^\circ$ (Section~5.2.3). When the commanded servo angles proved inaccurate, I measured tilt from the IMU instead. I then solved for the unknown IMU axis convention, tilt pivot and rotation direction through joint searches (Section~5.2.2). Naive merging left offset duplicate surface sheets, which I resolved with a confidence-weighted trimmed mean. This halved the fused error from 0.96 to 0.45\,mm RMS (Section~5.2.5). A vertical-prism crop made every tilted view cover the same physical region (Section~5.1.4).
+		%Within each objective, several smaller problems still remained, and most of which had no obvious existing solution, and so they had to be addressed from the fundamentals. For example: Nearly flat sediment, can be a degenerate case for ICP (\autoref{sec:theory_icp}), So I designed coarse alignment to use multi-hypothesis testing, which applied coarse alignment with a variety of methods, and selecting the best option for the further refinement with ICP. \todo{Maybe find another couple examples of this?}
 		
-		Finally, single scans gave rugosity closer to the reference than fused scans, which was counter-intuitive. I explained this from first principles ($S_{dr} \approx 50\,S_{dq}^2$) by separating the loss of relief amplitude from the slope added by noise (Sections~3.5, 7.1.2 and 8.3). \\
+		The system I inherited was functional, but it had not been characterised or optimised for measuring roughness on sediment. To address this, I broke the problem down into four objectives, each tied to a gap identified in the literature (\autoref{sec:review.gap}).
+		
+		Within each objective, several smaller problems remained. Most had no obvious existing solution, so I had to work from fundamentals. For example, nearly flat sediment is close to a degenerate case for ICP (\autoref{sec:theory_icp}). I therefore designed a multi-hypothesis coarse alignment: several independent methods each propose a pose, and the best-scoring one is passed to ICP for refinement. Similarly, the commanded servo angles turned out to be inaccurate, so I measured tilt directly from the IMU's gravity readings and found the unknown axis convention, tilt pivot and rotation direction through joint searches (\autoref{sec:initial_pose}). Merging the registered scans directly left offset duplicate surface layers. I solved this with a confidence-weighted trimmed mean, which halved the fused error from 0.96 to 0.45\,mm RMS (\autoref{sec:4-Reconciling-Overlapping-Scans}).
+		\\
+		%The problem I inherited was under-specified. An existing D456 rig had never been characterised for sediment, and its repeated multi-view scans were analysed individually (Section~1.2). I broke this down into four objectives, each tied to a gap identified in the literature (Section~1.3, Table~2.3).
+		
+		%Several sub-problems had no off-the-shelf solution and had to be analysed from fundamentals. Nearly flat sediment is a degenerate case for ICP (Section~3.2.4), so I designed a multi-hypothesis coarse alignment that combines rig kinematics, IMU gravity, FPFH+RANSAC and AprilTag corners. Its gravity-constrained tag solution reduced pose disagreement from 1--2.5$^\circ$ to 0.2--0.6$^\circ$ (Section~5.2.3). When the commanded servo angles proved inaccurate, I measured tilt from the IMU instead. I then solved for the unknown IMU axis convention, tilt pivot and rotation direction through joint searches (Section~5.2.2). Naive merging left offset duplicate surface sheets, which I resolved with a confidence-weighted trimmed mean. This halved the fused error from 0.96 to 0.45\,mm RMS (Section~5.2.5). A vertical-prism crop made every tilted view cover the same physical region (Section~5.1.4).
+		
+		%Finally, single scans gave rugosity closer to the reference than fused scans, which was counter-intuitive. I explained this from first principles ($S_{dr} \approx 50\,S_{dq}^2$) by separating the loss of relief amplitude from the slope added by noise (Sections~3.5, 7.1.2 and 8.3). \\
 		\cmidrule(lr){1-3}
 		
 		%---------------------------------------------------------------------
 		GA4 & \textit{Investigations, experiments and data analysis} &
-		I designed and carried out a two-stage characterisation of the D456 (Chapter~6). First, planar sweeps against a known ground-truth plane isolated the effects of working distance, tilt and ambient light, following Intel's plane-fit methodology (Section~6.1). Second, I designed and 3D-printed reference objects of known geometry (Section~4.5.1, Appendix~C) and ran three sweeps against them (Section~6.2):
+		In order to determine optimal configurations of the D456 camera for this specific use case, I designed and carried out a two-stage characterisation plan(\autoref{ch:experiments}). The first stage (\autoref{sec5.1:plane}) included planar tests, which used a reference plane to isolate the effects of working distance, tilt and ambient light on the cameras ability to reconstruct these planar surfaces. The second stage (\autoref{sec5.2:reference}) was predominantly used to evaluate the performance of the camera using different configurations and post processing methods. For this, existing 3D printed objects (\autoref{subsec:Reference_Objects}) of known geometry were used to quantitatively examine the reconstruction quality used the following sweeps:
 		\begin{itemize}
-			\item a factorial sweep over resolution, depth unit and visual preset;
+			\item A sweep over resolution, depth unit and visual preset;
 			\item 257 post-processing filter configurations, applied offline to the same recorded data so that only the filter settings varied;
 			\item 44-view tilt and rotation captures, fused in subsets.
 		\end{itemize}
-		Every test was evaluated with clearly defined metrics: RMSE, signed bias, completeness and F-score (Sections~3.4 and 4.5.1). The complete pipeline was then validated against analytic references and on Langebaan sand in dry, wet and waterlogged states (Chapter~7). The roughness code was verified separately against synthetic surfaces with closed-form answers (Section~5.3.8).
 		
-		I analysed the results critically rather than at face value. For example, I identified auto-exposure drift as a confound in the distance sweep and noted that tilt was coupled with range (Section~6.1.4). I also attributed the high noise on wet flat sand to specular reflection of the projector (Section~7.2.1). The findings were combined into a recommended capture protocol (Section~8.4 and Chapter~9). The limits of the evidence, namely single trials per condition, uncalibrated lux readings and no field testing, are stated together with the work needed to address them (Chapter~10). \\
+		Each test was evaluated with well defined metrics: RMSE, signed bias, completeness and F-score (\autoref{sec:theory_evaluation}). The complete pipeline was then validated against the analytic references and on sand taken from the Langebaan Lagoon in question, in dry, wet and waterlogged states (\autoref{ch:Validation}).
+		
+		All results were analysed critically. For example, I identified the auto-exposure drift as a confound in the distance sweep, and noted that the tilt analysis coupled distance (\autoref{sec5.1:plane}). I also attributed the seemingly closer matching roughness metrics of the single scans, compared to fused scans, to the depth noise present in single scans, rather than on absolute reconstruction ability (\autoref{ch:Validation}).
+		
+		\\
+%		I designed and carried out a two-stage characterisation of the D456 (Chapter~6). First, planar sweeps against a known ground-truth plane isolated the effects of working distance, tilt and ambient light, following Intel's plane-fit methodology (Section~6.1). Second, I designed and 3D-printed reference objects of known geometry (Section~4.5.1, Appendix~C) and ran three sweeps against them (Section~6.2):
+%		\begin{itemize}
+%			\item a factorial sweep over resolution, depth unit and visual preset;
+%			\item 257 post-processing filter configurations, applied offline to the same recorded data so that only the filter settings varied;
+%			\item 44-view tilt and rotation captures, fused in subsets.
+%		\end{itemize}
+%		Every test was evaluated with clearly defined metrics: RMSE, signed bias, completeness and F-score (Sections~3.4 and 4.5.1). The complete pipeline was then validated against analytic references and on Langebaan sand in dry, wet and waterlogged states (Chapter~7). The roughness code was verified separately against synthetic surfaces with closed-form answers (Section~5.3.8).
+%		
+%		I analysed the results critically rather than at face value. For example, I identified auto-exposure drift as a confound in the distance sweep and noted that tilt was coupled with range (Section~6.1.4). I also attributed the high noise on wet flat sand to specular reflection of the projector (Section~7.2.1). The findings were combined into a recommended capture protocol (Section~8.4 and Chapter~9). The limits of the evidence, namely single trials per condition, uncalibrated lux readings and no field testing, are stated together with the work needed to address them (Chapter~10). \\
 		\cmidrule(lr){1-3}
 		
 		%---------------------------------------------------------------------
 		GA5 & \textit{Use of engineering tools} &
-		I chose each tool to suit its workload and justified the choice (Chapter~5 introduction):
+		I chose each tool to suit its workload and justified the choice (\autoref{ch:Pipeline}):
 		\begin{itemize}
-			\item C++ with the Intel RealSense SDK for capture, filtering and AprilTag detection (Section~4.4.1);
-			\item C++ with the Point Cloud Library for the computationally heavy registration and fusion (Section~5.2);
-			\item Python with Open3D, NumPy and SciPy for cropping and the ISO 25178-2 roughness metrics (Sections~5.1 and 5.3), chained by a batch-processing script.
+			%\item C++ with the Intel RealSense SDK for capture, filtering and AprilTag detection (Section~4.4.1);
+			\item C++ with the Point Cloud Library for the computationally heavy registration and fusion (\autoref{sec:fuse});
+			\item Python with Open3D, NumPy and SciPy for cropping and the ISO 25178-2 roughness metrics (\autoref{sec:crop} and \autoref{sec:rugosity}), chained by a batch-processing script.
 		\end{itemize}
-		Hardware tools included an Arduino-driven tilt servo, the camera IMU, AprilTag fiducials, and CAD-designed, 3D-printed reference objects and adjustable tag mounts (Sections~1.4 and 4.3).
+		Hardware tools included an Arduino-driven tilt servo, the camera IMU, AprilTag fiducials, and CAD-designed adjustable tag mounts (\autoref{sec:4.3-Hardware-Rig})
 		
 		I also recognised the limitations of these tools and worked around them:
 		\begin{itemize}
-			\item FPFH matching is unreliable on smooth sediment, so it serves only as a fallback (Section~5.2.3).
-			\item The statistical outlier filter punched holes in sparsely sampled regions, so I replaced it with a plane-distance test (Section~5.2.5).
-			\item Open3D's 64-bit PLY output could not be read by PCL (Section~5.1.6).
-			\item MLS smoothing acts as a low-pass filter on the relief (Section~5.2.5).
-			\item The smartphone lux meter is uncalibrated (Section~6.1.2).
-			\item The roughness parameters follow ISO 25178-2 definitions but are not fully ISO-conformant (Section~5.3.9).
+			\item FPFH matching is unreliable on smooth sediment, so it serves only as a fallback (\autoref{sec:coarse}).
+			
+			\item The statistical outlier filter punched holes in sparsely sampled regions, so I replaced it with a plane-distance test (\autoref{sec:4-Reconciling-Overlapping-Scans}).
+			%\item Open3D's 64-bit PLY output could not be read by PCL (Section~5.1.6).
+			\item MLS smoothing acts as a low-pass filter on the relief (\autoref{sec:4-Reconciling-Overlapping-Scans}).
+			%\item The smartphone lux meter is uncalibrated (Section~6.1.2).
+			%\item The roughness parameters follow ISO 25178-2 definitions but are not fully ISO-conformant (Section~5.3.9).
 		\end{itemize}
-		For reproducibility, every run uses fixed random seeds and logs the hashes of the code and input data (Section~5.3.7). All code is version-controlled on GitHub (Appendix~A). \\
+		All code is version-controlled on GitHub (\autoref{Appendix:Git_Repo}). \\
 		\cmidrule(lr){1-3}
 		
 		%---------------------------------------------------------------------
 		GA6 & \textit{Professional and technical communication} &
-		The report follows the departmental final year project guidelines. It moves from the problem statement and literature review through theory, system design, results and discussion to conclusions and further work (Section~1.5). Within each technical chapter, method, results and discussion are kept separate, and limitations are stated alongside each processing stage (Sections~5.1.7, 5.2.6 and 5.3.9).
+		The report follows the departmental final year project guidelines. It moves from the problem statement and literature review through theory, system design, results and discussion to conclusions and further work (\autoref{sec:ch1.planofdevelopment}). Within each technical chapter, method, results and discussion are kept separate, and limitations are stated alongside each processing stage (\autoref{subsec:Crop-Limitations}, \autoref{subsec:Fuse-Limitations} and \autoref{subsec:Rough-Limitations}).
 		
 		Technical content is supported by a list of symbols, a glossary of acronyms, numbered equations and IEEE referencing. Each figure caption states the sample size and the statistic plotted. The underlying data is tabulated in Appendices~D--F so that every plotted result can be checked.
 		
-		The end users of this system are ecologists in the Department of Biological Sciences. I therefore condensed the engineering findings into a concrete capture protocol, together with a plain statement of when rugosity values can and cannot be compared (Section~8.4 and Chapter~9). Throughout the project, I reported progress and plans regularly to my supervisor. The work will also be presented in a poster, a departmental seminar and at the Department Open Day. \\
+		The end users of this system are ecologists in the Department of Biological Sciences. I therefore condensed the engineering findings into a concrete capture protocol, together with a plain statement of when rugosity values can and cannot be compared (\autoref{ch:conclusions} and \autoref{ch:furtherwork}). Throughout the project, I reported progress and plans regularly to my supervisor. The work will also be presented in a poster, a departmental seminar and at the Department Open Day. \\
 		\cmidrule(lr){1-3}
 		
 		%---------------------------------------------------------------------
 		GA8 & \textit{Individual and collaborative teamwork} &
-		This was an individual project within a larger interdisciplinary study of human impacts on intertidal ecosystems (Section~1.1.1). Individually, I owned the planning and execution of the work. I set my own milestones within the 12-week timeline, including a data cut-off date and a first draft for supervisor feedback. When automated detection of mounds and burrow openings could not be completed in time, I re-scoped the project and moved it to further work (Section~1.4).
+		This was an individual project within a larger interdisciplinary study of human impacts on intertidal ecosystems (\autoref{sec:ch1.background}). I Individually managed the planning and execution of the work. I set my own milestones within the 12-week timeline, including a data cut-off date and a first draft for feedback. When automated detection of mounds and burrow openings could not be completed in time, I re-scoped the project and moved it to further work (\autoref{ch:furtherwork}).
 		
-		Collaboratively, I worked with co-supervisors from UCT's Department of Biological Sciences (A/Prof D.~Pillay and G.~Maniel), balancing engineering requirements against the ecological questions the measurements must answer (Sections~2.2 and 8.4). This included a field trip to the intertidal sandflats (Figure~2.1) and laboratory validation on sand from Langebaan Lagoon (Section~7.2). I built on the rig and capture software inherited from earlier work and modified them for this project, adding a height-adjustable cross member and adjustable tag mounts (Sections~1.2 and 4.3). I worked in the shared ARU laboratory, where I drew on postgraduate students for equipment and advice. Weekly progress reports to my supervisor kept the work aligned with the expectations of all stakeholders. \\
+		Collaboratively, I worked with co-supervisors from UCT's Department of Biological Sciences (G.~Maniel), balancing engineering requirements against the ecological questions the measurements must answer (\autoref{sec:review.proxy} and \autoref{ch8:sec:Implications}). I built on the rig and capture software inherited from earlier work and modified them for this project, adding a height-adjustable cross member and adjustable tag mounts (\autoref{sec:4.3-Hardware-Rig}). I worked in the shared ARU laboratory, where I drew on postgraduate students for equipment and advice. Weekly progress reports to my supervisor kept the work aligned with the expectations of all stakeholders. \\
 		\cmidrule(lr){1-3}
 		
 		%---------------------------------------------------------------------
 		GA9 & \textit{Independent learning ability} &
 		The project required substantial knowledge beyond the undergraduate curriculum, which I acquired independently from research literature and technical documentation. New areas included:
 		\begin{itemize}
-			\item benthic ecology and bioturbation (Sections~2.1--2.2);
-			\item stereo and active-stereo depth sensing (Section~3.1);
-			\item point-cloud registration: closed-form SVD alignment, fiducial markers, FPFH with RANSAC, and point-to-plane ICP (Section~3.2);
-			\item volumetric and height-field fusion (Section~3.3);
-			\item reconstruction evaluation metrics (Section~3.4);
-			\item areal surface metrology under ISO 25178-2 (Sections~3.5 and 5.3).
+			\item benthic ecology and bioturbation (\autoref{sec:review.bioturbation}--\autoref{sec:review.proxy});
+			\item stereo and active-stereo depth sensing (\autoref{sec:theory_depth});
+			\item point-cloud registration: closed-form SVD alignment, fiducial markers, FPFH with RANSAC, and point-to-plane ICP (\autoref{sec:theory_registration});
+			\item volumetric and height-field fusion (\autoref{sec:theory_fusion});
+			\item reconstruction evaluation metrics (\autoref{sec:theory_evaluation});
+			\item areal surface metrology under ISO 25178-2 (\autoref{sec:theory_roughness} and \autoref{sec:rugosity}).
 		\end{itemize}
 		I also learnt the RealSense SDK, PCL and Open3D well enough to build a working end-to-end pipeline.
 		
-		I applied this knowledge critically rather than accepting it as given. For example, I noticed that the measured noise trend was near-linear where stereo theory predicts a quadratic trend, and identified why (Section~6.1.4). I also replaced approaches that did not work in practice, such as the original merge-and-thin fusion (Section~5.2.5). My supervisor gave me the freedom to direct the investigation myself. I reflected on the gaps in my own results to set out a programme of further work (Chapter~10). \\
+		I applied this knowledge critically rather than accepting it as given. For example, I noticed that the measured noise trend was near-linear where stereo theory predicts a quadratic trend, and identified why (\autoref{ch6:sec:discusion}). I also replaced approaches that did not work in practice, such as the original merge-and-thin fusion (\autoref{sec:4-Reconciling-Overlapping-Scans}). My supervisor gave me the freedom to direct the investigation myself. I reflected on the gaps in my own results to set out a programme of further work (\autoref{ch:furtherwork}). \\
 		\bottomrule
 	\end{longtable}
 }

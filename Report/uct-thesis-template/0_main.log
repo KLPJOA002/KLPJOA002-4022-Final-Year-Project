@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.8.27)  27 OCT 2026 12:09
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.8.27)  27 OCT 2026 16:10
  restricted system commands enabled.
 **0_main.tex
 (./0_main.tex
@@ -3565,9 +3565,9 @@ Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 10.
 
 
-Underfull \hbox (badness 1178) in paragraph at lines 62--63
-[]\TU/TeXGyreTermes(0)/m/n/10 MLS smooth-ing acts as a low-pass fil-ter on the 
-re-lief (Sec-
+Underfull \hbox (badness 1226) in paragraph at lines 112--113
+\TU/TeXGyreTermes(0)/m/n/10 mark-ers, FPFH with RANSAC, and point-to-plane ICP 
+([]sec-
  []
 
 [81
@@ -3617,14 +3617,14 @@ Package rerunfilecheck Info: File `0_main.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 51204 strings out of 475900
+ 51212 strings out of 475900
  305444,1977958 words of node,token memory allocated
- 2162 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 233 attribute, 166 glue_sp
-ec, 117 attribute_list, 2 write, 70 pdf_action nodes
-   avail lists: 1:5,2:12291,3:1378,4:132,5:1312,6:621,7:22455,8:128,9:6452,10:24
-,11:1348
- 71414 multiletter control sequences out of 65536+600000
+ 2234 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 245 attribute, 166 glue_sp
+ec, 123 attribute_list, 2 write, 76 pdf_action nodes
+   avail lists: 1:5,2:12273,3:1378,4:132,5:1312,6:615,7:22455,8:128,9:6452,10:24
+,11:1280
+ 71422 multiletter control sequences out of 65536+600000
  131 fonts using 33779007 bytes
  108i,20n,128p,2473b,2768s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </app/texlive/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></app/tex
@@ -3638,10 +3638,10 @@ alic.otf></app/texlive/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-i
 talic.otf></app/texlive/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-
 regular.otf></app/texlive/texmf-dist/fonts/opentype/public/tex-gyre/texgyreterme
 s-bold.otf>
-Output written on 0_main.pdf (104 pages, 35668881 bytes).
+Output written on 0_main.pdf (104 pages, 35668883 bytes).
 
-PDF statistics: 2334 PDF objects out of 2487 (max. 8388607)
- 1859 compressed objects within 19 object streams
+PDF statistics: 2388 PDF objects out of 2487 (max. 8388607)
+ 1912 compressed objects within 20 object streams
  422 named destinations out of 1000 (max. 1048576)
  1008 words of extra memory for PDF output out of 10000 (max. 100000000)
 

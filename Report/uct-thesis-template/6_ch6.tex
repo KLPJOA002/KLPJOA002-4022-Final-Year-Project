@@ -125,6 +125,7 @@ For each scan the cropper writes:
 \end{itemize}
 
 \subsection{Limitations}
+\label{subsec:Crop-Limitations}
 
 The automatic crop assumes that the sediment near the edge of the square is roughly flat, so that the band plane represents the bed. If relief reaches the crop edge, the fitted plane, and therefore the prism, can tilt. The layout learned from four-tag frames is pooled across all poses, although perspective changes with tilt, so corners extrapolated from only two tags in a strongly tilted view may be slightly misplaced. The prism also has no height limit, so isolated noisy points directly above or below the square are kept.
 
@@ -210,6 +211,7 @@ As in the coarse stage, each scan is registered against a map of all scans place
 After the stage, a scan is flagged for review if ICP failed to converge, hit its iteration limit, or scored more than 1.4 times worse than the median scan of the session. The threshold is relative because what counts as a good score depends on the voxel size, the sensor noise and the relief of the surface. A scan whose refinement fails keeps its coarse pose, so that it remains visible in the review instead of silently disappearing.
 
 \subsection{Reconciling the overlapping scans}
+\label{sec:4-Reconciling-Overlapping-Scans}
 
 Once registered, the scans could simply be combined into one cloud and thinned with a voxel grid. This was the original approach, and it gives a poor result. The remaining registration error (a few millimetres) is larger than the output voxel, so where scans overlap, their surfaces land in neighbouring voxels and survive as two or three slightly offset sheets. A statistical outlier filter cannot remove a duplicate sheet, because the duplicate is just as dense as the real surface. The fusion step therefore reconciles the scans. 
 %it decides, for each small patch of the surface, a single best height.
@@ -234,6 +236,7 @@ The first factor, $c_{s(i)}$, is the registration confidence of the scan the poi
 The result is a single point cloud per session, in the frame of the reference scan, with one point per occupied cell and a normal at every point. The program also reports the thickness of the overlapping surface, i.e.\ the spread of heights within a cell, before and after reconciliation.
 
 \subsection{Limitations}
+\label{subsec:Fuse-Limitations}
 
 Registration is sequential: each scan is aligned against the scans before it, and no global optimisation revisits earlier poses afterwards, so an early error can propagate. The rig seed is accepted whenever it overlaps the map by 15\% or more. On a flat bed even a pose with a wrong rotation can overlap that much, in which case only the tag hypothesis can correct it, so tag alignment should be enabled for sediment scans. The pivot of the rotation stage is not estimated, so an offset between the turntable axis and the camera must be absorbed by the tags or by ICP. The height-field mode assumes the surface has a single height at every point, so overhangs and vertical faces, such as the inside walls of a burrow, are averaged away. 
 %Finally, whilst the smoothing stage helps to remove sensor noise and point offsets, it does effectively low-pass filter the surface, and thus can remove sharp edges in the scan.
@@ -325,6 +328,7 @@ All random choices use a fixed seed, so repeated runs give identical results, an
 The program was checked in two ways. A test suite generates synthetic surfaces with known answers, such as sinusoids, for which $S_q$, $S_a$, the wavelength and even the exact rugosity follow in closed form, and random fractal surfaces with a prescribed Hurst exponent. Each metric is confirmed to recover the expected value, including when trends, noise, holes and a tilted camera are added. Secondly, a scan of a test object can be compared directly with its analytic definition: the reference surface is sampled, passed through exactly the same levelling, detrending and gridding, and the two sets of metrics are compared. This measures the error of the complete capture, fusion and roughness chain, and is used in \autoref{ch:Validation}.
 
 \subsection{Limitations}
+\label{subsec:Rough-Limitations}
 
 The parameters follow ISO 25178-2 definitions but are not fully ISO-conformant. The standard defines them on a surface that has been band-limited with Gaussian filters, whereas here the band is set implicitly by the grid cell, the MLS smoothing in fusion, the polynomial degree and the size of the patch. The values are therefore directly comparable between scans processed in this pipeline with the same settings, but should be compared with values from commercial surface-metrology software with care.
 
