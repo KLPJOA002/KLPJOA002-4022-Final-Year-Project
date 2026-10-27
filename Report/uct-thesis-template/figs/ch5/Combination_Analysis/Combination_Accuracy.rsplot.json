@@ -1,7 +1,7 @@
 {
   "tool": "rsplot",
   "version": "0.1.0",
-  "saved_at": "2026-10-26T15:31:28",
+  "saved_at": "2026-10-27T20:22:54",
   "dataset": {
     "path": "/home/joab/Documents/4022/Data/3D_Results/Combinations V2/results.csv",
     "family": "fusion",
@@ -83,7 +83,9 @@
         "tilt_family=0-pm10-pm20-pm25": "0\u00b110\u00b120\u00b125",
         "tilt_family=0-pm25": "0\u00b125",
         "tilt_family=0-pm5": "0\u00b15",
-        "tilt_family=0-pos": "0,5,10,15,20,25"
+        "tilt_family=0-pos": "0,5,10,15,20,25",
+        "wave=Big_Wave": "Bigg Egg Box",
+        "wave=Small_Wave": "Small Egg Box"
       },
       "prettify_values": true,
       "xlim": null,

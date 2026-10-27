@@ -47,7 +47,7 @@
 The accuracy of extracted depth metrics is limited by the depth data they are computed from, so the Intel RealSense D456 was characterised before the capture and processing pipeline was finalised. The characterisation answers four practical questions about how the camera and rig should be operated in situ.
 %: at what working distance, at what viewing angle, under what ambient lighting, and with which depth-stream and filter settings the camera produces the most accurate surface.
 
-The characterisation was performed in two stages. In the first stage the camera was tested against flat planar targets. A plane has an exact, easily measured ground truth, which allows the effect of working distance, tilt angle and ambient light to be isolated from the effect of surface shape. These tests give a baseline for sensor noise and provide the operating envelope used in the second stage. In the second stage the camera was tested against 3D-printed reference objects with known geometry (\autoref{subsec:Reference_Objects} \hyperref[Apendix:Reference_Objects]) These tests identify the camera configuration, post-processing filter settings and combination of viewing directions that give the best reconstruction, using surface relief that is representative of the sediment of interest. Each characterisation below is presented with its method, results and a short discussion.
+The characterisation was performed in two stages. In the first stage the camera was tested against flat planar targets. A plane has an exact, easily measured ground truth, which allows the effect of working distance, tilt angle and ambient light to be isolated from the effect of surface shape. These tests give a baseline for sensor noise and provide the operating envelope used in the second stage. In the second stage the camera was tested against 3D-printed reference objects with known geometry (\autoref{subsec:Reference_Objects} \hyperref[Apendix:Reference_Objects]). These tests identify the camera configuration, post-processing filter settings and combination of viewing directions that give the best reconstruction, using surface relief that is representative of the sediment of interest. Each characterisation below is presented with its method, results and a short discussion.
 
 %=====================================================================
 \section{Plane Surface Characterisation}
@@ -112,7 +112,7 @@ Illuminance was read with a smartphone running the Physics Toolbox Suite applica
 
 %Results for planar angle characterisation are shown in \autoref{tab:Scatter_Metric_Vs_Light}. These are then plotted in \autoref{fig:Scatter-Metric-Vs-Light}. 
 
-Results for planar height, angle and lighting characterisation can be found in \autoref{fig:Scatter-Metric-Vs-Height}, \autoref{fig:Scatter-Metric-Vs-Angle} and \autoref{fig:Scatter-Metric-Vs-Light} respectively. For light characterisation environmental conditions with corresponding illumination values are shown in \autoref{tab:Lighting_Descriptors}
+Results for planar height, angle and lighting characterisation can be found in \autoref{fig:Scatter-Metric-Vs-Height}, \autoref{fig:Scatter-Metric-Vs-Angle} and \autoref{fig:Scatter-Metric-Vs-Light} respectively. For light characterisation environmental conditions with corresponding illumination values are shown in \autoref{tab:Lighting_Descriptors}.
 %Table~\ref{tab:distance} gives the results. Plane-fit RMS increased from 1.22\,mm at 604\,mm to 4.58\,mm at 903\,mm, a 3.7-fold increase for a 1.5-fold increase in distance. Relative to distance it rose from 0.20\% to 0.50\%. The fill rate fell from 99.6\% to 96.5\%. The median depth error was positive in every trial, between 4.7\,mm and 8.0\,mm, which corresponds to 0.74\% to 0.97\% of the distance with no clear trend.
 
 
@@ -143,7 +143,7 @@ Results for planar height, angle and lighting characterisation can be found in \
 		\caption{Valid pixels}
 		\label{fig:Scatter-Metric-Vs-Height-4}
 	\end{subfigure}
-	\caption{Plots Showing Planar Reconstruction Quality Against Height. Per-trial Median with IQR Over n = 385--552 Frames. Plot Data in \autoref{tab:Scatter_Metric_Vs_Height}}
+	\caption{Plots Showing Planar Reconstruction Quality Against Height. Per-trial Median with IQR Over n = 385--552 Frames. Plot Data in \autoref{tab:Scatter_Metric_Vs_Height}.}
 	\label{fig:Scatter-Metric-Vs-Height}
 \end{figure}
 
@@ -184,7 +184,7 @@ Results for planar height, angle and lighting characterisation can be found in \
 	\end{subfigure}
 	\par\medskip
 	\includegraphics{figs/ch5/Angle_Analysis/Scatter_Metric_Vs_Angle_legend}
-	\caption{Plots Showing Planar Reconstruction Quality Against Scan Angle. Per-trial Median with IQR Over n = 527--574 Frames. Plot Data in \autoref{tab:Scatter_Metric_Vs_Angle}}
+	\caption{Plots Showing Planar Reconstruction Quality Against Scan Angle. Per-trial Median with IQR Over n = 527--574 Frames. Plot Data in \autoref{tab:Scatter_Metric_Vs_Angle}.}
 	\label{fig:Scatter-Metric-Vs-Angle}
 \end{figure}
 %---------------------------------------------------------------------
@@ -249,7 +249,7 @@ Results for planar height, angle and lighting characterisation can be found in \
 		\caption{Valid pixels}
 		\label{fig:Scatter-Metric-Vs-Light-4}
 	\end{subfigure}
-	\caption{Plots Showing Planar Reconstruction Quality Against Light Intensity, for Indoor Conditions with Foam Board. Per-trial Median with IQR Over n = 592--599 Frames. Plot Data in \autoref{tab:Scatter_Metric_Vs_Light}}
+	\caption{Plots Showing Planar Reconstruction Quality Against Light Intensity, for Indoor Conditions with Foam Board. Per-trial Median with IQR Over n = 592--599 Frames. Plot Data in \autoref{tab:Scatter_Metric_Vs_Light}.}
 	\label{fig:Scatter-Metric-Vs-Light}
 \end{figure}
 
@@ -277,7 +277,7 @@ Stereo theory predicts that depth noise grows with the square of the range, yet 
 
 \subsubsection{Camera Tilt}
 
-Depth noise is expected to rise with tilt angle, as the surface is foreshortened and its depth varies across each matching window. A similar relationship is visible in the plane-fit RMS and valid pixels (\autoref{fig:Scatter-Metric-Vs-Angle-3} and \autoref{fig:Scatter-Metric-Vs-Angle-4}), which both degrade as the tilt increases, with the steepest change beyond about 15\degree. Although the trend should follow a sinusoidal shape, a quadratic trend wa fitted to avoid overfitting with higher-order polynomials. Despite this mismatch, the trends describe both metrics well (R\textsuperscript{2} $\geq$ 0.95). The median depth error and depth RMSE (\autoref{fig:Scatter-Metric-Vs-Angle-1} and \autoref{fig:Scatter-Metric-Vs-Angle-2}) show only weak trends, and neighbouring angles differ by up to 6\,mm, which points to the repeatability of re-positioning the board and measuring its height as the dominant uncertainty in these metrics. Because the camera pivots at a fixed mount height, tilting it also increases the axial distance to the board, so these results combine the effects of angle and range, which does not isolate angle alone. This is accepted here, since the mount height is also fixed when scanning sediment, so the results reflect in situ conditions.
+Depth noise is expected to rise with tilt angle, as the surface is foreshortened and its depth varies across each matching window. A similar relationship is visible in the plane-fit RMS and valid pixels (\autoref{fig:Scatter-Metric-Vs-Angle-3} and \autoref{fig:Scatter-Metric-Vs-Angle-4}), which both degrade as the tilt increases, with the steepest change beyond about 15\degree. Although the trend should follow a sinusoidal shape, a quadratic trend was fitted to avoid overfitting with higher-order polynomials. Despite this mismatch, the trends describe both metrics well (R\textsuperscript{2} $\geq$ 0.95). The median depth error and depth RMSE (\autoref{fig:Scatter-Metric-Vs-Angle-1} and \autoref{fig:Scatter-Metric-Vs-Angle-2}) show only weak trends, and neighbouring angles differ by up to 6\,mm, which points to the repeatability of re-positioning the board and measuring its height as the dominant uncertainty in these metrics. Because the camera pivots at a fixed mount height, tilting it also increases the axial distance to the board, so these results combine the effects of angle and range, which does not isolate angle alone. This is accepted here, since the mount height is also fixed when scanning sediment, so the results reflect in situ conditions.
 
 %Because the camera pivots, tilting it also increases the axial distance to the board. When the power law from the distance sweep is applied to the measured axial distance of each trial, the predicted plane-fit RMS matches the observed value to within about 7\% (for example 2.42\,mm predicted against 2.30\,mm observed at $-27.3$\degree, and 2.04\,mm against 2.12\,mm at $+25.3$\degree). The increase in noise with tilt over $\pm25$\degree\ can therefore be explained almost entirely by the longer range, and tilt itself does not appear to degrade the depth significantly. This is the result needed to justify multi-view scanning, since oblique views add information about occluded relief at little cost in noise. The scatter in depth error between neighbouring angles, which is larger than any trend, points to the repeatability of the experimental set-up (re-positioning the board and measuring its height) as the dominant source of uncertainty in this metric, and the depth-error values should be read with that in mind. A flat board cannot reveal the effects of foreshortening and self-occlusion on relief, which are examined with the 3D reference objects.
 
@@ -362,7 +362,7 @@ Finally, a full scan of each object was recorded at rotations of $-45$\degree, 0
 %A More in depth comparison of the different combinations can be seen in \autoref{Appendix:Combination}.
 \subsection{3D Characterisation Results}
 
-The camera configuration sweep covered three resolutions, three depth units and five presets on the large egg box and the pyramid. \autoref{fig:Scatter-Metric-Vs-Res}, \autoref{fig:Scatter-Metric-Vs-Depth-Units} and \autoref{fig:Scatter-Metric-Vs-Preset} each vary one of these settings, with every point being the median over all combinations of the other two (n = 15 scans). This isolates the effect of each setting while still reflecting its interaction with the others, \autoref{Appendix:Parameter_Heatmap} gives every combination individually.
+The camera configuration sweep covered three resolutions, three depth units and five presets on the large egg box and the pyramid. \autoref{fig:Scatter-Metric-Vs-Res}, \autoref{fig:Scatter-Metric-Vs-Depth-Units} and \autoref{fig:Scatter-Metric-Vs-Preset} each varies one of these settings, with every point being the median over all combinations of the other two (n = 15 scans). This isolates the effect of each setting while still reflecting its interaction with the others, \autoref{Appendix:Parameter_Heatmap} gives every combination individually.
 
 The filter sweep evaluated 257 filter configurations on five static scans of each egg box at each of six heights. Plotting every parameter against every other is impractical, so \autoref{fig:Filter-Comparison} compares three configurations at each height: the unfiltered baseline, the single configuration that performed best across both objects and all heights (best overall), and the configuration that performed best for that particular object and height. The best overall configuration is the one recommended for use, and the per-case optimum shows the most any filter setting could achieve. The settings of both are listed in \autoref{tab:filter_settings}, and the gap between these three series and the baseline therefore bounds the benefit of filtering. The effect of each individual filter parameter and combinations of is shown in \autoref{Appendix:Filter}.
 
