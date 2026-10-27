@@ -8,7 +8,7 @@
 \contentsline {chapter}{List of Acronyms and Glossary}{xv}{chapter*.7}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Background}{1}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Sand prawns and bioturbation}{1}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Sandprawns and bioturbation}{1}{subsection.1.1.1}%
 \contentsline {subsection}{\numberline {1.1.2}Measuring sediment microtopography}{1}{subsection.1.1.2}%
 \contentsline {section}{\numberline {1.2}Problem statement}{2}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Project objectives}{2}{section.1.3}%
@@ -18,7 +18,7 @@
 \contentsline {paragraph}{Assumptions.}{3}{paragraph*.10}%
 \contentsline {section}{\numberline {1.5}Plan of development}{3}{section.1.5}%
 \contentsline {chapter}{\numberline {2}Literature review}{4}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Sand prawn bioturbation and its ecological significance}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.1}Sandprawn bioturbation and its ecological significance}{4}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Sediment microtopography as a proxy for benthic activity}{5}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Non-contact measurement of sediment surfaces}{6}{section.2.3}%
 \contentsline {section}{\numberline {2.4}Characterisation of active stereo depth cameras}{7}{section.2.4}%

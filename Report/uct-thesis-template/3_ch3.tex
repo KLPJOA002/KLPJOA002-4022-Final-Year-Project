@@ -4,7 +4,7 @@
 %*********************************************************************
 
 
-This chapter outlines the theory behind the project, seperated by each stage: depth measurement, registration, fusion, evaluation and roughness estimation. The main aim of this section is to provide a high level description of some of the fundamentals. Implementation details and parameter choices are given in \autoref{ch:design} and \autoref{ch:Pipeline}.
+This chapter outlines the theory behind the project, separated by each stage: depth measurement, registration, fusion, evaluation and roughness estimation. The main aim of this section is to provide a high level description of some of the fundamentals. Implementation details and parameter choices are given in \autoref{ch:design} and \autoref{ch:Pipeline}.
 
 %=====================================================================
 \section{Depth Capture}
@@ -38,7 +38,7 @@ which is how a depth image becomes a point cloud. Depth is aligned to the colour
 
 \subsection{Stereo Triangulation}
 \label{sec:theory_stereo}
-After rectification the image rows of the two cameras are aligned, so a scene point appears on the same row in both images and the search for its match is one-dimensional \cite{hartley2003multiple}. In the geometry of \autoref{fig:stereo}, a point at depth $Z$ projects to horizontal image coordinates $x_L$ and $x_R$, measured from each principal point, and similar triangles give
+After rectification the image rows of the two cameras are aligned, so a scene point appears on the same row in both images and the search for its match is one-dimensional \cite{hartley2003multiple}. In the geometry of \autoref{fig:stereo}, a point $P$ at depth $Z$ projects to horizontal image coordinates $x_L$ and $x_R$, measured from each principal point, and similar triangles give
 \begin{equation}
 Z=\frac{fB}{d},\qquad d=x_L-x_R,
 \label{eq:depth}
@@ -88,7 +88,7 @@ At $1280\times720$, $f\approx \frac{640}{\tan(87^\circ/2)}\approx 674$\,px, givi
 
 \subsection{Passive Stereo, Structured Light and Active Stereo}
 \label{sec:theory_active}
-Passive stereo matches natural texture between two cameras, and fails where the surface is uniform because many patches along a row look alike. Structured light, used by the Asus Xtion in the system of \cite{azharRGBDFrameworkCapturing2022}, projects a known pattern and triangulates between the projector and a single camera, so the pattern itself must be known and calibrated. Active stereo, the principle of the D456, combines a stereo pair with a projector of a semi-random dot pattern, which can be seen in \autoref{Appendix:Theory},  \cite{keselmanIntelRRealSenseTMStereoscopic2017,ProjectorsD400Series}. Matching is still performed between the two cameras, so the pattern does not need to be known, the main purpose is to add additional texture onto the surface. On a featureless surface, such as the white board of \autoref{ch:experiments}, depth therefore depends entirely on the dots and fails when sunlight, whose near-infrared component can outshine them, washes them out. On a naturally textured surface in sunlight the camera behaves as a passive stereo camera and still returns dense depth. Both behaviours were observed in \autoref{ch:experiments}. The RGB camera has an IR-cut filter, so the dots do not appear in the colour image.
+Passive stereo matches natural texture between two cameras, and fails where the surface is uniform because many patches along a row look alike. Structured light, used by the Asus Xtion in the system of \cite{azharRGBDFrameworkCapturing2022}, projects a known pattern and triangulates between the projector and a single camera, so the pattern itself must be known and calibrated. Active stereo, the principle of the D456, combines a stereo pair with a projector of a semi-random dot pattern, which can be seen in \hyperref[Appendix:Theory]{Appendix \ref*{Appendix:Theory}},  \cite{keselmanIntelRRealSenseTMStereoscopic2017,ProjectorsD400Series}. Matching is still performed between the two cameras, so the pattern does not need to be known, the main purpose is to add additional texture onto the surface. On a featureless surface, such as the white board of \autoref{ch:experiments}, depth therefore depends entirely on the dots and fails when sunlight, whose near-infrared component can outshine them, washes them out. On a naturally textured surface in sunlight the camera behaves as a passive stereo camera and still returns dense depth. Both behaviours were observed in \autoref{ch:experiments}. The RGB camera has an IR-cut filter, so the dots do not appear in the colour image.
 % VERIFY: IR-cut filter on the D455/D456 RGB camera. Confirmed only by
 % resellers' listings; check the Intel D400 Series datasheet.
 

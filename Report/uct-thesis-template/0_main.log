@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.8.27)  27 OCT 2026 19:02
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.8.27)  27 OCT 2026 19:42
  restricted system commands enabled.
 **0_main.tex
 (./0_main.tex
@@ -3410,22 +3410,22 @@ Appendix G.
 ]) [73]
 \openout2 = B_ethics.aux
  (./B_ethics.tex
-<pdfs/Ethics_Approval.pdf, id=2072, 597.50728pt x 845.04608pt>
+<pdfs/Ethics_Approval.pdf, id=2072, 614.295pt x 794.97pt>
 File: pdfs/Ethics_Approval.pdf Graphic file (type pdf)
 <use pdfs/Ethics_Approval.pdf>
 Package luatex.def Info: pdfs/Ethics_Approval.pdf  used on input line 10.
-(luatex.def)             Requested size: 597.50581pt x 845.04402pt.
-<pdfs/Ethics_Approval.pdf, id=2074, page=1, 597.50728pt x 845.04608pt>
+(luatex.def)             Requested size: 614.29349pt x 794.96806pt.
+<pdfs/Ethics_Approval.pdf, id=2074, page=1, 614.295pt x 794.97pt>
 File: pdfs/Ethics_Approval.pdf Graphic file (type pdf)
 <use pdfs/Ethics_Approval.pdf, page 1>
 Package luatex.def Info: pdfs/Ethics_Approval.pdf , page1 used on input line 10
 .
-(luatex.def)             Requested size: 597.50581pt x 845.04402pt.
+(luatex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: pdfs/Ethics_Approval.pdf Graphic file (type pdf)
 <use pdfs/Ethics_Approval.pdf, page 1>
 Package luatex.def Info: pdfs/Ethics_Approval.pdf , page1 used on input line 10
 .
-(luatex.def)             Requested size: 597.53316pt x 845.0827pt.
+(luatex.def)             Requested size: 597.78697pt x 773.60669pt.
  [74
 
 
@@ -3437,30 +3437,30 @@ File: pdfs/Ethics_Approval.pdf Graphic file (type pdf)
 <use pdfs/Ethics_Approval.pdf, page 1>
 Package luatex.def Info: pdfs/Ethics_Approval.pdf , page1 used on input line 10
 .
-(luatex.def)             Requested size: 597.53316pt x 845.0827pt.
+(luatex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: pdfs/Ethics_Approval.pdf Graphic file (type pdf)
 <use pdfs/Ethics_Approval.pdf, page 1>
 Package luatex.def Info: pdfs/Ethics_Approval.pdf , page1 used on input line 10
 .
-(luatex.def)             Requested size: 597.53316pt x 845.0827pt.
+(luatex.def)             Requested size: 597.78697pt x 773.60669pt.
 File: pdfs/Ethics_Approval.pdf Graphic file (type pdf)
 <use pdfs/Ethics_Approval.pdf, page 1>
 Package luatex.def Info: pdfs/Ethics_Approval.pdf , page1 used on input line 10
 .
-(luatex.def)             Requested size: 597.53316pt x 845.0827pt.
+(luatex.def)             Requested size: 597.78697pt x 773.60669pt.
  [75
 
 <./pdfs/Ethics_Approval.pdf>])
 \openout2 = C_topicdescription.aux
 
 (./C_topicdescription.tex
-<pdfs/EEE4022S 2026 Topics Verrinder.pdf, id=2090, 597.5123pt x 845.04709pt>
+<pdfs/EEE4022S 2026 Topics Verrinder.pdf, id=2088, 597.5123pt x 845.04709pt>
 File: pdfs/EEE4022S 2026 Topics Verrinder.pdf Graphic file (type pdf)
 <use pdfs/EEE4022S 2026 Topics Verrinder.pdf>
 Package luatex.def Info: pdfs/EEE4022S 2026 Topics Verrinder.pdf  used on input
  line 34.
 (luatex.def)             Requested size: 597.51083pt x 845.04503pt.
-<pdfs/EEE4022S 2026 Topics Verrinder.pdf, id=2092, page=24, 597.5123pt x 845.04
+<pdfs/EEE4022S 2026 Topics Verrinder.pdf, id=2090, page=24, 597.5123pt x 845.04
 709pt>
 File: pdfs/EEE4022S 2026 Topics Verrinder.pdf Graphic file (type pdf)
 <use pdfs/EEE4022S 2026 Topics Verrinder.pdf, page 24>
@@ -3497,7 +3497,7 @@ on input line 34.
  [77
 
 <./pdfs/EEE4022S 2026 Topics Verrinder.pdf>]
-<pdfs/EEE4022S 2026 Topics Verrinder.pdf, id=2127, page=25, 597.5123pt x 845.04
+<pdfs/EEE4022S 2026 Topics Verrinder.pdf, id=2125, page=25, 597.5123pt x 845.04
 709pt>
 File: pdfs/EEE4022S 2026 Topics Verrinder.pdf Graphic file (type pdf)
 <use pdfs/EEE4022S 2026 Topics Verrinder.pdf, page 25>
@@ -3518,7 +3518,7 @@ on input line 34.
 [78
 
 <./pdfs/EEE4022S 2026 Topics Verrinder.pdf>]
-<pdfs/EEE4022S 2026 Topics Verrinder.pdf, id=2132, page=26, 597.5123pt x 845.04
+<pdfs/EEE4022S 2026 Topics Verrinder.pdf, id=2130, page=26, 597.5123pt x 845.04
 709pt>
 File: pdfs/EEE4022S 2026 Topics Verrinder.pdf Graphic file (type pdf)
 <use pdfs/EEE4022S 2026 Topics Verrinder.pdf, page 26>
@@ -3538,7 +3538,7 @@ on input line 34.
  [79
 
 <./pdfs/EEE4022S 2026 Topics Verrinder.pdf>]
-<pdfs/EEE4022S 2026 Topics Verrinder.pdf, id=2148, page=27, 597.5123pt x 845.04
+<pdfs/EEE4022S 2026 Topics Verrinder.pdf, id=2146, page=27, 597.5123pt x 845.04
 709pt>
 File: pdfs/EEE4022S 2026 Topics Verrinder.pdf Graphic file (type pdf)
 <use pdfs/EEE4022S 2026 Topics Verrinder.pdf, page 27>
@@ -3643,7 +3643,7 @@ L3 programming layer <2026-03-20>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `0_main.out' has not changed.
-(rerunfilecheck)             Checksum: D2D2C89E6E5C5F2936E0A86AAA7DD775;21443.
+(rerunfilecheck)             Checksum: 2CF2F79A89EB99DE66883B5476E95A0F;21427.
 )
 
 Here is how much of LuaTeX's memory you used:
@@ -3655,7 +3655,7 @@ ec, 128 attribute_list, 2 write, 81 pdf_action nodes
    avail lists: 1:5,2:12258,3:1378,4:132,5:1312,6:610,7:22455,8:153,9:6452,10:24
 ,11:1280
  71430 multiletter control sequences out of 65536+600000
- 131 fonts using 33779839 bytes
+ 131 fonts using 33779111 bytes
  108i,20n,128p,2473b,2768s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </app/texlive/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></app/tex
 live/texmf-dist/fonts/opentype/public/tex-gyre-math/texgyretermes-math.otf></app
@@ -3668,10 +3668,10 @@ alic.otf></app/texlive/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-i
 talic.otf></app/texlive/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-
 regular.otf></app/texlive/texmf-dist/fonts/opentype/public/tex-gyre/texgyreterme
 s-bold.otf>
-Output written on 0_main.pdf (104 pages, 35673068 bytes).
+Output written on 0_main.pdf (104 pages, 35685590 bytes).
 
-PDF statistics: 2411 PDF objects out of 2487 (max. 8388607)
- 1935 compressed objects within 20 object streams
+PDF statistics: 2409 PDF objects out of 2487 (max. 8388607)
+ 1933 compressed objects within 20 object streams
  424 named destinations out of 1000 (max. 1048576)
  1000 words of extra memory for PDF output out of 10000 (max. 100000000)
 
