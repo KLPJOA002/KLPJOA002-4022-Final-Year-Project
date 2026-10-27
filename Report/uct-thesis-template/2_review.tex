@@ -139,22 +139,22 @@
 \chapter{Literature review}
 \label{ch:review}
 
-This chapter reviews the literature behind the project and identifies the gap it addresses. It covers why sand prawn bioturbation matters (\autoref{sec:review.bioturbation}), whether surface microtopography is a valid proxy for it (\autoref{sec:review.proxy}), how sediment surfaces can be measured (\autoref{sec:review.methods}), how depth cameras have been characterised (\autoref{sec:review.characterisation}) and how multiple depth scans have been fused (\autoref{sec:review.fusion}). \autoref{sec:review.gap} summarises the resulting research gaps.
+This chapter reviews the literature behind the project and identifies the gap it addresses. It covers why sand prawn bioturbation matters (\autoref{sec:review.bioturbation}), whether surface microtopography is a valid proxy for it (\autoref{sec:review.proxy}), how sediment surfaces can be measured (\autoref{sec:review.methods}), how depth cameras have been characterised (\autoref{sec:review.characterisation}) and how multiple depth scans have been fused (\autoref{sec:review.fusion}). \hyperref[sec:review.gap]{Section~\ref*{sec:review.gap}} summarises the resulting research gaps.
 
 %=====================================================================
 \section{Sand prawn bioturbation and its ecological significance}
 \label{sec:review.bioturbation}
 %=====================================================================
-Bioturbation is the reworking of sediment particles and the ventilation of burrows by animals \citep{kristensenWhatBioturbationNeed2012}. Burrowing thalassinidean shrimps are among the most intense bioturbators, and \citet{inbook} describe them as ecosystem engineers. Excavating burrows and ejecting sediment alters grain size, organic content, porewater chemistry and surface topography. At the surface this appears as mounds, depressions and burrow openings (\autoref{fig:review.prawn}). Reported mounds are about 3 to 5.4\,cm high and 12 to 15\,cm wide \citep{inbook}, so a measurement system must resolve centimetre-scale heights over decimetre-scale wavelengths.
+Bioturbation is the reworking of sediment particles and the ventilation of burrows by animals \citep{kristensenWhatBioturbationNeed2012}. Burrowing thalassinidean shrimps are among the most intense bioturbators in marine soft-sediment environments \citep{cadeeSedimentDynamicsBioturbating2001,rowdenRoleCallianassaSubterranea1998} and are thus deemed ecosystem engineers, as they modify their physical surroundings affecting their co-occurring ecological community \citep{inbook}. Excavating burrows and ejecting sediment alters grain size, organic content, porewater chemistry and surface topography \citet{inbook}. At the surface this appears as mounds, depressions and burrow openings (\autoref{fig:review.prawn}). Reported mounds are about 3 to 5.4\,cm high and 12 to 15\,cm wide \citep{inbook}, so a measurement system must resolve centimetre-scale heights over decimetre-scale wavelengths.
 
 \begin{figure}[htbp]
 	\centering
 	\litfig{figs/ch2/sandprawn_mounds.jpg}{0.6\linewidth}
-	\caption{Surface Mounds and Burrow Openings Produced by \textit{Callichirus kraussi} on an Intertidal Sandflat. Taken on 14/07/2026 During a Field Trip}
+	\caption{Surface Mounds and Burrow Openings Produced by \textit{K. kraussi} on an Intertidal Sandflat. Taken on 14/07/2026 During a Field Trip}
 	\label{fig:review.prawn}
 \end{figure}
 
-On the South African coast the dominant species is the sand prawn \textit{Callichirus kraussi} (\textit{Callianassa kraussi} in older literature), which occupies most of the intertidal area of Langebaan Lagoon \citep{nelAssessmentAbundanceDistribution2013}. Its effects are substantial:
+On the South African coast the dominant species is the sand prawn \textit{K. kraussi} (\textit{Callianassa kraussi} in older literature), which occupies most of the intertidal area of Langebaan Lagoon \citep{nelAssessmentAbundanceDistribution2013}. Its effects are substantial:
 \begin{itemize}[nosep]
 	\item Sediment turnover of about 12\,kg\,m$^{-2}$ of wet sediment per day, burying benthic microalgae and altering bacterial and meiofaunal communities \citep{branchImpactSandPrawn1987};
 	
@@ -163,13 +163,13 @@ On the South African coast the dominant species is the sand prawn \textit{Callic
 	\item Reductions in phytoplankton biomass of about 50\,\% in experiments and 70\,\% in prawn-dominated estuarine areas, through pumping water across the burrow walls, which helps buffer coastal ecosystems against eutrophication \citep{venterWaterFiltrationBurrowing2020}.
 \end{itemize}
 
-Measuring this activity usually relies on sediment cores, which are destructive and slow, or on counts of burrow openings, which are laborious and capture only one surface feature. Surface structure also matters in its own right, as homogenising it reduces soft-sediment biodiversity \citep{thrushFishingDisturbanceMarine2001}. Surface relief is therefore both a product of bioturbation and a habitat variable, which raises the question of whether it can be measured in place of the animals.
+Measuring this activity usually relies on sediment cores, which are destructive and slow, or on counts of burrow openings, which are laborious and capture only one surface feature. Surface structure also matters in its own right, as homogenising it reduces soft-sediment biodiversity \citep{thrushFishingDisturbanceMarine2001}. Surface relief is therefore both a product of bioturbation and a habitat variable, which raises the question of whether it can be measured in place of only the animals' presence, in a non-destructive fashion.
 
 %=====================================================================
 \section{Sediment microtopography as a proxy for benthic activity}
 \label{sec:review.proxy}
 %=====================================================================
-The case for microtopography as a proxy rests mainly on three studies by Schenone and colleagues:
+In this project, the case for microtopography as a proxy rests mainly on three studies by Schenone and colleagues:
 \begin{itemize}[nosep]
 	\item In a multi-site field study, biogenic surface features predicted ecosystem functioning better than species density \citep{schenoneUnravelingEcosystemFunctioning2020};
 	
@@ -177,7 +177,8 @@ The case for microtopography as a proxy rests mainly on three studies by Schenon
 	
 	\item In the field, microtopography reconstructed with \gls{sfm} explained more than half of the variance in environmental variables, benthic fluxes, biodiversity and functional traits \citep{schenoneSeafloorSedimentMicrotopography2025}.
 \end{itemize}
-These studies were subtidal, in New Zealand, with different species, and the relationships are correlative. The link has therefore not been shown for \textit{C.~kraussi} on exposed intertidal flats. Testing it at Langebaan is one of the aims of the wider study, and this project must provide measurements accurate enough for that test.
+%These studies were subtidal, in New Zealand, with different species, and the relationships are correlative. 
+None of these studies involved K.~kraussi. The two field studies, one intertidal \citep{schenoneUnravelingEcosystemFunctioning2020} and one subtidal \citep{schenoneSeafloorSedimentMicrotopography2025}, are correlative and establish microtopography as a surrogate rather than a mechanism. The laboratory study manipulated species composition and therefore supports a causal link \citep{schenoneSedimentMicrotopographyPredicts2024}, but only for two species under controlled conditions, with rugosity taken from a single 2D profile.There is still a knowledge gap on the link between structures produced by sandprawns and ecosystem functioning. Testing this relationship in Langebaan Lagoon is one of the aims of a wider study, that will be supported by accurate enough microtopography measurements that this project will contribute to.
 
 \begin{figure}[htbp]
 	\centering
@@ -197,7 +198,7 @@ These studies were subtidal, in New Zealand, with different species, and the rel
 	\label{fig:review.proxy}
 \end{figure}
 
-How roughness is quantified matters as much as whether it is measured. Traditional chain-and-tape rugosity compares the length of a chain laid along the bed with its straight-line length. It samples a single profile and overestimates rugosity when the chain wanders sideways \citep{friedmanMultiScaleMeasuresRugosity2012}. \citet{friedmanMultiScaleMeasuresRugosity2012} instead computed rugosity from stereo meshes relative to a plane of best fit (\autoref{fig:review.rugosity}), which decouples rugosity from slope, and SfM-derived rugosity has proved more powerful than chain-and-tape \citep{storlazziEndChainRugosity2016}. ISO 25178-2 standardises these quantities as areal parameters \citep{ISO2517822021,leachCharacterisationArealSurface2013}, where the developed interfacial area ratio $S_{dr}$ is rugosity expressed as a percentage excess area (\autoref{ch:theory}). \citet{azharRGBDFrameworkCapturing2022} used a comparable set of nine parameters from detrended depth images.
+How roughness is quantified matters as much as how it is measured. Traditional chain-and-tape rugosity compares the length of a chain laid along the bed with its straight-line length. It samples a single profile and overestimates rugosity when the chain wanders sideways \citep{friedmanMultiScaleMeasuresRugosity2012}. \citet{friedmanMultiScaleMeasuresRugosity2012} instead computed rugosity from stereo meshes relative to a plane of best fit (\autoref{fig:review.rugosity}), which decouples rugosity from slope, and SfM-derived rugosity has proved more powerful than chain-and-tape \citep{storlazziEndChainRugosity2016}. ISO 25178-2 standardises these quantities as areal parameters \citep{ISO2517822021,leachCharacterisationArealSurface2013}, where the developed interfacial area ratio $S_{dr}$ is rugosity expressed as a percentage excess area (\autoref{ch:theory}). \citet{azharRGBDFrameworkCapturing2022} used a comparable set of nine parameters from detrended depth images.
 
 These parameters depend on how the surface is sampled. They vary with scan size and pixel resolution \citep{jacobsQuantitativeCharacterizationSurface2017}, and slope-based parameters such as $S_{dq}$, $S_{dr}$ and rugosity are dominated by the shortest resolved wavelengths, where sensor noise and smoothing also act. Rugosity from a depth camera is therefore only interpretable when the noise floor and effective resolution of the measurement are known.
 
@@ -225,7 +226,7 @@ A system for this application must resolve millimetre-scale relief over sediment
 	\end{tabularx}
 \end{table}
 
-\citet{azharRGBDFrameworkCapturing2022}, the framework this project builds on, imaged 0.3\,m$^2$ patches of intertidal sediment at seven sites with an Asus Xtion Pro Live inside a semi-opaque container (\autoref{fig:review.azhar:a}). The container was a necessity as a structured-light camera triangulates against its own projected pattern, which sunlight washes out, so the shading fixed both the size of each scan and its single viewpoint. \citet{azharRGBDFrameworkCapturing2022} also investigated four detrending models, tested on simulated surfaces, and found linear and quadratic performed best and agreed strongly on field data.
+The framework this project builds on, \citet{azharRGBDFrameworkCapturing2022}, imaged 0.3\,m$^2$ patches of intertidal sediment at seven sites with an Asus Xtion Pro Live inside a semi-opaque container (\autoref{fig:review.azhar:a}). The container was a necessity as a structured-light camera triangulates against its own projected pattern, which sunlight washes out, so the shading fixed both the size of each scan and its single viewpoint. \citet{azharRGBDFrameworkCapturing2022} also investigated four detrending models, tested on simulated surfaces, and found linear and quadratic models performed best and agreed strongly with field data.
 
 \begin{figure}[htbp]
 	\centering
@@ -245,7 +246,7 @@ A system for this application must resolve millimetre-scale relief over sediment
 	\label{fig:review.azhar}
 \end{figure}
 
-Sunlight tolerance therefore decides the choice of sensor. An active stereo camera matches texture between two infrared imagers, and its projected dots only supplement the scene texture, so on a textured surface in strong light it degrades towards passive stereo rather than failing \citep{keselmanIntelRRealSenseTMStereoscopic2017,ProjectorsD400Series}. Outdoors, \citet{vitComparingRGBDSensors2018} found the active stereo D435 the most viable of four close-range sensors. The D456 used here is the \gls{ip65}-rated variant of the D455 \citep{intel_d456}, which also suits wet intertidal work.
+Sunlight tolerance therefore decides the choice of sensor. An active stereo camera matches texture between two infrared imagers, and its projected dots only supplement the scene texture, so on a textured surface in strong light it degrades towards passive stereo rather than failing \citep{keselmanIntelRRealSenseTMStereoscopic2017,ProjectorsD400Series}. \citet{vitComparingRGBDSensors2018}found the active stereo D435 as the most viable of four close-range sensors in outdoor settings. The D456 used here is the \gls{ip65}-rated variant of the D455 \citep{intel_d456}, which also suits wet intertidal work.
 
 %=====================================================================
 \section{Characterisation of active stereo depth cameras}
@@ -303,7 +304,7 @@ Two results bear on sediment. First, nearly flat surfaces are degenerate for reg
 \section{Summary and research gap}
 \label{sec:review.gap}
 %=====================================================================
-\textit{Callichirus kraussi} is a dominant ecosystem engineer of the Langebaan intertidal, and sediment microtopography is a credible proxy for its activity. Roughness parameters, however, depend on the noise and resolution of the measurement. Active stereo is the best-supported low-cost sensor for outdoor use, but it has not been tested in this setting. Four gaps remain, each addressed by one objective in \autoref{sec:ch1.projectobjectives} (\autoref{tab:review.gaps}).
+\textit{K. kraussi} is a dominant ecosystem engineer of the Langebaan Lagoon intertidal space, and sediment microtopography is a credible proxy candidate for its bioturbation activity. Roughness parameters, however, depend on the noise and resolution of the measurement. Active stereo is the best-supported low-cost sensor for outdoor use, but it has not been tested in this setting. Four gaps remain, each addressed by one objective in \autoref{sec:ch1.projectobjectives} (\autoref{tab:review.gaps}).
 
 \begin{table}[htbp]
 	\centering

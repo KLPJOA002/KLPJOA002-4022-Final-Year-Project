@@ -42,45 +42,45 @@ Warning--empty journal in lowLinearLeastSquaresOptimizationa
 Warning--empty year in lowLinearLeastSquaresOptimizationa
 Warning--empty year in lowLinearLeastSquaresOptimizationa
 Warning--empty publisher in inbook
-You've used 56 entries,
+You've used 59 entries,
             2773 wiz_defined-function locations,
-            1109 strings with 22828 characters,
-and the built_in function-call counts, 30478 in all, are:
-= -- 2914
-> -- 1754
-< -- 35
-+ -- 594
-- -- 537
-* -- 2721
-:= -- 4624
-add.period$ -- 289
-call.type$ -- 56
-change.case$ -- 343
-chr.to.int$ -- 55
-cite$ -- 133
-duplicate$ -- 1253
-empty$ -- 2308
-format.name$ -- 619
-if$ -- 6438
+            1137 strings with 23793 characters,
+and the built_in function-call counts, 32133 in all, are:
+= -- 3089
+> -- 1819
+< -- 38
++ -- 616
+- -- 556
+* -- 2857
+:= -- 4875
+add.period$ -- 308
+call.type$ -- 59
+change.case$ -- 358
+chr.to.int$ -- 58
+cite$ -- 139
+duplicate$ -- 1327
+empty$ -- 2445
+format.name$ -- 643
+if$ -- 6797
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 52
-newline$ -- 406
-num.names$ -- 208
-pop$ -- 604
+missing$ -- 55
+newline$ -- 430
+num.names$ -- 222
+pop$ -- 624
 preamble$ -- 1
-purify$ -- 290
+purify$ -- 302
 quote$ -- 0
-skip$ -- 984
+skip$ -- 1038
 stack$ -- 0
-substring$ -- 1211
-swap$ -- 211
-text.length$ -- 14
+substring$ -- 1305
+swap$ -- 224
+text.length$ -- 15
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 601
+type$ -- 634
 warning$ -- 17
-while$ -- 243
+while$ -- 260
 width$ -- 0
-write$ -- 960
+write$ -- 1019
 (There were 17 warnings)

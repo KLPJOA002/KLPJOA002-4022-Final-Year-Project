@@ -5,11 +5,11 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Surface Mounds and Burrow Openings Produced by \textit {Callichirus kraussi} on an Intertidal Sandflat. Taken on 14/07/2026 During a Field Trip}}{4}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Surface Mounds and Burrow Openings Produced by \textit {K. kraussi} on an Intertidal Sandflat. Taken on 14/07/2026 During a Field Trip}}{4}{figure.caption.11}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Measuring Microtopography as an Ecological Proxy.}}{5}{figure.caption.12}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces The RGB-D Framework of \citet {azharRGBDFrameworkCapturing2022}.}}{6}{figure.caption.14}%
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Reflectance of Sand Decreasing Non-linearly as Moisture Content Increases \citep {noletMeasuringModelingEffect2014}.}}{7}{figure.caption.16}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces A Single Noisy Depth Frame (Left) Compared With the Surface Fused From Many Frames \citep {newcombeKinectFusionRealtimeDense2011}.}}{7}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces A Single Noisy Depth Frame (Left) Compared With the Surface Fused From Many Frames \citep {newcombeKinectFusionRealtimeDense2011}.}}{8}{figure.caption.17}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Rectified stereo geometry: camera centres $O_L$, $O_R$, baseline $B$, focal length $f$ and the projections $x_L$, $x_R$ of a point $P$ at depth $Z$.}}{10}{figure.caption.19}%
 \addvspace {10\p@ }

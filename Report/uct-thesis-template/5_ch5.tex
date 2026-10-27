@@ -270,7 +270,7 @@ Results for planar height, angle and lighting characterisation can be found in \
 %
 %Two conclusions follow. First, ambient light degrades the depth from active stereo even when the surface is well within the sensor's range, because the projected infrared pattern has to compete with the ambient light for contrast. Daylight appears more damaging per lux than artificial light which can be seen in \autoref{fig:Scatter-Metric-Vs-Light-3} and \autoref{fig:Scatter-Metric-Vs-Light-4}, with 4.14\,mm RMS and 97.0\% valid pixels at 91\,lux of daylight against 2.84\,mm RMS and 99.3\% valid pixels at 65\,lux of artificial light, which is consistent with the greater near-infrared content of sunlight, so illuminance in lux is only a rough predictor of performance. Second, the surface matters as much as the illumination. The board completely failed at 2\,650\,lux in outdoor sun exposed areas, whereas the ground surface returned complete, low-noise data at 9\,800\,lux, so the failure cannot be attributed to the light level alone. A bright, featureless, highly reflective white surface is a worst case for stereo matching. The ground surface supplies natural texture, so the planar results on white targets should be read as pessimistic bounds on the noise expected on sediment. The outdoor tests did not include wet or glossy sediment, which is more specular, and thus could influence results more. These results support retaining the shading tarp on the rig, to limit the ambient infrared reaching the scan area.
 
-\subsection{Discusion}\label{ch6:sec:discusion}
+\subsection{Discussion}\label{ch6:sec:discusion}
 
 \subsubsection{Working Distance}
 Stereo theory predicts that depth noise grows with the square of the range, yet the data in \autoref{fig:Scatter-Metric-Vs-Height} follow closer to linear trend. Two factors likely contribute, firstly the ambient light was not constant as the trials were taken between 15:40 and 17:35, and the auto-exposure value fell from about 5300 for the three closest distances to between 1700 and 2050 for the rest. Second, the 604 to 903\,mm range is narrow, so only a short, locally near-linear section of the quadratic curve is sampled. The practical trend is nonetheless clear. Plane-fit RMS (\autoref{fig:Scatter-Metric-Vs-Height-3}) increases with working distance while the proportion of valid pixels (\autoref{fig:Scatter-Metric-Vs-Height-4}) decreases, so the camera should be operated as close to the surface as the required field of view allows. Expressed as a percentage of distance, the median depth error rises only slightly, from 0.77\% to 0.90\%, with a weak fit (R\textsuperscript{2} = 0.18). This approximately constant relative error is consistent with a fixed bias or scale error rather than a distance-dependent effect, and is removed by detrending.
@@ -349,7 +349,7 @@ With the configuration fixed, five stationary scans of each object were recorded
 
 Finally, a full scan of each object was recorded at rotations of $-45$\degree, 0\degree, $45$\degree\ and $90$\degree\ and at tilts from $-25$\degree\ to $+25$\degree\ in steps of 5\degree. This gives 44 views of each object. These views were aligned and fused by the pipeline in \autoref{ch:Pipeline}. Subsets of the views were fused and each fusion was evaluated against the reference, which shows how the reconstruction accuracy depends on the number of views and on the combination of tilt and rotation.
 
-\subsection{3D Characterisation Results}
+%\subsection{3D Characterisation Results}
 
 %\subsubsection{Camera Configuration}
 %
