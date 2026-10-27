@@ -1,7 +1,7 @@
 This is makeindex, version 2.18 [TeX Live 2026] (kpathsea + Thai support).
 Scanning style file ./0_main.ist...........................done (27 attributes redefined, 0 ignored).
-Scanning input file 0_main.glo....done (2 entries accepted, 0 rejected).
-Sorting entries....done (2 comparisons).
-Generating output file 0_main.gls....done (9 lines written, 0 warnings).
+Scanning input file 0_main.glo....done (53 entries accepted, 0 rejected).
+Sorting entries....done (324 comparisons).
+Generating output file 0_main.gls....done (111 lines written, 0 warnings).
 Output written in 0_main.gls.
 Transcript written in 0_main.glg.

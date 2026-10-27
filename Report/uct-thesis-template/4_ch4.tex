@@ -110,7 +110,7 @@ Four AprilTags are mounted on brackets on the frame legs, and each bracket can s
 \section{Software Architecture and Processing Pipeline}
 
 \subsection{Capture Software}
-Capture is implemented in C++ utilising the RealSense software development kit (SDK). For each rig pose, it applies a configurable chain of depth post-processing filters and records the stream to a \texttt{.db3} file, together with IMU data. It detects the four AprilTags in the colour image, and the best frame of each pose is exported as a point cloud in PLY format. Tag detection is stored along side captures for use of later processing through cropping and alignment.
+Capture is implemented in C++ utilising the RealSense \gls{sdk}. For each rig pose, it applies a configurable chain of depth post-processing filters and records the stream to a \texttt{.db3} file, together with \gls{imu} data. It detects the four AprilTags in the colour image, and the best frame of each pose is exported as a point cloud in \gls{ply} format. Tag detection is stored along side captures for use of later processing through cropping and alignment.
 
 \subsection{Cropping and Multi-Angle Fusion}
 Each scan is first cropped to the square defined by the four tags. The cropped scans, taken at different tilt and rotation settings, are then fused. Fusion needs a good initial pose before refinement, so the pipeline generates several coarse alignment hypotheses by independent methods:
@@ -225,7 +225,7 @@ For characterisation and validation, a separate Python tool, \texttt{evaluate\_s
 
 Three 3D-printed reference objects were used (\autoref{Apendix:Reference_Objects}). Each has a 100\,$\times$\,100\,mm footprint. Two are sinusoidal ``egg box'' surfaces of the form $z = \sin(x) + \sin(y)$ at a large scale (feature spacing 50\,mm, amplitude 20\,mm) and a small scale (25\,mm, amplitude 15\,mm), and the third is a square-based pyramid of 50\,mm height. The smooth sinusoidal surfaces are somewhat analogous to the smooth mounds produced by sand prawns, although the amplitudes of these objects far exceed those found in literature. These are predominately used as previous work on this system used them, and so reference with respect to those reconstructions is desired. The pyramid has sharp edges and planar facets, which show whether the filters preserve geometric edges or smooth them.
 
-Scans were evaluated with the evaluate\_scans tool described in \autoref{sec:eval_framework}. The tool rigidly aligns each scan to the reference .stl model, using feature-matching starts followed by point-to-plane ICP, and then computes point-to-surface distances. Scale is not estimated, so any scale error in the camera data appears as geometric error. The metrics used are Accuracy RMSE, signed bias, completeness at 2mm and computed F-score at 2mm. F-score is a combined metric which aims to represent both precision and completeness in a single metric.
+Scans were evaluated with the evaluate\_scans tool described in \autoref{sec:eval_framework}. The tool rigidly aligns each scan to the reference \gls{stl} model, using feature-matching starts followed by point-to-plane ICP, and then computes point-to-surface distances. Scale is not estimated, so any scale error in the camera data appears as geometric error. The metrics used are Accuracy RMSE, signed bias, completeness at 2mm and computed F-score at 2mm. F-score is a combined metric which aims to represent both precision and completeness in a single metric.
 
 \begin{align}
 	P(\tau) &= \frac{1}{|S|} \sum_{s \in S}

@@ -175,7 +175,7 @@ The case for microtopography as a proxy rests mainly on three studies by Schenon
 	
 	\item In flow-through laboratory tanks (\autoref{fig:schenonecustomincubationtank}), rugosity from a single 2D profile imaged through the tank wall explained 35\% to 61\,\% of the variability in oxygen and nutrient fluxes \citep{schenoneSedimentMicrotopographyPredicts2024};
 	
-	\item In the field, microtopography reconstructed with structure-from-motion (SfM) explained more than half of the variance in environmental variables, benthic fluxes, biodiversity and functional traits \citep{schenoneSeafloorSedimentMicrotopography2025}.
+	\item In the field, microtopography reconstructed with \gls{sfm} explained more than half of the variance in environmental variables, benthic fluxes, biodiversity and functional traits \citep{schenoneSeafloorSedimentMicrotopography2025}.
 \end{itemize}
 These studies were subtidal, in New Zealand, with different species, and the relationships are correlative. The link has therefore not been shown for \textit{C.~kraussi} on exposed intertidal flats. Testing it at Langebaan is one of the aims of the wider study, and this project must provide measurements accurate enough for that test.
 
@@ -219,7 +219,7 @@ A system for this application must resolve millimetre-scale relief over sediment
 		Terrestrial laser scanning & Accurate; return intensity calibrated to sand moisture \citep{noletMeasuringModelingEffect2014} & Expensive; cumbersome processing \citep{azharRGBDFrameworkCapturing2022} \\
 		SfM photogrammetry & Cheap hardware; very fine resolution \citep{storlazziEndChainRugosity2016} & Many images, scale reference and offline processing \\
 		Structured light & Immediate metric depth; $\leq$1\,mm at 0.5\,m \citep{mankoffKinectLowcostHighresolution2013,kamalInvestigatingThreedimensionalMesoscale2014} & Pattern washed out by sunlight, needs shading \citep{azharRGBDFrameworkCapturing2022} \\
-		Passive stereo & Tolerates sunlight & Needs a GPU host \citep{rustlerEmpiricalComparisonFour2025}; fails on textureless surfaces \\
+		Passive stereo & Tolerates sunlight & Needs a \acrshort{gpu} host \citep{rustlerEmpiricalComparisonFour2025}; fails on textureless surfaces \\
 		Active stereo & Tolerates sunlight on textured surfaces; depth computed on board \citep{keselmanIntelRRealSenseTMStereoscopic2017} & Field evidence only for other models \citep{vitComparingRGBDSensors2018} \\
 		\bottomrule
 	\end{tabularx}
@@ -245,7 +245,7 @@ A system for this application must resolve millimetre-scale relief over sediment
 	\label{fig:review.azhar}
 \end{figure}
 
-Sunlight tolerance therefore decides the choice of sensor. An active stereo camera matches texture between two infrared imagers, and its projected dots only supplement the scene texture, so on a textured surface in strong light it degrades towards passive stereo rather than failing \citep{keselmanIntelRRealSenseTMStereoscopic2017,ProjectorsD400Series}. Outdoors, \citet{vitComparingRGBDSensors2018} found the active stereo D435 the most viable of four close-range sensors. The D456 used here is the IP65-rated variant of the D455 \citep{intel_d456}, which also suits wet intertidal work.
+Sunlight tolerance therefore decides the choice of sensor. An active stereo camera matches texture between two infrared imagers, and its projected dots only supplement the scene texture, so on a textured surface in strong light it degrades towards passive stereo rather than failing \citep{keselmanIntelRRealSenseTMStereoscopic2017,ProjectorsD400Series}. Outdoors, \citet{vitComparingRGBDSensors2018} found the active stereo D435 the most viable of four close-range sensors. The D456 used here is the \gls{ip65}-rated variant of the D455 \citep{intel_d456}, which also suits wet intertidal work.
 
 %=====================================================================
 \section{Characterisation of active stereo depth cameras}
@@ -253,7 +253,7 @@ Sunlight tolerance therefore decides the choice of sensor. An active stereo came
 %=====================================================================
 Intel's documents describe the D400 correlation algorithm and its expected performance \citep{keselmanIntelRRealSenseTMStereoscopic2017}, the choice of resolution, preset, depth unit and laser power \citep{TuningDepthCameras}, the post-processing filters \citep{DepthPostProcessingIntel}, external projectors \citep{ProjectorsD400Series} and the plane-fit test methodology used in this project \citep{CameraDepthTesting}. None evaluates these settings against ground-truth relief at the millimetre scale relevant to sediment.
 
-Independent studies are summarised in \autoref{tab:review.characterisations}. The closest precedent is \citet{serviMetrologicalCharacterizationComparison2021}, who applied ISO 10360-13 to the D415, D455 and L515 and found the D455 best in the standardised tests. The D456 shares the D455 optical module \citep{intel_d456}, but that study was confined to manufactured artefacts in the laboratory. Results for the D435, which \citet{rustlerEmpiricalComparisonFour2025} found best within 1\,m, do not transfer, because its 50\,mm baseline differs from the 95\,mm of the D455 module. \citet{nguyenModelingKinectSensor2012} showed that noise models from distance and angle sweeps improve fusion, and the sweeps in this project follow the same logic.
+Independent studies are summarised in \autoref{tab:review.characterisations}. The closest precedent is \citet{serviMetrologicalCharacterizationComparison2021}, who applied ISO 10360-13 to the D415, D455 and L515 and found the D455 best in the standardised tests. The D456 shares the D455 optical module \citep{intel_d456}, but that study was confined to manufactured artefacts in the laboratory. Results for the D435, which \citet{rustlerEmpiricalComparisonFour2025} found best within 1\,m, do not transfer, because its 50\,mm \gls{baseline} differs from the 95\,mm of the D455 module. \citet{nguyenModelingKinectSensor2012} showed that noise models from distance and angle sweeps improve fusion, and the sweeps in this project follow the same logic.
 
 \begin{table}[htbp]
 	\centering
@@ -264,7 +264,7 @@ Independent studies are summarised in \autoref{tab:review.characterisations}. Th
 		\toprule
 		Study & Sensors (technology) & Targets & Environment \\
 		\midrule
-		\citet{halmetschlager-funekEmpiricalEvaluationTen2019} & Ten sensors (SL, AS, ToF) & Planar targets, several materials & Indoor \\
+		\citet{halmetschlager-funekEmpiricalEvaluationTen2019} & Ten sensors (SL, AS, \acrshort{tof}) & Planar targets, several materials & Indoor \\
 		\citet{carfagniMetrologicalCriticalCharacterization2019} & D415 (AS) & VDI/VDE 2634 artefacts, 0.1--1\,m & Laboratory \\
 		\citet{serviMetrologicalCharacterizationComparison2021} & D415, D455 (AS); L515 (ToF lidar) & ISO 10360-13 artefacts, flat and 3D objects, 0.1--1.5\,m & Laboratory \\
 		\citet{rustlerEmpiricalComparisonFour2025} & D435, D455, OAK-D Pro (AS); ZED 2 (PS) & Plane, doll, household objects, up to 4\,m & Indoor \\
@@ -297,7 +297,7 @@ Fusing aligned range images into a weighted signed distance function averages no
 	\label{fig:review.kinectfusion}
 \end{figure}
 
-Two results bear on sediment. First, nearly flat surfaces are degenerate for registration, since ICP cannot constrain sliding within a plane or rotation about its normal \citep{gelfandGeometricallyStableSampling2003}. A near-planar bed therefore needs external constraints such as AprilTags \citep{olsonAprilTagRobustFlexible2011,wangAprilTag2Efficient2016} or inertial measurements. Second, benthic fusion is normally done at survey scale using vehicle navigation \citep{friedmanMultiScaleMeasuresRugosity2012}, not by fusing repeated close-range views of one patch. \citet{azharRGBDFrameworkCapturing2022} used a single viewpoint, and the inherited system analysed each repeated scan individually. No study was found that fuses multi-view scans of a sediment patch and quantifies how the choice of views affects reconstruction accuracy and roughness.
+Two results bear on sediment. First, nearly flat surfaces are degenerate for registration, since \gls{icp} cannot constrain sliding within a plane or rotation about its normal \citep{gelfandGeometricallyStableSampling2003}. A near-planar bed therefore needs external constraints such as AprilTags \citep{olsonAprilTagRobustFlexible2011,wangAprilTag2Efficient2016} or inertial measurements. Second, benthic fusion is normally done at survey scale using vehicle navigation \citep{friedmanMultiScaleMeasuresRugosity2012}, not by fusing repeated close-range views of one patch. \citet{azharRGBDFrameworkCapturing2022} used a single viewpoint, and the inherited system analysed each repeated scan individually. No study was found that fuses multi-view scans of a sediment patch and quantifies how the choice of views affects reconstruction accuracy and roughness.
 
 %=====================================================================
 \section{Summary and research gap}

@@ -23,61 +23,64 @@ A level-1 auxiliary file: Appendix.aux
 A level-1 auxiliary file: B_ethics.aux
 A level-1 auxiliary file: C_topicdescription.aux
 A level-1 auxiliary file: D_ECSA.aux
-The style file: IEEEtran.bst
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
+The style file: plainnat.bst
 Database file #1: 4022_linked.bib
--- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
--- http://www.michaelshell.org/tex/ieeetran/bibtex/
--- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--to sort, need author or key in ISO2517822021
+Warning--to sort, need author or key in intel_d456
+Warning--to sort, need author or key in CameraDepthTesting
+Warning--to sort, need author or key in PhysicsToolboxSensor
+Warning--empty year in CameraDepthTesting
+Warning--empty year in ISO2517822021
+Warning--empty year in PhysicsToolboxSensor
+Warning--empty year in ProjectorsD400Series
+Warning--empty year in TuningDepthCameras
+Warning--empty year in DepthPostProcessingIntel
 Warning--empty journal in grunnet-jepsenBestKnownMethodsTuningIntel
+Warning--empty year in grunnet-jepsenBestKnownMethodsTuningIntel
 Warning--empty year in grunnet-jepsenBestKnownMethodsTuningIntel
 Warning--empty journal in lowLinearLeastSquaresOptimizationa
 Warning--empty year in lowLinearLeastSquaresOptimizationa
-
-Done.
+Warning--empty year in lowLinearLeastSquaresOptimizationa
+Warning--empty publisher in inbook
 You've used 56 entries,
-            4087 wiz_defined-function locations,
-            1253 strings with 23385 characters,
-and the built_in function-call counts, 45614 in all, are:
-= -- 3849
-> -- 1045
-< -- 389
-+ -- 578
-- -- 185
-* -- 2321
-:= -- 6939
-add.period$ -- 114
+            2773 wiz_defined-function locations,
+            1101 strings with 22178 characters,
+and the built_in function-call counts, 30367 in all, are:
+= -- 2890
+> -- 1754
+< -- 35
++ -- 594
+- -- 537
+* -- 2706
+:= -- 4600
+add.period$ -- 281
 call.type$ -- 56
-change.case$ -- 53
-chr.to.int$ -- 840
-cite$ -- 60
-duplicate$ -- 3226
-empty$ -- 3428
-format.name$ -- 225
-if$ -- 10564
-int.to.chr$ -- 0
-int.to.str$ -- 56
-missing$ -- 563
-newline$ -- 275
-num.names$ -- 52
-pop$ -- 1210
+change.case$ -- 343
+chr.to.int$ -- 55
+cite$ -- 133
+duplicate$ -- 1253
+empty$ -- 2308
+format.name$ -- 619
+if$ -- 6414
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 52
+newline$ -- 398
+num.names$ -- 208
+pop$ -- 612
 preamble$ -- 1
-purify$ -- 0
-quote$ -- 2
-skip$ -- 3547
+purify$ -- 290
+quote$ -- 0
+skip$ -- 984
 stack$ -- 0
-substring$ -- 2125
-swap$ -- 2799
-text.length$ -- 109
+substring$ -- 1211
+swap$ -- 211
+text.length$ -- 14
 text.prefix$ -- 0
-top$ -- 5
-type$ -- 56
-warning$ -- 4
-while$ -- 195
-width$ -- 58
-write$ -- 685
-(There were 4 warnings)
+top$ -- 0
+type$ -- 601
+warning$ -- 17
+while$ -- 243
+width$ -- 0
+write$ -- 944
+(There were 17 warnings)
