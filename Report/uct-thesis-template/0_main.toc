@@ -102,8 +102,8 @@
 \contentsline {subsubsection}{Post-processing filters}{34}{subsubsection*.42}%
 \contentsline {subsubsection}{Tilt and rotation}{34}{subsubsection*.44}%
 \contentsline {subsection}{\numberline {6.2.2}3D Characterisation Results}{34}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Discussion}{35}{subsection.6.2.3}%
-\contentsline {subsubsection}{Camera Configuration}{35}{subsubsection*.55}%
+\contentsline {subsection}{\numberline {6.2.3}Discussion}{36}{subsection.6.2.3}%
+\contentsline {subsubsection}{Camera Configuration}{36}{subsubsection*.55}%
 \contentsline {subsubsection}{Filters}{38}{subsubsection*.56}%
 \contentsline {subsubsection}{Tilt and Rotation}{38}{subsubsection*.57}%
 \contentsline {chapter}{\numberline {7}Experimental Validation}{41}{chapter.7}%
