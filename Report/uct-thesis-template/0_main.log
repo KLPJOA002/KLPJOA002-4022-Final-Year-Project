@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.8.27)  27 OCT 2026 16:10
+This is LuaHBTeX, Version 1.24.0 (TeX Live 2026)  (format=lualatex 2026.8.27)  27 OCT 2026 16:42
  restricted system commands enabled.
 **0_main.tex
 (./0_main.tex
@@ -3576,7 +3576,13 @@ Underfull \hbox (badness 1226) in paragraph at lines 112--113
 
 
 
-] [82] [83]) [84] (./0_main.bbl [85
+] [82] [83]) [84] (./0_main.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 9--12
+[]\TU/TeXGyreTermes(0)/m/n/10 Cam-era Depth Test-ing Meth-od-o-logy.  URL []$\T
+U/lmtt/m/n/10 https://www.intel.com/content/www/us/en/
+ []
+
+[85
 
 
 
@@ -3584,15 +3590,39 @@ Underfull \hbox (badness 1226) in paragraph at lines 112--113
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 145--150
+Underfull \hbox (badness 10000) in paragraph at lines 153--158
 []\TU/TeXGyreTermes(0)/m/n/10 An-ders Grunnet-Jepsen and Tong.  Depth Post-Proce
 ssing for In-tel® Real-Sense™™ D400
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--150
+Underfull \hbox (badness 10000) in paragraph at lines 153--158
 \TU/TeXGyreTermes(0)/m/n/10 Depth Cam-eras.  []$\TU/lmtt/m/n/10 https://www.inte
 l.com/content/www/us/en/content-[]details/842031/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--166
+[]\TU/TeXGyreTermes(0)/m/n/10 An-ders Grunnet-Jepsen, John N Sweet-ser, and John
+ Wood-fill.  Best-Known-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--166
+\TU/TeXGyreTermes(0)/m/n/10 Methods for Tun-ing In-tel® Real-Sense™ D400 Dept
+h Cam-eras for Best Per-form-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--166
+\TU/TeXGyreTermes(0)/m/n/10 ance.  URL []$\TU/lmtt/m/n/10 https://www.intel.com/
+content/www/us/en/content-[]details/840761/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--166
+\TU/lmtt/m/n/10 best-[]known-[]methods-[]for-[]tuning-[]intel-[]realsense-[]d400
+-[]depth-[]cameras-[]for-[]best-[]performance.
  []
 
 [86] [87]) [88] 
@@ -3619,10 +3649,10 @@ Package rerunfilecheck Info: File `0_main.out' has not changed.
 Here is how much of LuaTeX's memory you used:
  51212 strings out of 475900
  305444,1977958 words of node,token memory allocated
- 2234 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 245 attribute, 166 glue_sp
-ec, 123 attribute_list, 2 write, 76 pdf_action nodes
-   avail lists: 1:5,2:12273,3:1378,4:132,5:1312,6:615,7:22455,8:128,9:6452,10:24
+ 2282 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 253 attribute, 166 glue_sp
+ec, 127 attribute_list, 2 write, 80 pdf_action nodes
+   avail lists: 1:5,2:12261,3:1378,4:132,5:1312,6:611,7:22455,8:153,9:6452,10:24
 ,11:1280
  71422 multiletter control sequences out of 65536+600000
  131 fonts using 33779007 bytes
@@ -3638,10 +3668,10 @@ alic.otf></app/texlive/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-i
 talic.otf></app/texlive/texmf-dist/fonts/opentype/public/tex-gyre/texgyretermes-
 regular.otf></app/texlive/texmf-dist/fonts/opentype/public/tex-gyre/texgyreterme
 s-bold.otf>
-Output written on 0_main.pdf (104 pages, 35668883 bytes).
+Output written on 0_main.pdf (104 pages, 35670533 bytes).
 
-PDF statistics: 2388 PDF objects out of 2487 (max. 8388607)
- 1912 compressed objects within 20 object streams
+PDF statistics: 2400 PDF objects out of 2487 (max. 8388607)
+ 1924 compressed objects within 20 object streams
  422 named destinations out of 1000 (max. 1048576)
  1008 words of extra memory for PDF output out of 10000 (max. 100000000)
 

@@ -7,6 +7,8 @@
 
 \bibitem[Cam()]{CameraDepthTesting}
 Camera {{Depth Testing Methodology}}.
+\newblock URL
+  \url{https://www.intel.com/content/www/us/en/content-details/841706/intel-realsense-camera-depth-testing-methodology.html}.
 
 \bibitem[ISO()]{ISO2517822021}
 {{ISO}} 25178-2:2021.
@@ -18,6 +20,8 @@ Physics {{Toolbox Sensor Suite}} {$\cdot$} {{Physics Toolbox}}.
 
 \bibitem[int(2023)]{intel_d456}
 Intel {{RealSense Product Family D400 Series}}, 2023.
+\newblock URL
+  \url{https://www.realsenseai.com/wp-content/uploads/2020/06/Intel-RealSense-D400-Series-Datasheet-June-2020.pdf}.
 
 \bibitem[Alexa et~al.(2003)Alexa, Behr, {Cohen-Or}, Fleishman, Levin, and
   Silva]{alexaComputingRenderingPoint2003}
@@ -135,11 +139,15 @@ N.~Gelfand, L.~Ikemoto, S.~Rusinkiewicz, and M.~Levoy.
 Anders {Grunner-Jepsen}, John~N. Sweetser, Paul Winer, Akihiro Takagi, and John
   Woodfill.
 \newblock Projectors for {{D400 Series Depth Cameras}}, {\natexlab{a}}.
+\newblock URL
+  \url{https://realsenseai.com/wp-content/uploads/2019/03/WhitePaper_on_Projectors_for_RealSense_D4xx_1.0.pdf}.
 
 \bibitem[{Grunner-Jepsen} et~al.({\natexlab{b}}){Grunner-Jepsen}, Sweetser, and
   Woodfill]{TuningDepthCameras}
 Anders {Grunner-Jepsen}, John~N. Sweetser, and John Woodfill.
 \newblock Tuning depth cameras for best performance, {\natexlab{b}}.
+\newblock URL
+  \url{https://dev.realsenseai.com/docs/tuning-depth-cameras-for-best-performance/}.
 
 \bibitem[{Grunnet-Jepsen} and Tong()]{DepthPostProcessingIntel}
 Anders {Grunnet-Jepsen} and Tong.
@@ -153,6 +161,8 @@ Anders {Grunnet-Jepsen} and Tong.
 Anders {Grunnet-Jepsen}, John~N Sweetser, and John Woodfill.
 \newblock Best-{{Known-Methods}} for {{Tuning Intel}}\textregistered{}
   {{RealSense}}™ {{D400 Depth Cameras}} for {{Best Performance}}.
+\newblock URL
+  \url{https://www.intel.com/content/www/us/en/content-details/840761/best-known-methods-for-tuning-intel-realsense-d400-depth-cameras-for-best-performance.html}.
 
 \bibitem[{Halmetschlager-Funek} et~al.(2019){Halmetschlager-Funek}, Suchi,
   Kampel, and Vincze]{halmetschlager-funekEmpiricalEvaluationTen2019}
@@ -170,6 +180,7 @@ Georg {Halmetschlager-Funek}, Markus Suchi, Martin Kampel, and Markus Vincze.
 Richard Hartley, Andrew Zisserman, et~al.
 \newblock \emph{Multiple View Geometry in Computer Vision}, volume~2.
 \newblock Cambridge university press, Cambridge, 2003.
+\newblock ISBN 0521 54051 8.
 
 \bibitem[Huber and Ronchetti(2011)]{huberRobustStatistics2011}
 Peter~J. Huber and Elvezio~M. Ronchetti.
@@ -236,6 +247,7 @@ Richard Leach.
 \newblock \emph{Characterisation of {{Areal Surface Texture}}}.
 \newblock Springer Science \& Business Media, April 2013.
 \newblock ISBN 978-3-642-36458-7.
+\newblock URL \url{https://doi.org/10.1007/978-3-642-36458-7}.
 
 \bibitem[Levin(1998)]{levin1998approximation}
 David Levin.
@@ -243,6 +255,7 @@ David Levin.
 \newblock \emph{Mathematics of computation}, 67\penalty0 (224):\penalty0
   1517--1531, 1998.
 \newblock \doi{10.1090/S0025-5718-98-00974-0}.
+\newblock URL \url{https://doi.org/10.1090/S0025-5718-98-00974-0}.
 
 \bibitem[Low()]{lowLinearLeastSquaresOptimizationa}
 Kok-Lim Low.

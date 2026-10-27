@@ -44,16 +44,16 @@ Warning--empty year in lowLinearLeastSquaresOptimizationa
 Warning--empty publisher in inbook
 You've used 56 entries,
             2773 wiz_defined-function locations,
-            1101 strings with 22178 characters,
-and the built_in function-call counts, 30367 in all, are:
-= -- 2890
+            1109 strings with 22828 characters,
+and the built_in function-call counts, 30478 in all, are:
+= -- 2914
 > -- 1754
 < -- 35
 + -- 594
 - -- 537
-* -- 2706
-:= -- 4600
-add.period$ -- 281
+* -- 2721
+:= -- 4624
+add.period$ -- 289
 call.type$ -- 56
 change.case$ -- 343
 chr.to.int$ -- 55
@@ -61,13 +61,13 @@ cite$ -- 133
 duplicate$ -- 1253
 empty$ -- 2308
 format.name$ -- 619
-if$ -- 6414
+if$ -- 6438
 int.to.chr$ -- 2
 int.to.str$ -- 1
 missing$ -- 52
-newline$ -- 398
+newline$ -- 406
 num.names$ -- 208
-pop$ -- 612
+pop$ -- 604
 preamble$ -- 1
 purify$ -- 290
 quote$ -- 0
@@ -82,5 +82,5 @@ type$ -- 601
 warning$ -- 17
 while$ -- 243
 width$ -- 0
-write$ -- 944
+write$ -- 960
 (There were 17 warnings)
